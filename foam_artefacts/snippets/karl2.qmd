@@ -1,0 +1,425 @@
+---
+title: "Code Base for EDA"
+author: "Tony Dunsworth"
+format: 
+  docx:
+    toc: true
+    number-sections: true
+    highlight-style: github
+---
+
+# EDA Basics
+This is created to give you a basic foundation in both EDA and other quick functions in R so you don't have to re-create the wheel in each assignment. You can just copy and paste what you need.
+
+```
+install.packages()
+```
+to aggregate all the libraries I need for my project. The list below is a good list of packages I think you should work with.
+
+```{r}
+#| output: false
+install.packages("tidyverse", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("devtools", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("remotes", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("ggpubr", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("rstatix", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("car", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("broom", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("janitor", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("Hmisc", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("psych", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("GGally", repos='http://lib.stat.cmu.edu/R/CRAN/')
+remotes::install_github("jacobmaugoust/ULT")
+install.packages("FSA", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("multcomp", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("emmeans", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("RVAideMemoire", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("DiscriMiner", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("sur", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages('DescTools', repos='http://cran.us.r-project.org')
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager", repos='http://lib.stat.cmu.edu/R/CRAN/')
+BiocManager::install('mixOmics')
+install.packages("visdat", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("nlme", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("funModeling", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("inspectdf", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("dlookr", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("viridis", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("merTools", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("factoextra", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("lubridate", repos='http://lib.stat.cmu.edu/R/CRAN/')
+devtools::install_github("Displayr/flipTime")
+install.packages(c("modeest","raster","moments","fBasics"), repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("ggthemes", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("nortest", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("MASS", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("randtests", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("summarytools", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("report", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("correlation", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("knitr", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("rmarkdown", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("modelbased", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("parameters", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("performance", repos='http://lib.stat.cmu.edu/R/CRAN/')
+install.packages("insight", repos='http://lib.stat.cmu.edu/R/CRAN/')
+```
+
+:::{.callout-note}
+Note that you normally do not have to specify the repository with the function, but in this case, it is needed due to the nature of the file.
+:::
+
+Of those, the first one, tidyverse, is really the most important. It is opinionated, but it is also chock full of tools that make life a lot easier, as you will see as this continues. More details about it can be found at <https://tidyverse.org>. The second one in the list, devtools, will allow you to install packages directly from a github repository. There are some libraries not on CRAN. Most of those are on github. If you have questions about these packages or individual functions to know how to use them, the best place to get that info is [RDocumentation](https://rdocumentation.org/). You can search the published README for the library or query the usage of an individual function from it.
+
+### Library loading
+
+After you've installed the libraries, you will have to have a section of code to invoke them so R knows they are there. RStudio's auto-completion is pretty good, so take advantage of it. 
+
+The code below invokes all the libraries we'll use in this and other functions:
+
+```{r}
+#| output: false
+library(tidyverse)
+library(ggpubr)
+library(rstatix)
+library(car)
+library(broom)
+library(janitor)
+library(Hmisc)
+library(psych)
+library(GGally)
+library(ULT)
+library(FSA)
+library(multcomp)
+library(emmeans)
+library(RVAideMemoire)
+library(DiscriMiner)
+library(sur)
+library(DescTools)
+library(mixOmics)
+library(visdat)
+library(nlme)
+library(funModeling)
+library(inspectdf)
+library(dlookr)
+library(viridis)
+library(merTools)
+library(factoextra)
+library(lubridate)
+library(flipTime)
+library(modeest)
+library(raster)
+library(moments)
+library(ggthemes)
+library(nortest)
+library(MASS)
+library(randtests)
+library(summarytools)
+library(report)
+library(correlation)
+library(knitr)
+library(rmarkdown)
+library(modelbased)
+library(parameters)
+library(performance)
+library(insight)
+library(fBasics)
+```
+
+One strength and weakness in R is that you can do the same thing ten different ways. Different packages may do the same thing, but give you slightly different amounts of information on their results. Mileage really does vary.
+
+### Creating the dataset
+The code below will create a data frame from a csv file. You can do this with Excel files or SQL queries, etc. Most commonly you'll get csv files. If I'm creating the file myself, I use SQL to write to a csv file out of habit.
+
+```{r}
+df <- read_csv("C:\\Users\\tony.dunsworth\\OneDrive - City of Alexandria\\Renee Project\\DetailCAD\\1Q22.csv")
+```
+
+Now that you have a dataframe, you can start doing all the things. I use `read_csv()` rather than the base `read.csv()` bercause it does give me more features. It also makes it tidy ready. Through this, you will see me make use of the `%>%` or pipe command. This allows me to chain functions and switches this into a functional language paradigm. 
+
+### Data cleaning
+The next code is ugly, boring, and what you spend the most time doing and agonzing over. This is all cleaning. Data cleaning in the biggest task you face. This creates a dataframe of 37 variables and 18,105 observations. 
+
+```{r}
+nrow(df)
+head(df, n = 10)
+colnames(df)
+spec(df)
+```
+
+As you can see above, this shows the first 10 rows of the dataset and then the names of the columns and the column types. These will be helpful as you move forward. This is the `head()`, `colnames()`, and the `spec()` functions with the dataset in the parentheses. You will need to add `n = 10` 
+
+If you want to see the last rows use `tail()` just like you use head.
+
+As you can see from the results above, when you use the `spec()` function, the time stamps are listed as `col_character()`. These will need to be changed to datetime formats. There are two different ways to do that using either flipTime or lubridate. In lubridate you would use the following code `df$Response_Date <- as.POSIXct(df$Response_Date, format="%m/%d/%Y %H:%M:%S", tz="UTC")` Please note the `$` operator allows you to address a single variable in a data frame. RStudio auto-completion is excellent at presenting a dropdown list of all variables as soon as you type `$`. In flipTime, the same thing can be done with this code `df$Response_Date <- AsDateTime(df$Response_Date)`. I have previously used the former and if that doesn't work, I have defaulted to the latter. I think I will stick with the latter going forward.
+
+```{r}
+df$Response_Date <- AsDateTime(df$Response_Date)
+df$PhoneStart <- AsDateTime(df$PhoneStart)
+df$Time_FirstCallTakingKeystroke <- AsDateTime(df$Time_FirstCallTakingKeystroke)
+df$DispStart <- AsDateTime(df$DispStart)
+df$PhoneStop <- AsDateTime(df$PhoneStop)
+df$Dispatched <- AsDateTime(df$Dispatched)
+df$FirstDisp <- AsDateTime(df$FirstDisp)
+df$FirstOut <- AsDateTime(df$FirstOut)
+df$FirstOnScene <- AsDateTime(df$FirstOnScene)
+df$CallClosed <- AsDateTime(df$CallClosed)
+```
+
+The timestamps have been converted to actual time stamps. Next in the cleaning process is the convert some variables appearing as `col_double()` such as Year, WeekNo, Day, Hour, and Priority_Number to factors. This allows them, since they are ordinal variables, to be treated as factors for other analysis. You don't have to do this step, but I recommend it. It is similar to the code above, just uses `df$Year <- as_factor(df$Year)` instead. `as_factor()` comes from the Tidyverse and is more flexible than `as.factor()` which in in base R.
+
+```{r}
+df$Year <- as_factor(df$Year)
+df$WeekNo <- as_factor(df$WeekNo)
+df$Day <- as_factor(df$Day)
+df$Hour <- as_factor(df$Hour)
+df$Priority_Number <- as_factor(df$Priority_Number)
+df$DOW <- factor(df$DOW , levels=c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"))
+```
+Next, for me, in the cleaning process, is to identify the number of missing values and determine what to do with them. `vis_miss(df)` will give you a visual representation of the number of missing values per variable. If there aren't that many, then you can safely just omit them from the data frame. You can also use `vis_dat(df, sort_type = FALSE, warn_large_data = FALSE)` to get more information about the variables in the set. The additional parameters also prevent the function from sorting the variables by their type and suppress warnings about it being a large data frame. 
+```{r}
+vis_dat(df, sort_type = FALSE, warn_large_data = FALSE)
+vis_miss(df)
+df <- na.omit(df)
+nrow(df)
+```
+If you want to remove all rows with missing data, it's simply `df <- na.omit(df)`. In this data set, as you've seen, that only takes out 2 rows. For this specific data set, we need to remove negative values for the elapsed time variables such as TimeToQueue.
+
+```{r}
+df <- df[!df$TimeToQueue<0, ]
+df <- df[!df$TimeToDispatch<0, ]
+df <- df[!df$CallProcessTime<0, ]
+df <- df[!df$PhoneTime<0, ]
+df <- df[!df$TurnoutTime<0, ]
+df <- df[!df$TransitTime<0, ]
+df <- df[!df$TimeAtScene<0, ]
+df <- df[!df$EventTime<0, ]
+```
+
+Now that we have removed all of the negative variables, I'm using `nrow()` again to count what we have deducted. I think that it is wise to get ideas as to what you have removed. 
+
+```{r}
+nrow(df)
+```
+
+For some functions, you will need test and training sets to make things easier. You will also need a random factor for some tests. So this code will do both of those with a 80/20 split.
+
+```{r}
+set.seed(42)
+
+# use 80% of data set as training set and 20% as test set
+sample <- sample(c(TRUE, FALSE), nrow(df), replace=TRUE, prob=c(0.8,0.2))
+train  <- df[sample, ]
+test   <- df[!sample, ]
+```
+
+As I said, there are numerous ways to do the same thing. This is a quick summary of the values of the continuous variables. 
+
+```{r}
+descr1 <- df %>% describe(TimeToQueue, TimeToDispatch, CallProcessTime, PhoneTime, TurnoutTime, TransitTime, TimeAtScene, EventTime)
+
+descr1
+```
+
+:::{.callout-tip}
+### Truncation Note
+
+As you can see, the output here has been truncated. This is why I assigned this to a variable. This creates a table you can view in RStudio.
+:::
+
+You can also use 
+```{r}
+summary(df)
+```
+
+to get more truncated results. 
+
+Another way to do this is: 
+
+```{r}
+summary1 <- df %>% dplyr::summarize(count = n(),
+                                    min = min(TimeToQueue),
+                                    sd_low = quantile(TimeToQueue, 0.05),
+                                    q1 = quantile(TimeToQueue, 0.25),
+                                    median = median(TimeToQueue),
+                                    mean = mean(TimeToQueue),
+                                    q3 = quantile(TimeToQueue, 0.75),
+                                    max = max(TimeToQueue),
+                                    sd_hi = quantile(TimeToQueue, 0.95),
+                                    std_dev = sd(TimeToQueue),
+                                    mad = mad(TimeToQueue))
+
+summary1
+```
+
+As you can see, each gives you a different output set. Depending on what you need, you can tailor what you want to see. 
+
+Now, since you're going to need to group by at times, I am going to give example codes for that below, but I will only focus on TimeToQueue to make this shorter. I'm sure you know how to recast the code to what you want. 
+
+If you want to look at a summary of a continuous variable grouped by another variable, you can do it with much similar code to the above.
+
+```{r}
+descr2 <- df %>% group_by(DOW) %>% describe(TimeToQueue, TimeToDispatch, CallProcessTime, PhoneTime, TurnoutTime, TransitTime, TimeAtScene, EventTime)
+
+descr2
+```
+
+or 
+
+```{r}
+summary2 <- df %>% group_by(DOW) %>% dplyr::summarize(count = n(),
+                                    min = min(TimeToQueue),
+                                    sd_low = quantile(TimeToQueue, 0.05),
+                                    q1 = quantile(TimeToQueue, 0.25),
+                                    median = median(TimeToQueue),
+                                    mean = mean(TimeToQueue),
+                                    q3 = quantile(TimeToQueue, 0.75),
+                                    max = max(TimeToQueue),
+                                    sd_hi = quantile(TimeToQueue, 0.95),
+                                    std_dev = sd(TimeToQueue),
+                                    mad = mad(TimeToQueue))
+summary2
+```
+
+If you want to do something similar with categorical variables, you can use ```tabyl()``` like below to do something like this. 
+
+```{r}
+count1 <- tabyl(df, DOW, Shift)
+
+count1
+```
+
+:::{.callout-warning}
+### Warning
+
+tabyl is a function that is not tidy compatible. You will have to use base R syntax and cannot use it in pipe chains.
+:::
+
+### Graphics
+
+So far, all the code is producing tables and console output. Everyone likes to use graphics and there are a lot of ways to build graphics in R. Base R has a lot of basic graphs available. [Ggplot2](https://ggplot2.tidyverse.org/) is the tidy standard and you will find a lot of tutorials for it. I will reproduce some graphics with code so you can see the difference. Ggpubr is a library to add functionality to ggplot2 and to make the syntax easier. Here is a good [tutorial](https://medium.com/swlh/beautiful-charts-with-r-and-ggpubr-c94122d6b7c6) for it. I recommend getting used to ggplot2 first. Once you are comfortable with it, you don't depend as much on ggpubr.
+
+When you build graphs, [R Graph Gallery](https://r-graph-gallery.com/) is a great resource to find examples you need. 
+
+#### Barplot
+```{r}
+# Base R
+bar_DOW <- barplot(table(df$DOW), col = viridis(7))
+
+# ggplot2
+barDOW <- df %>% ggplot(aes(x=DOW, fill=DOW)) +
+  geom_bar() +
+  scale_fill_brewer(palette="Dark2") +
+  ggtitle("Count of calls per day of the week")
+
+barDOW
+```
+
+:::{.callout-note}
+### Viridis
+
+Viridis is a library that supplies a colour palette for the graph. It was loaded above and it makes things a little faster,
+:::
+
+#### Density Plot
+
+While I will show a histogram later in this document, I like density plots for continuous variables because it makes the possibility of a bell curve easier for the viewer to see. 
+
+```{r}
+df %>% ggplot(aes(x=TimeToQueue)) + 
+  geom_density(fill="#1c5789", color="#1c5789", alpha=0.8) +
+  ggtitle("Density Plot of Calltaker Setup Time")
+```
+
+#### Histogram
+
+Histograms are the easiest form of graph to create, but I like to make them fancier. Here is the same one twice to give you both a base R and a ggplot2 version.
+
+```{r}
+# Base R
+hist(df$TimeToQueue, prob = TRUE)
+
+# ggplot2
+ggplot(df, aes(x = TimeToQueue)) + 
+  geom_histogram(aes(y = ..density..),
+                 colour = 1, fill = "white") +
+  geom_density(lwd = 1, colour = 4,
+               fill = 4, alpha = 0.25)
+```
+
+#### QQ Plots
+
+These are also used to assess the normalcy of data distribution. Like most other plots there are different ways to do it. 
+
+```{r}
+# Base R
+qqnorm(df$TimeToQueue, pch = 1, frame = FALSE)
+qqline(df$TimeToQueue, col = "#1c5789", lwd = 2)
+
+# ggplot2
+ggqqplot(df, x = "TimeToQueue", color = "#1c5789", title="QQ Plot of TimeToQueue", ylab = "TimeToQueue")
+```
+
+#### Box and Whisker Plots
+
+These are also standard for most instructors. I personally do not find them very valuable except in a quick glance where one might find outliers. More on that below.
+
+```{r}
+# Base R
+#df$DOW <- factor(df$DOW , levels=c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"))
+boxplot(df$TimeToQueue ~ df$DOW, col=viridis(7))
+
+## ggplot2
+box1 <- df %>% ggplot(aes(x=DOW, y=TimeToQueue)) +
+  geom_boxplot() +
+  scale_fill_brewer(palette="Dark2") +
+  ggtitle("Boxplot of TimeToQueue by Day")
+
+box1
+```
+
+### Normalcy Tests
+
+Even though you can, very plainly, see the variable is not normally distributed. There are additional statistical tests that can confirm this. As usual, there are several ways to do this, but this time, that's not solely because of R, but because some normality tests have limitations. I will only demonstrate a series of the tests. If you wish to use different versions of these tests, you will be able to find those variations elsewhere. 
+
+```{r}
+# When the p-value is < 0.05, the distribution should not be viewed as normally distributed.
+
+# Shapiro-Wilk - Cannot use here because the sample size must between 3 and 5000 
+# shapiro_test(df$TimeToQueue)
+# shapiro.test(df$TimeToQueue)
+
+# Kolmogorov-Smirnow
+ksnormTest(df$TimeToQueue)
+
+# Jarque-Bera
+jarqueberaTest(df$TimeToQueue)
+
+# D'Agostino
+dagoTest(df$TimeToQueue)
+
+# Anderson-Darling
+ad.test(df$TimeToQueue)
+
+# Lillefors Test
+lillieTest(df$TimeToQueue)
+
+# Pearson Chi-square 
+pchiTest(df$TimeToQueue)
+
+```
+
+Yup, those are all in agreement, what you saw in the density plot, histogram, QQ plot, and box plot was true. It isn't normally distributed in the least. 
+
+### Outlier Identification
+
+Now that you can see that it is not normally distributed and you can see that the outliers, by the points above the top whisker on the box plots, the outliers are focused on the maximum end of the scale. Finding the outliers and addressing them is an art form all its own. 
+
+The code below will identify outliers and give you a chance to start working on how to ameliorate their impact. 
+
+```{r}
+# This comes from the DiscriMiner library
+out1 <- diagnose_outlier(df)
+```
+

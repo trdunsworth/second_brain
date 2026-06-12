@@ -1,0 +1,1 @@
+-- This is a file of duckdb snippets that I'm collecting to build an analytical product. 

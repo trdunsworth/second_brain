@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "2026-06-12"
             }
+          },
+          {
+            "id": "c35834c55ec3774b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2026-06-12.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-06-12"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -183,11 +198,53 @@
       "bases:Create new base": false
     }
   },
-  "active": "700f364d40db0131",
+  "active": "c35834c55ec3774b",
   "lastOpenFiles": [
-    "Welcome.md",
+    "Obsidian Training Resources.md",
     "2026-06-12.md",
-    "second_brain/LICENSE",
-    "second_brain"
+    "foam_artefacts/assets/911 Analytics.md",
+    "foam_artefacts/snippets/fake_lat_long.py",
+    "foam_artefacts/snippets/fake_fill.py",
+    "foam_artefacts/snippets/explanation.qmd",
+    "foam_artefacts/snippets/eda_snippets.py",
+    "foam_artefacts/snippets/ducklings.sql",
+    "foam_artefacts/snippets/duckdb_snippets.md",
+    "foam_artefacts/snippets/create_priject.fish",
+    "foam_artefacts/snippets/user_import.py",
+    "foam_artefacts/snippets/template.ipynb",
+    "foam_artefacts/snippets/setup.py",
+    "foam_artefacts/snippets/setup.fish",
+    "foam_artefacts/assets/Software_Project.md",
+    "foam_artefacts/assets/Survival Analysis.md",
+    "foam_artefacts/assets/StyleGuides.md",
+    "foam_artefacts/assets/SQL_Analytics_project.md",
+    "foam_artefacts/assets/Python_EDA_Links.md",
+    "foam_artefacts/assets/PSAP_Analytics.md",
+    "foam_artefacts/assets/NENA Survey.md",
+    "foam_artefacts/assets/LLMs and R.md",
+    "foam_artefacts/assets/Forecasting Accuracy Project.md",
+    "foam_artefacts/assets/DMA Data Project.md",
+    "foam_artefacts/assets/Contrarian Prompt engineering.md",
+    "foam_artefacts/assets/Blog_Scratchpad.md",
+    "foam_artefacts/assets/akanian.md",
+    "foam_artefacts/assets/AI_Training.md",
+    "foam_artefacts/assets/AI_Link_List_20260403.md",
+    "foam_artefacts/assets/agents.md",
+    "foam_artefacts/assets/Time Series Paper Links.md",
+    "foam_artefacts/assets/Synthetic_Data_Speech.md",
+    "foam_artefacts/assets/synthetic_data_instructions.md",
+    "foam_artefacts/assets/survival_analysis.md",
+    "foam_artefacts/assets/rLinks.md",
+    "foam_artefacts/assets/faking_links.md",
+    "foam_artefacts/attachments/foam-icon.png",
+    "foam_artefacts/assets/images/template-picker-annotated.png",
+    "foam_artefacts/assets/images/vercel-detect-preset.png",
+    "foam_artefacts/assets/images/style-node-by-type.png",
+    "foam_artefacts/assets/images/snippets.gif",
+    "foam_artefacts/assets/images/readme-demo.gif",
+    "foam_artefacts/assets/images/preview-image-on-hover.png",
+    "foam_artefacts/assets/images/preview-image-in-glutter.png",
+    "foam_artefacts/assets/images/prettify-links-demo.gif",
+    "foam_artefacts/assets/images/note-embed-type-demo.gif"
   ]
 }

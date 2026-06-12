@@ -1,0 +1,14 @@
+pub   ed25519 2025-05-22 [SC] [expires: 2028-05-21]
+      BDEBDA7E4F5D0AF639B7F75CEF711714FB03444C
+uid                      Tony Dunsworth <tony.dunsworth@gmail.com>
+sub   cv25519 2025-05-22 [E] [expires: 2028-05-21]
+
+
+Aye@mDr.Gr00t!
+
+Need this for MindsDB configurations with Ollama
+http://host.docker.internal:11434
+
+
+MindsDB Github API Key
+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

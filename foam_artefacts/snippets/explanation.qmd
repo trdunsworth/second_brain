@@ -1,0 +1,660 @@
+---
+title: "Explanations"
+author: "Tony Dunsworth"
+format:
+  html:
+    fig-width: 10
+    fig-height: 7
+engine: knitr
+---
+```{r libraries}
+#| echo: false
+#| output: false
+library(tidyverse)
+library(tidymodels)
+library(ggpubr)
+library(rstatix)
+library(car)
+library(broom)
+library(janitor)
+library(Hmisc)
+library(psych)
+library(GGally)
+library(FSA)
+library(multcomp)
+library(emmeans)
+library(sur)
+library(DescTools)
+library(visdat)
+library(nlme)
+library(funModeling)
+library(inspectdf)
+library(dlookr)
+library(merTools)
+library(factoextra)
+library(lubridate)
+library(modeest)
+library(raster)
+library(moments)
+library(ggthemes)
+library(nortest)
+library(MASS)
+library(randtests)
+library(summarytools)
+library(report)
+library(correlation)
+library(knitr)
+library(rmarkdown)
+library(modelbased)
+library(parameters)
+library(performance)
+library(insight)
+library(fBasics)
+library(knitr)
+library(kableExtra)
+library(viridis)
+library(ggridges)
+```
+
+## Example Report for Review
+
+This example has been created to demonstrate what a new report, based on R and Quarto will look like. In this instance, the first drafts will be either in Word documents or PDF files to give everyone a chance to review the content prior to the creation of dashboards and other reports. The data for this comes from the CAD and is pulled with a SQL query on a weekly basis. Unlike the current reports, the datasets and the query use the week number from the date stamps. 
+
+In this case, this example uses the R programming language and already has the necessary libraries loaded. So those will not be discussed here, but could be discussed at a future date with those who are interested in knowing more about the processes that generate the document. 
+
+### Creating the dataset. 
+
+As previously discussed, the dataset is created from a SQL query. The query is shown here for reference. It will not be included in the normal documents. 
+
+```{r sql-code}
+#| eval: false
+#| label: fig-query
+#| fig-cap: "Weekly Summary Query"
+#| code-fold: true
+#| code-summary: "Show SQL Code"
+#| code_overflow: scroll
+#| code-line-numbers: true
+
+sql_code <- (USE Reporting_System;
+GO
+
+DECLARE @year INT
+DECLARE @week INT
+
+SET @year = 2024;
+SET @week = 50;
+
+WITH CTE_disp AS (
+    SELECT rmi.Master_Incident_Number,
+        rmi.Response_Date,
+        rmi.Agency_Type,
+        rmi.Problem,
+        rmi.Priority_Number,
+        rmi.MethodOfCallRcvd,
+        rmi.CallTaking_Performed_By,
+        rmi.ClockStartTime,
+        rmi.Fixed_Time_PhonePickup,
+        rmi.Time_PhonePickup,
+        rmi.Time_FirstCallTakingKeystroke,
+        rmi.Fixed_Time_CallEnteredQueue,
+        rmi.Time_CallEnteredQueue,
+        rmi.Fixed_Time_CallTakingComplete,
+        rmi.Time_CallTakingComplete,
+        RN = ROW_NUMBER() OVER (PARTITION BY al.Master_Incident_ID ORDER BY al.Date_Time),
+        al.Date_Time,
+        al.Dispatcher_Init,
+        p.Emp_Name,
+        rmi.Time_First_Unit_Assigned,
+        rmi.Time_First_Unit_Enroute,
+        rmi.Time_First_Unit_Arrived,
+        rmi.Fixed_Time_CallClosed,
+        rmi.Time_CallClosed,
+        rmi.Call_Disposition
+    FROM dbo.Response_Master_Incident rmi INNER JOIN dbo.Activity_Log al 
+        ON rmi.ID = al.Master_Incident_ID
+    INNER JOIN dbo.Personnel p 
+        ON al.Dispatcher_Init = p.Emp_ID
+    WHERE al.Activity = 'Dispatched'
+    AND DATEPART(YEAR, rmi.Response_Date) = @year
+    AND DATEPART(WEEK, rmi.Response_Date) = @week
+)
+
+SELECT Master_Incident_Number,
+    Response_Date,
+    CAST(DATEPART(WEEK, Response_Date) AS NVARCHAR(2)) AS [WeekNo],
+    UPPER(FORMAT(Response_Date, 'ddd')) AS [DOW],
+    CAST(DATEPART(DAY, Response_Date) AS NVARCHAR(2)) AS [Day],
+    CAST(DATEPART(Hour, Response_Date) AS NVARCHAR(2)) AS [Hour],
+    CASE
+        WHEN @week % 2 = 0 AND FORMAT(Response_Date, 'ddd') IN ('MON', 'TUE', 'FRI', 'SAT') THEN 
+            CASE 
+                WHEN DATEPART(HOUR, Response_Date) BETWEEN 6 AND 18 THEN 'A'
+                ELSE 'C'
+            END
+        WHEN @week % 2 = 0 AND FORMAT(Response_Date, 'ddd') NOT IN ('MON', 'TUE', 'FRI', 'SAT') THEN 
+            CASE 
+                WHEN DATEPART(HOUR, Response_Date) BETWEEN 6 AND 18 THEN 'B'
+                ELSE 'D'
+            END
+        WHEN @week % 2 != 0 AND FORMAT(Response_Date, 'ddd') IN ('MON', 'TUE', 'FRI', 'SAT') THEN
+            CASE
+                WHEN DATEPART(HOUR, Response_Date) BETWEEN 6 AND 18 THEN 'B'
+                ELSE 'D'
+            END
+        WHEN @week % 2 != 0 AND FORMAT(Response_Date, 'ddd') NOT IN ('MON', 'TUE', 'FRI', 'SAT') THEN 
+            CASE 
+                WHEN DATEPART(HOUR, Response_Date) BETWEEN 6 AND 18 THEN 'A'
+                ELSE 'C'
+            END
+        ELSE NULL
+    END AS [Shift],
+    CASE 
+        WHEN DATEPART(HOUR, Response_Date) BETWEEN 6 AND 18 THEN 'DAY'
+        ELSE 'NIGHT'
+    END AS  [Day_Night],
+    CASE
+        WHEN DATEPART(HOUR, Response_Date) IN (6,7,8,9,18,19,20,21) THEN 'EARLY'
+        WHEN DATEPART(HOUR, Response_Date) IN (2,3,4,5,14,15,16,17) THEN 'LATE'
+        ELSE 'MIDS'
+    END AS [ShiftPart],
+    CASE
+        WHEN Agency_Type = 'LAW' THEN 'POLICE'
+		WHEN Agency_Type = 'FIRE' AND (Problem LIKE ('%ALS%') OR Problem LIKE ('%BLS%') OR Problem IN ('CONSTRUCTION SITE INJURY','PSYCHIATRIC EMERGENCY VIOLENT','PUBLIC SERVICE EMS')) THEN 'EMS'
+        WHEN Agency_Type = 'FIRE' AND NOT (Problem LIKE ('%ALS%') OR Problem LIKE ('%BLS%') OR Problem IN ('CONSTRUCTION SITE INJURY','PSYCHIATRIC EMERGENCY VIOLENT','PUBLIC SERVICE EMS')) THEN 'FIRE'
+		ELSE 'DECC'
+	END AS [Agency],
+    Problem,
+    Priority_Number,
+    CASE
+		WHEN MethodofCallRcvd IS NULL AND Problem LIKE 'MUTUAL%' THEN 'C2C'
+		WHEN MethodofCallRcvd IS NULL AND Problem IN ('TRAFFIC STOP', 'OCCUPIED VEHICLE CHECK', 'SUBJECT STOP', 'FLAG DOWN') THEN 'OFFICER'
+		WHEN MethodofCallRcvd IS NULL AND Problem NOT IN ('TRAFFIC STOP', 'OCCUPIED VEHICLE CHECK', 'SUBJECT STOP', 'FLAG DOWN') THEN 'NOT CAPTURED'
+		ELSE MethodOfCallRcvd
+	END AS [Call_Reception],	
+	CASE
+		WHEN CallTaking_Performed_By IS NULL AND Problem LIKE 'MUTUAL%' THEN 'C2C'
+		ELSE CallTaking_Performed_By
+	END AS [Call_Taker],
+    CASE 
+        WHEN Dispatcher_Init IS NULL AND Problem LIKE 'MUTUAL%' THEN 'C2C'
+        WHEN Dispatcher_Init IS NULL AND Problem NOT LIKE 'MUTUAL%' THEN 'NR'
+        ELSE Dispatcher_Init
+    END AS [Dispatcher],
+    COALESCE(NULLIF(Call_Disposition,''), 'NOT CAPTURED') Call_Disposition,
+    ISNULL(
+        CASE
+        WHEN Problem LIKE 'MUTUAL%' THEN
+            CASE
+                WHEN Fixed_Time_CallEnteredQueue IS NULL THEN 
+                    DATEDIFF(SECOND, ClockStartTime, Time_CallEnteredQueue)
+                ELSE 
+                    DATEDIFF(SECOND, ClockStartTime, Fixed_Time_CallEnteredQueue)
+            END
+        ELSE
+            CASE 
+                WHEN Fixed_Time_PhonePickUp IS NULL AND Time_PhonePickUp IS NULL THEN
+                    CASE 
+                        WHEN Fixed_Time_CallEnteredQueue IS NULL THEN 
+                            DATEDIFF(SECOND, ClockStartTime, Time_CallEnteredQueue)
+                        ELSE 
+                            DATEDIFF(SECOND, ClockStartTime, Fixed_Time_CallEnteredQueue)
+                    END 
+                WHEN Fixed_Time_PhonePickUp IS NULL AND Time_PhonePickUp IS NOT NULL THEN
+                    CASE 
+                        WHEN Fixed_Time_CallEnteredQueue IS NULL THEN 
+                            DATEDIFF(SECOND, Time_PhonePickUp, Time_CallEnteredQueue)
+                        ELSE 
+                            DATEDIFF(SECOND, Time_PhonePickUp, Fixed_Time_CallEnteredQueue)
+                    END
+                ELSE 
+                    CASE 
+                        WHEN Fixed_Time_CallEnteredQueue IS NULL THEN 
+                            DATEDIFF(SECOND, Fixed_Time_PhonePickUp, Time_CallEnteredQueue)
+                        ELSE 
+                            DATEDIFF(SECOND, Fixed_Time_PhonePickUp, Fixed_Time_CallEnteredQueue)
+                    END    
+            END
+    END, -1) AS [TimeToQueue],
+   ISNULL(
+    CASE
+        WHEN Fixed_Time_CallEnteredQueue IS NULL THEN
+            DATEDIFF(SECOND, Time_CallEnteredQueue, Date_Time)
+        ELSE
+            DATEDIFF(SECOND, Fixed_Time_CallEnteredQueue, Date_Time)        
+    END, -1) AS [TimeToDispatch],
+    ISNULL(CASE
+        WHEN Problem LIKE 'MUTUAL%' THEN
+            DATEDIFF(SECOND, ClockStartTime, Date_Time)
+        ELSE
+            CASE 
+                WHEN Fixed_Time_PhonePickUp IS NULL AND Time_PhonePickUp IS NULL THEN
+                    DATEDIFF(SECOND, ClockStartTime, Date_Time) 
+                WHEN Fixed_Time_PhonePickUp IS NULL AND Time_PhonePickUp IS NOT NULL THEN
+                    DATEDIFF(SECOND, Time_PhonePickUp, Date_Time)
+                ELSE 
+                    DATEDIFF(SECOND, Fixed_Time_PhonePickUp, Date_Time)    
+            END
+    END, -1) AS [CallProcessTime],
+    ISNULL(
+        CASE
+        WHEN Problem LIKE 'MUTUAL%' THEN
+            CASE
+                WHEN Fixed_Time_CallTakingComplete IS NULL THEN 
+                    DATEDIFF(SECOND, ClockStartTime, Time_CallTakingComplete)
+                ELSE 
+                    DATEDIFF(SECOND, ClockStartTime, Fixed_Time_CallTakingComplete)
+            END
+        ELSE
+            CASE 
+                WHEN Fixed_Time_PhonePickUp IS NULL AND Time_PhonePickUp IS NULL THEN
+                    CASE 
+                        WHEN Fixed_Time_CallTakingComplete IS NULL THEN 
+                            DATEDIFF(SECOND, ClockStartTime, Time_CallTakingComplete)
+                        ELSE 
+                            DATEDIFF(SECOND, ClockStartTime, Fixed_Time_CallTakingComplete)
+                    END 
+                WHEN Fixed_Time_PhonePickUp IS NULL AND Time_PhonePickUp IS NOT NULL THEN
+                    CASE 
+                        WHEN Fixed_Time_CallTakingComplete IS NULL THEN 
+                            DATEDIFF(SECOND, Time_PhonePickUp, Time_CallTakingComplete)
+                        ELSE 
+                            DATEDIFF(SECOND, Time_PhonePickUp, Fixed_Time_CallTakingComplete)
+                    END
+                ELSE 
+                    CASE 
+                        WHEN Fixed_Time_CallTakingComplete IS NULL THEN 
+                            DATEDIFF(SECOND, Fixed_Time_PhonePickUp, Time_CallTakingComplete)
+                        ELSE 
+                            DATEDIFF(SECOND, Fixed_Time_PhonePickUp, Fixed_Time_CallTakingComplete)
+                    END    
+            END
+    END, -1) AS [PhoneTime],
+    ISNULL(DATEDIFF(SECOND, Time_First_Unit_Assigned, Time_First_Unit_Enroute), -1) AS [TurnoutTime],
+    ISNULL(DATEDIFF(SECOND, Time_First_Unit_Enroute, Time_First_Unit_Arrived), -1) AS [TransitTime],
+    ISNULL(
+        CASE
+        WHEN Fixed_Time_CallClosed IS NULL THEN
+            DATEDIFF(SECOND, Time_First_Unit_Arrived, Time_CallClosed)
+        ELSE
+            DATEDIFF(SECOND, Time_First_Unit_Arrived, Fixed_Time_CallClosed)
+    END, -1) AS [TimeAtScene],
+    ISNULL(
+        CASE
+        WHEN Problem LIKE 'MUTUAL%' THEN
+            CASE
+                WHEN Fixed_Time_CallClosed IS NULL THEN
+                    DATEDIFF(SECOND, ClockStartTime, Time_CallClosed)
+                ELSE 
+                    DATEDIFF(SECOND, ClockStartTime, Fixed_Time_CallClosed)
+            END
+        ELSE
+            CASE 
+                WHEN Fixed_Time_PhonePickUp IS NULL AND Time_PhonePickUp IS NULL THEN
+                    CASE 
+                        WHEN Fixed_Time_CallTakingComplete IS NULL THEN 
+                            DATEDIFF(SECOND, ClockStartTime, Time_CallClosed)
+                        ELSE 
+                            DATEDIFF(SECOND, ClockStartTime, Fixed_Time_CallClosed)
+                    END 
+                WHEN Fixed_Time_PhonePickUp IS NULL AND Time_PhonePickUp IS NOT NULL THEN
+                    CASE 
+                        WHEN Fixed_Time_CallTakingComplete IS NULL THEN 
+                            DATEDIFF(SECOND, Time_PhonePickUp, Time_CallClosed)
+                        ELSE 
+                            DATEDIFF(SECOND, Time_PhonePickUp, Fixed_Time_CallClosed)
+                    END
+                ELSE 
+                    CASE 
+                        WHEN Fixed_Time_CallTakingComplete IS NULL THEN 
+                            DATEDIFF(SECOND, Fixed_Time_PhonePickUp, Time_CallClosed)
+                        ELSE 
+                            DATEDIFF(SECOND, Fixed_Time_PhonePickUp, Fixed_Time_CallClosed)
+                    END    
+            END
+    END, -1) AS [EventTime]
+    FROM CTE_disp
+WHERE (Time_First_Unit_Assigned != '' OR Time_First_Unit_Assigned IS NOT NULL)
+AND (Time_PhonePickup IS NOT NULL OR Fixed_Time_PhonePickUp IS NOT NULL)
+AND RN = 1
+ORDER BY Response_Date;)
+
+cat(sql_code)
+```
+
+This query is run once a week and since it does not depend on the date it is run, only the week number derived from the response dates for the 'Response_Master_Incident' table, the user does not have to be concerned with remembering the date of the last Monday, Tuesday, etc.
+
+The dataset is loaded into R with the following command:
+```{r dataset-creation}
+#| output: false
+wk50 <- read_csv("~\\projects\\DECCreport2\\data\\Week50_24.csv")
+```
+
+I chose to use the same week, for this example, the dataset that was created by the SQL query above. Now that the data is loaded, we can work with it. 
+
+### Data Cleaning
+This is likely the least amount of fun anyone has in preparing a report. However, cleaning the data is vitally important to ensuring that you receive the best information in the report. In this case, the following code will give you a little bit of information about the dataset which will enable you to start the cleaning process. 
+```{r quick-view}
+nrow(wk50)
+head(wk50, n=10)
+colnames(wk50)
+start_count <- nrow(wk50)
+```
+
+In this example, as you can see, there are 1,366 rows and 24 columns in the dataset. I've also displayed the first 10 rows of the dataset in order to show you what the data looks like as we start processing it. If you wanted to see the last rows, you would use the command `tail()` with the dataset name _wk50_ in this case and the number of rows you wish to see like this: `n = 10`
+
+In this situation, I have columns like WeekNo, Day, Hour, and Priority_Number that are ordinal variables and for purposes of the report, I don't want them treated as numbers. I would rather they be treated like character data. This is how, behind the scenes, I make that work. 
+```{r factor-creation}
+wk50$WeekNo <- as_factor(wk50$WeekNo)
+wk50$Day <- as_factor(wk50$Day)
+wk50$Hour <- as_factor(wk50$Hour)
+wk50$Priority_Number <- as_factor(wk50$Priority_Number)
+```
+
+Typically, the next step would be to clean the data. The first part of the cleaning process consists of finding out what is missing in the dataset. This code will find what's missing and give you a visual representation of that information.
+```{r missing-data-visualization}
+vis_dat(wk50, sort_type = FALSE, warn_large_data = FALSE)
+vis_miss(wk50)
+```
+
+If we do not have that many missing values, something I do try to suppress in the data collection process to make this step go faster; you can use this code to remove those rows. 
+```{r missing-count}
+wk50 <- na.omit(wk50)
+nrow(wk50)
+end_count <- nrow(wk50)
+
+missing <- start_count - end_count
+```
+
+In this case we can see that `{r} missing` rows of data were removed. Seeing that we lost no rows here, this was a good situation. 
+
+However, there is a different issue hiding in the data that needs to be addressed and ameliorated. There are going to be several rows where the values for some of the elapsed times between events is less than 0. We need to know how many of those we have, so we can see how much we have to address. This code will generate the counts for us. 
+
+```{r negative-identifier}
+ttq_neg <- sum(wk50$TimeToQueue < 0)
+ttd_neg <- sum(wk50$TimeToDispatch < 0)
+cpt_neg <- sum(wk50$CallProcessTime < 0)
+pt_neg <- sum(wk50$PhoneTime < 0)
+tt1_neg <- sum(wk50$TurnoutTime < 0)
+tt2_neg <- sum(wk50$TransitTime < 0)
+tas_neg <- sum(wk50$TimeAtScene < 0)
+et_neg <- sum(wk50$EventTime < 0)
+```
+
+This table displays the number of rows where an elapsed time between events is less than 0:
+
+| Column | Rows Found | Percentage of Dataset |
+|:------:|:----------:|:---------------------:|
+| TimeToQueue | `{r} print(ttq_neg)` | `{r} print(round(ttq_neg/end_count*100, digits=2))` |
+| TimeToDispatch | `{r} print(ttd_neg)` | `{r} print(round(ttd_neg/end_count*100, digits=2))` |
+| CallProcessTime | `{r} print(cpt_neg)` | `{r} print(round(cpt_neg/end_count*100, digits=2))` |
+| PhoneTime | `{r} print(pt_neg)` | `{r} print(round(pt_neg/end_count*100, digits=2))` |
+| TurnoutTime | `{r} print(tt1_neg)` | `{r} print(round(tt1_neg/end_count*100, digits=2))` |
+| TransitTime | `{r} print(tt2_neg)` | `{r} print(round(tt2_neg/end_count*100, digits=2))` |
+| TimeAtScene | `{r} print(tas_neg)` | `{r} print(round(tas_neg/end_count*100, digits=2))` |
+| EventTime | `{r} print(et_neg)` | `{r} print(round(et_neg/end_count*100, digits=2))` |
+
+: Count of Negative Elapsed Time Rows {.striped .hover}
+
+Most of these are created when a call is reopened by a user. If the call was cloned, rather than reopened, the negative elapsed times will not occur. Seeing that TimeAtScene is at `{r} print(round(tas_neg/end_count*100, digits=2))`%, this is concerning and needs to be addressed in some fashion prior to summarizing the information in the dataset. This will be addressed in a future update after some discussions and planning. 
+
+The next question is how to handle this. If we remove all of them, we would have to remove about 8% of the data in the file. The longer option is to go back through every call, which can be done, and evaluate all the time stamps to find ways to bring them back in line. This is very time consuming, for up to `{r} print(tas_neg)` calls, and would result in delays in the report without additional assistance in the cleaning process. 
+
+### Exploratory Analyses
+
+While that question is being discussed and a solution for future reports is designed, here is a summary of those numeric columns. 
+
+```{r custom-summary}
+numerics <- wk50[, c("TimeToQueue", "TimeToDispatch", "CallProcessTime", "PhoneTime", "TurnoutTime", "TransitTime", "TimeAtScene", "EventTime")]
+
+# Custom summary function
+custom_summary <- function(column) {
+  c(
+    Minimum = round(min(column),2),
+    Mean = round(mean(column),2),
+    Median = round(median(column),2),
+    Q1 = round(quantile(column, 0.25),2),
+    Q3 = round(quantile(column, 0.75),2),
+    Maximum = round(max(column),2),
+    Std_Dev = round(sd(column),2),
+    Skewness = round(skewness(column),2),
+    Kurtosis = round(kurtosis(column),2)
+  )
+}
+
+# Apply the summary function to each column in the subset
+summary_table <- t(sapply(numerics, custom_summary))
+
+# Convert to data frame for better handling
+summary_table <- as.data.frame(summary_table)
+
+# Add variable names as row names
+summary_table$Variable <- rownames(summary_table)
+
+# Reorder columns to place 'Variable' at the beginning
+# summary_table <- summary_table[, c("Variable", names(summary_table)[-ncol(summary_table)])]
+summary_table <- summary_table[, c(names(summary_table)[-ncol(summary_table)])]
+
+summary_table %>%
+  kable(format = "markdown", caption = "Weekly Elapsed Time Summary Table") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+As you can see from this example week, even though there are `{r} print(ttd_neg)` negative values in the TimeToDispatch column, they are large enough that the mean value: `{r} round(mean(wk50$TimeToDispatch), 2)` is also a negative value. In this case, it reflects that, on average, we dispatched calls `{r} abs(round(mean(wk50$TimeToDispatch), 2))` seconds or `{r} abs(round((mean(wk50$TimeToDispatch)/60),2))` minutes before the call was released to the dispatch queue. That would be impressive and straight out of science fiction! However, in the final template, we will have come to an agreement as to how to handle these values. 
+
+From here, I'm going to start building graphics that we can use to look at various data in general and get pictures that can illuminate the data. First, I'm going to ensure that we can view the days of the week in a specific order. If I don't then it will automatically place them in alphabetical order which isn't conducive to what we want to see. 
+
+```{r factorization}
+wk50$DOW <- factor(wk50$DOW, levels = c("SUN","MON","TUE","WED","THU","FRI","SAT"))
+```
+
+Now that we've done that, we can create a bar chart that shows the number of calls per day of the week for that week. 
+
+```{r dow-barplot}
+# ggplot2
+barDOW <- wk50 %>% ggplot(aes(x=DOW, fill=DOW)) +
+  geom_bar() +
+  scale_fill_viridis(discrete = TRUE, option = "E") +
+  ggtitle("Count of calls per day of the week") +
+  geom_text(
+    stat = 'count', 
+    aes(label = after_stat(count)), 
+    vjust = -0.5  # Adjusts the vertical position of the count
+  )
+
+barDOW
+```
+
+As you can see, this week, Friday is the busiest day of the week and Saturday was the least busy. Over the course of the year, this will change. Typically, we've seen Tuesdays as the busiest day of the week. It will be interesting to chart this over the course of a year and see what we find. We can do the same thing by hour of the day as well.
+
+```{r hour-barplot}
+wk50$Hour <- as.numeric(as.character(wk50$Hour))
+
+barHour <- wk50 %>% ggplot(aes(x=Hour, fill=factor(Hour))) +
+  geom_bar() +
+  scale_fill_viridis(discrete = TRUE, option = "E") +
+  ggtitle("Count of calls per hour of the day") +
+  scale_x_continuous(breaks = 0:23) +
+  geom_text(
+    stat = 'count',
+    aes(label = after_stat(count)),
+    vjust = -0.5
+  ) +
+  labs(fill = "Hour")
+
+barHour
+```
+
+We can also look at counts by the priority number.
+
+```{r priority-barplot}
+wk50$Priority_Number <- as.numeric(as.character(wk50$Priority_Number))
+
+barPriority <- wk50 %>% ggplot(aes(x=Priority_Number, fill=factor(Priority_Number))) +
+  geom_bar() +
+  scale_fill_viridis(discrete = TRUE, option = "E") +
+  ggtitle("Count of calls by Priority Number") +
+  scale_x_continuous(breaks = 0:10) +
+  geom_text(
+    stat = 'count',
+    aes(label = after_stat(count)),
+    vjust = -0.5
+  ) +
+  labs(fill = "Priority_Number")
+
+barPriority
+```
+
+This shows that the vast majority of our calls coming in are considered Urgent but not Emergencies. I know this is typical for our center. The question becomes do we need to review the priority numbers assigned to calls with our public safety partners? Since we have more P2 calls coming in than nearlt all the others combined, that could be something unintended. 
+
+Since we have a ton of different problem types per week, this is a bar plot that would show the top 20 with their counts so we can see which are the most used and how many calls are for each of them. 
+
+```{r top20-barplot}
+problem_counts <- wk50 %>%
+  count(Problem, name = "n") %>% # Count occurrences of each problem
+  arrange(desc(n)) %>%         # Sort by count (n) in descending order
+  slice(1:20)                 # Select the top 20
+
+barTop20 <- problem_counts %>% # Use the pre-calculated counts
+  ggplot(aes(x = reorder(Problem, -n), y = n, fill = Problem)) + #reorder problems by count
+  geom_bar(stat = "identity") + # Use stat_identity because data is aggregated
+  scale_fill_viridis(discrete = TRUE, option = "E") +
+  ggtitle("Top 20 Problem Types for the Week") +
+  geom_text(aes(label = n), vjust = -0.5) +
+  labs(fill = "Problem Type", x = "Problem Type", y = "Calls Received") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+barTop20
+```
+
+This turns out to be an interesting study. Had we done this with all the columns, we wouldn't be able to see anything because there would be too much together all at once. I think the top 20 is just about right. 
+
+Next, we'll look at how we're getting our calls when they come into us, at least what is recorded in the CAD. This can tell us a lot of information as well.
+
+```{r recd-barplot}
+# ggplot2
+barRecd <- wk50 %>% ggplot(aes(x=Call_Reception, fill=Call_Reception)) +
+  geom_bar() +
+  scale_fill_viridis(discrete = TRUE, option = "E") +
+  ggtitle("Count of calls by how they arrived at the center") +
+  geom_text(
+    stat = 'count', 
+    aes(label = after_stat(count)), 
+    vjust = -0.5  # Adjusts the vertical position of the count
+  )
+
+barRecd
+```
+
+Please note that Phone and Cell Phone do not distinguish if those calls come in on 911 trunk lines or if they came in on Admin lines. My presumption, based on what we see from Rapid Analytics and ECaTS is that these represent calls for service on administrative lines, but I cannot guarantee the accuracy of that presumption. 
+
+[[2025-01-08]]
+
+The next code and graph are an experiment. The plot is called a Ridgeline Plot and it's designed to show the same information across different categories so you're not overlapping a bunch of data and making a muddled graph. In this case, this plot will look at the count of calls per hour, per day of the week. 
+
+```{r ridgeplot1}
+#| fig-width: 12
+#| fig-height: 10
+# Aggregate data to get counts per hour per day
+hourly_calls <- wk50 %>%
+  group_by(DOW, Hour) %>%
+  dplyr::tally(name = "CallCount")
+
+# Create the Ridgeline Plot
+ridge_plot <- ggplot(hourly_calls, aes(x = Hour, y = DOW, height = CallCount, group = DOW, fill = DOW)) + # Add fill aesthetic
+  geom_density_ridges(stat = "identity", scale = 0.9, rel_min_height = 0.01) +
+    scale_x_continuous(breaks = 0:23) + # Set breaks for each hour
+  scale_y_discrete(limits = rev) + # Reverse order of days for better readability
+  scale_fill_viridis(discrete = TRUE, option = "E") + # Use viridis scale
+  labs(title = "Call Volume by Hour and Day of Week",
+       x = "Hour of Day",
+       y = "Day of Week",
+       fill = "Day of Week") + # Add legend title
+  theme_ridges(font_size = 13, grid = FALSE)
+
+ridge_plot
+```
+
+This presents an interesting view of when the calls come in by day. I think that the spike on Sunday at about 1100 hours was not expected. Just as the spike on Monday night for 2200 hours. That one could be worth exploring in a different dataset all its own to determine what sort of calls are coming in at that time. This is where I think that our reports can start generating all sorts of interesting information that we wouldn't otherwise notice. Now let's say that we see this in a report and Monday the 9^th^ at 2200 hours is interesting enough that we want to dive into it later, we can calve off just that portion into a new dataset that can be investigated on its own later. That code would look like this.
+```{r monday-2200}
+dec09_2200 <- wk50[which(wk50$DOW == 'MON' & wk50$Hour == 22), ]
+
+nrow(dec09_2200)
+```
+
+Now we have a new dataset in this space and we can investigate it in depth later. We can do this with any subset of the database that we want to investigate in more depth. This allows us to make the reports even more responsive and informative because we can now look into anything we want. For example, if we want to look into high priority calls where the time to get it into the queue was over 60 seconds, here's that code. 
+
+```{r high-delay}
+wk50_qdelay <- wk50[which(wk50$Priority_Number < 2 & wk50$TimeToQueue > 60), ]
+wk50_ddelay <- wk50[which(wk50$Priority_Number < 2 & wk50$TimeToDispatch > 60), ]
+wk50_decc_delay <- wk50[which(wk50$Priority_Number < 2 & wk50$TimeToQueue > 60 & wk50$TimeToDispatch > 60), ]
+```
+
+So what we have is that we had `{r} nrow(dec09_2200)` calls between 2200 and 2300 on that Monday night, but that may not be really as big of a deal as once thought. However, we had, during that week, `{r} nrow(wk50_qdelay)` calls where the call taking took longer than 60 seconds to reach the queue and were P0 or P1. We had `{r} nrow(wk50_ddelay)` calls where a P0 or P1 call sat in queue for longer that 60 seconds, and we had `{r} nrow(wk50_decc_delay)` calls where both time points were over 60 seconds each.
+
+Here is a list of those calls:
+```{r call-list} 
+print(wk50_decc_delay$Master_Incident_Number)
+```
+
+Now those calls can be examined in depth. This is what I have in mind for how we can drill into different things that we find in the dataset and use that as a launching point for deeper analyses. 
+
+Now, I've not done anything yet with the numeric variables outside of a summary table. There is a reason for that. In our case, histograms or density plots really aren't going to be super helpful. I will use the TimeToQueue variable to illustrate my point. 
+
+```{r ttq-plots}
+
+ttq_hist <- wk50 %>%
+  ggplot( aes(x=TimeToQueue)) +
+  geom_histogram( binwidth=3, fill="#1c5789", color="#1c5789", alpha=0.9) +
+    ggtitle("Time To Queue") +
+  labs(x = "Elapsed Time", y = "Count of Instances", caption = "Data: CAD") +
+  theme(axis.title.x = element_text(vjust = 0, size = 15),
+        axis.title.y = element_text(vjust = 2, size = 15))
+
+ttq_hist
+
+ttq_dens <- wk50 %>%
+  ggplot( aes(x=TimeToQueue)) +
+    geom_density(fill="#1c5789", color="#1c5789", alpha=0.9) +
+  ggtitle("Time To Queue") +
+  labs(x = "Elapsed Time", y = "Count of Instances", caption = "Data: CAD") +
+  theme(axis.title.x = element_text(vjust = 0, size = 15),
+        axis.title.y = element_text(vjust = 2, size = 15))
+
+ttq_dens
+
+```
+
+As you can see from both plots, because everything is so heavily skewed toward 0, the number of bins doesn't matter, there isn't a way to extract much meaningful information from the distribution of values. That is both common and preferable. We really don't want to have anything that resembles a normal distribution curve. That would imply that our performance is getting worse. However, it also leads to an interesting dilemma. If I want to apply parametric statistical functions to this dataset, I will have a problem. I can't. While there are many techniques we could use to try and normalize the data, from experience, they do not work well for this data. So, we will use non-parametric techniques that use the median rather than the mean. These do reduce the power of the tests, but this is something we have to accept and work around. 
+
+
+So, with this in mind, we can recreate several of the call lists that we have in the reports, we can also break down summaries based on various criteria. For example, let's build something that gives us the numeric variables summarized by the agency for which we dispatch, splitting out EMS from Fire calls. That code looks like this:
+```{r}
+# Create table for Agency
+create_agency_table <- function(agency_var) {
+  category_name <- as.character(rlang::enquo(agency_var))
+  agency_var <- enquo(agency_var) # Capture the unevaluated expression
+
+  tables <- wk50 %>%
+    group_by(!!agency_var) %>% # Use !! to unquote the captured expression
+    summarize(across(all_of(numeric_vars), list(
+      Min = min,
+      Max = max,
+      Mean = mean,
+      Median = median,
+      SD = sd
+    ), na.rm = TRUE)) %>%
+    pivot_longer(cols = starts_with("Time"),
+                 names_to = c("Variable", "Statistic"),
+                 names_sep = "_",
+                 values_to = "Value") %>%
+    pivot_wider(names_from = Statistic, values_from = Value) %>%
+    arrange(!!agency_var, Variable)
+
+  cat(paste0("\nTable for Agency: ", category_name, "\n"))
+  print(kable(tables))
+  return(tables)
+}
+
+# Generate and print the table
+agency_table <- create_agency_table(Agency)
+```

@@ -1,0 +1,118 @@
+---
+title: "How to Start - Asking the First Question"
+author: "Tony Dunsworth, Ph.D."
+date: "2025-04-12"
+categories: [examples, analyses]
+execute: 
+  eval: false
+---
+
+I recently wrote about a presentation that I gave at [Randolph Macon College](https://rmc.edu) concerning using data analyses in 9-1-1 centres. During the Q&A section, someone asked me how I would recommend getting started. My answer, then and now, is pick a question and dive into that and new questions will start coming. 
+
+I thought, perhaps, I should come up with an example of what I mean. In our centre, our medical director has requested that we do quality checks on every cardiac arrest call that we receive. So, here is the starting question: what can we learn about the cardiac arrest calls in the city? With that as the opening question, the first step is collecting the data. To start, I plan on collecting four datasets. I can create all of them using SQL. Since I work on SQL Server or T-SQL flavoured databases, the query, for our dispatch software's databases looks something like this:
+
+```{sql base_queries}
+USE Reporting_System;
+GO
+
+DECLARE @time1 DATETIME2;
+
+SET @time1 '2025-01-01';
+
+-- This query will retrieve all cardiac arrest calls from this year
+
+SELECT Master_Incident_Number,
+  Response_Date,
+  Address,
+  Time_CallEnteredQueue,
+  Time_First_Unit_Assigned,
+  Time_Phone_Release
+FROM Response_Master_Incident
+WHERE Response_Date > @time1
+AND  Problem = 'CARDIAC ARREST'
+ORDER BY Response_Date;
+
+-- This query will retrieve  all cardiac arrest calls from the past 1, 3, & 5 years
+
+SELECT Master_Incident_Number,
+  Response_Date,
+  Address,
+  Time_CallEnteredQueue,
+  Time_First_Unit_Assigned,
+  Time_Phone_Release
+FROM Response_Master_Incident
+WHERE Response_Date BETWEEN DATEADD(YEAR, -1, @time1) AND @time1
+AND  Problem = 'CARDIAC ARREST'
+ORDER BY Response_Date;
+```
+
+These queries will generate the four datasets that I would want for the full analysis. I would save the output to csv files and name them cardiac_arrest_cy.csv, cardiac_arrest_1y.csv, cardiac_arrest_3y.csv, and cardiac_arrest_5y.csv. 
+
+Personally, I want to start with current data so I can get a feel for the data. To do some of my work, I would add some columns to the dataset. I can do it programmatically or through the SQL Query. I prefer to do it in the query like so:
+
+```{sql computed_columns}
+USE Reporting_System;
+GO
+
+DECLARE @time1 DATETIME2;
+
+SET @time1 '2025-01-01';
+
+-- This query will retrieve all cardiac arrest calls from this year
+
+SELECT Master_Incident_Number AS [Call_ID],
+  Response_Date AS [Start_Time],
+  Address,
+  Time_CallEnteredQueue AS [Ready_To_Dispatch],
+  Time_First_Unit_Assigned AS [First_Unit_Assigned],
+  Time_Phone_Release AS [Stop_Time],
+  DATEDIFF(SECOND, Response_Date, Time_CallEnteredQueue) AS Call_Entry_Time,
+  DATEDIFF(SECOND, Time_CallEnteredQueue, Time_First_Unit_Assigned) AS Call_Queue_Time,
+  DATEDIFF(SECOND, Response_Date, Time_Phone_Release) AS Call_Processing_Time
+FROM Response_Master_Incident
+WHERE Response_Date > @time1
+AND  Problem = 'CARDIAC ARREST'
+ORDER BY Response_Date;
+```
+
+This gives us a columns of elapsed times to determine how long it took us to make the call dispatchable, how long it took to dispatch the call to the first unit, and how long we spent on the phone with the caller.
+
+Now we load the dataset, for this I'm using the R programming language. We can do it in Python as well, but I've been working with R a lot longer. 
+
+```{r datset_load}
+#| output: false
+
+df_cacy <- read.csv("cardiac_arrest_cy.csv", header = TRUE, sep = ",", stringsAsFactors = TRUE)
+```
+
+Now that we have the dataset loaded, we can go through the dataset to clean it up. Most of these calls *should* have all of the components that we've selected. If there are things missing, then we can go in and clean those up to remove missing data points. For this dataset, this is the code I would use to clean up any missing values:
+
+```{r first_clean}
+#| output: false
+
+# Check the data types
+str(df_cacy)
+
+# Use the naniar package to check for missing values. This creates a graphical view of the missing data
+gg_miss_var(df_cacy)
+
+# Use this code to create a quick table of those missing value counts
+apply(X = is.na(df_cacy), MARGIN = 2, FUN = sum)
+
+# This code replaces missing values with an entry
+df_cacy$Call_ID <- tidyr::replace_na(df_cacy$Call_ID, "NOT RECORDED")
+df_cacy$Start_Time <- tidyr::replace_na(df_cacy$Start_Time, "1970-01-01 00:00:00") # This is the Unix Time start value
+df_cacy$Address <- tidyr::replace_na(df_cacy$Address, "NOT RECORDED")
+df_cacy$Ready_To_Dispatch <- tidyr::replace_na(df_cacy$Ready_To_Dispatch, "1970-01-01 00:00:00")
+df_cacy$First_Unit_Assigned <- tidyr::replace_na(df_cacy$First_Unit_Assigned, "1970-01-01 00:00:00")
+df_cacy$Stop_Time <- tidyr::replace_na(df_cacy$Stop_Time, "1970-01-01 00:00:00")
+df_cacy$Call_Entry_Time <- tidyr::replace_na(df_cacy$Call_Entry_Time, -1) # This makes any elapsed time that is missing a value we can eliminate in the next cleaning step.
+df_cacy$Call_Queue_Time <- tidyr::replace_na(df_cacy$Call_Queue_Time, -1)
+df_cacy$Call_Processing_Time <- tidyr::replace_na(df_cacy$Call_Processing_Time, -1)
+```
+
+This should clean the data of any missing values. This is also the start of new questions. How much data is missing? Where is it missing at? Finally, why is the data missing? Most of the data is likely not missing at random. I expect that most of the missing data comes from calls that were not completed. When the other three benchmark datasets are compared, we can see how the percentage of calls missing data compares over 1, 3, and 5 years. If the comparisons are in line, then you move on, if they aren't, there's question number 4, what's different now?
+
+The next thing that I check for would be negative values in the final three columns, Call_Entry_Time, Call_Queue_Time, and Call_Processing_Time. These varables represent the elapsed times between events in the centre that measure our telecommunicators actions. If we see any values in these variables that are negative, then we know, instantly, that the calls have been closed then reopened. The fifth questions becomes why are some calls being reopened? My recommendation is to take those calls, and the calls with missing values if they can be proven to be full calls, and create a new dataset. That list can be exported to an Excel spreadsheet and used for future investigation. This is the first potential project that has been generated by this work.
+
+Depending on the number of calls that exist in this dataset, I would remove the same calls from my master datasets and continue with the research without them. My benchmark is no more than 5 percent of the calls removed. 
