@@ -4,6 +4,8 @@
 
 ## DMA Work
 
+## Other Work
+
 ## Personal Notes
 
 ### Card of the Day

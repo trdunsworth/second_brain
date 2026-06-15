@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-06-12.md",
+                "file": "journal/2026-06-15.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-06-12"
+              "title": "2026-06-15"
             }
           }
         ]
@@ -186,9 +186,13 @@
   },
   "active": "28862894895b08d6",
   "lastOpenFiles": [
-    "2026-06-12.md",
-    "journal/2026-06-12.md",
+    "foam_artefacts/assets/ItsAboutTime.md",
+    "Obsidian Training Resources.md",
+    "Welcome.md",
+    "journal/2026-06-15.md",
     "Templates/Daily Note Template.md",
+    "journal/2026-06-12.md",
+    "2026-06-12.md",
     "Templates/Daily Notes.md",
     "journal/2026-06-11.md",
     "Templates/Unconfirmed 624952.crdownload",
@@ -198,7 +202,6 @@
     "templates/# {{.md",
     "Templates",
     "Daily Template.md",
-    "Obsidian Training Resources.md",
     "foam_artefacts/assets/911 Analytics.md",
     "foam_artefacts/snippets/fake_lat_long.py",
     "foam_artefacts/snippets/fake_fill.py",
@@ -219,9 +222,6 @@
     "foam_artefacts/assets/Forecasting Accuracy Project.md",
     "foam_artefacts/assets/DMA Data Project.md",
     "foam_artefacts/assets/Contrarian Prompt engineering.md",
-    "foam_artefacts/assets/Blog_Scratchpad.md",
-    "foam_artefacts/assets/akanian.md",
-    "foam_artefacts/assets/AI_Training.md",
     "foam_artefacts/attachments/foam-icon.png",
     "foam_artefacts/assets/images/template-picker-annotated.png",
     "foam_artefacts/assets/images/vercel-detect-preset.png",
