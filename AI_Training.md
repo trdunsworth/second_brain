@@ -16,4 +16,5 @@
 
 Should really evaluate those.
 
-[agents]: agents.md "AGENTS.md"
+[Awesome Local LLM links](https://github.com/rafska/awesome-local-llm)
+
