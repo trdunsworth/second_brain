@@ -1,0 +1,13 @@
+Since I want to work with them in Linux and Mac, the best thing to do is put them here and backlink into it. This [Medium TUI Post](https://medium.com/the-software-journal/8-beautiful-tui-apps-that-made-me-forget-guis-exist-28e22568464b) has some good apps and their primary key bindings, so this is a starting point. The other starting point will be [Awesome TUI](https://awesometui.com/). I'm wondering if there is a TUI for Obsidian. Well, [basalt](https://github.com/erikjuhani/basalt) says that I can do it.... *Stay tuned*. Here's another option called [Terminal Trove](https://terminaltrove.com/categories/macos/) as a list of TUIs for Mac.
+
+I'm starting with [lazygit](https://github.com/jesseduffield/lazygit) and [wtfutils](https://wtfutil.com/configuration/global_settings/) because I need to be able to work with Git from the command line, and wtfutils should give me some interesting ways to keep an eye on things.
+
+Since [lazysql](https://github.com/jorgerojas26/lazysql) is supposed to be cross-platform, I may try this on Windows and see what it does in the office. I am installing it on the Mac because I can and it's a good test.
+
+I also am going to put in a section here about writing TUIs because I believe the best thing to do is to create as many of my software offerings as TUIs as I can. At least the non-reporting ones.
+
+Additionally, I am going to keep a list of links here so I can refer to them when I need to. I ***AM*** going to make this work.
+
+I have already installed [btop](https://github.com/aristocratos/btop) for system monitoring, so I should get into learning how to use it better. [yazi](https://github.com/sxyazi/yazi) is supposed to be an excellent file management app, so let's give it a whirl. If you can use [duckdb](https://duckdb.com) to read CSV files with it, I'm in. I'm also interested in seeing if [bookokrat](https://github.com/bugzmanov/bookokrat) will allow me to read pdf files well in the terminal.
+
+This Medium post about [TUI Libraries](https://medium.com/towards-data-engineering/10-best-python-text-user-interface-tui-libraries-for-2025-79f83b6ea16e) could help me find the right tools to build my apps in the terminal.

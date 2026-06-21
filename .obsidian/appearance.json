@@ -1,6 +1,6 @@
 {
-  "textFontFamily": "CommitMonoDrd2",
-  "monospaceFontFamily": "CommitMonoDrd2",
+  "textFontFamily": "CommitMonoDrd2,CommitMonoDrDMac",
+  "monospaceFontFamily": "CommitMonoDrd2,CommitMonoDrDMac",
   "baseFontSize": 13,
   "cssTheme": "Typora-Vue",
   "theme": "moonstone",
