@@ -18,3 +18,5 @@ Should really evaluate those.
 
 [Awesome Local LLM links](https://github.com/rafska/awesome-local-llm)
 
+Here's another Awesome List [Awesome Agents](https://github.com/kyrolabs/awesome-agents) that I think could be interesting.
+

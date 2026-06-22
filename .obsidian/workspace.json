@@ -13,26 +13,40 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TUI Utilities.md",
+                "file": "Toastmasters/Ice Breaker - Dynamic Leadership.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TUI Utilities"
+              "title": "Ice Breaker - Dynamic Leadership"
             }
           },
           {
-            "id": "e376ceba2eed7bb1",
+            "id": "c1f9b54fe0af0f31",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-06-20.md",
+                "file": "CS MobileX Training Notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-06-20"
+              "title": "CS MobileX Training Notes"
+            }
+          },
+          {
+            "id": "c21f13d56a673958",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "journal/2026-06-22.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-06-22"
             }
           },
           {
@@ -49,7 +63,8 @@
               "title": "AI_Training"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -106,7 +121,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 257.5
   },
   "right": {
     "id": "4b92d9adc29a4c30",
@@ -203,6 +218,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "opencode:OpenCode Terminal": false,
+      "opencode:OpenCode Conversations": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -212,17 +229,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "cec892374376d2a7",
+  "active": "c21f13d56a673958",
   "lastOpenFiles": [
-    "journal/2026-06-20.md",
+    "AI_Training.md",
+    "Toastmasters/Ice Breaker - Dynamic Leadership.md",
+    "journal/2026-06-22.md",
+    "Obsidian Training.md",
+    "CS MobileX Training Notes.md",
+    "DMA Notes",
+    "ALX Notes",
     "TUI Utilities.md",
+    "journal/2026-06-20.md",
     "journal/2026-06-19.md",
     "journal/2026-06-18.md",
     "Toastmasters/Lessons Learned Presentation Mastery.md",
     "R Library Packages for Reporting.md",
     "journal/2026-06-17.md",
     "journal/2026-06-16.md",
-    "AI_Training.md",
     "journal/2026-06-15.md",
     "Templates/Toastmasters Meeting Notes.md",
     "Toastmasters/NNTC Meeting 15 Jun 2026.md",
@@ -239,17 +262,11 @@
     "Templates/# {{YYYY-MM-DD}}.md",
     "Templates/New Text Document.txt",
     "Templates/# {{title}}.md",
-    "templates/# {{.md",
     "Templates",
-    "Daily Template.md",
-    "foam_artefacts/assets/911 Analytics.md",
     "foam_artefacts/snippets/fake_lat_long.py",
     "foam_artefacts/snippets/fake_fill.py",
     "foam_artefacts/snippets/explanation.qmd",
     "foam_artefacts/snippets/eda_snippets.py",
-    "foam_artefacts/snippets/ducklings.sql",
-    "foam_artefacts/snippets/duckdb_snippets.md",
-    "foam_artefacts/snippets/create_priject.fish",
     "foam_artefacts/attachments/foam-icon.png",
     "foam_artefacts/assets/images/template-picker-annotated.png",
     "foam_artefacts/assets/images/vercel-detect-preset.png",

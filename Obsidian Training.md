@@ -1,0 +1,2 @@
+
+I don't like most of the themes that I've seen. I know what I want, so I will learn how to build it. [Minimal Theme](https://minimal.guide/home) could be a good starting point. Then there's Obsidian's official ["Build A Theme"](https://docs.obsidian.md/Themes/App+themes/Build+a+theme) page that I can use to start working on building what I want.
