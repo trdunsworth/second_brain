@@ -5,3 +5,5 @@ I am going to theme my ice breaker a little differently, I'm going to introduce 
 Being honest, that felt a little like the parable of the prophet not being recognized in his hometown. 
 
 Even though, after a few failed attempts to become an IT manager in a 9-1-1 center, I recognize *THAT* pathway isn't for me, that doesn't mean that I shouldn't develop the leadership skills necessary for me to push forward into my communities. Maybe I can find a way to leverage the more quiet leadership style I thought I had developed over many years to find other opportunities to lead with data in 9-1-1.
+
+I am looking forward to this pathway and exploring it to find my leadership style. I am certain that the clubs in the area where I am serving as Area Director will love it when I get a better handle on my style. Seriously, I have worked over the years to build a teaching style, but I've not really given any thought to a leadership style. In many cases, rather than leading, I've just done the tasks that needed done and "led" by doing.

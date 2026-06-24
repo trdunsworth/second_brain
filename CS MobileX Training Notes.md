@@ -10,3 +10,5 @@ So far, I am finding almost nothing that is a part of my time and attention. How
 
 So far, there hasn't been a lot of this that is of interest to me. Seeing Jeff here let's me know that APD got the message and they are going to leverage their own assets. I like that.
 
+
+
