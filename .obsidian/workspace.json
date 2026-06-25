@@ -8,49 +8,21 @@
         "type": "tabs",
         "children": [
           {
-            "id": "cec892374376d2a7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Toastmasters/Ice Breaker - Dynamic Leadership.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Ice Breaker - Dynamic Leadership"
-            }
-          },
-          {
-            "id": "c1f9b54fe0af0f31",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CS MobileX Training Notes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "CS MobileX Training Notes"
-            }
-          },
-          {
             "id": "7173ff653194bc7f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-06-24.md",
+                "file": "journal/2026-06-25.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-06-24"
+              "title": "2026-06-25"
             }
           },
           {
-            "id": "e5e707e7b3024dc5",
+            "id": "b775da0cde86297a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -228,9 +200,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "cec892374376d2a7",
+  "active": "7173ff653194bc7f",
   "lastOpenFiles": [
+    "New_CAD_Project/LLM based CAD.md",
+    "journal/2026-06-25.md",
+    "Templates/Daily Note Template.md",
     "journal/2026-06-24.md",
+    "CS MobileX Training Notes.md",
+    "Toastmasters/Ice Breaker - Dynamic Leadership.md",
     "New_CAD_Project/NENA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.pdf",
     "New_CAD_Project/~$NA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.docx",
     "New_CAD_Project/NENA-STA-021.1.1 EIDO JSON_AllCRBallot.pdf",
@@ -251,9 +228,6 @@
     "New_CAD_Project/media-1788a0db4b3ede46/media/image8.JPG",
     "New_CAD_Project/media-1788a0db4b3ede46/media/image7.JPG",
     "New_CAD_Project/media-1788a0db4b3ede46/media/image6.JPG",
-    "CS MobileX Training Notes.md",
-    "Toastmasters/Ice Breaker - Dynamic Leadership.md",
-    "New_CAD_Project/LLM based CAD.md",
     "AI_Training.md",
     "journal/2026-06-22.md",
     "Obsidian Training.md",
@@ -268,7 +242,6 @@
     "journal/2026-06-15.md",
     "Templates/Toastmasters Meeting Notes.md",
     "Toastmasters/NNTC Meeting 15 Jun 2026.md",
-    "Templates/Daily Note Template.md",
     "foam_artefacts/assets/ItsAboutTime.md",
     "Obsidian Training Resources.md",
     "Welcome.md",

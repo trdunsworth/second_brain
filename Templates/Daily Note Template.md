@@ -1,5 +1,3 @@
-# {{date:YYYY-MM-DD}}
-
 ## ALX Work
 
 ## DMA Work
