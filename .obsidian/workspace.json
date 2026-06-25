@@ -63,8 +63,7 @@
               "title": "LLM based CAD"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -229,25 +228,35 @@
       "bases:Create new base": false
     }
   },
-  "active": "7173ff653194bc7f",
+  "active": "cec892374376d2a7",
   "lastOpenFiles": [
+    "journal/2026-06-24.md",
+    "New_CAD_Project/NENA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.pdf",
+    "New_CAD_Project/~$NA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.docx",
+    "New_CAD_Project/NENA-STA-021.1.1 EIDO JSON_AllCRBallot.pdf",
+    "New_CAD_Project/~$NA-STA-021.1.1 EIDO JSON_AllCRBallot.docx",
+    "New_CAD_Project/~$NA-STA-010.3.1-202Y i3 Standard -Baseline 2026-05-14 DRM Ad Hoc contribution.docx",
+    "New_CAD_Project/INF_EIDO MGMT_v.10 06222026.pdf",
+    "New_CAD_Project/~$F_EIDO MGMT_v.10 06222026.docx",
+    "New_CAD_Project/toPdfViaTempFile31647-0.typ",
+    "New_CAD_Project/toPdfViaTempFile31647-1.pdf",
+    "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
+    "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
+    "New_CAD_Project/media-91e1e99e853a801b/media/image7.emf",
+    "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
+    "New_CAD_Project/media-91e1e99e853a801b/media/image5.jpg",
+    "New_CAD_Project/media-91e1e99e853a801b/media/image4.png",
+    "New_CAD_Project/media-91e1e99e853a801b/media/image3.png",
+    "New_CAD_Project/media-8fe4a693c2c033a6/media/image1.jpeg",
+    "New_CAD_Project/media-1788a0db4b3ede46/media/image8.JPG",
+    "New_CAD_Project/media-1788a0db4b3ede46/media/image7.JPG",
+    "New_CAD_Project/media-1788a0db4b3ede46/media/image6.JPG",
     "CS MobileX Training Notes.md",
     "Toastmasters/Ice Breaker - Dynamic Leadership.md",
-    "journal/2026-06-24.md",
     "New_CAD_Project/LLM based CAD.md",
-    "New_CAD_Project/NENA-STA-010.3.1-202Y i3 Standard -Baseline 2026-05-14 DRM Ad Hoc contribution.docx",
-    "New CAD Project/~$ Arch WG Notes 2026-06-18 draft.docx",
-    "New_CAD_Project/NENA-STA-019.2-2022_CallProc.pdf",
-    "New_CAD_Project/NENA-STA-024.1.1-2025_EIDO_C.pdf",
-    "New_CAD_Project/NENA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.docx",
-    "New_CAD_Project/NENA-STA-021.1.1 EIDO JSON_AllCRBallot.docx",
-    "New_CAD_Project/INF_EIDO MGMT_v.10 06222026.docx",
-    "New CAD Project/i3 Arch WG Notes 2026-06-18 draft.docx",
-    "New_CAD_Project",
     "AI_Training.md",
     "journal/2026-06-22.md",
     "Obsidian Training.md",
-    "DMA_Notes",
     "TUI Utilities.md",
     "journal/2026-06-20.md",
     "journal/2026-06-19.md",
@@ -265,16 +274,6 @@
     "Welcome.md",
     "journal/2026-06-12.md",
     "2026-06-12.md",
-    "Templates/Daily Notes.md",
-    "foam_artefacts/attachments/foam-icon.png",
-    "foam_artefacts/assets/images/template-picker-annotated.png",
-    "foam_artefacts/assets/images/vercel-detect-preset.png",
-    "foam_artefacts/assets/images/style-node-by-type.png",
-    "foam_artefacts/assets/images/snippets.gif",
-    "foam_artefacts/assets/images/readme-demo.gif",
-    "foam_artefacts/assets/images/preview-image-on-hover.png",
-    "foam_artefacts/assets/images/preview-image-in-glutter.png",
-    "foam_artefacts/assets/images/prettify-links-demo.gif",
-    "foam_artefacts/assets/images/note-embed-type-demo.gif"
+    "Templates/Daily Notes.md"
   ]
 }
