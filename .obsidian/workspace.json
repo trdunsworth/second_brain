@@ -35,8 +35,7 @@
               "title": "DECC reporting engine"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -201,10 +200,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "b775da0cde86297a",
+  "active": "7173ff653194bc7f",
   "lastOpenFiles": [
-    "New_CAD_Project/LLM based CAD.md",
     "ALX_Notes/DECC reporting engine.md",
+    "New_CAD_Project/LLM based CAD.md",
     "journal/2026-06-26.md",
     "journal/2026-06-25.md",
     "Templates/Daily Note Template.md",
