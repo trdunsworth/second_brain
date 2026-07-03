@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-06-26.md",
+                "file": "journal/2026-06-27.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-06-26"
+              "title": "2026-06-27"
             }
           },
           {
@@ -202,9 +202,10 @@
   },
   "active": "7173ff653194bc7f",
   "lastOpenFiles": [
+    "journal/2026-06-26.md",
+    "journal/2026-06-27.md",
     "ALX_Notes/DECC reporting engine.md",
     "New_CAD_Project/LLM based CAD.md",
-    "journal/2026-06-26.md",
     "journal/2026-06-25.md",
     "Templates/Daily Note Template.md",
     "journal/2026-06-24.md",
@@ -246,7 +247,6 @@
     "Toastmasters/NNTC Meeting 15 Jun 2026.md",
     "foam_artefacts/assets/ItsAboutTime.md",
     "Obsidian Training Resources.md",
-    "Welcome.md",
-    "journal/2026-06-12.md"
+    "Welcome.md"
   ]
 }
