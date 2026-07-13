@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-07-02.md",
+                "file": "journal/2026-07-13.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-07-02"
+              "title": "2026-07-13"
             }
           },
           {
@@ -202,8 +202,9 @@
   },
   "active": "7173ff653194bc7f",
   "lastOpenFiles": [
-    "journal/2026-07-01.md",
     "journal/2026-07-02.md",
+    "journal/2026-07-13.md",
+    "journal/2026-07-01.md",
     "journal/2026-06-30.md",
     "ALX_Notes/DECC reporting engine.md",
     "journal/2026-06-29.md",
@@ -246,12 +247,6 @@
     "Toastmasters/Lessons Learned Presentation Mastery.md",
     "R Library Packages for Reporting.md",
     "journal/2026-06-17.md",
-    "journal/2026-06-16.md",
-    "journal/2026-06-15.md",
-    "Templates/Toastmasters Meeting Notes.md",
-    "Toastmasters/NNTC Meeting 15 Jun 2026.md",
-    "foam_artefacts/assets/ItsAboutTime.md",
-    "Obsidian Training Resources.md",
-    "Welcome.md"
+    "journal/2026-06-16.md"
   ]
 }
