@@ -4,6 +4,8 @@
 
 ## Other Work
 
+## Toastmasters Notes
+
 ## Personal Notes
 
 ### Card of the Day
