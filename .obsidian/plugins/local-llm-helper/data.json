@@ -1,7 +1,7 @@
 {
   "serverAddress": "http://localhost:11434",
   "embeddingServerAddress": "",
-  "llmModel": "gemma4:latest",
+  "llmModel": "gemma4:26b",
   "maxTokens": 1024,
   "temperature": 0.7,
   "providerType": "ollama",

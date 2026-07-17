@@ -1,0 +1,8 @@
+{
+  "dateOption": "created",
+  "dateFormat": "YYYY-MM-DD",
+  "outputFolder": "blog",
+  "overwriteExisting": false,
+  "importTags": true,
+  "allowExternalPaths": false
+}

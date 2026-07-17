@@ -3,5 +3,10 @@
   "opencode",
   "local-llm-helper",
   "templater-obsidian",
-  "github-sync"
+  "github-sync",
+  "quarto-exporter",
+  "markdown-blogger",
+  "open-vscode",
+  "obsidian-linter",
+  "obsidian-pandoc"
 ]

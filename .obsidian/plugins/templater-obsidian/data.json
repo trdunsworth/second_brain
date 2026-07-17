@@ -29,7 +29,9 @@
   "syntax_highlighting": true,
   "syntax_highlighting_mobile": false,
   "enabled_templates_hotkeys": [
-    "Templates/scripts/daily_log_template.md"
+    "Templates/scripts/daily_log_template.md",
+    "Templates/scripts/blog_idea_capture_template.md",
+    "Templates/scripts/blog_post_template.md"
   ],
   "startup_templates": [
     "Templates/scripts/daily_log_template.md"
