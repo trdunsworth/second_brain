@@ -4,35 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "893d82bfc47805a8",
+        "id": "108f8ef81c622d73",
         "type": "tabs",
         "children": [
           {
-            "id": "0a14ce731c4c5d47",
+            "id": "23fd4e4c466b15c1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-07-16.md",
+                "file": "journal/2026-07-17.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-07-16"
-            }
-          },
-          {
-            "id": "f31fc21d0673e899",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ALX_Notes/DECC reporting engine.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "DECC reporting engine"
+              "title": "2026-07-17"
             }
           }
         ]
@@ -92,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5
+    "width": 300.5
   },
   "right": {
     "id": "4b92d9adc29a4c30",
@@ -178,9 +164,29 @@
               "icon": "lucide-list",
               "title": "Outline of 2026-06-12"
             }
+          },
+          {
+            "id": "60dc89b690ba5e04",
+            "type": "leaf",
+            "state": {
+              "type": "llm-helper-chat",
+              "state": {},
+              "icon": "messages-square",
+              "title": "LLM Chat"
+            }
+          },
+          {
+            "id": "e2f94409c9cfbc89",
+            "type": "leaf",
+            "state": {
+              "type": "opencode-terminal",
+              "state": {},
+              "icon": "terminal",
+              "title": "OpenCode"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -197,44 +203,52 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "local-llm-helper:LLM Helper": false,
+      "templater-obsidian:Templater": false,
+      "github-sync:Sync with Remote": false
     }
   },
-  "active": "0a14ce731c4c5d47",
+  "active": "23fd4e4c466b15c1",
   "lastOpenFiles": [
+    "Templates/scripts/daily_log_template.md",
+    "Templates/scripts/habit_tracker_template.md",
+    "journal/2026-07-17.md",
+    "computer_links",
+    "Attitude Adjustment/Attitude Adjustment.md",
     "ALX_Notes/DECC reporting engine.md",
-    "Attitude Adjustment.md",
-    "journal/2026-07-16.md",
-    "journal/2026-07-15.md",
-    "journal/2026-07-14.md",
-    "journal/2026-07-13.md",
-    "journal/2026-07-06.md",
-    "journal/2026-07-07.md",
-    "journal/2026-07-02.md",
-    "Templates/Daily Note Template.md",
-    "journal/2026-07-01.md",
-    "journal/2026-06-30.md",
-    "journal/2026-06-29.md",
-    "List of CLI & TUI apps to be installed on the Linux rig..md",
-    "journal/2026-06-27.md",
-    "journal/2026-06-26.md",
-    "New_CAD_Project/LLM based CAD.md",
-    "journal/2026-06-25.md",
-    "journal/2026-06-24.md",
-    "CS MobileX Training Notes.md",
-    "Toastmasters/Ice Breaker - Dynamic Leadership.md",
+    "Templates/scripts/annual_progress_review_template.md",
+    "Templates/scripts/blog_post_template.md",
+    "Attitude Adjustment/web_research_agent_report.md",
+    "Attitude Adjustment/TEMPLATE_INSTANTIATION_GUIDE.md",
+    "Attitude Adjustment/documentation_structure.md",
+    "Attitude Adjustment/system_analysis.md",
+    "Attitude Adjustment/PROJECT_STATUS.md",
+    "Attitude Adjustment/master_plan.md",
+    "Attitude Adjustment/research_tracker.md",
+    "Attitude Adjustment/wisdom_sources_tracker.md",
+    "Attitude Adjustment/goals_checklist.md",
+    "Attitude Adjustment/guidelines.md",
+    "Templates/scripts/relapse_prevention_toolbox.md",
+    "Templates/scripts/pleasure_predicting_sheet.md",
+    "Templates/scripts/anti_procrastination_sheet.md",
+    "Templates/scripts/personal_measurements_template.md",
+    "Templates/blog_post_template.qmd",
+    "Templates/scripts/blog_idea_capture_template.md",
+    "Templates/scripts/weekly_reflection_template.md",
+    "Templates/scripts/daily_tarot_reading_template.md",
+    "Templates/scripts/daily_reflection_template.md",
+    "Templates/scripts/daily_mood_log_template.md",
+    "Attitude Adjustment",
+    "references",
+    "Templates/scripts",
     "New_CAD_Project/NENA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.pdf",
     "New_CAD_Project/~$NA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.docx",
     "New_CAD_Project/NENA-STA-021.1.1 EIDO JSON_AllCRBallot.pdf",
     "New_CAD_Project/~$NA-STA-021.1.1 EIDO JSON_AllCRBallot.docx",
     "New_CAD_Project/~$NA-STA-010.3.1-202Y i3 Standard -Baseline 2026-05-14 DRM Ad Hoc contribution.docx",
-    "New_CAD_Project/INF_EIDO MGMT_v.10 06222026.pdf",
-    "New_CAD_Project/~$F_EIDO MGMT_v.10 06222026.docx",
-    "New_CAD_Project/toPdfViaTempFile31647-0.typ",
-    "New_CAD_Project/toPdfViaTempFile31647-1.pdf",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
-    "New_CAD_Project/media-91e1e99e853a801b/media/image7.emf",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
     "New_CAD_Project/media-91e1e99e853a801b/media/image5.jpg",
     "New_CAD_Project/media-91e1e99e853a801b/media/image4.png",
@@ -242,11 +256,6 @@
     "New_CAD_Project/media-8fe4a693c2c033a6/media/image1.jpeg",
     "New_CAD_Project/media-1788a0db4b3ede46/media/image8.JPG",
     "New_CAD_Project/media-1788a0db4b3ede46/media/image7.JPG",
-    "New_CAD_Project/media-1788a0db4b3ede46/media/image6.JPG",
-    "AI_Training.md",
-    "journal/2026-06-22.md",
-    "Obsidian Training.md",
-    "TUI Utilities.md",
-    "journal/2026-06-20.md"
+    "New_CAD_Project/media-1788a0db4b3ede46/media/image6.JPG"
   ]
 }

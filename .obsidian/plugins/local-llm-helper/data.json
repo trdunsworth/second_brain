@@ -1,0 +1,64 @@
+{
+  "serverAddress": "http://localhost:11434",
+  "embeddingServerAddress": "",
+  "llmModel": "gemma4:latest",
+  "maxTokens": 1024,
+  "temperature": 0.7,
+  "providerType": "ollama",
+  "stream": false,
+  "customPrompt": "create a todo list from the following text:",
+  "outputMode": "replace",
+  "personas": "default",
+  "maxConvHistory": 0,
+  "responseFormatting": false,
+  "responseFormatPrepend": "``` LLM Helper - generated response \n\n",
+  "responseFormatAppend": "\n\n```",
+  "lastVersion": "2.5.0",
+  "embeddingModelName": "mxbai-embed-large",
+  "braveSearchApiKey": "",
+  "openAIApiKey": "lm-studio",
+  "embeddingApiKey": "",
+  "searchProvider": "tavily",
+  "tavilyApiKey": "",
+  "searxngInstanceUrl": "",
+  "customPrompts": [],
+  "extractReasoningResponses": false,
+  "reasoningMarkers": "[\n  {\n    \"start\": \"<think>\",\n    \"end\": \"</think>\"\n  },\n  {\n    \"start\": \"<reasoning>\",\n    \"end\": \"</reasoning>\"\n  },\n  {\n    \"start\": \"<thought>\",\n    \"end\": \"</thought>\"\n  }\n]",
+  "ragTopK": 9,
+  "autoIndexIntervalMinutes": 0,
+  "autoNotice": false,
+  "indexPdfAttachments": true,
+  "ocrImageAttachments": false,
+  "ocrScannedPdfAttachments": false,
+  "enableVaultActions": false,
+  "showAgentDebug": false,
+  "renderMarkdownInChat": false,
+  "workflowDefaults": {
+    "recipes": {
+      "weekly-review": {
+        "scopeOption": "current-folder",
+        "tagValue": "",
+        "targetNote": "",
+        "outputFolder": "",
+        "titleTemplate": "Weekly Review - YYYY-MM-DD"
+      },
+      "meeting-notes-to-tasks": {
+        "scopeOption": "current-note",
+        "tagValue": "",
+        "targetNote": "",
+        "outputFolder": "",
+        "titleTemplate": ""
+      },
+      "project-status-summary": {
+        "scopeOption": "tag",
+        "tagValue": "#project",
+        "targetNote": "",
+        "outputFolder": "",
+        "titleTemplate": ""
+      }
+    }
+  },
+  "vaultRadarAutoRun": false,
+  "vaultRadarAutoRunEnabledAt": 0,
+  "vaultRadarMaxNotes": 12
+}

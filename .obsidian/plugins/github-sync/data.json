@@ -1,0 +1,9 @@
+{
+  "remoteURL": "https://github.com/trdunsworth/second_brain",
+  "gitLocation": "",
+  "syncinterval": 0,
+  "isSyncOnLoad": true,
+  "checkStatusOnLoad": true,
+  "noticeLevel": "ALL",
+  "showSyncSuccessNotice": true
+}

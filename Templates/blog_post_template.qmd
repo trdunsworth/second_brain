@@ -1,0 +1,515 @@
+---
+title: "{{ TITLE }}"
+subtitle: "{{ SUBTITLE }}"
+description: "{{ DESCRIPTION }}"  # < 160 chars for SEO/meta
+author: "Dr. Tony Dunsworth"
+date: "{{ PUBLISH_DATE }}"
+date-modified: "{{ MODIFIED_DATE }}"
+categories: [911-dispatch, forecasting, staffing, python, r, sql]
+tags: [nena, psap, time-series, staffing-model, duckdb, dbt, {{ TAG1 }}, {{ TAG2 }}]
+image: "images/posts/{{ SLUG }}-hero.png"
+image-alt: "{{ IMAGE_ALT }}"
+draft: true
+toc: true
+toc-depth: 3
+number-sections: false
+code-fold: show
+code-tools: true
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto  # re-run only when source changes
+format:
+  html:
+    theme: cosmo
+    highlight-style: github
+    code-links: ["github", "binder"]
+    repo-url: https://github.com/tonydunsworth/drddatascience-blog
+    repo-actions: [edit, issue]
+    include-in-header:
+      - text: |
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    html-math-method: katex
+---
+
+```{=html}
+<!-- JSON-LD Schema.org BlogPosting for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ TITLE }}",
+  "description": "{{ DESCRIPTION }}",
+  "author": {"@type": "Person", "name": "Dr. Tony Dunsworth"},
+  "datePublished": "{{ PUBLISH_DATE }}",
+  "dateModified": "{{ MODIFIED_DATE }}",
+  "image": "https://drddatascience.com/images/posts/{{ SLUG }}-hero.png",
+  "publisher": {"@type": "Organization", "name": "Dr. D's Data Science"},
+  "mainEntityOfPage": "https://drddatascience.com/blog/{{ SLUG }}.html"
+}
+</script>
+```
+
+## Abstract / TL;DR
+
+> **Problem**: {{ PROBLEM_ONE_LINER }}
+>
+> **Method**: {{ METHOD_ONE_LINER }}
+>
+> **Result**: {{ RESULT_ONE_LINER }}
+>
+> **Artifact**: [GitHub Repo](https://github.com/tonydunsworth/{{ SLUG }}) | [Synthetic Data](https://github.com/tonydunsworth/{{ SLUG }}/data) | [Launch Binder](https://mybinder.org/v2/gh/tonydunsworth/{{ SLUG }}/HEAD)
+
+---
+
+## 1. Introduction {#sec-intro}
+
+*Context for 911 directors, analysts, and data scientists.*
+
+### 1.1 The Pain Point
+
+{{ PAIN_POINT }}
+
+### 1.2 Why Existing Approaches Fall Short
+
+| Approach | Limitation in 911 Context |
+|---|---|
+| Erlang-C | Stationary arrivals; no covariates; ignores priority mix |
+| Simple Moving Average | Lag; no seasonality; no exogenous drivers |
+| Prophet (default) | Black box; no priority/zone hierarchy; holiday calendar incomplete |
+| Commercial WFM | Expensive; opaque; vendor lock-in; not PSAP-specific |
+
+### 1.3 What You'll Get From This Post
+
+- [ ] **Mental Model**: {{ MENTAL_MODEL }}
+- [ ] **Reproducible Code**: `src/{{ SLUG }}/` (Python/R/SQL/Julia/Rust/Go)
+- [ ] **Synthetic Data**: `data/synthetic/` — runs immediately
+- [ ] **Quarto Chunks**: Drop into your own reports
+- [ ] **Decision Framework**: When to use X vs Y
+
+---
+
+## 2. Background & Prior Art {#sec-background}
+
+*2–3 paragraphs + table. Cite NENA standards, key papers, your prior posts.*
+
+### 2.1 Key References
+
+- **NENA Standards**: [NENA-STA-020.1-2023](https://www.nena.org/page/Standards) — Staffing & Workload
+- **Academic**: {{ ACADEMIC_REFS }}
+- **Industry**: {{ INDUSTRY_REFS }}
+- **Prior Posts**: `[[{{ PRIOR_POST_1 }}]]`, `[[{{ PRIOR_POST_2 }}]]`
+
+### 2.2 The Gap This Fills
+
+{{ GAP_FILLED }}
+
+---
+
+## 3. Data & Methods {#sec-methods}
+
+*Code-first. Each subsection has runnable Quarto chunks.*
+
+### 3.1 Data Sources {#sec-data}
+
+```{python}
+#| label: load-data
+#| echo: true
+#| output: false
+import duckdb
+import pandas as pd
+
+con = duckdb.connect()
+# Synthetic data for reproducibility
+calls = con.sql("""
+  SELECT * FROM read_parquet('data/synthetic/calls_*.parquet')
+""").df()
+
+print(f"Shape: {calls.shape}")
+print(f"Date range: {calls['call_time'].min()} to {calls['call_time'].max()}")
+print(f"Zones: {calls['zone'].nunique()}")
+print(f"Priorities: {calls['priority'].unique()}")
+```
+
+```{r}
+#| label: load-data-r
+#| echo: true
+library(tidyverse)
+library(tsibble)
+library(duckdb)
+
+con <- dbConnect(duckdb::duckdb())
+calls <- dbGetQuery(con, "SELECT * FROM read_parquet('data/synthetic/calls_*.parquet')")
+calls_ts <- calls |>
+  mutate(datetime = as.POSIXct(call_time)) |>
+  as_tsibble(index = datetime, key = c(zone, priority))
+```
+
+```{sql}
+--| label: feature-eng-sql
+--| echo: true
+--| output: false
+-- DuckDB feature engineering (also in dbt: models/features/call_features.sql)
+SELECT
+  date_trunc('hour', call_time) AS hour,
+  zone,
+  priority,
+  COUNT(*) AS call_volume,
+  AVG(CASE WHEN priority IN ('E','D') THEN 1 ELSE 0 END) AS high_acuity_pct,
+  -- Exogenous: weather, holidays, events
+  CASE WHEN EXTRACT(dow FROM call_time) IN (0,6) THEN 1 ELSE 0 END AS is_weekend
+FROM raw_calls
+GROUP BY 1,2,3
+```
+
+### 3.2 Exploratory Analysis {#sec-eda}
+
+```{python}
+#| label: eda-volume
+#| echo: true
+#| fig-cap: "Hourly call volume by zone (synthetic)"
+#| fig-alt: "Heatmap showing hourly call volume patterns across 5 PSAP zones"
+import plotly.express as px
+
+hourly = calls.groupby([calls['call_time'].dt.hour, 'zone']).size().reset_index(name='volume')
+fig = px.density_heatmap(hourly, x='call_time', y='zone', z='volume',
+                         color_continuous_scale='Viridis')
+fig.show()
+```
+
+```{r}
+#| label: eda-seasonality
+#| echo: true
+library(feasts)
+library(ggplot2)
+
+calls_ts |>
+  filter(zone == "ZONE_1") |>
+  gg_season(call_volume, period = "day") +
+  labs(title = "Daily Seasonality: Zone 1", y = "Call Volume")
+```
+
+**Key Patterns Observed**:
+- {{ PATTERN_1 }}
+- {{ PATTERN_2 }}
+- {{ PATTERN_3 }}
+
+### 3.3 Modeling Approach {#sec-modeling}
+
+> **Problem Type**: {{ PROBLEM_TYPE }} | **Target**: {{ TARGET }} | **Horizon**: {{ HORIZON }}
+
+| Component | Choice | Rationale |
+|---|---|---|
+| **Algorithm** | {{ ALGORITHM }} | {{ ALGO_RATIONALE }} |
+| **Features** | Temporal + Spatial + Exogenous | {{ FEATURE_RATIONALE }} |
+| **Validation** | {{ VALIDATION }} | {{ VALID_RATIONALE }} |
+| **Uncertainty** | {{ UNCERTAINTY_METHOD }} | {{ UNCERT_RATIONALE }} |
+| **Baseline** | {{ BASELINE }} | {{ BASELINE_RATIONALE }} |
+
+#### 3.3.1 Python: LightGBM + SHAP
+
+```{python}
+#| label: model-lgbm
+#| echo: true
+#| output: true
+import lightgbm as lgb
+from sklearn.model_selection import TimeSeriesSplit
+import shap
+
+# Feature matrix
+X = features.drop('call_volume', axis=1)
+y = features['call_volume']
+
+# Walk-forward CV
+tscv = TimeSeriesSplit(n_splits=5, test_size=168)  # 1 week ahead
+scores = []
+for train_idx, test_idx in tscv.split(X):
+    X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]
+    y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]
+    
+    model = lgb.LGBMRegressor(
+        objective='poisson',
+        n_estimators=500,
+        learning_rate=0.05,
+        num_leaves=64,
+        random_state=42
+    )
+    model.fit(X_train, y_train, eval_set=[(X_test, y_test)], callbacks=[lgb.early_stopping(50)])
+    pred = model.predict(X_test)
+    scores.append(mean_absolute_error(y_test, pred))
+
+print(f"Walk-forward MAE: {np.mean(scores):.2f} ± {np.std(scores):.2f}")
+
+# SHAP explainability
+explainer = shap.TreeExplainer(model)
+shap_values = explainer.shap_values(X_test)
+shap.summary_plot(shap_values, X_test, plot_type="bar")
+```
+
+#### 3.3.2 R: fable + NeuralProphet
+
+```{r}
+#| label: model-fable
+#| echo: true
+library(fable)
+library(fable.prophet)
+
+fit <- calls_ts |>
+  model(
+    prophet = prophet(call_volume ~ season(period=168, order=3) + 
+                      season(period=24, order=6) + 
+                      holiday(us_holidays) + 
+                      weather_temp + is_event),
+    lgbm = LGBM(call_volume ~ .)
+  )
+
+fc <- fit |> forecast(h = "1 week")
+accuracy(fc) |>
+  filter(.model == "prophet") |>
+  select(RMSE, MAE, MAPE)
+```
+
+#### 3.3.3 Julia: JuMP + HiGHS (Staffing Optimization)
+
+```{julia}
+#| label: model-julia
+#| echo: true
+using JuMP, HiGHS, DataFrames, CSV
+
+# Data: forecasted volume per zone per hour
+df = CSV.read("outputs/forecast_zone_hour.csv", DataFrame)
+
+model = Model(HiGHS.Optimizer)
+@variable(model, x[z in zones, h in hours] >= 0, Int)  # staff per zone per hour
+
+# Coverage constraint: staff >= required (from Erlang-C or ML)
+@constraint(model, [z=zones, h=hours], x[z,h] >= required[z,h])
+
+# Shift constraints (8-hr shifts, min 2 consecutive days off)
+# ... shift generation logic ...
+
+# Objective: minimize total staff (or cost with OT premium)
+@objective(model, Min, sum(cost[z] * x[z,h] for z in zones, h in hours))
+
+optimize!(model)
+println("Optimal staff: $(objective_value(model))")
+```
+
+#### 3.3.4 Rust: High-Perf Feature Pipeline (polars)
+
+```{rust}
+//| label: model-rust
+//| echo: true
+use polars::prelude::*;
+use polars::lazy::dsl::*;
+
+let lf = LazyCsvReader::new("data/raw/calls.csv")
+    .with_has_header(true)
+    .finish()?;
+
+// Temporal features
+let lf = lf
+    .with_columns([
+        col("call_time").dt().hour().alias("hour"),
+        col("call_time").dt().weekday().alias("dow"),
+        col("call_time").dt().month().alias("month"),
+        when(col("priority").is_in(["E","D"])).then(lit(1)).otherwise(lit(0)).alias("high_acuity"),
+    ])
+    .group_by([col("zone"), col("hour"), col("dow")])
+    .agg([
+        col("call_time").count().alias("volume"),
+        col("high_acuity").mean().alias("acuity_rate"),
+    ]);
+
+// Write parquet for Python/R/Julia consumption
+lf.collect()?.write_parquet("data/features/zone_hour_dow.parquet")?;
+```
+
+#### 3.3.5 Go: Production Serving (gonum + chi)
+
+```{go}
+//| label: model-go
+//| echo: true
+package main
+
+import (
+    "encoding/json"
+    "net/http"
+    "github.com/go-chi/chi/v5"
+    "gonum.org/v1/gonum/stat"
+)
+
+type ForecastRequest struct {
+    Zone string `json:"zone"`
+    Hours int `json:"hours"`
+}
+
+type ForecastResponse struct {
+    Predictions []float64 `json:"predictions"`
+    Lower []float64 `json:"lower"`
+    Upper []float64 `json:"upper"`
+}
+
+func forecastHandler(w http.ResponseWriter, r *http.Request) {
+    var req ForecastRequest
+    json.NewDecoder(r.Body).Decode(&req)
+    
+    // Load LightGBM model (via CGO or ONNX)
+    preds, lower, upper := serveModel(req.Zone, req.Hours)
+    
+    json.NewEncoder(w).Encode(ForecastResponse{
+        Predictions: preds, Lower: lower, Upper: upper,
+    })
+}
+
+func main() {
+    r := chi.NewRouter()
+    r.Post("/api/v1/forecast", forecastHandler)
+    http.ListenAndServe(":8080", r)
+}
+```
+
+---
+
+## 4. Results {#sec-results}
+
+*Figures, tables, and practical interpretation.*
+
+### 4.1 Forecast Accuracy
+
+```{python}
+#| label: results-table
+#| echo: false
+#| tbl-cap: "Walk-forward validation: MAE by horizon and zone"
+#| tbl-label: tbl-accuracy
+import pandas as pd
+results = pd.read_csv("outputs/validation_results.csv")
+print(results.to_markdown())
+```
+
+| Model | Horizon | Zone | MAE | RMSE | CRPS | vs Baseline |
+|---|---|---|---|---|---|---|
+| LightGBM | 1 week | All | {{ MAE_LGBM }} | {{ RMSE_LGBM }} | {{ CRPS_LGBM }} | {{ IMPROVEMENT }}% |
+| NeuralProphet | 1 week | All | {{ MAE_NP }} | {{ RMSE_NP }} | {{ CRPS_NP }} | {{ IMPROVEMENT_NP }}% |
+| Seasonal Naïve | 1 week | All | {{ MAE_SN }} | {{ RMSE_SN }} | {{ CRPS_SN }} | — |
+
+### 4.2 Staffing Impact Simulation
+
+```{python}
+#| label: staffing-sim
+#| echo: true
+#| fig-cap: "Projected overtime reduction vs. current schedule"
+#| fig-alt: "Bar chart comparing current OT hours vs. optimized schedule across 4 weeks"
+import plotly.graph_objects as go
+
+fig = go.Figure()
+fig.add_trace(go.Bar(name='Current Schedule', x=weeks, y=current_ot))
+fig.add_trace(go.Bar(name='Optimized', x=weeks, y=optimized_ot))
+fig.update_layout(barmode='group', yaxis_title='OT Hours/Week')
+fig.show()
+```
+
+**Key Findings**:
+- **{{ FINDING_1 }}** (e.g., 23% OT reduction, 95% coverage maintained)
+- **{{ FINDING_2 }}** (e.g., Zone 3 consistently understaffed 22:00–06:00)
+- **{{ FINDING_3 }}** (e.g., Weather covariates add 4% MAE improvement)
+
+---
+
+## 5. Practical Takeaways for PSAPs {#sec-takeaways}
+
+| Role | Immediate Action | Tool/Template |
+|---|---|---|
+| **Director** | {{ DIR_ACTION }} | {{ DIR_TOOL }} |
+| **Analyst** | {{ ANALYST_ACTION }} | {{ ANALYST_TOOL }} |
+| **IT/Dev** | {{ DEV_ACTION }} | {{ DEV_TOOL }} |
+| **Trainer** | {{ TRAIN_ACTION }} | {{ TRAIN_TOOL }} |
+
+### 5.1 Quick-Start Checklist
+
+1. [ ] Clone repo: `git clone https://github.com/tonydunsworth/{{ SLUG }}`
+2. [ ] Install env: `uv sync` / `renv::restore()` / `pkg> instantiate`
+3. [ ] Run synthetic: `python src/{{ SLUG }}/run_synthetic.py`
+4. [ ] Swap data: Replace `data/synthetic/` with your CAD export (schema in `docs/schema.md`)
+5. [ ] Retrain: `python src/{{ SLUG }}/train.py --config config/prod.yaml`
+6. [ ] Schedule: Add `src/{{ SLUG }}/predict.py` to cron/Airflow/dbt
+
+---
+
+## 6. Limitations & Future Work {#sec-limitations}
+
+| Limitation | Mitigation | Future Work |
+|---|---|---|
+| {{ LIM_1 }} | {{ MIT_1 }} | {{ FUT_1 }} |
+| {{ LIM_2 }} | {{ MIT_2 }} | {{ FUT_2 }} |
+| {{ LIM_3 }} | {{ MIT_3 }} | {{ FUT_3 }} |
+
+**Honest Assessment**: {{ HONEST_ASSESSMENT }}
+
+---
+
+## 7. Reproducibility Package {#sec-repro}
+
+| Component | Location | Status |
+|---|---|---|
+| **Code** | `github.com/tonydunsworth/{{ SLUG }}` | ☐ Public ☐ Private |
+| **Data** | `data/synthetic/` + access request | ☐ Synthetic only ☐ Real (anonymized) |
+| **Environment** | `requirements.txt` / `renv.lock` / `Project.toml` / `Cargo.lock` / `go.mod` | ☐ Locked |
+| **Quarto Render** | `quarto render {{ SLUG }}.qmd` | ☐ Passes |
+| **CI/CD** | GitHub Actions → Netlify | ☐ Green |
+
+```bash
+# One-command reproduction
+git clone https://github.com/tonydunsworth/{{ SLUG }}.git
+cd {{ SLUG }}
+uv sync && python src/train.py --config config/synthetic.yaml
+quarto render {{ SLUG }}.qmd --to html
+```
+
+---
+
+## References {#sec-refs}
+
+::: {#refs}
+:::
+
+---
+
+## Appendix: Full Code Listings {#sec-appendix}
+
+### A.1 Complete Training Pipeline (`src/{{ SLUG }}/train.py`)
+
+```{python}
+#| label: appendix-train
+#| echo: true
+#| eval: false
+# <<< src/{{ SLUG }}/train.py >>>
+```
+
+### A.2 dbt Feature Model (`models/features/call_features.sql`)
+
+```{sql}
+--| label: appendix-dbt
+--| echo: true
+--| eval: false
+-- <<< models/features/call_features.sql >>>
+```
+
+### A.3 Quarto Chunk Library (`chunks/{{ SLUG }}-chunks.qmd`)
+
+```{markdown}
+#| label: appendix-chunks
+#| echo: true
+#| eval: false
+# Drop these into any Quarto doc
+```
+
+---
+
+*Published: {{ PUBLISH_DATE }} | Updated: {{ MODIFIED_DATE }} | [Edit on GitHub](https://github.com/tonydunsworth/drddatascience-blog/edit/main/posts/{{ SLUG }}.qmd) | [Report Issue](https://github.com/tonydunsworth/drddatascience-blog/issues/new?template=post-feedback.yml&title={{ SLUG }})*
+
+---
+
+**License**: Code — MIT | Content — CC-BY-4.0 | Data — Synthetic (CC0) / Request Access

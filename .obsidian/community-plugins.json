@@ -1,4 +1,7 @@
 [
   "obsidian-style-settings",
-  "opencode"
+  "opencode",
+  "local-llm-helper",
+  "templater-obsidian",
+  "github-sync"
 ]
