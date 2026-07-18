@@ -40,6 +40,18 @@ Buddhism offers practical tools for personal development through the Four Noble 
 
 #### Stoicism
 Stoicism teaches the Dichotomy of Control (focus on what we can control) and the Four Cardinal Virtues (wisdom, courage, temperance, justice). Practice daily resilience techniques, negative visualization, and integrate Stoic principles into decision-making and stress management.
+
+#### Freemasonry
+Freemasonry is a fraternal organization rooted in medieval stonemason guilds, evolved into a system of moral philosophy using allegory and symbolism. Its core teachings emphasize the Fatherhood of God, the Brotherhood of Man, and the Immortality of the Soul. The three degrees (Entered Apprentice, Fellow Craft, Master Mason) convey progressive lessons in morality, self-improvement, and service. Key symbols include the Square (morality), Compasses (self-restraint), Level (equality), and Plumb (uprightness). Practice daily reflection on Masonic virtues, attend lodge meetings for fellowship and instruction, and apply the working tools to personal character building.
+
+#### Albert Pike - Morals and Dogma
+Albert Pike's *Morals and Dogma of the Ancient and Accepted Scottish Rite of Freemasonry* (1871) is a comprehensive philosophical exposition of the 33 degrees of the Scottish Rite. It explores comparative religion, mythology, philosophy, and ethics through a Masonic lens. Key themes include: the pursuit of Light (knowledge/truth), the balance of opposing forces, the nature of Deity, the soul's immortality, and the Mason's duty to humanity. Each degree chapter provides lectures on virtues (e.g., humility, fortitude, justice) and their practical application. Study one degree lecture per week, journal on its moral lesson, and apply the virtue to daily challenges. Pike emphasizes that Masonry is a progressive science—mastery comes through repeated study and lived practice.
+
+#### Freemasonry
+Freemasonry is a fraternal organization built on moral and philosophical teachings conveyed through allegory, symbolism, and ritual. Its core principles include Brotherly Love, Relief (charity), and Truth. The craft uses the tools of operative masonry as symbols for moral and spiritual development: the square (morality), the level (equality), the plumb (uprightness), and the trowel (brotherly love). Practice self-improvement through degree work, lodge participation, charitable works, and daily application of Masonic principles in personal and professional life.
+
+#### Albert Pike - Morals and Dogma
+Albert Pike's "Morals and Dogma of the Ancient and Accepted Scottish Rite of Freemasonry" (1871) is a comprehensive exposition of the philosophical and esoteric teachings of the Scottish Rite degrees (4°-32°). Each chapter corresponds to a degree, exploring themes of duty, morality, philosophy, religion, and the nature of the divine through Kabbalah, Hermeticism, ancient mysteries, and comparative religion. Key principles include: the pursuit of Light (knowledge/truth), the immortality of the soul, the equilibrium of opposing forces (justice/mercy, liberty/authority), and the Mason as a builder of character and society. Practical application involves deep study of each degree's lectures, contemplative reading, journaling on the symbolism, and integrating the moral lessons into daily conduct and decision-making.
 ### Psychological Sources
 
 #### Dr. Thomas Moore - Soul Centered Psychology

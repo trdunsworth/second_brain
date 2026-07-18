@@ -36,6 +36,10 @@ The following research areas will be integrated:
 - Taoism
 - Buddhism
 - Stoicism
+- Freemasonry
+- Albert Pike - Morals and Dogma
+- Freemasonry
+- Albert Pike - Morals and Dogma
 
 ### Psychological Sources
 

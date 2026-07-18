@@ -23,7 +23,7 @@ The system currently contains **17 main documents** covering:
 
 - **8 primary goals** for personal development
 - **7 research interest areas** for intellectual growth
-- **57+ wisdom sources** across philosophical, psychological, theological, and technological domains
+- **57+ wisdom sources** across philosophical (Taoism, Buddhism, Stoicism, Freemasonry, Albert Pike - Morals and Dogma), psychological, theological, and technological domains
 - **Multiple tracking systems** (goals, research, personal metrics)
 - **Reflection templates** for daily, weekly, and annual reviews
 

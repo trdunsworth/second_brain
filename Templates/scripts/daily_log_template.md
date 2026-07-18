@@ -296,7 +296,7 @@ all_day: false
 | | [ ] | |
 | | [ ] | |
 
-*Full list for reference: CBT/Burns, Stoicism, Buddhism, Taoism, Takeuchi, Moore, Webb, Brown, Tarot, Other*
+*Full list for reference: CBT/Burns, Stoicism, Buddhism, Taoism, Freemasonry, Morals & Dogma, Takeuchi, Moore, Webb, Brown, Tarot, Other*
 
 ### Gratitude (3 things)
 1. 

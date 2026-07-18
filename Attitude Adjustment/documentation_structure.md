@@ -56,7 +56,7 @@ The system tracks progress across multiple dimensions:
 
 1. **Goals**: 8 primary personal development goals
 2. **Research**: 7 research interest areas
-3. **Wisdom Sources**: Multiple philosophical, psychological, theological, and technological sources
+3. **Wisdom Sources**: Multiple philosophical (Taoism, Buddhism, Stoicism, Freemasonry, Morals & Dogma), psychological, theological, and technological sources
 4. **Personal Metrics**: Specific measurement criteria across different life domains
 
 ## Recommended Workflow

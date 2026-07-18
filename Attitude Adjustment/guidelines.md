@@ -42,6 +42,8 @@ I am a polyglot comfortable in reading multiple languages and want to continue t
 - Taoism
 - Buddhism
 - Stoicism
+- Freemasonry
+- Albert Pike - Morals and Dogma
 
 ### Psychological
 

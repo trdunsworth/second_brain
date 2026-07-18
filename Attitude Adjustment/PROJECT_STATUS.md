@@ -56,11 +56,13 @@
 
 ### Remaining Subjects to Research: 15/24 (62.5%)
 
-**Philosophical Sources (0/3) - COMPLETED**
+**Philosophical Sources (0/5) - COMPLETED**
 
 - ✅ Taoism
 - ✅ Buddhism
 - ✅ Stoicism
+- ✅ Freemasonry
+- ✅ Albert Pike - Morals and Dogma
 
 **Psychological Sources (5/7) - COMPLETED**
 
