@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "193cfb2935ac08e7",
+        "id": "6ca466c59802ce3b",
         "type": "tabs",
         "children": [
           {
-            "id": "b80491c41018b5d9",
+            "id": "bc3cf91ed923ef08",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -190,6 +190,16 @@
               "icon": "radar",
               "title": "Vault Radar"
             }
+          },
+          {
+            "id": "4115820c947709b1",
+            "type": "leaf",
+            "state": {
+              "type": "journal-calendar",
+              "state": {},
+              "icon": "calendar-days",
+              "title": "Calendar"
+            }
           }
         ],
         "currentTab": 6
@@ -216,8 +226,12 @@
       "open-vscode:VS Code": false
     }
   },
-  "active": "b80491c41018b5d9",
+  "active": "bc3cf91ed923ef08",
   "lastOpenFiles": [
+    "journal/2026-07-18.md",
+    "Toastmasters/Toastmasters District Leadership training 20260718.md",
+    "obsidian_templater_cheat_sheet.md",
+    "Templates/scripts/Daily Note Template.md",
     "journal/2026-07-17.md",
     "references/Morals_and_Dogma_Research_Document.md",
     "references/Dr_John_Spong_Research_Document.md",
@@ -242,10 +256,6 @@
     "Attitude Adjustment/TEMPLATE_INSTANTIATION_GUIDE.md",
     "Attitude Adjustment/documentation_structure.md",
     "Attitude Adjustment/system_analysis.md",
-    "Attitude Adjustment/PROJECT_STATUS.md",
-    "Attitude Adjustment/master_plan.md",
-    "Attitude Adjustment/wisdom_sources_tracker.md",
-    "Attitude Adjustment/goals_checklist.md",
     "Templates/blog_post_template.qmd",
     "Attitude Adjustment",
     "references",
