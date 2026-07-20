@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-07-19.md",
+                "file": "journal/2026-07-20.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-07-19"
+              "title": "2026-07-20"
             }
           },
           {
@@ -257,9 +257,11 @@
   "active": "c93b7ac5c6aeb64e",
   "lastOpenFiles": [
     "HOTKEYS.md",
-    "Daily Template Hotkeys.md",
+    "Staffing/ErlangBandCFormulas.pdf",
+    "journal/2026-07-20.md",
+    "Staffing",
     "journal/2026-07-19.md",
-    "Untitled",
+    "Daily Template Hotkeys.md",
     "Templates/scripts/daily_log_template_templater.md",
     "Templates/scripts/personal_measurements_template_templater.md",
     "Templates/scripts/annual_progress_review_template_templater.md",
@@ -281,8 +283,6 @@
     "2026-07-18.md",
     "Toastmasters/Toastmasters District Leadership training 20260718.md",
     "obsidian_templater_cheat_sheet.md",
-    "journal/2026-07-17.md",
-    "references/Morals_and_Dogma_Research_Document.md",
     "blog",
     "computer_links",
     "Templates/blog_post_template.qmd",
@@ -291,7 +291,6 @@
     "Templates/scripts",
     "New_CAD_Project/NENA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.pdf",
     "New_CAD_Project/~$NA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.docx",
-    "New_CAD_Project/NENA-STA-021.1.1 EIDO JSON_AllCRBallot.pdf",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
