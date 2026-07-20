@@ -32,5 +32,54 @@
       ],
       "key": "B"
     }
+  ],
+  "templater-obsidian:Templates/scripts/daily_mood_log_template_templater.md": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "M"
+    }
+  ],
+  "templater-obsidian:Templates/scripts/daily_reflection_template_templater.md": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "R"
+    }
+  ],
+  "templater-obsidian:Templates/scripts/habit_tracker_template_templater.md": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "H"
+    }
+  ],
+  "templater-obsidian:Templates/scripts/personal_measurements_template_templater.md": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "P"
+    }
+  ],
+  "templater-obsidian:Templates/scripts/daily_log_template_templater.md": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "T"
+    }
+  ],
+  "templater-obsidian:Templates/scripts/blog_idea_capture_template_templater.md": [
+    {
+      "modifiers": [
+        "Shift",
+        "Alt"
+      ],
+      "key": "B"
+    }
   ]
 }

@@ -4,17 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "6ca466c59802ce3b",
+        "id": "ffa9b099d5ba13f0",
         "type": "tabs",
         "children": [
           {
-            "id": "bc3cf91ed923ef08",
+            "id": "c93b7ac5c6aeb64e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "journal/2026-07-19.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "2026-07-19"
+            }
+          },
+          {
+            "id": "e7bca18660f1afdf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "HOTKEYS.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "HOTKEYS"
             }
           }
         ]
@@ -200,6 +218,16 @@
               "icon": "calendar-days",
               "title": "Calendar"
             }
+          },
+          {
+            "id": "31e4ea2bac10c2f6",
+            "type": "leaf",
+            "state": {
+              "type": "opencode-conversations",
+              "state": {},
+              "icon": "message-circle",
+              "title": "OpenCode Conversations"
+            }
           }
         ],
         "currentTab": 6
@@ -226,36 +254,37 @@
       "open-vscode:VS Code": false
     }
   },
-  "active": "bc3cf91ed923ef08",
+  "active": "c93b7ac5c6aeb64e",
   "lastOpenFiles": [
+    "HOTKEYS.md",
+    "Daily Template Hotkeys.md",
+    "journal/2026-07-19.md",
+    "Untitled",
+    "Templates/scripts/daily_log_template_templater.md",
+    "Templates/scripts/personal_measurements_template_templater.md",
+    "Templates/scripts/annual_progress_review_template_templater.md",
+    "Templates/scripts/blog_post_template_templater.md",
+    "Templates/scripts/weekly_reflection_template_templater.md",
+    "Templates/scripts/habit_tracker_template_templater.md",
+    "Templates/scripts/daily_reflection_template_templater.md",
+    "Templates/scripts/daily_journal_template.md",
+    "Templates/scripts/blog_post_nocode_template_templater.md",
+    "Templates/scripts/daily_mood_log_template_templater.md",
+    "Templates/scripts/blog_idea_capture_template_templater.md",
+    "Templates/scripts/daily_tarot_reading_template_templater.md",
+    "Templates/scripts/attitude_adjustment_goals.md",
     "journal/2026-07-18.md",
+    "Templates/scripts/Daily Note Template.md",
+    "Templates/scripts/blog_idea_capture_template.md",
+    "Templates/scripts/blog_post_nocode_template.md",
+    "Templates/scripts/daily_tarot_reading_template.md",
+    "2026-07-18.md",
     "Toastmasters/Toastmasters District Leadership training 20260718.md",
     "obsidian_templater_cheat_sheet.md",
-    "Templates/scripts/Daily Note Template.md",
     "journal/2026-07-17.md",
     "references/Morals_and_Dogma_Research_Document.md",
-    "references/Dr_John_Spong_Research_Document.md",
-    "references/Unitarian_Universalist_Church_Research_Document.md",
-    "references/Taoism_Research_Document.md",
-    "Attitude Adjustment/research_tracker.md",
-    "blog/Attitude Adjustment Project.md",
-    "Templates/scripts/daily_tarot_reading_template.md",
-    "Templates/scripts/blog_post_nocode_template.md",
-    "Templates/scripts/blog_post_template.md",
-    "blog/Blog Post 20260717.md",
-    "Templates/scripts/blog_idea_capture_template.md",
     "blog",
-    "references/David_Burns_CBT_Research_Document.md",
-    "Templates/scripts/daily_log_template.md",
-    "Templates/scripts/habit_tracker_template.md",
     "computer_links",
-    "Attitude Adjustment/Attitude Adjustment.md",
-    "ALX_Notes/DECC reporting engine.md",
-    "Templates/scripts/annual_progress_review_template.md",
-    "Attitude Adjustment/web_research_agent_report.md",
-    "Attitude Adjustment/TEMPLATE_INSTANTIATION_GUIDE.md",
-    "Attitude Adjustment/documentation_structure.md",
-    "Attitude Adjustment/system_analysis.md",
     "Templates/blog_post_template.qmd",
     "Attitude Adjustment",
     "references",
@@ -263,7 +292,6 @@
     "New_CAD_Project/NENA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.pdf",
     "New_CAD_Project/~$NA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.docx",
     "New_CAD_Project/NENA-STA-021.1.1 EIDO JSON_AllCRBallot.pdf",
-    "New_CAD_Project/~$NA-STA-021.1.1 EIDO JSON_AllCRBallot.docx",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
