@@ -17,10 +17,12 @@ const coreQuestion = await tp.system.prompt("Today's Core Question:", "", true);
 const themeCard = await tp.system.prompt("Theme Card:");
 const themeMeaning = await tp.system.prompt("Theme Meaning:", "", true);
 const themeGoals = await tp.system.suggester(goals, goals, true, "Select relevant goals (multiple):");
-let themeGoalsOutput = "";
-if (themeGoals && themeGoals.length > 0) {
-  themeGoalsOutput = themeGoals.map(g => `- ${g}`).join("\n");
-}
+  // suggester with multiple=true may return null/string, ensure array
+  const themeGoalsArray = Array.isArray(themeGoals) ? themeGoals : [];
+  let themeGoalsOutput = "";
+  if (themeGoalsArray.length > 0) {
+    themeGoalsOutput = themeGoalsArray.map(g => "- " + g).join("\n");
+  }
 
 // Guidance Card
 const guidanceCard = await tp.system.prompt("Guidance Card:");

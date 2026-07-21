@@ -8,6 +8,20 @@
         "type": "tabs",
         "children": [
           {
+            "id": "c93b7ac5c6aeb64e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "journal/2026-07-20.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-07-20"
+            }
+          },
+          {
             "id": "e7bca18660f1afdf",
             "type": "leaf",
             "state": {
@@ -242,8 +256,11 @@
   },
   "active": "e7bca18660f1afdf",
   "lastOpenFiles": [
-    "journal/2026-07-19.md",
     "HOTKEYS.md",
+    "Staffing/ErlangBandCFormulas.pdf",
+    "journal/2026-07-20.md",
+    "Staffing",
+    "journal/2026-07-19.md",
     "Toastmasters/Toastmasters Meeting Notes 20260720.md",
     "Toastmasters/NNTC Meeting 15 Jun 2026.md",
     "Templates/scripts/Toastmasters Meeting Notes.md",
@@ -269,6 +286,7 @@
     "Templates/scripts/daily_tarot_reading_template.md",
     "2026-07-18.md",
     "Toastmasters/Toastmasters District Leadership training 20260718.md",
+    "obsidian_templater_cheat_sheet.md",
     "blog",
     "computer_links",
     "Templates/blog_post_template.qmd",
@@ -277,7 +295,6 @@
     "Templates/scripts",
     "New_CAD_Project/NENA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.pdf",
     "New_CAD_Project/~$NA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.docx",
-    "New_CAD_Project/NENA-STA-021.1.1 EIDO JSON_AllCRBallot.pdf",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
