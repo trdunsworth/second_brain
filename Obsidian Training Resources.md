@@ -5,3 +5,5 @@ There are a couple of [Medium](https://medium.com) articles that I want to link 
 There is also this [Obsidian Tutorial for Dummies](https://forum.obsidian.md/t/obsidian-tutorial-for-dummies/70662. This could be helpful to instruct me.
 
 Then there's [SitePoint's](https://www.sitepoint.com/obsidian-beginner-guide/) tutorial. 
+
+[Sebastien Dubois' Guide to Templater](https://www.dsebastien.net/the-complete-guide-to-templates-and-templater-in-obsidian/)should be a good resource.

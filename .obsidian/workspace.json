@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-07-20.md",
+                "file": "journal/2026-07-21.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-07-20"
+              "title": "2026-07-21"
             }
           },
           {
@@ -35,7 +35,8 @@
               "title": "HOTKEYS"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -254,11 +255,15 @@
       "open-vscode:VS Code": false
     }
   },
-  "active": "c93b7ac5c6aeb64e",
+  "active": "e7bca18660f1afdf",
   "lastOpenFiles": [
+    "obsidian_templater_cheat_sheet.md",
+    "journal/2026-07-21.md",
     "HOTKEYS.md",
-    "Staffing/ErlangBandCFormulas.pdf",
+    "Templates/scripts/toastmasters_meeting_template.md",
+    "Obsidian Training Resources.md",
     "journal/2026-07-20.md",
+    "Staffing/ErlangBandCFormulas.pdf",
     "Staffing",
     "journal/2026-07-19.md",
     "Toastmasters/Toastmasters Meeting Notes 20260720.md",
@@ -281,12 +286,6 @@
     "Templates/scripts/attitude_adjustment_goals.md",
     "journal/2026-07-18.md",
     "Templates/scripts/Daily Note Template.md",
-    "Templates/scripts/blog_idea_capture_template.md",
-    "Templates/scripts/blog_post_nocode_template.md",
-    "Templates/scripts/daily_tarot_reading_template.md",
-    "2026-07-18.md",
-    "Toastmasters/Toastmasters District Leadership training 20260718.md",
-    "obsidian_templater_cheat_sheet.md",
     "blog",
     "computer_links",
     "Templates/blog_post_template.qmd",
@@ -294,7 +293,6 @@
     "references",
     "Templates/scripts",
     "New_CAD_Project/NENA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.pdf",
-    "New_CAD_Project/~$NA-STA-023.1-201X NG9-1-1 PSAP Standard (group drm CHFE) 06-23-26.docx",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
