@@ -35,8 +35,7 @@
               "title": "HOTKEYS"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -93,7 +92,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300.5
+    "width": 300.5,
+    "collapsed": true
   },
   "right": {
     "id": "4b92d9adc29a4c30",
@@ -255,11 +255,13 @@
       "open-vscode:VS Code": false
     }
   },
-  "active": "e7bca18660f1afdf",
+  "active": "c93b7ac5c6aeb64e",
   "lastOpenFiles": [
-    "obsidian_templater_cheat_sheet.md",
-    "journal/2026-07-21.md",
     "HOTKEYS.md",
+    "Toastmasters/Toastmasters District 218 Leadership Training..md",
+    "journal/2026-07-21.md",
+    "Untitled",
+    "obsidian_templater_cheat_sheet.md",
     "Templates/scripts/toastmasters_meeting_template.md",
     "Obsidian Training Resources.md",
     "journal/2026-07-20.md",
@@ -270,7 +272,6 @@
     "Toastmasters/NNTC Meeting 15 Jun 2026.md",
     "Templates/scripts/Toastmasters Meeting Notes.md",
     "Daily Template Hotkeys.md",
-    "Untitled",
     "Templates/scripts/daily_log_template_templater.md",
     "Templates/scripts/personal_measurements_template_templater.md",
     "Templates/scripts/annual_progress_review_template_templater.md",
@@ -285,7 +286,6 @@
     "Templates/scripts/daily_tarot_reading_template_templater.md",
     "Templates/scripts/attitude_adjustment_goals.md",
     "journal/2026-07-18.md",
-    "Templates/scripts/Daily Note Template.md",
     "blog",
     "computer_links",
     "Templates/blog_post_template.qmd",
