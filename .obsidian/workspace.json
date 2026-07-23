@@ -13,26 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-07-22.md",
+                "file": "journal/2026-07-23.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-07-22"
+              "title": "2026-07-23"
             }
           },
           {
-            "id": "176e96eb930bfb4d",
+            "id": "7f5a5efb23d9277b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DECC Reporting Project/DECC Reporting Template.md",
+                "file": "HOTKEYS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DECC Reporting Template"
+              "title": "HOTKEYS"
             }
           }
         ]
@@ -256,24 +256,30 @@
   },
   "active": "c93b7ac5c6aeb64e",
   "lastOpenFiles": [
+    "Cheatsheets/shiny.pdf",
+    "Cheatsheets/Unconfirmed 854518.crdownload",
+    "Cheatsheets/reticulate.pdf",
+    "Cheatsheets/Unconfirmed 32779.crdownload",
+    "Cheatsheets/parsnip_models.pdf",
+    "Cheatsheets/Unconfirmed 106367.crdownload",
+    "Cheatsheets",
+    "Cheatsheets/plotnine.pdf",
+    "DECC Reporting Project/Unconfirmed 145951.crdownload",
+    "HOTKEYS.md",
+    "journal/2026-07-23.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
     "DECC Reporting Project/DECC Reporting Template.md",
+    "Toastmasters/Area Docs/~$eetings_Template.docx",
+    "Toastmasters/Area Docs/~WRL0004.tmp",
     "journal/2026-07-22.md",
-    "DECC Reporting Project/9781800563452.epub",
-    "DECC Reporting Project/9781789537253.epub",
-    "DECC Reporting Project/9781803231105.epub",
-    "DECC Reporting Project/Starting_Data_Analytics_with_Generative_.epub",
-    "DECC Reporting Project",
     "Templates/scripts/toastmasters_speech_template.md",
     "Templates/scripts/project_template.md",
-    "HOTKEYS.md",
     "journal/2026-07-21.md",
     "Toastmasters/Toastmasters District 218 Leadership Training..md",
     "obsidian_templater_cheat_sheet.md",
     "Templates/scripts/toastmasters_meeting_template.md",
     "Obsidian Training Resources.md",
     "journal/2026-07-20.md",
-    "Staffing/ErlangBandCFormulas.pdf",
-    "Staffing",
     "journal/2026-07-19.md",
     "Toastmasters/Toastmasters Meeting Notes 20260720.md",
     "Toastmasters/NNTC Meeting 15 Jun 2026.md",
@@ -286,11 +292,6 @@
     "Templates/scripts/weekly_reflection_template_templater.md",
     "Templates/scripts/habit_tracker_template_templater.md",
     "Templates/scripts/daily_reflection_template_templater.md",
-    "Templates/scripts/daily_journal_template.md",
-    "Templates/scripts/blog_post_nocode_template_templater.md",
-    "blog",
-    "computer_links",
-    "Templates/blog_post_template.qmd",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
