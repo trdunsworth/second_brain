@@ -9,5 +9,6 @@
   "open-vscode",
   "obsidian-linter",
   "obsidian-pandoc",
-  "journals"
+  "journals",
+  "obsidian-timestamper"
 ]
