@@ -1,6 +1,6 @@
 # NNTC Meeting <% tp.date.now("YYYY-MM-DD") %>
 
-**Meeting Number:** <% tp.user.getNextMeetingNumber() || "TBD" %>
+**Meeting Number:** <% await tp.system.prompt("Meeting Number") %>
 **Theme:** <% await tp.system.prompt("Meeting Theme (optional)") %>
 
 ---
@@ -17,26 +17,16 @@
 ## 👥 Attendance
 
 ### Members Present
-<%*
-const memberCount = parseInt(await tp.system.prompt("Number of members present (0-15)") || "0");
-for (let i = 1; i <= memberCount; i++) {
-    const member = await tp.user.selectMember(`Member ${i}`);
-    if (member) tR += `- ${member}\n`;
-    else break;
-}
-if (memberCount === 0) tR += "- \n";
-_%>
+- 
+- 
+- 
+- 
+- 
 
 ### Guests
-<%*
-const guestCount = parseInt(await tp.system.prompt("Number of guests (0-5)") || "0");
-for (let i = 1; i <= guestCount; i++) {
-    const guest = await tp.system.prompt(`Guest ${i} Name`);
-    if (guest) tR += `- ${guest}\n`;
-    else break;
-}
-if (guestCount === 0) tR += "- \n";
-_%>
+- 
+- 
+- 
 
 ---
 
@@ -44,33 +34,33 @@ _%>
 
 | Role | Member |
 |------|--------|
-| **Sergeant-At-Arms** | <% await tp.user.selectMember("Sergeant-At-Arms") %> |
-| **President** | <% await tp.user.selectMember("President") %> |
-| **Toastmaster** | <% await tp.user.selectMember("Toastmaster") %> |
-| **Table Topics Master** | <% await tp.user.selectMember("Table Topics Master") %> |
-| **General Evaluator** | <% await tp.user.selectMember("General Evaluator") %> |
-| **Timer** | <% await tp.user.selectMember("Timer") %> |
-| **Ah Counter & Grammarian** | <% await tp.user.selectMember("Ah Counter & Grammarian") %> |
-| **Listen Up, Leader** | <% await tp.user.selectMember("Listen Up, Leader") %> |
+| **Sergeant-At-Arms** | |
+| **President** | |
+| **Toastmaster** | |
+| **Table Topics Master** | |
+| **General Evaluator** | |
+| **Timer** | |
+| **Ah Counter & Grammarian** | |
+| **Listen Up, Leader** | |
 
 ### Speakers & Evaluators
 
 | Role | Member | Pathway / Level | Speech Title | Time |
 |------|--------|-----------------|--------------|------|
-| **Speaker 1** | <% await tp.user.selectMember("Speaker 1") %> | <% await tp.system.prompt("Speaker 1 Pathway/Level") %> | <% await tp.system.prompt("Speaker 1 Speech Title") %> | 00:00 |
-| **Speaker 2** | <% await tp.user.selectMember("Speaker 2") %> | <% await tp.system.prompt("Speaker 2 Pathway/Level") %> | <% await tp.system.prompt("Speaker 2 Speech Title") %> | 00:00 |
-| **Speaker 3** | <% await tp.user.selectMember("Speaker 3") %> | <% await tp.system.prompt("Speaker 3 Pathway/Level") %> | <% await tp.system.prompt("Speaker 3 Speech Title") %> | 00:00 |
-| **Evaluator 1** | <% await tp.user.selectMember("Evaluator 1") %> | | | 00:00 |
-| **Evaluator 2** | <% await tp.user.selectMember("Evaluator 2") %> | | | 00:00 |
-| **Evaluator 3** | <% await tp.user.selectMember("Evaluator 3") %> | | | 00:00 |
+| **Speaker 1** | | <% await tp.system.prompt("Speaker 1 Pathway/Level") %> | <% await tp.system.prompt("Speaker 1 Speech Title") %> | 00:00 |
+| **Speaker 2** | | <% await tp.system.prompt("Speaker 2 Pathway/Level") %> | <% await tp.system.prompt("Speaker 2 Speech Title") %> | 00:00 |
+| **Speaker 3** | | <% await tp.system.prompt("Speaker 3 Pathway/Level") %> | <% await tp.system.prompt("Speaker 3 Speech Title") %> | 00:00 |
+| **Evaluator 1** | | | | 00:00 |
+| **Evaluator 2** | | | | 00:00 |
+| **Evaluator 3** | | | | 00:00 |
 
 ---
 
 ## 🗣️ Table Topics
 
 <%*
-const ttCount = parseInt(await tp.system.prompt("Number of Table Topics participants (1-6)") || "3");
-for (let i = 1; i <= ttCount; i++) {
+const tableTopicsCount = parseInt(await tp.system.prompt("Number of Table Topics participants (1-6)") || "3");
+for (let i = 1; i <= tableTopicsCount; i++) {
     const name = await tp.system.prompt(`TT${i} - Participant Name`);
     const question = await tp.system.prompt(`TT${i} - Question Asked`);
     tR += `| **TT${i}** | ${name} | ${question} | 00:00 |\n`;
@@ -107,7 +97,7 @@ _%>
 
 ## 📄 Export to PDF
 
-Run in Templater: `<% tp.user.exportToPDF(tp.file.title) %>`
+Run in Templater: `<% await tp.user.exportToPDF(tp.file.title) %>`
 
 > **Requires:** `obsidian-pandoc` plugin + `pandoc` + `weasyprint` installed
 > **Setup:** Copy `exportToPDF.js` to `.obsidian/plugins/templater/user-scripts/`

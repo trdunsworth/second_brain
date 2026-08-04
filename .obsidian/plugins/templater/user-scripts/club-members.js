@@ -29,13 +29,11 @@ const MEMBERS = [
  * @returns {string} Selected member name or empty string
  */
 async function selectMember(role) {
-    const { suggester } = require('suggester');
-    
     // Add "None/Unassigned" option at the top
     const choices = ["— None / Unassigned —", ...MEMBERS.sort()];
     
     try {
-        const selected = await suggester(
+        const selected = await tp.system.suggester(
             choices,
             choices,
             true, // single selection

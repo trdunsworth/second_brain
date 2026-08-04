@@ -22,7 +22,21 @@
             }
           },
           {
-            "id": "55d0fb0222af5639",
+            "id": "296b661757eeba1d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Toastmasters/Toastmasters Signature for Email.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Toastmasters Signature for Email"
+            }
+          },
+          {
+            "id": "5597a0b6b1a716c5",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -272,19 +286,25 @@
   },
   "active": "5fe4344c13870bc9",
   "lastOpenFiles": [
-    "Toastmasters/Ice Breaker - Dynamic Leadership.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-08-03.md",
+    "~$toastmasters_training_attendance_template.xlsx",
+    "Toastmasters/Ice Breaker - Dynamic Leadership.md",
+    "Untitled.md",
+    "HOTKEYS.md",
+    "Scripts/exportToPDF.js",
+    "Scripts/club-members.js",
+    "Scripts",
+    "Untitled 1.md",
     "journal/2026-08-01.md",
     "journal/2026-07-30.md",
     "journal/2026-07-31.md",
-    "HOTKEYS.md",
     "[uvr.md",
     "Templates/toastmasters_training_attendance_template.xlsx",
     "toastmasters_training_attendance_template.xlsx",
     "Templates/toastmasters_training_attendance_template.csv",
     "Templates/toastmasters_training_attendance_report_template.md",
     "Templates/Toastmasters Attendance Template.md",
-    "Toastmasters/Toastmasters Signature for Email.md",
     "DMA_Notes/R Information for DMA projects.md",
     "journal/2026-07-29.md",
     "journal/2026-07-28.md",
@@ -294,10 +314,6 @@
     "Cheatsheets/shiny.pdf",
     "Cheatsheets/Unconfirmed 854518.crdownload",
     "Cheatsheets/reticulate.pdf",
-    "Cheatsheets/Unconfirmed 32779.crdownload",
-    "Cheatsheets/parsnip_models.pdf",
-    "Cheatsheets/Unconfirmed 106367.crdownload",
-    "Cheatsheets",
     "DECC Reporting Project/DECC Reporting Template.md",
     "journal/2026-07-22.md",
     "Templates/scripts/toastmasters_speech_template.md",
@@ -305,9 +321,6 @@
     "journal/2026-07-21.md",
     "Toastmasters/Toastmasters District 218 Leadership Training..md",
     "obsidian_templater_cheat_sheet.md",
-    "Templates/scripts/toastmasters_meeting_template.md",
-    "Obsidian Training Resources.md",
-    "journal/2026-07-20.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
