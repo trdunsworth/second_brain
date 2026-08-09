@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-08-07.md",
+                "file": "journal/2026-08-08.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-08-07"
+              "title": "2026-08-08"
             }
           },
           {
@@ -49,8 +49,7 @@
               "title": "HOTKEYS"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -271,13 +270,14 @@
       "open-vscode:VS Code": false
     }
   },
-  "active": "f309269d2a998393",
+  "active": "296b661757eeba1d",
   "lastOpenFiles": [
     "journal/2026-08-07.md",
+    "journal/2026-08-08.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-08-06.md",
     "journal/2026-08-05.md",
     "HOTKEYS.md",
-    "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-08-04.md",
     "journal/2026-08-03.md",
     "~$toastmasters_training_attendance_template.xlsx",
@@ -308,7 +308,6 @@
     "DECC Reporting Project/DECC Reporting Template.md",
     "journal/2026-07-22.md",
     "Templates/scripts/toastmasters_speech_template.md",
-    "Templates/scripts/project_template.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
