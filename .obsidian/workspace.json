@@ -13,12 +13,24 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-08-11.md",
+                "file": "journal/2026-08-12.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-08-11"
+              "title": "2026-08-12"
+            }
+          },
+          {
+            "id": "a86d636815593b37",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.13.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.13.7"
             }
           },
           {
@@ -49,7 +61,8 @@
               "title": "HOTKEYS"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -270,10 +283,11 @@
       "open-vscode:VS Code": false
     }
   },
-  "active": "296b661757eeba1d",
+  "active": "a86d636815593b37",
   "lastOpenFiles": [
-    "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-08-11.md",
+    "journal/2026-08-12.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-08-10.md",
     "journal/2026-08-09.md",
     "journal/2026-08-08.md",
@@ -304,7 +318,6 @@
     "journal/2026-07-28.md",
     "journal/2026-07-27.md",
     "journal/2026-07-24.md",
-    "journal/2026-07-23.md",
     "Cheatsheets/shiny.pdf",
     "Cheatsheets/Unconfirmed 854518.crdownload",
     "Cheatsheets/reticulate.pdf",
