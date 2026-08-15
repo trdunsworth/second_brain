@@ -63,7 +63,8 @@
               "title": "Toastmasters email"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -284,10 +285,10 @@
       "open-vscode:VS Code": false
     }
   },
-  "active": "296b661757eeba1d",
+  "active": "f309269d2a998393",
   "lastOpenFiles": [
-    "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-08-14.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
     "Toastmasters/Toastmasters email.md",
     "journal/2026-08-13.md",
     "HOTKEYS.md",
