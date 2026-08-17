@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-08-16.md",
+                "file": "journal/2026-08-17.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-08-16"
+              "title": "2026-08-17"
             }
           },
           {
@@ -272,8 +272,9 @@
   },
   "active": "296b661757eeba1d",
   "lastOpenFiles": [
-    "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-08-16.md",
+    "journal/2026-08-17.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-08-15.md",
     "HOTKEYS.md",
     "Toastmasters/Toastmasters email.md",
@@ -304,7 +305,6 @@
     "Templates/toastmasters_training_attendance_template.csv",
     "Templates/toastmasters_training_attendance_report_template.md",
     "Templates/Toastmasters Attendance Template.md",
-    "DMA_Notes/R Information for DMA projects.md",
     "Cheatsheets/shiny.pdf",
     "Cheatsheets/Unconfirmed 854518.crdownload",
     "Cheatsheets/reticulate.pdf",
