@@ -10,5 +10,8 @@
   "obsidian-linter",
   "obsidian-pandoc",
   "journals",
-  "obsidian-timestamper"
+  "obsidian-timestamper",
+  "copilot",
+  "code-styler",
+  "obsidian-advanced-codeblock"
 ]
