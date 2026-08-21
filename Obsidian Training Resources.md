@@ -7,3 +7,6 @@ There is also this [Obsidian Tutorial for Dummies](https://forum.obsidian.md/t/o
 Then there's [SitePoint's](https://www.sitepoint.com/obsidian-beginner-guide/) tutorial. 
 
 [Sebastien Dubois' Guide to Templater](https://www.dsebastien.net/the-complete-guide-to-templates-and-templater-in-obsidian/)should be a good resource.
+
+[Master Obsidian](https://medium.com/@roanmonteiro/master-obsidian-the-complete-and-definitive-guide-to-turning-your-notes-into-a-second-brain-43f9f147f31a)
+
