@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-08-25.md",
+                "file": "journal/2026-08-26.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-08-25"
+              "title": "2026-08-26"
             }
           },
           {
@@ -290,8 +290,9 @@
   "active": "07b17bfc7d1af8a3",
   "lastOpenFiles": [
     "Toastmasters/Toastmasters Signature for Email.md",
-    "ALX_Notes/2024-08-26 Sr. Mgmt. Meeting.md",
+    "journal/2026-08-26.md",
     "journal/2026-08-25.md",
+    "ALX_Notes/2024-08-26 Sr. Mgmt. Meeting.md",
     "journal/2026-08-24.md",
     "HOTKEYS.md",
     "DMA_theme/README.md",
@@ -323,7 +324,6 @@
     "copilot/skills/json-canvas",
     "copilot/skills/obsidian-bases/SKILL.md",
     "copilot/skills/obsidian-bases/LICENSE",
-    "copilot/skills/obsidian-bases/references/EXAMPLES.md",
     "copilot/skills/obsidian-bases/references",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
