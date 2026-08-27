@@ -1,0 +1,1 @@
+It was the early part of summer, 1984. the Summer Olympics in Los Angeles were on the horizon. It was something that he was interested in. He fell in love with the Olympics in 1976 and then with the Moscow boycott, he was hoping that 1984 would be more interesting. His favourite part was seeing all of the smaller sports that he'd never heard of, like Team Handball, etc.
