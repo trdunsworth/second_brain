@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-08-27.md",
+                "file": "journal/2026-08-28.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-08-27"
+              "title": "2026-08-28"
             }
           },
           {
@@ -246,9 +246,19 @@
               "icon": "message-circle",
               "title": "OpenCode Conversations"
             }
+          },
+          {
+            "id": "3371b99165785a46",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-agent-chat-view",
+              "state": {},
+              "icon": "copilot-agent",
+              "title": "Copilot Agent"
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 10
       }
     ],
     "direction": "horizontal",
@@ -275,8 +285,9 @@
   },
   "active": "07b17bfc7d1af8a3",
   "lastOpenFiles": [
-    "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-08-27.md",
+    "journal/2026-08-28.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
     "Toastmasters/It was a bad day in the summer.md",
     "ALX_Notes/2024-08-26 Sr. Mgmt. Meeting.md",
     "HOTKEYS.md",
@@ -305,7 +316,6 @@
     "copilot/skills/obsidian-cli/SKILL.md",
     "copilot/skills/obsidian-cli/LICENSE",
     "copilot/skills/obsidian-cli",
-    "copilot/skills/json-canvas/SKILL.md",
     "copilot/skills/json-canvas/LICENSE",
     "copilot/skills/json-canvas/references",
     "copilot/skills/json-canvas",
