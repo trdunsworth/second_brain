@@ -58,17 +58,14 @@
 
 ## 🗣️ Table Topics
 
-<%*
-const tableTopicsCount = parseInt(await tp.system.prompt("Number of Table Topics participants (1-6)") || "3");
-for (let i = 1; i <= tableTopicsCount; i++) {
-    const name = await tp.system.prompt(`TT${i} - Participant Name`);
-    const question = await tp.system.prompt(`TT${i} - Question Asked`);
-    tR += `| **TT${i}** | ${name} | ${question} | 00:00 |\n`;
-}
-_%>
-
 | # | Participant | Question | Time |
 |---|-------------|----------|------|
+| **TT1** | <% await tp.system.prompt("TT1 - Participant Name") %> | <% await tp.system.prompt("TT1 - Question Asked") %> | 00:00 |
+| **TT2** | <% await tp.system.prompt("TT2 - Participant Name") %> | <% await tp.system.prompt("TT2 - Question Asked") %> | 00:00 |
+| **TT3** | <% await tp.system.prompt("TT3 - Participant Name") %> | <% await tp.system.prompt("TT3 - Question Asked") %> | 00:00 |
+| **TT4** | <% await tp.system.prompt("TT4 - Participant Name (leave blank to skip)") %> | <% await tp.system.prompt("TT4 - Question Asked") %> | 00:00 |
+| **TT5** | <% await tp.system.prompt("TT5 - Participant Name (leave blank to skip)") %> | <% await tp.system.prompt("TT5 - Question Asked") %> | 00:00 |
+| **TT6** | <% await tp.system.prompt("TT6 - Participant Name (leave blank to skip)") %> | <% await tp.system.prompt("TT6 - Question Asked") %> | 00:00 |
 
 ---
 
@@ -76,20 +73,18 @@ _%>
 
 | Role / Speaker | Time Used | Time Allowed | Status |
 |----------------|-----------|--------------|--------|
-<%*
-const speakers = ["Speaker 1", "Speaker 2", "Speaker 3"];
-for (const s of speakers) {
-    tR += `| **${s}** | 00:00 | 5:00-7:00 | ☐ |\n`;
-}
-const evaluators = ["Evaluator 1", "Evaluator 2", "Evaluator 3"];
-for (const e of evaluators) {
-    tR += `| **${e}** | 00:00 | 2:00-3:00 | ☐ |\n`;
-}
-const ttCount = parseInt(await tp.system.prompt("Number of Table Topics participants (for Timer's Report)") || "3");
-for (let i = 1; i <= ttCount; i++) {
-    tR += `| **TT${i}** | 00:00 | 1:00-2:00 | ☐ |\n`;
-}
-_%>
+| **Speaker 1** | 00:00 | 5:00-7:00 | ☐ |
+| **Speaker 2** | 00:00 | 5:00-7:00 | ☐ |
+| **Speaker 3** | 00:00 | 5:00-7:00 | ☐ |
+| **Evaluator 1** | 00:00 | 2:00-3:00 | ☐ |
+| **Evaluator 2** | 00:00 | 2:00-3:00 | ☐ |
+| **Evaluator 3** | 00:00 | 2:00-3:00 | ☐ |
+| **TT1** | 00:00 | 1:00-2:00 | ☐ |
+| **TT2** | 00:00 | 1:00-2:00 | ☐ |
+| **TT3** | 00:00 | 1:00-2:00 | ☐ |
+| **TT4** | 00:00 | 1:00-2:00 | ☐ |
+| **TT5** | 00:00 | 1:00-2:00 | ☐ |
+| **TT6** | 00:00 | 1:00-2:00 | ☐ |
 
 **Timer Notes:** <% await tp.system.prompt("Timer notes / observations") %>
 

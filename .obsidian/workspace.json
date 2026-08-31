@@ -8,17 +8,31 @@
         "type": "tabs",
         "children": [
           {
+            "id": "bf1381c2d92abb03",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "journal/2026-08-31.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-08-31"
+            }
+          },
+          {
             "id": "07b17bfc7d1af8a3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-08-30.md",
+                "file": "DMA_Notes/DMA Reporting Agent Project.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-08-30"
+              "title": "DMA Reporting Agent Project"
             }
           },
           {
@@ -51,6 +65,20 @@
               "pinned": true,
               "icon": "lucide-file",
               "title": "HOTKEYS"
+            }
+          },
+          {
+            "id": "27b82929a1adb1ec",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Books/Build a Reasoning Model from Scratch.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Build a Reasoning Model from Scratch"
             }
           }
         ]
@@ -286,16 +314,22 @@
       "hermes-agent:Open Hermes smart graph": false
     }
   },
-  "active": "07b17bfc7d1af8a3",
+  "active": "bf1381c2d92abb03",
   "lastOpenFiles": [
+    "DMA_Notes/DMA Reporting Agent Project.md",
     "USERSGUIDE.md",
+    "journal/2026-08-31.md",
+    "Books/Build a Reasoning Model from Scratch.md",
+    "Templates/scripts/toastmasters_meeting_template_templater.md",
+    "Templates/scripts/toastmasters_speech_template_templater.md",
+    "Books/Thinking Fast and Slow.md",
+    "Creating an Reasoning Model from Scratch.md",
     "journal/2026-08-30.md",
     "HOTKEYS.md",
     "Toastmasters/Toastmasters Signature for Email.md",
     "Test.md",
     "## Book Shelf```dataviewTABLE author, rating, date_readFROM \"Books\"WHERE type = \"book-review\"SORT rating DESC```## Research Log```dataviewTABLE source, method, statusFROM \"Research\"WHERE type = \"research-note\"SORT date DESC```.md",
     "Research/Time-Series/ARIMA vs Prophet.md",
-    "Books/Thinking Fast and Slow.md",
     "Templates/Meeting Note.md",
     "Templates/Project Status.md",
     "Templates/Research Note.md",
@@ -314,14 +348,8 @@
     "journal/2026-08-25.md",
     "journal/2026-08-24.md",
     "DMA_theme/README.md",
-    "DMA_theme/AGENTS.md",
-    "DMA_theme/AGENTS 1.md",
-    "DMA_theme/CHANGELOG.md",
-    "DMA_theme/TODO.md",
     "DMA_theme/palette.json",
     "DMA_theme/LICENSE",
-    "DMA_theme/GUIDELINES.md",
-    "DMA_theme/CONTRAST.md",
     "DMA_theme",
     "copilot/skills/obsidian-cli/LICENSE",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",

@@ -9,8 +9,8 @@ created: "<% tp.date.now('YYYY-MM-DD HH:mm') %>"
 // Helper function for 1-10 ratings
 async function rate(prompt) {
   const options = ["1","2","3","4","5","6","7","8","9","10"];
-  const values = [1,2,3,4,5,6,7,8,9,10];
-  return await tp.system.suggester(options, values, false, prompt);
+  const result = await tp.system.suggester(options, options, false, prompt);
+  return result ? parseInt(result) : 0;
 }
 
 // ===== DOMAIN: Husband/Spouse Relationships =====
