@@ -500,11 +500,1825 @@
     "welcomeDismissed": false,
     "skills": {
       "folder": "copilot/skills"
+    },
+    "deviceProfiles": {
+      "b36d3d96-c20c-4632-bb64-f01528028371": {
+        "opencode": {
+          "binaryPath": "/Users/trdunsworth/.obsidian-copilot/opencode/1.18.16/bin/opencode",
+          "binaryVersion": "1.18.16",
+          "binarySource": "managed",
+          "probeSessionId": "ses_facb0319fffeu136wgj2DSx7qM"
+        }
+      }
     }
   },
-  "providers": {},
-  "configuredModels": [],
-  "backends": {},
+  "providers": {
+    "e7a86ac6-1342-4605-bc46-70cb94fe5530": {
+      "providerType": "openai-compatible",
+      "displayName": "opencode",
+      "origin": {
+        "kind": "agent",
+        "agentType": "opencode"
+      },
+      "requiresApiKey": false,
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "addedAt": 1788104134255,
+      "apiKeyKeychainId": null
+    }
+  },
+  "configuredModels": [
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/big-pickle",
+        "displayName": "OpenCode Zen/Big Pickle"
+      },
+      "configuredModelId": "9b5554ab-e7c2-44d1-bfde-7fea71f7381e",
+      "configuredAt": 1788104136551
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/claude-fable-5",
+        "displayName": "OpenCode Zen/Claude Fable 5"
+      },
+      "configuredModelId": "a2f34880-f8d5-4f9d-a64b-a0376e4780bd",
+      "configuredAt": 1788104136553
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/claude-haiku-4-5",
+        "displayName": "OpenCode Zen/Claude Haiku 4.5"
+      },
+      "configuredModelId": "07b78d63-91ba-4ef7-b428-5e2e35e97350",
+      "configuredAt": 1788104136560
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/claude-opus-4-5",
+        "displayName": "OpenCode Zen/Claude Opus 4.5"
+      },
+      "configuredModelId": "25698aea-bc96-4a87-8263-1bb2864f24c8",
+      "configuredAt": 1788104136564
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/claude-opus-4-6",
+        "displayName": "OpenCode Zen/Claude Opus 4.6"
+      },
+      "configuredModelId": "cb4f2886-26af-4743-af5b-135fe2b9ee9a",
+      "configuredAt": 1788104136564
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/claude-opus-4-7",
+        "displayName": "OpenCode Zen/Claude Opus 4.7"
+      },
+      "configuredModelId": "74fb7493-b8c4-4ee7-a14b-6b00c2800c25",
+      "configuredAt": 1788104136565
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/claude-opus-4-8",
+        "displayName": "OpenCode Zen/Claude Opus 4.8"
+      },
+      "configuredModelId": "96676ca9-351b-4d27-8f6d-fd98ee2bf5d1",
+      "configuredAt": 1788104136565
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/claude-opus-5",
+        "displayName": "OpenCode Zen/Claude Opus 5"
+      },
+      "configuredModelId": "9419bd92-7ae3-47db-acbd-98026588912f",
+      "configuredAt": 1788104136566
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/claude-sonnet-4",
+        "displayName": "OpenCode Zen/Claude Sonnet 4"
+      },
+      "configuredModelId": "58678627-e5b0-474f-9e0b-d38e12a56cde",
+      "configuredAt": 1788104136566
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/claude-sonnet-4-5",
+        "displayName": "OpenCode Zen/Claude Sonnet 4.5"
+      },
+      "configuredModelId": "93713637-5d98-4a40-b945-dcd40661cdab",
+      "configuredAt": 1788104136566
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/claude-sonnet-4-6",
+        "displayName": "OpenCode Zen/Claude Sonnet 4.6"
+      },
+      "configuredModelId": "97591e19-d7ef-4ee1-b4ea-d19264caee3f",
+      "configuredAt": 1788104136567
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/claude-sonnet-5",
+        "displayName": "OpenCode Zen/Claude Sonnet 5"
+      },
+      "configuredModelId": "646ea849-b49d-4f4d-873d-eba01800d5cc",
+      "configuredAt": 1788104136567
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/deepseek-v4-flash",
+        "displayName": "OpenCode Zen/DeepSeek V4 Flash"
+      },
+      "configuredModelId": "e8913767-2926-4034-89b4-e3b2eb41cb53",
+      "configuredAt": 1788104136567
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/deepseek-v4-pro",
+        "displayName": "OpenCode Zen/DeepSeek V4 Pro"
+      },
+      "configuredModelId": "4e22f1c8-e8ed-42b9-b5d9-5fbacd051808",
+      "configuredAt": 1788104136568
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gemini-3-flash",
+        "displayName": "OpenCode Zen/Gemini 3 Flash"
+      },
+      "configuredModelId": "8fc61b84-eda7-4189-885e-19b0d48046d1",
+      "configuredAt": 1788104136568
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gemini-3.1-pro",
+        "displayName": "OpenCode Zen/Gemini 3.1 Pro Preview"
+      },
+      "configuredModelId": "97fb90f2-67ea-40ec-aac3-3a4920d562e5",
+      "configuredAt": 1788104136568
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gemini-3.5-flash",
+        "displayName": "OpenCode Zen/Gemini 3.5 Flash"
+      },
+      "configuredModelId": "5cfe4913-6cf0-4b33-ae59-36765f86762e",
+      "configuredAt": 1788104136569
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gemini-3.5-flash-lite",
+        "displayName": "OpenCode Zen/Gemini 3.5 Flash Lite"
+      },
+      "configuredModelId": "405bbdc4-1e5d-4956-880b-f152cf4f48c4",
+      "configuredAt": 1788104136569
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gemini-3.6-flash",
+        "displayName": "OpenCode Zen/Gemini 3.6 Flash"
+      },
+      "configuredModelId": "d7623d0e-3e95-4dd2-a523-a09110e8bfc6",
+      "configuredAt": 1788104136569
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gemini-3.7-flash",
+        "displayName": "OpenCode Zen/Gemini 3.7 Flash"
+      },
+      "configuredModelId": "206a9b37-ce02-4794-be23-3f09da3ce1d7",
+      "configuredAt": 1788104136570
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/glm-5",
+        "displayName": "OpenCode Zen/GLM-5"
+      },
+      "configuredModelId": "6561863f-8308-44b7-9dff-d0ef0af9e89a",
+      "configuredAt": 1788104136570
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/glm-5.1",
+        "displayName": "OpenCode Zen/GLM-5.1"
+      },
+      "configuredModelId": "23a3377f-1ddf-41db-835f-8c2517897bc4",
+      "configuredAt": 1788104136570
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/glm-5.2",
+        "displayName": "OpenCode Zen/GLM-5.2"
+      },
+      "configuredModelId": "047b5673-6205-40b3-8939-9d6cbed53ec4",
+      "configuredAt": 1788104136571
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5",
+        "displayName": "OpenCode Zen/GPT-5"
+      },
+      "configuredModelId": "0ef39249-203d-40da-80fa-d3a16a5af591",
+      "configuredAt": 1788104136571
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5-codex",
+        "displayName": "OpenCode Zen/GPT-5 Codex"
+      },
+      "configuredModelId": "17ae272b-2b50-4457-8a14-492e352252b6",
+      "configuredAt": 1788104136572
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5-nano",
+        "displayName": "OpenCode Zen/GPT-5 Nano"
+      },
+      "configuredModelId": "de2fa8ba-548b-4c09-901c-b461f913f1d2",
+      "configuredAt": 1788104136572
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.1",
+        "displayName": "OpenCode Zen/GPT-5.1"
+      },
+      "configuredModelId": "319b230d-adc3-411d-a209-d54adb7e331c",
+      "configuredAt": 1788104136572
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.1-codex",
+        "displayName": "OpenCode Zen/GPT-5.1 Codex"
+      },
+      "configuredModelId": "1db739be-58e1-48f2-ad24-a2077ab16764",
+      "configuredAt": 1788104136573
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.1-codex-max",
+        "displayName": "OpenCode Zen/GPT-5.1 Codex Max"
+      },
+      "configuredModelId": "81f299b6-c15c-44fd-b1db-75bc4cfa78b0",
+      "configuredAt": 1788104136573
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.1-codex-mini",
+        "displayName": "OpenCode Zen/GPT-5.1 Codex Mini"
+      },
+      "configuredModelId": "cf9eac62-9b11-4722-b425-e1719e3a0a63",
+      "configuredAt": 1788104136573
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.2",
+        "displayName": "OpenCode Zen/GPT-5.2"
+      },
+      "configuredModelId": "7190fee0-9bb0-4bc2-896f-c0b683f23b35",
+      "configuredAt": 1788104136574
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.2-codex",
+        "displayName": "OpenCode Zen/GPT-5.2 Codex"
+      },
+      "configuredModelId": "477a740f-7f50-445e-90ff-8f2a22479691",
+      "configuredAt": 1788104136574
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.3-codex",
+        "displayName": "OpenCode Zen/GPT-5.3 Codex"
+      },
+      "configuredModelId": "f60e7bfb-bb67-4344-8159-e3d96e293d8a",
+      "configuredAt": 1788104136574
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.3-codex-spark",
+        "displayName": "OpenCode Zen/GPT-5.3 Codex Spark"
+      },
+      "configuredModelId": "d2e9a4fc-c576-4204-928a-027a6ec54e58",
+      "configuredAt": 1788104136575
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.4",
+        "displayName": "OpenCode Zen/GPT-5.4"
+      },
+      "configuredModelId": "d76becad-5b81-4a98-9792-f7052e08bb45",
+      "configuredAt": 1788104136575
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.4-mini",
+        "displayName": "OpenCode Zen/GPT-5.4 Mini"
+      },
+      "configuredModelId": "5be8091b-69a7-42fe-b988-fd444d4faf45",
+      "configuredAt": 1788104136575
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.4-nano",
+        "displayName": "OpenCode Zen/GPT-5.4 Nano"
+      },
+      "configuredModelId": "1a25b757-e92a-4833-aa1e-1b31cea3e3a8",
+      "configuredAt": 1788104136576
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.4-pro",
+        "displayName": "OpenCode Zen/GPT-5.4 Pro"
+      },
+      "configuredModelId": "3c0ff651-483e-4fa9-8454-39a02748c2db",
+      "configuredAt": 1788104136576
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.5",
+        "displayName": "OpenCode Zen/GPT-5.5"
+      },
+      "configuredModelId": "b53aa382-b026-4fc4-84ba-5169d5ce4b23",
+      "configuredAt": 1788104136579
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.5-pro",
+        "displayName": "OpenCode Zen/GPT-5.5 Pro"
+      },
+      "configuredModelId": "d4a4c719-5d35-4923-abe5-4e666bc27d4f",
+      "configuredAt": 1788104136579
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.6-luna",
+        "displayName": "OpenCode Zen/GPT-5.6 Luna"
+      },
+      "configuredModelId": "c0618120-a732-47db-b670-d539ad343366",
+      "configuredAt": 1788104136579
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.6-sol",
+        "displayName": "OpenCode Zen/GPT-5.6 Sol (50% Off)"
+      },
+      "configuredModelId": "2143dd7f-fe7f-4bf7-92b5-eb5ade1f3882",
+      "configuredAt": 1788104136579
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/gpt-5.6-terra",
+        "displayName": "OpenCode Zen/GPT-5.6 Terra"
+      },
+      "configuredModelId": "bb81cf54-4f20-4bd2-b879-374c31a91a7a",
+      "configuredAt": 1788104136580
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/grok-4.5",
+        "displayName": "OpenCode Zen/Grok 4.5"
+      },
+      "configuredModelId": "598bcb22-a03a-4c6d-a238-75ea3285c6d9",
+      "configuredAt": 1788104136580
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/grok-4.6",
+        "displayName": "OpenCode Zen/Grok 4.6"
+      },
+      "configuredModelId": "94b0c0a8-17ad-47fd-98cd-15d7391eeb27",
+      "configuredAt": 1788104136580
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/grok-build-0.1",
+        "displayName": "OpenCode Zen/Grok Build 0.1"
+      },
+      "configuredModelId": "7135f118-0c1c-49f1-ad05-9f1c5eddd993",
+      "configuredAt": 1788104136580
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/kimi-k2.5",
+        "displayName": "OpenCode Zen/Kimi K2.5"
+      },
+      "configuredModelId": "ea2c8d64-c7fe-4624-bc12-089c67ca6845",
+      "configuredAt": 1788104136581
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/kimi-k2.6",
+        "displayName": "OpenCode Zen/Kimi K2.6"
+      },
+      "configuredModelId": "8f0433e4-31fc-4f95-bb79-9f02268f013e",
+      "configuredAt": 1788104136581
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/kimi-k2.7-code",
+        "displayName": "OpenCode Zen/Kimi K2.7 Code"
+      },
+      "configuredModelId": "5a2d00e7-ddfb-49ce-b63f-2b79a4957074",
+      "configuredAt": 1788104136581
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/kimi-k3",
+        "displayName": "OpenCode Zen/Kimi K3"
+      },
+      "configuredModelId": "9d881dad-512d-4917-b990-a607ccd9a5fc",
+      "configuredAt": 1788104136581
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/ling-3.0-flash-fin-free",
+        "displayName": "OpenCode Zen/Ling 3.0 Flash Fin Free"
+      },
+      "configuredModelId": "55b8c1da-f3d8-4028-a2d5-afb382be5914",
+      "configuredAt": 1788104136582
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/mimo-v2.5-free",
+        "displayName": "OpenCode Zen/MiMo V2.5 Free"
+      },
+      "configuredModelId": "1626acc2-617d-4a62-b07c-5469fd750a44",
+      "configuredAt": 1788104136582
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/minimax-m2.5",
+        "displayName": "OpenCode Zen/MiniMax-M2.5"
+      },
+      "configuredModelId": "f54bc383-362f-4e7d-979c-b45767cd37e3",
+      "configuredAt": 1788104136583
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/minimax-m2.7",
+        "displayName": "OpenCode Zen/MiniMax-M2.7"
+      },
+      "configuredModelId": "a05a14da-a5aa-4a5b-85a1-c958a83b2ecd",
+      "configuredAt": 1788104136583
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/minimax-m3",
+        "displayName": "OpenCode Zen/MiniMax-M3"
+      },
+      "configuredModelId": "0dd6eeff-738a-4e3b-a9dd-c268f58e6bd8",
+      "configuredAt": 1788104136583
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/muse-spark-1.2",
+        "displayName": "OpenCode Zen/Muse Spark 1.2"
+      },
+      "configuredModelId": "a855323a-efa5-4b9c-9b9c-ff6754af2e79",
+      "configuredAt": 1788104136583
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/muse-spark-1.2-contributor-free",
+        "displayName": "OpenCode Zen/Muse Spark 1.2 Free"
+      },
+      "configuredModelId": "42b698c0-3f71-426a-9da2-6deb6b7702cb",
+      "configuredAt": 1788104136584
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/nemotron-3-ultra-free",
+        "displayName": "OpenCode Zen/Nemotron 3 Ultra Free"
+      },
+      "configuredModelId": "3969026d-5426-4451-9586-744479034ae0",
+      "configuredAt": 1788104136584
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/nemotron-3.5-lightning-free",
+        "displayName": "OpenCode Zen/Nemotron 3.5 Lightning Free"
+      },
+      "configuredModelId": "97492d2c-9eab-42de-8c20-8d9956b12ca7",
+      "configuredAt": 1788104136584
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/qwen3.5-plus",
+        "displayName": "OpenCode Zen/Qwen3.5 Plus"
+      },
+      "configuredModelId": "6de909b2-140f-439d-82cb-38c510dc17cc",
+      "configuredAt": 1788104136584
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/qwen3.6-plus",
+        "displayName": "OpenCode Zen/Qwen3.6 Plus"
+      },
+      "configuredModelId": "70fe7204-898a-42ee-86b0-f61c66fc1785",
+      "configuredAt": 1788104136585
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/active-speaker-detection",
+        "displayName": "Nvidia/Active Speaker Detection"
+      },
+      "configuredModelId": "7bad904c-adfa-4734-8c3e-8163ae6c68e4",
+      "configuredAt": 1788104136585
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/bevformer",
+        "displayName": "Nvidia/bevformer"
+      },
+      "configuredModelId": "d0833968-af83-455a-847e-c525f660c322",
+      "configuredAt": 1788104136585
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/baai/bge-m3",
+        "displayName": "Nvidia/BGE M3"
+      },
+      "configuredModelId": "6a701cbc-79f4-42de-aab3-40148423d20d",
+      "configuredAt": 1788104136585
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/bytedance/seed-oss-36b-instruct",
+        "displayName": "Nvidia/ByteDance-Seed/Seed-OSS-36B-Instruct"
+      },
+      "configuredModelId": "858f8fd2-15f3-48c4-93c9-24b0cc19c985",
+      "configuredAt": 1788104136586
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/cosmos-reason2-8b",
+        "displayName": "Nvidia/Cosmos Reason2 8B"
+      },
+      "configuredModelId": "3c3d1ebb-2366-4d4c-a0f6-e0c7dc772244",
+      "configuredAt": 1788104136586
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/cosmos-predict1-5b",
+        "displayName": "Nvidia/cosmos-predict1-5b"
+      },
+      "configuredModelId": "37441bea-832d-40d5-8288-d9ace927a876",
+      "configuredAt": 1788104136586
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/cosmos-transfer1-7b",
+        "displayName": "Nvidia/cosmos-transfer1-7b"
+      },
+      "configuredModelId": "345443ca-6de9-48b0-a49e-7db8e1028e19",
+      "configuredAt": 1788104136586
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/cosmos-transfer2_5-2b",
+        "displayName": "Nvidia/cosmos-transfer2.5-2b"
+      },
+      "configuredModelId": "0b306a04-4e23-4deb-a38c-bd305a1877a2",
+      "configuredAt": 1788104136587
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/deepseek-ai/deepseek-v4-flash",
+        "displayName": "Nvidia/DeepSeek V4 Flash"
+      },
+      "configuredModelId": "43037693-def2-4d12-972f-f5193198c2c6",
+      "configuredAt": 1788104136587
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/deepseek-ai/deepseek-v4-flash-0731",
+        "displayName": "Nvidia/DeepSeek V4 Flash 0731"
+      },
+      "configuredModelId": "21fadc73-f2fa-4374-b438-038e2e66fbda",
+      "configuredAt": 1788104136587
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/deepseek-ai/deepseek-v4-pro",
+        "displayName": "Nvidia/DeepSeek V4 Pro"
+      },
+      "configuredModelId": "25a975a9-7b21-47cb-b38b-7bd7c1bb9c1e",
+      "configuredAt": 1788104136587
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/deepseek-ai/deepseek-v4-pro-0813",
+        "displayName": "Nvidia/DeepSeek V4 Pro 0813"
+      },
+      "configuredModelId": "7720f4d2-b1fa-4479-bcba-2ec933c914de",
+      "configuredAt": 1788104136588
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/abacusai/dracarys-llama-3.1-70b-instruct",
+        "displayName": "Nvidia/dracarys-llama-3.1-70b-instruct"
+      },
+      "configuredModelId": "c166fc82-8aca-4c3a-9f2e-ee5aed5e30e9",
+      "configuredAt": 1788104136588
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/esm2-650m",
+        "displayName": "Nvidia/esm2-650m"
+      },
+      "configuredModelId": "e439e728-46da-4fb2-bc16-1b8d5447e3db",
+      "configuredAt": 1788104136588
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/esmfold",
+        "displayName": "Nvidia/esmfold"
+      },
+      "configuredModelId": "af519a85-8833-4d20-ad8f-ab10a88afa28",
+      "configuredAt": 1788104136589
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/black-forest-labs/flux.1-dev",
+        "displayName": "Nvidia/FLUX.1-dev"
+      },
+      "configuredModelId": "4b594c67-e95a-477b-ae1d-f3a2869b2573",
+      "configuredAt": 1788104136589
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/black-forest-labs/flux_1-kontext-dev",
+        "displayName": "Nvidia/FLUX.1-Kontext-dev"
+      },
+      "configuredModelId": "eee6a44f-4137-4b52-b97d-8280d27a1258",
+      "configuredAt": 1788104136589
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/black-forest-labs/flux_1-schnell",
+        "displayName": "Nvidia/FLUX.1-schnell"
+      },
+      "configuredModelId": "055da5f2-b4bf-497d-83ff-d259cef23563",
+      "configuredAt": 1788104136589
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/black-forest-labs/flux_2-klein-4b",
+        "displayName": "Nvidia/FLUX.2 Klein 4B"
+      },
+      "configuredModelId": "30e17ec7-7eff-4c89-a91d-853db530a80d",
+      "configuredAt": 1788104136590
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/google/gemma-2-2b-it",
+        "displayName": "Nvidia/Gemma 2 2b It"
+      },
+      "configuredModelId": "b98efdea-b62e-47b2-946c-b5b20911df06",
+      "configuredAt": 1788104136590
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/google/gemma-3-12b-it",
+        "displayName": "Nvidia/Gemma 3 12B IT"
+      },
+      "configuredModelId": "bf7ae5a2-bb89-47b1-8470-58863f3ed278",
+      "configuredAt": 1788104136590
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/google/gemma-3-4b-it",
+        "displayName": "Nvidia/Gemma 3 4B IT"
+      },
+      "configuredModelId": "c8d61b36-fcc9-4a34-a0ea-0f324edfdcb6",
+      "configuredAt": 1788104136591
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/google/gemma-3n-e2b-it",
+        "displayName": "Nvidia/Gemma 3n E2b It"
+      },
+      "configuredModelId": "fc2586fe-05c8-44b3-8681-89d60ce9ec78",
+      "configuredAt": 1788104136591
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/google/gemma-3n-e4b-it",
+        "displayName": "Nvidia/Gemma 3n E4b It"
+      },
+      "configuredModelId": "0e920d8e-e1ae-4d7e-985b-37c80e07b584",
+      "configuredAt": 1788104136591
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/google/gemma-4-31b-it",
+        "displayName": "Nvidia/Gemma-4-31B-IT"
+      },
+      "configuredModelId": "18df82a8-d196-4176-9949-47cae111b3d1",
+      "configuredAt": 1788104136591
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/gliner-pii",
+        "displayName": "Nvidia/gliner-pii"
+      },
+      "configuredModelId": "5c6b0f17-1b7c-4ce7-a296-1ebe953df13c",
+      "configuredAt": 1788104136592
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/z-ai/glm-5.2",
+        "displayName": "Nvidia/GLM-5.2"
+      },
+      "configuredModelId": "99cdd98c-6262-4bc7-aa51-bc3ebafbe5fa",
+      "configuredAt": 1788104136592
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/openai/gpt-oss-20b",
+        "displayName": "Nvidia/GPT OSS 20B"
+      },
+      "configuredModelId": "feda0dde-bbda-4b61-aa71-f2e07d16103c",
+      "configuredAt": 1788104136592
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/openai/gpt-oss-120b",
+        "displayName": "Nvidia/GPT-OSS-120B"
+      },
+      "configuredModelId": "e6c96fcd-0684-4248-b81e-9d172123cfe2",
+      "configuredAt": 1788104136593
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/thinkingmachines/inkling",
+        "displayName": "Nvidia/Inkling"
+      },
+      "configuredModelId": "61e94e38-342f-4689-96c7-efd2fa3f9cfd",
+      "configuredAt": 1788104136593
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/moonshotai/kimi-k3",
+        "displayName": "Nvidia/Kimi K3"
+      },
+      "configuredModelId": "2b591a67-ec8d-4a70-8171-7355f64a21c1",
+      "configuredAt": 1788104136593
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/poolside/laguna-xs-2.1",
+        "displayName": "Nvidia/Laguna XS 2.1"
+      },
+      "configuredModelId": "26f3e400-9459-4ef1-83df-c064c52e2035",
+      "configuredAt": 1788104136594
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/llama-3.1-70b-instruct",
+        "displayName": "Nvidia/Llama 3.1 70b Instruct"
+      },
+      "configuredModelId": "49c17ad9-20af-4492-885d-62695ebebff4",
+      "configuredAt": 1788104136594
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/llama-3.1-8b-instruct",
+        "displayName": "Nvidia/Llama 3.1 8B Instruct"
+      },
+      "configuredModelId": "f45dbacf-5cf6-424b-ae20-18d8092a455e",
+      "configuredAt": 1788104136594
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/llama-3.1-nemotron-70b-instruct",
+        "displayName": "Nvidia/Llama 3.1 Nemotron 70B Instruct"
+      },
+      "configuredModelId": "0f46452d-a52d-4aa0-9433-217f34e2bfd3",
+      "configuredAt": 1788104136595
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/llama-3.1-nemotron-nano-8b-v1",
+        "displayName": "Nvidia/Llama 3.1 Nemotron Nano 8B v1"
+      },
+      "configuredModelId": "0e53c607-79cc-485c-ac3d-b32e0314d6df",
+      "configuredAt": 1788104136595
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/llama-3.1-nemotron-nano-vl-8b-v1",
+        "displayName": "Nvidia/Llama 3.1 Nemotron Nano VL 8B v1"
+      },
+      "configuredModelId": "d8b8da04-e677-441a-90d5-d0ceda78ab62",
+      "configuredAt": 1788104136595
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/llama-3.1-nemotron-ultra-253b-v1",
+        "displayName": "Nvidia/Llama 3.1 Nemotron Ultra 253B"
+      },
+      "configuredModelId": "0561e653-0906-49d4-9326-fbeacbe92112",
+      "configuredAt": 1788104136596
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/llama-3.2-11b-vision-instruct",
+        "displayName": "Nvidia/Llama 3.2 11b Vision Instruct"
+      },
+      "configuredModelId": "0501d622-a4fc-4d89-8444-f1349f3c6263",
+      "configuredAt": 1788104136596
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/llama-3.2-1b-instruct",
+        "displayName": "Nvidia/Llama 3.2 1b Instruct"
+      },
+      "configuredModelId": "8ffa483b-cbbe-48c2-ba6b-49c457cbfada",
+      "configuredAt": 1788104136596
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/llama-3.2-3b-instruct",
+        "displayName": "Nvidia/Llama 3.2 3B Instruct"
+      },
+      "configuredModelId": "b001ee37-99be-4bac-a890-c54702925fed",
+      "configuredAt": 1788104136596
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/llama-3.3-70b-instruct",
+        "displayName": "Nvidia/Llama 3.3 70b Instruct"
+      },
+      "configuredModelId": "ca81e2f7-fa8f-425a-b58b-bedec5bb0244",
+      "configuredAt": 1788104136597
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/llama-3.3-nemotron-super-49b-v1",
+        "displayName": "Nvidia/Llama 3.3 Nemotron Super 49B v1"
+      },
+      "configuredModelId": "daeb62be-2dc0-4240-83b5-9d5ba758afb1",
+      "configuredAt": 1788104136597
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/llama-3.3-nemotron-super-49b-v1.5",
+        "displayName": "Nvidia/Llama 3.3 Nemotron Super 49B v1.5"
+      },
+      "configuredModelId": "57003604-57e9-4ee1-b9f9-a6ea302341a1",
+      "configuredAt": 1788104136597
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/llama-4-maverick-17b-128e-instruct",
+        "displayName": "Nvidia/Llama 4 Maverick 17b 128e Instruct"
+      },
+      "configuredModelId": "b6021923-0d03-4e8c-a130-ede9e659afec",
+      "configuredAt": 1788104136598
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/llama-guard-4-12b",
+        "displayName": "Nvidia/Llama Guard 4 12B"
+      },
+      "configuredModelId": "326535cf-cfe5-45ed-b5a4-9f28bace96ec",
+      "configuredAt": 1788104136598
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/llama-3_2-nemoretriever-300m-embed-v1",
+        "displayName": "Nvidia/llama-3_2-nemoretriever-300m-embed-v1"
+      },
+      "configuredModelId": "218d49ea-d215-4eca-9f1a-5b5699dd2e76",
+      "configuredAt": 1788104136598
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/llama-3.1-nemotron-safety-guard-8b-v3",
+        "displayName": "Nvidia/llama-3.1-nemotron-safety-guard-8b-v3"
+      },
+      "configuredModelId": "13b5e5c0-2ae5-48d4-890c-d7c331661d28",
+      "configuredAt": 1788104136599
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/llama-3.2-90b-vision-instruct",
+        "displayName": "Nvidia/Llama-3.2-90B-Vision-Instruct"
+      },
+      "configuredModelId": "5cb89cde-adf9-457a-837e-a477038f0580",
+      "configuredAt": 1788104136599
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/llama-nemotron-embed-vl-1b-v2",
+        "displayName": "Nvidia/llama-nemotron-embed-vl-1b-v2"
+      },
+      "configuredModelId": "a7b95096-101e-4bad-a1b6-46cc2355b533",
+      "configuredAt": 1788104136599
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/llama-nemotron-rerank-vl-1b-v2",
+        "displayName": "Nvidia/llama-nemotron-rerank-vl-1b-v2"
+      },
+      "configuredModelId": "150be7f7-ffe2-4d24-8cd8-f2fc02e24de2",
+      "configuredAt": 1788104136599
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/mistralai/magistral-small-2506",
+        "displayName": "Nvidia/Magistral Small 2506"
+      },
+      "configuredModelId": "7d226ce0-5261-41c3-872a-e05628d1e4de",
+      "configuredAt": 1788104136600
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/magpie-tts-zeroshot",
+        "displayName": "Nvidia/magpie-tts-zeroshot"
+      },
+      "configuredModelId": "f4467e61-6eaa-4b20-accb-781d361bb5c8",
+      "configuredAt": 1788104136600
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/minimaxai/minimax-m2.7",
+        "displayName": "Nvidia/MiniMax-M2.7"
+      },
+      "configuredModelId": "6a291017-4b03-45de-8a85-ea6985ba45a9",
+      "configuredAt": 1788104136600
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/minimaxai/minimax-m3",
+        "displayName": "Nvidia/MiniMax-M3"
+      },
+      "configuredModelId": "f63f02f3-80c2-460d-ad49-83574a74dd44",
+      "configuredAt": 1788104136602
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/mistralai/ministral-14b-instruct-2512",
+        "displayName": "Nvidia/Ministral 3 14B Instruct 2512"
+      },
+      "configuredModelId": "266d15b9-d1b4-45c6-a442-458a19fa533e",
+      "configuredAt": 1788104136602
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/mistralai/mistral-large-3-675b-instruct-2512",
+        "displayName": "Nvidia/Mistral Large 3 675B Instruct 2512"
+      },
+      "configuredModelId": "983d207f-81cf-4aec-9758-4ab99c9bf4e3",
+      "configuredAt": 1788104136602
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/mistralai/mistral-medium-3-instruct",
+        "displayName": "Nvidia/Mistral Medium 3"
+      },
+      "configuredModelId": "50c811c1-155c-46c3-9fdb-43c509413e39",
+      "configuredAt": 1788104136603
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/mistralai/mistral-medium-3.5-128b",
+        "displayName": "Nvidia/Mistral Medium 3.5"
+      },
+      "configuredModelId": "25019e62-108a-496c-8b1e-60e53e45134d",
+      "configuredAt": 1788104136603
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/mistralai/mistral-7b-instruct-v0.3",
+        "displayName": "Nvidia/Mistral-7B-Instruct-v0.3"
+      },
+      "configuredModelId": "350a742e-de36-4897-b571-5b0fc6d9e2d6",
+      "configuredAt": 1788104136603
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/mistralai/mistral-nemotron",
+        "displayName": "Nvidia/mistral-nemotron"
+      },
+      "configuredModelId": "f1cfe098-7916-487a-832f-2511c092d150",
+      "configuredAt": 1788104136603
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/mistralai/mistral-small-4-119b-2603",
+        "displayName": "Nvidia/mistral-small-4-119b-2603"
+      },
+      "configuredModelId": "e2190708-4b8e-4473-bfad-b2724fb20c12",
+      "configuredAt": 1788104136604
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/mistralai/mixtral-8x22b-instruct",
+        "displayName": "Nvidia/Mistral: Mixtral 8x22B Instruct"
+      },
+      "configuredModelId": "986ce37f-2ffb-4e8a-abe3-8791ab23ee1f",
+      "configuredAt": 1788104136604
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/mistralai/mixtral-8x7b-instruct",
+        "displayName": "Nvidia/Mistral: Mixtral 8x7B Instruct"
+      },
+      "configuredModelId": "571c5b80-6729-440e-99d6-bd172a840a36",
+      "configuredAt": 1788104136604
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/meta/muse-glimmer-30b",
+        "displayName": "Nvidia/Muse Glimmer 30B"
+      },
+      "configuredModelId": "ee70b896-50d3-40d0-ae00-942e51a98de6",
+      "configuredAt": 1788104136605
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+        "displayName": "Nvidia/Nemotron 3 Nano Omni"
+      },
+      "configuredModelId": "fc7d574d-3624-4dd7-ba47-121b2b0732e4",
+      "configuredAt": 1788104136605
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nemotron-3-super-120b-a12b",
+        "displayName": "Nvidia/Nemotron 3 Super"
+      },
+      "configuredModelId": "1d59008d-9b17-47a4-8531-a082e7b63dd6",
+      "configuredAt": 1788104136605
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nemotron-3-ultra-550b-a55b",
+        "displayName": "Nvidia/Nemotron 3 Ultra 550B A55B"
+      },
+      "configuredModelId": "364b84ce-7ff6-4e92-96c9-6db7f6d495a5",
+      "configuredAt": 1788104136606
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nemotron-3.5-lightning-30b-a3b",
+        "displayName": "Nvidia/Nemotron 3.5 Lightning 30B A3B"
+      },
+      "configuredModelId": "7b16a85e-ea08-4647-a0ae-fa1ff217f82c",
+      "configuredAt": 1788104136606
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nemotron-nano-12b-v2-vl",
+        "displayName": "Nvidia/Nemotron Nano 12B v2 VL"
+      },
+      "configuredModelId": "dde3a29e-f560-4748-a18c-67e12a8ba35a",
+      "configuredAt": 1788104136606
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nemotron-3-content-safety",
+        "displayName": "Nvidia/nemotron-3-content-safety"
+      },
+      "configuredModelId": "fe33fd9f-2e55-4cf6-ac75-31462857989b",
+      "configuredAt": 1788104136606
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nemotron-3-nano-30b-a3b",
+        "displayName": "Nvidia/nemotron-3-nano-30b-a3b"
+      },
+      "configuredModelId": "ab5edd21-892b-4760-9955-46f7f90e33ea",
+      "configuredAt": 1788104136606
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nemotron-content-safety-reasoning-4b",
+        "displayName": "Nvidia/nemotron-content-safety-reasoning-4b"
+      },
+      "configuredModelId": "7d27407e-c1d9-427a-9f31-952e003c7c37",
+      "configuredAt": 1788104136607
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nemotron-mini-4b-instruct",
+        "displayName": "Nvidia/nemotron-mini-4b-instruct"
+      },
+      "configuredModelId": "0e12f918-b931-45d4-b76e-075f60d78485",
+      "configuredAt": 1788104136607
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nemotron-voicechat",
+        "displayName": "Nvidia/nemotron-voicechat"
+      },
+      "configuredModelId": "ec732207-a097-4d9b-87fb-8671e8c95ab9",
+      "configuredAt": 1788104136607
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nv-embed-v1",
+        "displayName": "Nvidia/nv-embed-v1"
+      },
+      "configuredModelId": "af869de8-f44d-48fb-9281-272bfcf54822",
+      "configuredAt": 1788104136608
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nv-embedcode-7b-v1",
+        "displayName": "Nvidia/nv-embedcode-7b-v1"
+      },
+      "configuredModelId": "d3a2fa75-5225-4571-8d20-4491365848f4",
+      "configuredAt": 1788104136608
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nvidia-nemotron-nano-9b-v2",
+        "displayName": "Nvidia/nvidia-nemotron-nano-9b-v2"
+      },
+      "configuredModelId": "9bef742c-78ab-4c05-9570-68dd7c766e55",
+      "configuredAt": 1788104136608
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/google/google-paligemma",
+        "displayName": "Nvidia/paligemma"
+      },
+      "configuredModelId": "52c448f3-206d-459a-871e-3dc331cc417c",
+      "configuredAt": 1788104136608
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/microsoft/phi-4-multimodal-instruct",
+        "displayName": "Nvidia/Phi 4 Multimodal"
+      },
+      "configuredModelId": "a137309a-6844-476d-8b97-7228d341c03b",
+      "configuredAt": 1788104136609
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/microsoft/phi-4-mini-instruct",
+        "displayName": "Nvidia/Phi-4-Mini"
+      },
+      "configuredModelId": "4a4d7b0a-9b23-454e-9a39-11e5bc9a63a8",
+      "configuredAt": 1788104136609
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/qwen/qwen-image",
+        "displayName": "Nvidia/Qwen Image"
+      },
+      "configuredModelId": "3e19abb3-145e-41ce-b4dc-8123bba4cda4",
+      "configuredAt": 1788104136609
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/qwen/qwen-image-edit",
+        "displayName": "Nvidia/Qwen Image Edit"
+      },
+      "configuredModelId": "ad316f57-c5fb-46d2-8e08-68bfc26476e5",
+      "configuredAt": 1788104136609
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/qwen/qwen2.5-coder-32b-instruct",
+        "displayName": "Nvidia/Qwen2.5 Coder 32b Instruct"
+      },
+      "configuredModelId": "fe3e0dee-cb9f-496c-b069-5bec2250297a",
+      "configuredAt": 1788104136610
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/qwen/qwen3-coder-480b-a35b-instruct",
+        "displayName": "Nvidia/Qwen3 Coder 480B A35B Instruct"
+      },
+      "configuredModelId": "dc95d50a-b81a-48cd-bf4c-38e3c4379dfd",
+      "configuredAt": 1788104136610
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/qwen/qwen3-next-80b-a3b-instruct",
+        "displayName": "Nvidia/Qwen3-Next-80B-A3B-Instruct"
+      },
+      "configuredModelId": "2f8bcb5b-558a-4040-9424-02d47b3f2ce3",
+      "configuredAt": 1788104136610
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/qwen/qwen3.5-122b-a10b",
+        "displayName": "Nvidia/Qwen3.5 122B-A10B"
+      },
+      "configuredModelId": "0f5d9aa8-30de-42b5-ba47-fc3929e38772",
+      "configuredAt": 1788104136610
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/qwen/qwen3.5-397b-a17b",
+        "displayName": "Nvidia/Qwen3.5-397B-A17B"
+      },
+      "configuredModelId": "ce8a6027-0074-4d66-b520-24826c3bdbba",
+      "configuredAt": 1788104136610
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/rerank-qa-mistral-4b",
+        "displayName": "Nvidia/rerank-qa-mistral-4b"
+      },
+      "configuredModelId": "134be741-7efe-4c2f-b7e9-0915fb56eb18",
+      "configuredAt": 1788104136611
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/riva-translate-4b-instruct-v1.1",
+        "displayName": "Nvidia/riva-translate-4b-instruct-v1_1"
+      },
+      "configuredModelId": "51e6987c-c45b-4ad4-9adf-9a0e23a8e4b3",
+      "configuredAt": 1788104136611
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/sarvamai/sarvam-m",
+        "displayName": "Nvidia/sarvam-m"
+      },
+      "configuredModelId": "1519771a-a41c-4624-9c21-827d3152638a",
+      "configuredAt": 1788104136611
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/upstage/solar-10.7b-instruct",
+        "displayName": "Nvidia/solar-10.7b-instruct"
+      },
+      "configuredModelId": "ad53deb6-ebc4-41b9-85c9-9e54dbe594ba",
+      "configuredAt": 1788104136612
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/sparsedrive",
+        "displayName": "Nvidia/sparsedrive"
+      },
+      "configuredModelId": "34424822-2996-4dee-8e18-25be9b456e33",
+      "configuredAt": 1788104136612
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/stepfun-ai/step-3.5-flash",
+        "displayName": "Nvidia/Step 3.5 Flash"
+      },
+      "configuredModelId": "177d4e10-7301-4b0b-be65-f5b3d2a859dc",
+      "configuredAt": 1788104136612
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/stepfun-ai/step-3.7-flash",
+        "displayName": "Nvidia/Step 3.7 Flash"
+      },
+      "configuredModelId": "7145791a-b9fb-49e2-87c4-a4f35170a26e",
+      "configuredAt": 1788104136612
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/streampetr",
+        "displayName": "Nvidia/streampetr"
+      },
+      "configuredModelId": "e7d8ca12-6f64-427c-96c6-33b9ce7da214",
+      "configuredAt": 1788104136613
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/studiovoice",
+        "displayName": "Nvidia/studiovoice"
+      },
+      "configuredModelId": "a3296091-3945-4962-b131-d1ff312c49b6",
+      "configuredAt": 1788104136613
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/synthetic-video-detector",
+        "displayName": "Nvidia/synthetic-video-detector"
+      },
+      "configuredModelId": "02ed328e-68b3-444d-91d2-ab96911ea6ff",
+      "configuredAt": 1788104136613
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/usdcode",
+        "displayName": "Nvidia/usdcode"
+      },
+      "configuredModelId": "5982ccf8-df55-484c-96a1-ccdeb6cffc15",
+      "configuredAt": 1788104136613
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/usdvalidate",
+        "displayName": "Nvidia/usdvalidate"
+      },
+      "configuredModelId": "5d9c39c2-6f95-4389-8cae-dfa784311791",
+      "configuredAt": 1788104136614
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/openai/whisper-large-v3",
+        "displayName": "Nvidia/Whisper Large v3"
+      },
+      "configuredModelId": "927ce3d1-f41a-4bce-af6c-8f68dbef8fff",
+      "configuredAt": 1788104136614
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-haiku-4.5",
+        "displayName": "GitHub Copilot/Claude Haiku 4.5 (latest)"
+      },
+      "configuredModelId": "721d1618-8896-4c62-9417-66d56cb6695e",
+      "configuredAt": 1788104136614
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-sonnet-4.5",
+        "displayName": "GitHub Copilot/Claude Sonnet 4.5 (latest)"
+      },
+      "configuredModelId": "4d115b0b-1c60-45b7-a3af-de2c3aa7238f",
+      "configuredAt": 1788104136617
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-sonnet-4.6",
+        "displayName": "GitHub Copilot/Claude Sonnet 4.6"
+      },
+      "configuredModelId": "2db81a9b-25ee-4ae8-a2c7-671f79908ce6",
+      "configuredAt": 1788104136617
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-sonnet-5",
+        "displayName": "GitHub Copilot/Claude Sonnet 5"
+      },
+      "configuredModelId": "478484c7-5381-4f7c-8a8e-6b88f25dded5",
+      "configuredAt": 1788104136617
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gemini-3.1-pro-preview",
+        "displayName": "GitHub Copilot/Gemini 3.1 Pro Preview"
+      },
+      "configuredModelId": "5e42d39b-41ff-4135-8a5f-390dc02175fb",
+      "configuredAt": 1788104136617
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gemini-3.5-flash",
+        "displayName": "GitHub Copilot/Gemini 3.5 Flash"
+      },
+      "configuredModelId": "50ce62d5-bea8-416b-bc38-6ae363d61369",
+      "configuredAt": 1788104136618
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gemini-3.6-flash",
+        "displayName": "GitHub Copilot/Gemini 3.6 Flash"
+      },
+      "configuredModelId": "e437cc77-65f0-459c-965e-96b93ec5f8bf",
+      "configuredAt": 1788104136618
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gemini-3.7-flash",
+        "displayName": "GitHub Copilot/Gemini 3.7 Flash"
+      },
+      "configuredModelId": "64057acf-6296-4793-a105-b97640f60139",
+      "configuredAt": 1788104136618
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-5-mini",
+        "displayName": "GitHub Copilot/GPT-5 Mini"
+      },
+      "configuredModelId": "17c14033-4577-4478-90ea-b9aab4d2b366",
+      "configuredAt": 1788104136619
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-5.3-codex",
+        "displayName": "GitHub Copilot/GPT-5.3 Codex"
+      },
+      "configuredModelId": "b1b2972f-5295-4511-9c5b-d673342eefdf",
+      "configuredAt": 1788104136619
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-5.4",
+        "displayName": "GitHub Copilot/GPT-5.4"
+      },
+      "configuredModelId": "4ea91ddb-f788-4549-86e1-39f48b1a9e0d",
+      "configuredAt": 1788104136620
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-5.4-mini",
+        "displayName": "GitHub Copilot/GPT-5.4 mini"
+      },
+      "configuredModelId": "25b0feea-3212-4194-b3c9-2ce88d95b664",
+      "configuredAt": 1788104136620
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-5.6-luna",
+        "displayName": "GitHub Copilot/GPT-5.6 Luna"
+      },
+      "configuredModelId": "78979f43-eee1-46c6-bdc3-bdd24c675a9e",
+      "configuredAt": 1788104136621
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-5.6-terra",
+        "displayName": "GitHub Copilot/GPT-5.6 Terra"
+      },
+      "configuredModelId": "8a35802f-2ea8-47fc-b78c-dab2be879e56",
+      "configuredAt": 1788104136621
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/grok-4.5",
+        "displayName": "GitHub Copilot/Grok 4.5"
+      },
+      "configuredModelId": "ca37c87d-27f7-4a06-90c6-1cb709171b8c",
+      "configuredAt": 1788104136621
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/grok-4.6",
+        "displayName": "GitHub Copilot/Grok 4.6"
+      },
+      "configuredModelId": "5f21b81a-718d-4345-a5cd-c2509a00e885",
+      "configuredAt": 1788104136622
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/kimi-k2.7-code",
+        "displayName": "GitHub Copilot/Kimi K2.7 Code"
+      },
+      "configuredModelId": "c901d2bc-3e91-4a50-a4cb-144ef2ed9fed",
+      "configuredAt": 1788104136623
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/kimi-k3",
+        "displayName": "GitHub Copilot/Kimi K3"
+      },
+      "configuredModelId": "c21c8a3f-576d-4ac7-8f0b-45ba91b78d16",
+      "configuredAt": 1788104136623
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/mai-code-1-flash-picker",
+        "displayName": "GitHub Copilot/MAI-Code-1-Flash"
+      },
+      "configuredModelId": "0202476d-0877-4a89-8b1e-a9f8fbfce687",
+      "configuredAt": 1788104136623
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/mai-code-1.1-flash",
+        "displayName": "GitHub Copilot/MAI-Code-1.1-Flash"
+      },
+      "configuredModelId": "a10907c2-1b06-4d7d-b608-f840b02bab88",
+      "configuredAt": 1788104136623
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-fable-5",
+        "displayName": "GitHub Copilot/Claude Fable 5"
+      },
+      "configuredModelId": "7fb3d139-579c-4240-a130-f372c8a0a2a5",
+      "configuredAt": 1788140757750
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-opus-4.5",
+        "displayName": "GitHub Copilot/Claude Opus 4.5 (latest)"
+      },
+      "configuredModelId": "512196e9-92aa-4028-a04f-565e291a7ccd",
+      "configuredAt": 1788140757753
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-opus-4.6",
+        "displayName": "GitHub Copilot/Claude Opus 4.6"
+      },
+      "configuredModelId": "12cddabc-8c91-4284-ab3a-297641ef47a2",
+      "configuredAt": 1788140757753
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-opus-4.6-fast",
+        "displayName": "GitHub Copilot/Claude Opus 4.6 Fast"
+      },
+      "configuredModelId": "056b3b46-620d-4af0-9811-829acc622154",
+      "configuredAt": 1788140757754
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-opus-4.7",
+        "displayName": "GitHub Copilot/Claude Opus 4.7"
+      },
+      "configuredModelId": "fb5aa393-f29a-433b-b5d9-6ca933db083a",
+      "configuredAt": 1788140757754
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-opus-4.7-fast",
+        "displayName": "GitHub Copilot/Claude Opus 4.7 Fast"
+      },
+      "configuredModelId": "b91a971b-58ea-4b86-9fe2-c57a46b2574f",
+      "configuredAt": 1788140757755
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-opus-4.8",
+        "displayName": "GitHub Copilot/Claude Opus 4.8"
+      },
+      "configuredModelId": "834ccdf5-7e6b-4af4-b1ac-43bb39292d1c",
+      "configuredAt": 1788140757755
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-opus-4.8-fast",
+        "displayName": "GitHub Copilot/Claude Opus 4.8 Fast"
+      },
+      "configuredModelId": "0d9f4e05-de9f-4344-984a-ea8b96002b4a",
+      "configuredAt": 1788140757755
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-opus-5",
+        "displayName": "GitHub Copilot/Claude Opus 5"
+      },
+      "configuredModelId": "a110945b-4b96-4e24-901f-17944141c11e",
+      "configuredAt": 1788140757756
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/claude-sonnet-4",
+        "displayName": "GitHub Copilot/Claude Sonnet 4 (latest)"
+      },
+      "configuredModelId": "80e3d637-ea84-478f-9753-f66eaf4b3d9c",
+      "configuredAt": 1788140757756
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-4.1",
+        "displayName": "GitHub Copilot/GPT-4.1"
+      },
+      "configuredModelId": "0cf27c1e-436e-4c14-a239-58ab7b4b56b4",
+      "configuredAt": 1788140757756
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-5.2",
+        "displayName": "GitHub Copilot/GPT-5.2"
+      },
+      "configuredModelId": "e0f9bbad-b3dc-4612-804c-c400fdc27aa1",
+      "configuredAt": 1788140757757
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-5.2-codex",
+        "displayName": "GitHub Copilot/GPT-5.2 Codex"
+      },
+      "configuredModelId": "4694ee5f-8136-4d11-807c-48779cfd18bc",
+      "configuredAt": 1788140757757
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-5.4-nano",
+        "displayName": "GitHub Copilot/GPT-5.4 nano"
+      },
+      "configuredModelId": "7c8dbc04-a0b4-4112-945a-cc9bcd4f28d2",
+      "configuredAt": 1788140757757
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-5.5",
+        "displayName": "GitHub Copilot/GPT-5.5"
+      },
+      "configuredModelId": "07d1dc3f-955d-4ca0-b773-4aac46c0925e",
+      "configuredAt": 1788140757757
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "github-copilot/gpt-5.6-sol",
+        "displayName": "GitHub Copilot/GPT-5.6 Sol"
+      },
+      "configuredModelId": "77a004a9-c0bf-45c7-9ea5-1d0cb838c4b3",
+      "configuredAt": 1788140757761
+    }
+  ],
+  "backends": {
+    "opencode": {
+      "enabledModels": [
+        "9b5554ab-e7c2-44d1-bfde-7fea71f7381e",
+        "a2f34880-f8d5-4f9d-a64b-a0376e4780bd",
+        "07b78d63-91ba-4ef7-b428-5e2e35e97350"
+      ]
+    }
+  },
   "_keychainVaultId": "eec49bba",
   "settingsVersion": 9
 }

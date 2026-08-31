@@ -1,17 +1,20 @@
 [
   "obsidian-style-settings",
-  "opencode",
-  "local-llm-helper",
   "templater-obsidian",
   "github-sync",
-  "quarto-exporter",
   "markdown-blogger",
   "open-vscode",
   "obsidian-linter",
   "obsidian-pandoc",
-  "journals",
   "obsidian-timestamper",
   "copilot",
   "code-styler",
-  "obsidian-advanced-codeblock"
+  "obsidian-advanced-codeblock",
+  "hermes-agent",
+  "dataview",
+  "obsidian-tasks-plugin",
+  "obsidian-kanban",
+  "obsidian-excalidraw-plugin",
+  "obsidian-booknote-plugin",
+  "obsidian-admonition"
 ]

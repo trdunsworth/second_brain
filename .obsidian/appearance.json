@@ -1,9 +1,10 @@
 {
-  "textFontFamily": "CommitMonoDrd2,CommitMonoDrDMac,CommitMonoDrDLinux",
-  "monospaceFontFamily": "CommitMonoDrd2,CommitMonoDrDMac,CommitMonoDrDLinux",
+  "textFontFamily": "CommitMonoDrD,CommitMonoDrDMac",
+  "monospaceFontFamily": "CommitMonoDrD,CommitMonoDrDMac",
   "baseFontSize": 13,
-  "cssTheme": "Quillcode",
+  "cssTheme": "DMA Theme",
   "theme": "moonstone",
-  "accentColor": "#38519f",
-  "baseFontSizeAction": true
+  "accentColor": "#0077CC",
+  "baseFontSizeAction": true,
+  "enabledCssSnippets": []
 }
