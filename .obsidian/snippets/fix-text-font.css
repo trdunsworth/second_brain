@@ -1,0 +1,22 @@
+/*
+ * Fix: Apply user's text font choice to editor and preview.
+ * The DMA Theme overrides --font-text-theme with system fonts,
+ * ignoring Obsidian's --font-text-override variable.
+ */
+
+/* Force text font in the editor content area */
+.cm-editor .cm-content {
+  font-family: var(--font-text-override, var(--font-text-theme)) !important;
+}
+
+/* Force text font in preview mode */
+.markdown-preview-view {
+  font-family: var(--font-text-override, var(--font-text-theme)) !important;
+}
+
+/* Keep monospace font only for actual code blocks */
+.markdown-preview-view code,
+.markdown-preview-view pre,
+.cm-editor .cm-inline-code {
+  font-family: var(--font-monospace-override, var(--font-monospace-theme)) !important;
+}

@@ -1,10 +1,13 @@
 {
-  "textFontFamily": "CommitMonoDrD,CommitMonoDrDMac",
-  "monospaceFontFamily": "CommitMonoDrD,CommitMonoDrDMac",
+  "textFontFamily": "CommitMonoDrDMac,CommitMonoDrD,CommitMonoDrDLinux,Inter,system-ui,sans-serif",
+  "monospaceFontFamily": "CommitMonoDrDMac",
   "baseFontSize": 13,
   "cssTheme": "DMA Theme",
   "theme": "moonstone",
   "accentColor": "#0077CC",
   "baseFontSizeAction": true,
-  "enabledCssSnippets": []
+  "enabledCssSnippets": [
+    "fix-text-font"
+  ],
+  "interfaceFontFamily": "CommitMonoDrDMac"
 }
