@@ -10,7 +10,6 @@ tags:
   - book
   - review
 ---
-
 # Build a Reasoning Model from Scratch
 
 ## Summary

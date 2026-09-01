@@ -92,21 +92,16 @@ WHERE type = "research-note"
 SORT date DESC
 ```
 
-Unfinished tasks across vault:
-```dataview
-TASK
-WHERE !completed
-SORT due ASC
-```
-
 ### Tasks
 
-Track actionable items. Syntax:
+Track actionable items using checkbox syntax:
 
-- [ ] Unfinished task
-- [x] Completed task
-- [ ] Task with due date ⏫ 2026-09-15
-- [ ] Task with priority 🔺 high
+| Syntax | Meaning |
+|--------|---------|
+| `- [ ]` | Unfinished task |
+| `- [x]` | Completed task |
+| `- [ ] ⏫ YYYY-MM-DD` | Task with due date |
+| `- [ ] 🔺` | Task with high priority |
 
 **Query tasks in Dataview:**
 ```dataview
