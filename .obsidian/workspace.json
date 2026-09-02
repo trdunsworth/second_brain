@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "bf1381c2d92abb03",
+            "id": "da3909ef37bae9bb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-09-01.md",
+                "file": "journal/2026-09-02.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-01"
+              "title": "2026-09-02"
             }
           },
           {
@@ -38,20 +38,6 @@
             }
           },
           {
-            "id": "9380f3a784ff8348",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DMA_Notes/DMA Reporting Agent Project.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "DMA Reporting Agent Project"
-            }
-          },
-          {
             "id": "e97e80e5f9081b38",
             "type": "leaf",
             "state": {
@@ -64,8 +50,23 @@
               "icon": "lucide-file",
               "title": "USERSGUIDE"
             }
+          },
+          {
+            "id": "f515396b71f6d8d4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Research/168-Point Forecast Comparison - Discrete vs Continuous.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "168-Point Forecast Comparison - Discrete vs Continuous"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -298,17 +299,24 @@
       "hermes-agent:Open Hermes smart graph": false
     }
   },
-  "active": "bf1381c2d92abb03",
+  "active": "f515396b71f6d8d4",
   "lastOpenFiles": [
-    "HOTKEYS.md",
-    "DMA_Notes/DMA Reporting Agent Project.md",
+    "Research/168-Point Forecast Comparison - Discrete vs Continuous.pdf",
+    "Research/md_to_pdf.py",
+    "Research/PSAP Staffing Model.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
+    "Research/168-Point Forecast Comparison - Discrete vs Continuous.md",
+    "journal/2026-09-02.md",
     "USERSGUIDE.md",
+    "DMA_Notes/DMA Reporting Agent Project.md",
+    "Templates/scripts/Research Project.md",
+    "HOTKEYS.md",
+    "Research/Time-Series/ARIMA vs Prophet.md",
+    "journal/2026-09-01.md",
     "DMA_Notes/NENA Survey Project.md",
     "DMA_Notes/SynthCCD Project.md",
     "Books/Build a Reasoning Model from Scratch.md",
-    "journal/2026-09-01.md",
     "journal/2026-08-31.md",
-    "Toastmasters/Toastmasters Signature for Email.md",
     "Toastmasters/Toastmasters email.md",
     "Templates/scripts/toastmasters_meeting_template_templater.md",
     "Templates/scripts/toastmasters_speech_template_templater.md",
@@ -317,25 +325,18 @@
     "journal/2026-08-30.md",
     "Test.md",
     "## Book Shelf```dataviewTABLE author, rating, date_readFROM \"Books\"WHERE type = \"book-review\"SORT rating DESC```## Research Log```dataviewTABLE source, method, statusFROM \"Research\"WHERE type = \"research-note\"SORT date DESC```.md",
-    "Research/Time-Series/ARIMA vs Prophet.md",
-    "Templates/Meeting Note.md",
-    "Templates/Project Status.md",
-    "Templates/Research Note.md",
-    "Templates/Book Review.md",
+    "Templates/scripts/Meeting Note.md",
+    "Templates/scripts/Project Status.md",
+    "Templates/scripts/Research Note.md",
     "Projects",
     "Research/Time-Series",
     "Research/Statistics",
     "Research/Data-Analytics",
     "Research",
     "Books",
-    "journal/2026-08-28.md",
-    "journal/2026-08-27.md",
-    "Toastmasters/It was a bad day in the summer.md",
-    "ALX_Notes/2024-08-26 Sr. Mgmt. Meeting.md",
     "DMA_theme/palette.json",
     "DMA_theme/LICENSE",
     "DMA_theme",
-    "copilot/skills/obsidian-cli/LICENSE",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
