@@ -41,6 +41,82 @@ Which forecasting approach produces more accurate predictions for weekly 9-1-1 c
 
 Additionally, this will provide information about which models perform better in univariate and multivariate environments, with and without exogenous factors.
 
+## SWOT Analysis
+
+### Strengths
+- **Clear hypothesis & methodology** — Null hypothesis is well-framed ("discrete will NOT outperform continuous"), with a structured 10-step analysis plan and four evaluation metrics (MAE, RMSE, MAPE, MASE)
+- **Domain authority** — Author authored a dissertation on 9-1-1 forecasting (Reference 14), bringing direct subject-matter expertise
+- **Rich dataset selection** — Douglas County, KS offers 4 population centres, 3 universities, 1 community park with special events — ideal for polystochastic signal
+- **Statistical rigor** — Diebold-Mariano significance testing, walk-forward validation, and cross-validation planned from the start
+- **Comprehensive references** — 19 citations spanning foundations, hierarchical forecasting, ML, foundation models, and domain applications
+- **Practical relevance** — Direct implications for PSAP staffing (links to [[PSAP Staffing Model]]), shift planning, and budget forecasting
+
+### Weaknesses
+- **Data not yet acquired** — All 10 analysis steps are unchecked; data access is the critical-path blocker
+- **Sample size asymmetry** — Discrete models get ~1/168th of the data per model; with only 2 years minimum, that's ~104 points per hour — potentially insufficient for complex models
+- **Heavy compute burden** — 168 models × multiple algorithms × walk-forward folds could be computationally expensive with no resource plan documented
+- **Missing covariates** — Weather, events, and population data are listed as "optional" — but polystochastic analysis arguably requires exogenous variables to be meaningful
+- **Limited model scope** — Only ARIMA, Prophet, and LSTM named; XGBoost, neural nets, and hybrid approaches deferred to "Future Work"
+- **No runtime or environment plan** — No mention of compute infrastructure, estimated runtime, or reproducibility setup (e.g., `requirements.txt`, Docker)
+
+### Opportunities
+- **Foundation model benchmarking** — TimesFM, TimeGPT-1, and TimeCopilot are available — comparing classical vs. foundation models would be novel
+- **Hybrid/pooling approaches** — Hierarchical Bayesian pooling across discrete models could combine strengths of both paradigms
+- **Probabilistic forecasting** — Adding prediction intervals (NGBoost, quantile regression) would make findings directly actionable for staffing decisions
+- **Publication potential** — Polystochastic 9-1-1 forecasting with this methodology doesn't appear in existing literature
+- **Cross-domain generalizability** — If successful, the framework applies to other emergency services, healthcare, or queueing systems
+- **Partnership with Douglas County** — A formal collaboration could unlock multi-year data access and validate real-world utility
+
+### Threats
+- **Data access risk** — 9-1-1 data is sensitive; bureaucratic or political barriers could delay or block acquisition entirely
+- **IRB requirements** — If classified as human-subjects research (even secondary data), IRB review could add months
+- **"No difference" result** — If the hypothesis is confirmed (discrete ≠ continuous), the contribution may be seen as less publishable
+- **Rapid model evolution** — Foundation models are advancing fast — results could be partially obsolete before publication
+- **Data quality** — Missing values, format inconsistencies, or COVID-era anomalies (even post-2022) could require extensive preprocessing
+- **Scope creep** — The project is already large; adding multivariate, probabilistic, or hybrid dimensions could dilute focus
+
+## Action Plan
+
+### P0 — Critical Path (blocks all downstream work)
+- [ ] Initiate data access agreement with Douglas County, KS
+- [ ] Determine IRB requirements for secondary 9-1-1 data use
+
+### P1 — High Priority (should be resolved before model implementation)
+- [ ] Document compute infrastructure and environment (requirements.txt, estimated runtime, Docker/reproducibility setup)
+- [ ] Add foundation models (TimesFM, TimeGPT-1, TimeCopilot) to comparison scope
+- [ ] Elevate weather, special events, and population density from "optional" to required covariates
+- [ ] Update hypothesis in frontmatter to reflect inclusion of foundation models
+
+### P2 — Medium Priority (should be addressed during analysis design)
+- [ ] Define sample-size sensitivity analysis thresholds (1-year, 2-year, 3-year training windows) with specific accuracy degradation criteria
+- [ ] Add NGBoost or quantile regression for probabilistic interval forecasting
+- [ ] Draft data quality assessment checklist (missing values, format inconsistencies, COVID-era anomalies)
+- [ ] Define scope guardrails: document what is in-scope vs. deferred to future work
+
+### P3 — Lower Priority (address during write-up or future work)
+- [ ] Research hierarchical Bayesian pooling for hybrid discrete models
+- [ ] Outline publication target venue and cross-domain generalizability plan
+- [ ] Plan error analysis by hour-of-week segment (traffic-driven vs. medical-driven calls)
+
+## SWOT Tracking
+
+| SWOT Category | Item | Mitigation | Status |
+|---------------|------|------------|--------|
+| Weakness | Data not yet acquired | P0: Data access agreement with Douglas County | Pending |
+| Threat | IRB requirements | P0: Determine IRB classification early | Pending |
+| Weakness | No runtime or environment plan | P1: Document compute infrastructure | Pending |
+| Weakness | Limited model scope | P1: Add foundation models to comparison | Pending |
+| Weakness | Missing covariates | P1: Elevate covariates to required | Pending |
+| Weakness | Sample size asymmetry | P2: Define sensitivity thresholds | Pending |
+| Weakness | Heavy compute burden | P1: Document infrastructure, estimate runtime | Pending |
+| Opportunity | Foundation model benchmarking | P1: Include TimesFM/TimeGPT-1/TimeCopilot | Pending |
+| Opportunity | Probabilistic forecasting | P2: Add NGBoost/quantile regression | Pending |
+| Opportunity | Publication potential | P3: Identify target venue | Pending |
+| Threat | Data access risk | P0: Data access agreement | Pending |
+| Threat | "No difference" result | P3: Plan framing for confirmatory result | Pending |
+| Threat | Scope creep | P2: Define scope guardrails | Pending |
+| Threat | Data quality | P2: Draft data quality checklist | Pending |
+
 ## Data
 
 ### Source
@@ -115,6 +191,9 @@ Preferably from a jurisdiction like Douglas County, KS because of the various ad
 - Created research project
 - Defined hypothesis and methodology
 - Outlined analysis plan
+- Completed SWOT analysis (strengths, weaknesses, opportunities, threats)
+- Created prioritized Action Plan (P0-P3) addressing all SWOT items
+- Added SWOT Tracking table for mitigation status
 
 ## Results
 

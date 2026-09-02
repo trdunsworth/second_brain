@@ -63,6 +63,84 @@ Dr. Robbins' research (2006-2019) demonstrated that:
 3. Erlang-A performs better in high-traffic scenarios but still has limitations
 4. Cross-training and flexible staffing can compensate for model errors
 
+## SWOT Analysis
+
+### Strengths
+- **Deep domain expertise** — Author's own dissertation (Reference 17) is on call center capacity management under uncertainty; direct subject-matter authority
+- **Comprehensive methodology** — Three distinct approaches (queueing-game, enhanced Erlang-A, simulation-based) provide multiple angles of validation
+- **Extensive references** — 34 citations covering Erlang foundations, Robbins' research program, queueing-game theory, and supporting methodology
+- **Clear hypothesis with evidence** — Dr. Robbins' research (2006-2019) demonstrates specific failure modes of Erlang-C/A, grounding the hypothesis in prior work
+- **Strong theoretical foundation** — Wang Jinting's queueing-game framework (Reference 18) provides a mathematically rigorous alternative model
+- **Practical relevance** — Direct implications for PSAP operations, staffing costs, and9-1-1 service quality
+- **Rich evaluation metrics** — Five metrics (staffing accuracy, SLA achievement, abandonment rate, agent utilization, cost efficiency) capture multiple dimensions of performance
+
+### Weaknesses
+- **Data not yet acquired** — All 10 analysis steps are unchecked; data access is the critical-path blocker
+- **Implementation complexity** — Three modeling approaches plus discrete-event simulation represents significant development effort
+- **Queueing-game parameterization** — Caller strategic behavior parameters (patience distribution, redial probability) are theoretical; real PSAP data to calibrate them may be unavailable
+- **No compute resource plan** — Simulation-based optimization and game-theoretic models are computationally intensive; no infrastructure or runtime estimates documented
+- **Benchmark difficulty** — Erlang-C and Erlang-A are deeply embedded in industry practice; demonstrating statistically significant improvement over well-tuned baselines is challenging
+- **Missing operational details** — No specification of how agent scheduling data, skill-based routing configurations, or SLA targets will be obtained from a real PSAP
+
+### Opportunities
+- **Novel application domain** — Queueing-game theory applied to 9-1-1 PSAPs is largely unexplored; high novelty potential
+- **Cross-project synergy** — Shared data source (Douglas County, KS) with [[168-Point Forecast Comparison - Discrete vs Continuous]] enables combined infrastructure and analysis
+- **Practical staffing tool** — A validated model could become a decision-support tool for PSAP managers nationwide
+- **Workforce management integration** — Results could inform commercial scheduling software (NICE, Verint, Aspect) used by call centers
+- **Multi-site generalizability** — Framework could extend to coordinated PSAP networks or mutual-aid dispatch centers
+- **Probabilistic staffing recommendations** — Prediction intervals on staffing needs would give managers actionable risk bounds
+
+### Threats
+- **Conservative industry adoption** — PSAPs are risk-averse; even a superior model may face resistance to replacing Erlang-based workflows
+- **Proprietary data barriers** — 9-1-1 CDR and agent scheduling data are sensitive; administrative and political hurdles may delay or block access
+- **"Good enough" baseline** — Erlang-A with well-tuned parameters may perform adequately in many scenarios, making the marginal improvement insufficient to justify complexity
+- **Competing commercial solutions** — Workforce management vendors already offer Erlang-based tools with polished UIs; academic models must compete on usability
+- **Simulation infrastructure cost** — Building a faithful discrete-event simulation of PSAP operations is a significant undertaking in itself
+- **Parameter sensitivity** — Results may be highly sensitive to assumed caller behavior parameters, limiting generalizability if real calibration data is unavailable
+
+## Action Plan
+
+### P0 — Critical Path (blocks all downstream work)
+- [ ] Initiate data access agreement with any willing PSAP for CDR and agent scheduling data
+- [ ] Determine data availability for caller behavior parameters (abandonment, redial rates)
+- [ ] Define IRB requirements if data includes caller-level identifiers
+
+### P1 — High Priority (should be resolved before model implementation)
+- [ ] Document compute infrastructure for simulation and queueing-game model (estimated runtime, hardware requirements)
+- [ ] Establish baseline Erlang-C and Erlang-A implementations with validation against published benchmarks
+- [ ] Identify parameterization sources for Wang Jinting's queueing-game model (patience distributions, redial probabilities)
+- [ ] Map cross-project data dependencies with [[168-Point Forecast Comparison - Discrete vs Continuous]]
+
+### P2 — Medium Priority (should be addressed during analysis design)
+- [ ] Define sensitivity analysis plan for caller behavior parameters (what range, what granularity)
+- [ ] Draft data quality assessment checklist (CDR completeness, agent scheduling gaps, SLA target documentation)
+- [ ] Define scope guardrails: what is in-scope vs. deferred to future work (e.g., multi-site coordination)
+- [ ] Document Erlang-C/A baseline tuning methodology to ensure fair comparison
+
+### P3 — Lower Priority (address during write-up or future work)
+- [ ] Outline publication target venue (Operations Research, Service Science, or domain-specific journal)
+- [ ] Research integration pathways with commercial workforce management systems
+- [ ] Plan cross-domain generalizability assessment (healthcare, contact centers, other emergency services)
+
+## SWOT Tracking
+
+| SWOT Category | Item | Mitigation | Status |
+|---------------|------|------------|--------|
+| Weakness | Data not yet acquired | P0: Data access agreement with any PSAP | Pending |
+| Weakness | Queueing-game parameterization | P1: Identify parameterization sources | Pending |
+| Weakness | No compute resource plan | P1: Document infrastructure and runtime | Pending |
+| Weakness | Implementation complexity | P1: Establish baseline implementations first | Pending |
+| Weakness | Benchmark difficulty | P2: Document baseline tuning methodology | Pending |
+| Weakness | Missing operational details | P0: Define data availability for CDR/SLA | Pending |
+| Opportunity | Novel application domain | P3: Identify target publication venue | Pending |
+| Opportunity | Cross-project synergy | P1: Map data dependencies with 168-Point project | Pending |
+| Opportunity | Practical staffing tool | P3: Research workforce management integration | Pending |
+| Threat | Conservative industry adoption | P3: Plan framing for practical applicability | Pending |
+| Threat | Proprietary data barriers | P0: Data access agreement with any PSAP | Pending |
+| Threat | "Good enough" baseline | P2: Ensure fair baseline tuning methodology | Pending |
+| Threat | Simulation infrastructure cost | P1: Document infrastructure requirements | Pending |
+| Threat | Parameter sensitivity | P2: Define sensitivity analysis plan | Pending |
+
 ## Data
 
 ### Source
@@ -155,6 +233,9 @@ Build discrete-event simulation of PSAP operations:
 - Defined research question and hypothesis
 - Outlined methodology and analysis plan
 - Identified key source materials (Robbins, Wang)
+- Completed SWOT analysis (strengths, weaknesses, opportunities, threats)
+- Created prioritized Action Plan (P0-P3) addressing all SWOT items
+- Added SWOT Tracking table for mitigation status
 
 ## Results
 
