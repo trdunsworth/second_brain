@@ -4,6 +4,10 @@ modification date: <% tp.date.now("dddd Do MMMM YYYY HH:mm:ss") %>
 author: Dr. Tony Dunsworth
 title: Daily Journal <% tp.date.now("YYYY-MM-DD") %>
 workday: false
+tags:
+  - journal
+  - daily
+  - <% await tp.system.suggester(["work", "personal", "research", "dma", "toastmasters", "reflection", "wins", "challenges"], ["work", "personal", "research", "dma", "toastmasters", "reflection", "wins", "challenges"], false, "Select primary tag for today:") %>
 ---
 << [[<% tp.date.now("YYYY-MM-DD", -1) %>]] | [[<% tp.date.now("YYYY-MM-DD", 1) %>]] >>
 

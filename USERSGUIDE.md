@@ -17,30 +17,52 @@ Your vault is organized around four pillars: **Daily Notes**, **Research**, **Pr
 
 ```
 second_brain/
-├── journal/              → Daily notes (core plugin)
+├── journal/              → Daily notes (core plugin) + Journal Dashboard
 ├── Books/                → Book reviews
 ├── Research/
-│   ├── Time-Series/      → Time series forecasting notes
-│   ├── Data-Analytics/   → Data analytics research
-│   └── Statistics/       → Statistics methods and theory
-├── Projects/             → Software project tracking
+│   ├── Time-Series/      → Time series forecasting notes & papers
+│   ├── Research MOC.md   → Map of Content for research
+│   └── Research Dashboard.md → Dataview queries for research tracking
+├── DMA_Notes/            → DMA LLC project tracking
+│   └── DMA Projects MOC.md → Map of Content for DMA projects
+├── ALX_Notes/            → City of Alexandria work notes
+├── Toastmasters/         → Toastmasters content
 ├── Templates/            → All templates live here
-└── references/           → Supporting materials
+│   └── scripts/          → Templater templates with hotkeys
+├── references/           → Wisdom sources & philosophical research
+│   └── Wisdom Sources MOC.md → Map of Content for wisdom traditions
+├── SynthCCD/             → Synthetic CAD data generator project
+├── Reporting Engine/     → Reporting engine development notes
+├── Cheatsheets/          → R/Python reference materials
+├── Archive/              → Legacy content (foam_artefacts, etc.)
+└── scripts/              → Templater user scripts
 ```
 
 ---
 
 ## Templates
 
-Access with `Ctrl/Cmd + T` or via Command Palette → "Insert Template".
+Access with `Ctrl/Cmd + T` or via Command Palette → "Insert Template". Templater templates use hotkeys for quick access.
 
-| Template | When to Use |
-|----------|-------------|
-| **Book Review** | Finished a book. Capture rating, takeaways, connections. |
-| **Research Note** | Read a paper, article, or tutorial. Log source, methods, findings. |
-| **Project Status** | New project or status update. Track phase, milestones, blockers. |
-| **Meeting Note** | Any meeting. Capture agenda, decisions, action items. |
-| **daily_log_template** | Your existing daily note template. |
+| Template | When to Use | Hotkey |
+|----------|-------------|--------|
+| **daily_journal_template** | Daily note with mood, habits, projects | Auto-triggered for journal/ |
+| **daily_mood_log** | CBT mood tracking | `Alt+M` |
+| **daily_reflection** | Evening reflection | `Alt+R` |
+| **daily_tarot_reading** | Daily card pull | Via command palette |
+| **habit_tracker** | Track daily habits | `Alt+H` |
+| **personal_measurements** | Body measurements, metrics | `Alt+P` |
+| **Book Review** | Finished a book | Via command palette |
+| **Research Note** | Read a paper/article | Via command palette |
+| **Research Project** | New research project | Via command palette |
+| **Project Status** | DMA project update | Via command palette |
+| **Meeting Note** | Any meeting | Via command palette |
+| **blog_post_template** | Blog post with Quarto | `Alt+B` |
+| **blog_idea_capture** | Quick blog idea | `Shift+Alt+B` |
+| **toastmasters_meeting_template** | Toastmasters meetings | Via command palette |
+| **toastmasters_speech_template** | Speech preparation | Via command palette |
+| **weekly_reflection** | Weekly review | Via command palette |
+| **annual_progress_review** | Yearly review | Via command palette |
 
 ### Creating New Notes from Templates
 
@@ -76,20 +98,28 @@ WHERE type = "book-review"
 SORT rating DESC
 ```
 
-Active projects:
+Active DMA projects:
 ```dataview
-TABLE phase, status, last_updated
-FROM "Projects"
+TABLE status as "Status", last_updated as "Updated"
+FROM "DMA_Notes"
 WHERE type = "project-status"
 SORT last_updated DESC
 ```
 
-Research by topic:
+Research projects:
 ```dataview
-TABLE source, method, status
+TABLE status, start_date, methodology
 FROM "Research"
-WHERE type = "research-note"
-SORT date DESC
+WHERE type = "research-project"
+SORT start_date DESC
+```
+
+Recent journal entries:
+```dataview
+TABLE creation date as "Date", workday as "Workday"
+FROM "journal"
+SORT file.name DESC
+LIMIT 14
 ```
 
 ### Tasks
@@ -152,16 +182,28 @@ Styled callout boxes. Use native Obsidian syntax:
 ### Daily Journal
 
 1. Click "Open today's daily note" (calendar icon in ribbon)
-2. Write freely — tasks, thoughts, notes
-3. Link to other notes with `[[note name]]`
+2. Daily template auto-triggers with mood, habits, projects sections
+3. Write freely — tasks, thoughts, notes
+4. Link to other notes with `[[note name]]`
+5. Review [[Journal Dashboard]] for patterns
 
 ### Research Session
 
-1. Create new note in appropriate `Research/` subfolder
-2. Apply **Research Note** template
-3. Fill frontmatter: topic, source, method
-4. Write findings below
-5. Link to related notes: `[[ARIMA vs Prophet]]`
+1. Check [[Research MOC]] for existing projects and connections
+2. Create new note in `Research/` (or subfolder for domain-specific work)
+3. Apply **Research Project** template (for new projects) or **Research Note** (for reading)
+4. Fill frontmatter: topic, hypothesis, methodology, status
+5. Write findings below
+6. Link to related notes: `[[168-Point Forecast Comparison - Discrete vs Continuous]]`
+7. Update [[Research Dashboard]] with progress
+
+### DMA Project Update
+
+1. Check [[DMA Projects MOC]] for project overview
+2. Open note in `DMA_Notes/` (or create new with **Project Status** template)
+3. Update status, milestones, blockers
+4. Add log entry with today's date
+5. Link to related research if applicable
 
 ### Book Review
 
@@ -170,12 +212,12 @@ Styled callout boxes. Use native Obsidian syntax:
 3. Rate it, write takeaways, link to related research
 4. Query all books later with Dataview
 
-### Project Update
+### Wisdom Study
 
-1. Open note in `Projects/` (or create new with **Project Status** template)
-2. Update phase, blockers, next steps
-3. Add log entry with today's date
-4. Kanban board for visual tracking (optional)
+1. Browse [[Wisdom Sources MOC]] for traditions of interest
+2. Read or re-read reference documents in `references/`
+3. Connect insights to daily practice via journal templates
+4. Link to Attitude Adjustment Project if applicable
 
 ---
 
@@ -210,6 +252,24 @@ date: ""
 status: ""
 tags:
   - research
+  - 
+---
+```
+
+### Research Project
+```yaml
+---
+type: research-project
+topic: ""
+hypothesis: ""
+methodology: ""
+data_source: ""
+start_date: ""
+end_date: ""
+status: ""
+tags:
+  - research
+  - project
   - 
 ---
 ```
@@ -261,9 +321,14 @@ tags:
 Use tags in frontmatter for filtering:
 
 - `#book` `#review` — book notes
-- `#research` `#time-series` `#statistics` `#data-analytics` — research
-- `#project` `#status` — project tracking
+- `#research` `#time-series` `#forecasting` `#queueing` `#911` `#psap` — research
+- `#project` `#status` `#dma` — DMA project tracking
 - `#meeting` — meeting notes
+- `#moc` — Map of Content files
+- `#dashboard` — Dataview dashboard files
+- `#journal` `#daily` `#reflection` — journal entries
+- `#cbt` `#mood` `#habits` — mental health tracking
+- `#wisdom` `#philosophy` `#psychology` `#spirituality` — wisdom sources
 
 ---
 
@@ -288,4 +353,4 @@ Use tags in frontmatter for filtering:
 
 ---
 
-*Last updated: 2026-08-30*
+*Last updated: 2026-09-02*
