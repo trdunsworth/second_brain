@@ -1,0 +1,17 @@
+---
+title: "<% tp.file.title %>"
+author: "Tony Dunsworth"
+date: "<% tp.date.now('YYYY-MM-DD') %>"
+format:
+  typst:
+    columns: 1
+    margin:
+      top: 2cm
+      bottom: 2cm
+      left: 2.5cm
+      right: 2.5cm
+    fontsize: 11pt
+    mainfont: "TeX Gyre Termes"
+---
+
+<% tp.file.content %>

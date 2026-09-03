@@ -1,0 +1,11 @@
+{
+  "defaultModel": "gemma4:26b",
+  "embeddingModel": "mxbai-embed-large",
+  "models": [
+    "gemma4:26b",
+    "mxbai-embed-large",
+    "qwen2.5-coder:7b",
+    "llama3.2:3b"
+  ],
+  "ollamaUrl": "http://localhost:11434"
+}
