@@ -10,3 +10,7 @@ Then there's [SitePoint's](https://www.sitepoint.com/obsidian-beginner-guide/) t
 
 [Master Obsidian](https://medium.com/@roanmonteiro/master-obsidian-the-complete-and-definitive-guide-to-turning-your-notes-into-a-second-brain-43f9f147f31a)
 
+[Obsidian and AI](https://pkmjournal.com/the-complete-guide-to-obsidian-automation-from-templates-to-an-ai-operating-system-001db3ab137b)
+
+
+
