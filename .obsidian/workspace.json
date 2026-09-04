@@ -13,40 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-09-03.md",
+                "file": "journal/2026-09-04.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-03"
-            }
-          },
-          {
-            "id": "00f3d0d04aade879",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Research/Research Dashboard.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Research Dashboard"
-            }
-          },
-          {
-            "id": "d83241829fd9a667",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Obsidian Training Resources.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Obsidian Training Resources"
+              "title": "2026-09-04"
             }
           },
           {
@@ -312,20 +284,29 @@
       "hermes-agent:Open Hermes smart graph": false
     }
   },
-  "active": "29de818a13b78983",
+  "active": "da3909ef37bae9bb",
   "lastOpenFiles": [
+    "HOTKEYS.md",
+    "Reflections",
+    "journal/2026-09-04.md",
+    "Readings",
+    "Readings/Daily Tarot Reading - Friday, September 04, 2026.md",
+    "Templates/scripts/one_card_tarot_reading_template_templater.md",
+    "copilot/skills/openartifacts-publish/SKILL.md",
+    "copilot/skills/openartifacts-publish/openartifacts-publish.ps1",
+    "copilot/skills/openartifacts-publish/openartifacts-publish.cmd",
+    "copilot/skills/openartifacts-publish/openartifacts-publish.sh",
+    "copilot/skills/openartifacts-publish/themes/research-memo.md",
+    "copilot/skills/openartifacts-publish/themes",
+    "copilot/skills/openartifacts-publish",
+    "Research/Research Dashboard.md",
+    "journal/2026-09-03.md",
     "Agents",
     "Session Notes - OpenCode and Ollama Integration 2026-09-03.md",
-    "journal/2026-09-03.md",
     "ALX_Notes/Session Notes - OpenCode and Ollama Integration 2026-09-03.md",
     "Scripts/Ollama-Status.cmd",
     "Scripts/Ollama-Status.sh",
-    "Scripts/Ollama-Status.ps1",
-    "Scripts/ollama-models.json",
-    "opencode.jsonc",
-    "Busiest Hour and Answer Percentage August 2026.pdf",
     "Obsidian Training Resources.md",
-    "Research/Research Dashboard.md",
     "Reporting Engine/README - Copy.md",
     "Reporting Engine/R.md",
     "Reporting Engine/PYTHON.md",
@@ -340,16 +321,6 @@
     "Reporting Engine/agents/operational_management_agent.md",
     "Reporting Engine/agents/executive_staff_agent.md",
     "Reporting Engine/agents/analyst_researcher_agent.md",
-    "Reporting Engine/agents",
-    "Reporting Engine/New folder",
-    "ALX_Notes/Ad Hoc Statistics/Busiest Hour and Answer Percentage August 2026.pdf",
-    "ALX_Notes/Ad Hoc Statistics/Busiest Hour and Answer Percentage August 2026.md",
-    "Scripts/Export-NoteToPDF.ps1",
-    "HOTKEYS.md",
-    "Untitled.md",
-    "Templates/ad_hoc_query_template.md",
-    "ALX_Notes/Ad Hoc Statistics/Untitled 1.md",
-    "Templates/scripts/ad_hoc_query_template_templater.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",

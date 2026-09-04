@@ -6,8 +6,10 @@ created: <% tp.date.now("YYYY-MM-DD HH:mm") %>
 
 <%*
 // All dynamic prompts at the top - runs before body renders
-const goalsFile = await tp.file.include("Templates/scripts/attitude_adjustment_goals.md");
-const goalMatches = goalsFile.match(/- "(.+)"/g);
+// Use tp.file.find_tfile() and tp.app.vault.read() to read the goals file
+const goalsTFile = tp.file.find_tfile("Templates/scripts/attitude_adjustment_goals.md");
+const goalsContent = goalsTFile ? await tp.app.vault.read(goalsTFile) : "";
+const goalMatches = goalsContent.match(/- "(.+)"/g);
 const goals = goalMatches ? goalMatches.map(m => m.replace(/- "(.+)"/, '$1')) : [];
 
 // Core Question

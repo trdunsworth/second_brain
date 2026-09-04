@@ -1,31 +1,20 @@
 {
+  "data_version": 2,
   "command_timeout": 120,
   "templates_folder": "Templates/scripts",
-  "templates_pairs": [
-    [
-      "",
-      ""
-    ]
-  ],
-  "trigger_on_file_creation": true,
+  "templates_pairs": [],
+  "trigger_on_file_creation_mode": "folder",
   "auto_jump_to_cursor": false,
-  "enable_system_commands": false,
+  "jump_to_cursor_after_file_name": false,
   "shell_path": "",
   "user_scripts_folder": "Scripts",
-  "enable_folder_templates": true,
   "folder_templates": [
     {
       "folder": "journal",
       "template": "Templates/scripts/daily_journal_template.md"
     }
   ],
-  "enable_file_templates": false,
-  "file_templates": [
-    {
-      "regex": ".*",
-      "template": ""
-    }
-  ],
+  "file_templates": [],
   "syntax_highlighting": true,
   "syntax_highlighting_mobile": false,
   "enabled_templates_hotkeys": [
@@ -37,15 +26,12 @@
     "Templates/scripts/habit_tracker_template_templater.md",
     "Templates/scripts/personal_measurements_template_templater.md",
     "Templates/scripts/daily_log_template_templater.md",
-    "Templates/scripts/blog_idea_capture_template_templater.md"
+    "Templates/scripts/blog_idea_capture_template_templater.md",
+    "Templates/scripts/daily_tarot_reading_template_templater.md"
   ],
   "startup_templates": [
     "Templates/scripts/daily_log_template.md"
   ],
-  "intellisense_render": 1,
-  "ignore_folders_on_creation": [
-    {
-      "folder": ""
-    }
-  ]
+  "intellisense_render": "1",
+  "ignore_folders_on_creation": []
 }

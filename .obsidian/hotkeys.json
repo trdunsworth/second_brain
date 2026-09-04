@@ -44,7 +44,8 @@
   "templater-obsidian:Templates/scripts/daily_reflection_template_templater.md": [
     {
       "modifiers": [
-        "Alt"
+        "Alt",
+        "Shift"
       ],
       "key": "R"
     }
@@ -106,6 +107,33 @@
         "Shift"
       ],
       "key": "D"
+    }
+  ],
+  "obsidian-excalidraw-plugin:save": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "S"
+    }
+  ],
+  "templater-obsidian:create-Templates/scripts/daily_tarot_reading_template_templater.md": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "T"
+    }
+  ],
+  "templater-obsidian:create-Templates/scripts/one_card_tarot_reading_template_templater.md": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "Q"
     }
   ]
 }

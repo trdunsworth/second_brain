@@ -10,24 +10,15 @@
   "huggingfaceApiKey": "",
   "cohereApiKey": "",
   "anthropicApiKey": "",
-  "azureOpenAIApiKey": "",
-  "azureOpenAIApiInstanceName": "",
-  "azureOpenAIApiDeploymentName": "",
-  "azureOpenAIApiVersion": "",
-  "azureOpenAIApiEmbeddingDeploymentName": "",
   "googleApiKey": "",
   "openRouterAiApiKey": "",
   "xaiApiKey": "",
   "mistralApiKey": "",
   "deepseekApiKey": "",
-  "amazonBedrockApiKey": "",
-  "amazonBedrockRegion": "",
   "siliconflowApiKey": "",
   "defaultChainType": "llm_chain",
   "defaultModelKey": "google/gemini-2.5-flash|openrouterai",
   "embeddingModelKey": "openai/text-embedding-3-small|openrouterai",
-  "temperature": 0.1,
-  "maxTokens": 6000,
   "contextTurns": 15,
   "userSystemPrompt": "",
   "openAIProxyBaseUrl": "",
@@ -425,20 +416,11 @@
       "isBuiltIn": true,
       "isEmbeddingModel": true,
       "apiKey": ""
-    },
-    {
-      "name": "azure-openai",
-      "provider": "azure openai",
-      "enabled": true,
-      "isBuiltIn": true,
-      "isEmbeddingModel": true,
-      "apiKey": ""
     }
   ],
   "embeddingRequestsPerMin": 60,
   "embeddingBatchSize": 16,
   "disableIndexOnMobile": true,
-  "showSuggestedPrompts": true,
   "numPartitions": 1,
   "lexicalSearchRamLimit": 100,
   "promptUsageTimestamps": {},
@@ -462,6 +444,8 @@
   "selfHostSearchProvider": "firecrawl",
   "firecrawlApiKey": "",
   "perplexityApiKey": "",
+  "parallelApiKey": "",
+  "exaApiKey": "",
   "supadataApiKey": "",
   "docProcessorBackend": "plus",
   "enableLexicalBoosts": true,
@@ -497,6 +481,8 @@
     "activeBackend": "opencode",
     "backends": {},
     "debugFullFrames": true,
+    "notificationSound": true,
+    "notificationSoundId": "piano",
     "welcomeDismissed": false,
     "skills": {
       "folder": "copilot/skills"
@@ -2175,6 +2161,8 @@
       ]
     }
   },
+  "temperature": 0.1,
+  "showSuggestedPrompts": true,
   "_keychainVaultId": "eec49bba",
-  "settingsVersion": 9
+  "settingsVersion": 12
 }
