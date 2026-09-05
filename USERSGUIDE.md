@@ -44,25 +44,25 @@ second_brain/
 
 Access with `Ctrl/Cmd + T` or via Command Palette → "Insert Template". Templater templates use hotkeys for quick access.
 
-| Template | When to Use | Hotkey |
-|----------|-------------|--------|
-| **daily_journal_template** | Daily note with mood, habits, projects | Auto-triggered for journal/ |
-| **daily_mood_log** | CBT mood tracking | `Alt+M` |
-| **daily_reflection** | Evening reflection | `Alt+R` |
-| **daily_tarot_reading** | Daily card pull | Via command palette |
-| **habit_tracker** | Track daily habits | `Alt+H` |
-| **personal_measurements** | Body measurements, metrics | `Alt+P` |
-| **Book Review** | Finished a book | Via command palette |
-| **Research Note** | Read a paper/article | Via command palette |
-| **Research Project** | New research project | Via command palette |
-| **Project Status** | DMA project update | Via command palette |
-| **Meeting Note** | Any meeting | Via command palette |
-| **blog_post_template** | Blog post with Quarto | `Alt+B` |
-| **blog_idea_capture** | Quick blog idea | `Shift+Alt+B` |
-| **toastmasters_meeting_template** | Toastmasters meetings | Via command palette |
-| **toastmasters_speech_template** | Speech preparation | Via command palette |
-| **weekly_reflection** | Weekly review | Via command palette |
-| **annual_progress_review** | Yearly review | Via command palette |
+| Template                          | When to Use                            | Hotkey                      |
+| --------------------------------- | -------------------------------------- | --------------------------- |
+| **daily_journal_template**        | Daily note with mood, habits, projects | Auto-triggered for journal/ |
+| **daily_mood_log**                | CBT mood tracking                      | `Alt+M`                     |
+| **daily_reflection**              | Evening reflection                     | `Alt+R`                     |
+| **daily_tarot_reading**           | Daily card pull                        | Via command palette         |
+| **habit_tracker**                 | Track daily habits                     | `Alt+H`                     |
+| **personal_measurements**         | Body measurements, metrics             | `Alt+P`                     |
+| **Book Review**                   | Finished a book                        | Via command palette         |
+| **Research Note**                 | Read a paper/article                   | Via command palette         |
+| **Research Project**              | New research project                   | Via command palette         |
+| **Project Status**                | DMA project update                     | Via command palette         |
+| **Meeting Note**                  | Any meeting                            | Via command palette         |
+| **blog_post_template**            | Blog post with Quarto                  | `Alt+B`                     |
+| **blog_idea_capture**             | Quick blog idea                        | `Shift+Alt+B`               |
+| **toastmasters_meeting_template** | Toastmasters meetings                  | Via command palette         |
+| **toastmasters_speech_template**  | Speech preparation                     | Via command palette         |
+| **weekly_reflection**             | Weekly review                          | Via command palette         |
+| **annual_progress_review**        | Yearly review                          | Via command palette         |
 
 ### Creating New Notes from Templates
 
