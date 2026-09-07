@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-09-04.md",
+                "file": "journal/2026-09-06.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-04"
+              "title": "2026-09-06"
             }
           },
           {
@@ -253,8 +253,8 @@
             "state": {
               "type": "copilot-agent-chat-view",
               "state": {},
-              "icon": "copilot-agent",
-              "title": "Copilot Agent"
+              "icon": "lucide-ghost",
+              "title": "copilot-agent-chat-view"
             }
           }
         ],
@@ -267,8 +267,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-kanban:Create new board": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -281,14 +279,17 @@
       "open-vscode:VS Code": false,
       "copilot:Open Copilot Agent Chat": false,
       "hermes-agent:Open Hermes Agent": false,
-      "hermes-agent:Open Hermes smart graph": false
+      "hermes-agent:Open Hermes smart graph": false,
+      "obsidian-kanban:Create new board": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
   "active": "da3909ef37bae9bb",
   "lastOpenFiles": [
+    "journal/2026-09-04.md",
+    "journal/2026-09-06.md",
     "HOTKEYS.md",
     "Reflections",
-    "journal/2026-09-04.md",
     "Readings",
     "Readings/Daily Tarot Reading - Friday, September 04, 2026.md",
     "Templates/scripts/one_card_tarot_reading_template_templater.md",

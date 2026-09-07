@@ -1,0 +1,16 @@
+{
+  "books": {},
+  "prefs": {
+    "language": "auto",
+    "bgTheme": "gray",
+    "customColor": "#ffffff",
+    "fontFamily": "",
+    "fontSize": 20,
+    "highlightColor": ""
+  },
+  "storage": {
+    "folder": "epub-highlights",
+    "migratedAt": 1788713276940
+  },
+  "seenGuide": false
+}
