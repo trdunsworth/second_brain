@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-09-07.md",
+                "file": "journal/2026-09-08.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-07"
+              "title": "2026-09-08"
             }
           },
           {
@@ -300,8 +300,9 @@
   },
   "active": "da3909ef37bae9bb",
   "lastOpenFiles": [
-    "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-09-07.md",
+    "journal/2026-09-08.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-09-06.md",
     "journal/2026-09-04.md",
     "HOTKEYS.md",
@@ -335,7 +336,6 @@
     "Reporting Engine/README.md",
     "Reporting Engine/agents/shift_supervisor_agent.md",
     "Reporting Engine/agents/README.md",
-    "Reporting Engine/agents/operational_management_agent.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
