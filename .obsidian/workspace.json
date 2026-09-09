@@ -65,8 +65,7 @@
               "title": "HOTKEYS"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -299,14 +298,14 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "29de818a13b78983",
+  "active": "da3909ef37bae9bb",
   "lastOpenFiles": [
+    "HOTKEYS.md",
     "ALX_Notes/Ad Hoc Statistics/Nonemergency Call Volumes.pdf",
     "ALX_Notes/Ad Hoc Statistics/Nonemergency Call Volumes.md",
     "blog/Why We Need Better Data Analyses in PSAPs.md",
     "journal/2026-09-09.md",
     "Research/AI Engineering Education.md",
-    "HOTKEYS.md",
     "journal/2026-09-08.md",
     "journal/2026-09-07.md",
     "Toastmasters/Toastmasters Signature for Email.md",
@@ -329,7 +328,6 @@
     "Session Notes - OpenCode and Ollama Integration 2026-09-03.md",
     "ALX_Notes/Session Notes - OpenCode and Ollama Integration 2026-09-03.md",
     "Scripts/Ollama-Status.cmd",
-    "Scripts/Ollama-Status.sh",
     "Obsidian Training Resources.md",
     "Reporting Engine/README - Copy.md",
     "Reporting Engine/R.md",
