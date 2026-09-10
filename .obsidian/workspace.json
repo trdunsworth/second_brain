@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-09-09.md",
+                "file": "journal/2026-09-10.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-09"
+              "title": "2026-09-10"
             }
           },
           {
@@ -242,42 +242,31 @@
             }
           },
           {
-            "id": "4115820c947709b1",
-            "type": "leaf",
-            "state": {
-              "type": "journal-calendar",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "journal-calendar"
-            }
-          },
-          {
-            "id": "31e4ea2bac10c2f6",
-            "type": "leaf",
-            "state": {
-              "type": "opencode-conversations",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "opencode-conversations"
-            }
-          },
-          {
             "id": "3371b99165785a46",
             "type": "leaf",
             "state": {
               "type": "copilot-agent-chat-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "copilot-agent-chat-view"
+              "icon": "copilot-agent",
+              "title": "Copilot Agent"
+            }
+          },
+          {
+            "id": "3b595c0f98df7c7d",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
             }
           }
         ],
-        "currentTab": 10
+        "currentTab": 9
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -300,17 +289,18 @@
   },
   "active": "da3909ef37bae9bb",
   "lastOpenFiles": [
+    "journal/2026-09-04.md",
+    "journal/2026-09-10.md",
+    "journal/2026-09-09.md",
     "HOTKEYS.md",
     "ALX_Notes/Ad Hoc Statistics/Nonemergency Call Volumes.pdf",
     "ALX_Notes/Ad Hoc Statistics/Nonemergency Call Volumes.md",
     "blog/Why We Need Better Data Analyses in PSAPs.md",
-    "journal/2026-09-09.md",
     "Research/AI Engineering Education.md",
     "journal/2026-09-08.md",
     "journal/2026-09-07.md",
     "Toastmasters/Toastmasters Signature for Email.md",
     "journal/2026-09-06.md",
-    "journal/2026-09-04.md",
     "Reflections",
     "Readings",
     "Readings/Daily Tarot Reading - Friday, September 04, 2026.md",
