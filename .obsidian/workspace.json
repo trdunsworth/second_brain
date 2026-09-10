@@ -197,61 +197,6 @@
             }
           },
           {
-            "id": "0f597eb5d18d681c",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "2026-06-12.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of 2026-06-12"
-            }
-          },
-          {
-            "id": "60dc89b690ba5e04",
-            "type": "leaf",
-            "state": {
-              "type": "llm-helper-chat",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "llm-helper-chat"
-            }
-          },
-          {
-            "id": "e2f94409c9cfbc89",
-            "type": "leaf",
-            "state": {
-              "type": "opencode-terminal",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "opencode-terminal"
-            }
-          },
-          {
-            "id": "0bfcb35ccd538eaa",
-            "type": "leaf",
-            "state": {
-              "type": "llm-helper-vault-radar",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "llm-helper-vault-radar"
-            }
-          },
-          {
-            "id": "3371b99165785a46",
-            "type": "leaf",
-            "state": {
-              "type": "copilot-agent-chat-view",
-              "state": {},
-              "icon": "copilot-agent",
-              "title": "Copilot Agent"
-            }
-          },
-          {
             "id": "3b595c0f98df7c7d",
             "type": "leaf",
             "state": {
@@ -262,7 +207,7 @@
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -287,7 +232,7 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "da3909ef37bae9bb",
+  "active": "3b595c0f98df7c7d",
   "lastOpenFiles": [
     "journal/2026-09-04.md",
     "journal/2026-09-10.md",
