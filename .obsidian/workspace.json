@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-09-10.md",
+                "file": "journal/2026-09-11.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-10"
+              "title": "2026-09-11"
             }
           },
           {
@@ -247,10 +247,11 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "3b595c0f98df7c7d",
+  "active": "da3909ef37bae9bb",
   "lastOpenFiles": [
-    "journal/2026-09-04.md",
     "journal/2026-09-10.md",
+    "journal/2026-09-11.md",
+    "journal/2026-09-04.md",
     "journal/2026-09-09.md",
     "HOTKEYS.md",
     "ALX_Notes/Ad Hoc Statistics/Nonemergency Call Volumes.pdf",
@@ -284,7 +285,6 @@
     "Reporting Engine/PYTHON.md",
     "Reporting Engine/JULIA.md",
     "Reporting Engine/DATA_GENERATION_SPEC.md",
-    "Reporting Engine/AGENTS.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
