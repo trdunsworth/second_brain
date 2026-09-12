@@ -9,5 +9,5 @@
   "enabledCssSnippets": [
     "fix-text-font"
   ],
-  "interfaceFontFamily": "CommitMonoTonyD,CommitMonoDrDMac"
+  "interfaceFontFamily": "CommitMonoTonyD,CommitMonoDrDMac,CommitMonoDrDLinux"
 }
