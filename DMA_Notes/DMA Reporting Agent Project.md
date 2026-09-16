@@ -146,6 +146,32 @@ Build an Agent-assisted Analytical Engine that leverages data analytics and data
 
 ---
 
+## Audiences, Views, and Considerations
+
+### Executives (C-Suite)
+
+At this level, the expectations is for a 50,000 ft overview. At this level, reports aren't as effective as dashboards that could give the user useful information at a glance. This could include total calls received, deltas over week, month, year, etc., mean response time for call reception via 9-1-1 lines, admin lines, maybe even means for how long we're on outbound calls. 
+
+Reporting would be highlight driven and global in scope. Those reports should be able to be shared upstream to governing management.
+
+### Operations Management
+
+This is a *"Meat and Potatoes"* level where the audience will use the information to drive operational changes. What are the numbers that we need to know? How many calls? What kind of calls are they? How long is it taking us to get out the door? What special foci are there for us to track? What are our top call types? Are we meeting KPI standards, SLA metrics?
+
+This is a much longer and more detailed report that focuses on all aspects of operations. Phone, Dispatch, etc. 
+### Supervisors
+
+This would be more drilled down to an individual shift and the personnel working that shift. This could focus on what calls you're getting, how well you're doing and if your shift is meeting your KPI standards and SLAs. 
+### QA/QI/QC Personnel
+
+
+### Data Analysts
+
+
+
+
+---
+
 *Template created: 2026-08-31*
 *Last updated: 2026-08-31 — populated from DMA_reporting_engine_1 codebase (v0.3.0)*
 
