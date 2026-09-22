@@ -682,7 +682,7 @@ See `demo_r.Rmd` for a knittable walkthrough.
 
 ## Contributing
 
-See [GUIDELINES.md](GUIDELINES.md) for design principles and contribution guidelines.
+See [GUIDELINES.md](DMA_theme/GUIDELINES.md) for design principles and contribution guidelines.
 
 ## License
 
