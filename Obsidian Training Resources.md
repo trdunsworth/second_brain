@@ -14,5 +14,5 @@ Then there's [SitePoint's](https://www.sitepoint.com/obsidian-beginner-guide/) t
 
 [Awesome Obsidian](https://awesomedog.github.io/awesome-obsidian/#/) has some good plugin recommendations and some good options for workflows.
 
-
+[Obsidian Vault Hub](https://obsidianvaulthub.com/browse) could be an interesting resource.
 

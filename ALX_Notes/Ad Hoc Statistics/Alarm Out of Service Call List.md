@@ -61,6 +61,7 @@ FROM Response_Master_Incident
 WHERE Response_Date BETWEEN '2026-01-01' AND '2026-10-01'
 AND Problem = 'ALARM OUT OF SERVICE'
 AND Master_Incident_Number != ' '
+AND Call_Is_Active = 1;
 ```
 
 ---
@@ -74,7 +75,7 @@ AND Master_Incident_Number != ' '
 | | | |
 | | | |
 
-**Outcome Summary:**  3,379 rows returned
+**Outcome Summary:** 3,379 rows returned - When filtering for active calls, the list is reduced to 73.
 
 ---
 
