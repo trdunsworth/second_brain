@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "desktop": {
+    "top": true,
+    "following": false,
+    "fixed": false
+  },
+  "mobile": {
+    "top": false,
+    "following": false,
+    "fixed": true
+  },
+  "enableOnMobile": false,
+  "tableKeyNavigation": true,
+  "padCellWidthWithSpaces": true,
+  "sortTableOnHeaderClick": true,
+  "showWhitespace": false,
+  "charUsage": {},
+  "pinned": []
+}

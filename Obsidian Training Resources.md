@@ -1,6 +1,6 @@
 Let's start with [Awesome Obsidian](https://github.com/kmaasrud/awesome-obsidian) so I can have a starting point.
 
-There are a couple of [Medium](https://medium.com) articles that I want to link in here. The first suggests that I should [stop over-thinking it](https://medium.com/@andremonthy/stop-overthinking-obsidian-a-beginners-guide-that-actually-works-c46ae9953ac7). That could be a good idea. There's the most recent [plugin guide](https://www.dsebastien.net/the-must-have-obsidian-plugins-for-2026/) that I can use once I get a little further down the road
+There are a couple of [Medium](https://medium.com) articles that I want to link in here. The first suggests that I should [stop overthinking it](https://medium.com/@andremonthy/stop-overthinking-obsidian-a-beginners-guide-that-actually-works-c46ae9953ac7). That could be a good idea. There's the most recent [plugin guide](https://www.dsebastien.net/the-must-have-obsidian-plugins-for-2026/) that I can use once I get a little further down the road
 
 There is also this [Obsidian Tutorial for Dummies](https://forum.obsidian.md/t/obsidian-tutorial-for-dummies/70662. This could be helpful to instruct me.
 
@@ -11,6 +11,8 @@ Then there's [SitePoint's](https://www.sitepoint.com/obsidian-beginner-guide/) t
 [Master Obsidian](https://medium.com/@roanmonteiro/master-obsidian-the-complete-and-definitive-guide-to-turning-your-notes-into-a-second-brain-43f9f147f31a)
 
 [Obsidian and AI](https://pkmjournal.com/the-complete-guide-to-obsidian-automation-from-templates-to-an-ai-operating-system-001db3ab137b)
+
+[Awesome Obsidian](https://awesomedog.github.io/awesome-obsidian/#/) has some good plugin recommendations and some good options for workflows.
 
 
 

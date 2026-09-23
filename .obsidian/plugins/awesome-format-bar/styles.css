@@ -1,0 +1,800 @@
+/* ==========================================================================
+   Awesome Format Bar - Design Tokens & Unified Stylesheet
+   All colors delegate to Obsidian theme CSS custom properties.
+   ========================================================================== */
+
+.awesome-format-bar {
+  /* Design Tokens: Sizing, Hit Targets & Dimensions */
+  --formatbar-hit: 26px;
+  --formatbar-swatch: 20px;
+  --formatbar-icon-size: var(--icon-size);
+  --formatbar-separator-size: 18px;
+  --formatbar-control-h: 26px;
+  --formatbar-search-h: 30px;
+  --formatbar-cell-size: 36px;
+  --formatbar-footer-h: 38px;
+  --formatbar-char-w: 350px;
+  --formatbar-char-h: 420px;
+  --formatbar-picker-w: 220px;
+  --formatbar-picker-sl-h: 160px;
+  --formatbar-lift: var(--size-4-6);
+  --formatbar-side-margin: var(--size-4-4);
+  --formatbar-border: 1px solid var(--background-modifier-border);
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+  color: var(--text-normal);
+  font-size: var(--font-ui-smaller);
+  user-select: none;
+
+  /* ------------------------------- Clickables ------------------------------- */
+  & button {
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-s);
+    box-shadow: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: var(--size-4-2);
+    justify-content: center;
+    padding: 0;
+
+    &:hover:not(:disabled) {
+      background: var(--background-modifier-hover);
+      color: var(--text-normal);
+    }
+    &:active:not(:disabled) {
+      background: var(--background-modifier-active-hover);
+    }
+    &:focus-visible {
+      box-shadow: 0 0 0 2px var(--background-modifier-border-focus);
+      outline: none;
+    }
+    &:disabled {
+      color: var(--text-faint);
+      cursor: default;
+    }
+  }
+
+  & .format-button {
+    block-size: var(--formatbar-hit);
+    inline-size: var(--formatbar-hit);
+    min-block-size: var(--formatbar-hit);
+    min-inline-size: var(--formatbar-hit);
+    position: relative;
+  }
+
+  & .svg-icon {
+    block-size: var(--formatbar-icon-size);
+    inline-size: var(--formatbar-icon-size);
+  }
+
+  & .has-menu::after {
+    border: 3px solid transparent;
+    border-block-end: 0;
+    border-block-start-color: currentcolor;
+    content: "";
+    inset: auto 2px 3px auto;
+    position: absolute;
+  }
+
+  & .is-hidden {
+    display: none;
+  }
+
+  /* --------------------------------- Ribbon --------------------------------- */
+  &.awesome-format-bar--ribbon {
+    background: var(--background-secondary);
+    border-block-end: var(--formatbar-border);
+    flex: 0 0 auto;
+
+    & .tab-row {
+      display: flex;
+      gap: var(--size-2-1);
+      padding: var(--size-2-2) var(--size-4-2) 0;
+    }
+    & .tab {
+      border-radius: var(--radius-s) var(--radius-s) 0 0;
+      padding: var(--size-2-1) var(--size-4-2);
+    }
+    & .tab-panel {
+      background: var(--background-primary);
+      display: flex;
+      padding: var(--size-2-2) var(--size-4-2) var(--size-2-1);
+      position: relative;
+    }
+
+    & .pinned-actions {
+      inset-block-start: var(--size-2-2);
+      inset-inline-end: var(--size-4-2);
+      position: absolute;
+    }
+
+    & .group {
+      border-inline-end: var(--formatbar-border);
+      display: flex;
+      flex-direction: column;
+      padding: 0 var(--size-4-2);
+      &:last-child {
+        border-inline-end: none;
+      }
+    }
+    & .group-buttons {
+      align-content: flex-start;
+      display: flex;
+      flex: 1 1 auto;
+      flex-wrap: wrap;
+      gap: 1px;
+    }
+    & .group-name,
+    & .group-empty {
+      color: var(--text-faint);
+      padding-block-start: var(--size-2-1);
+      text-align: center;
+    }
+    & .group-name {
+      max-inline-size: 16em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    & .group-empty {
+      padding-block: var(--size-2-1);
+    }
+  }
+
+  /* ----------------------- Compact Bars & Shared Panels --------------------- */
+  &.awesome-format-bar--compact,
+  &.awesome-format-bar--menu {
+    background: var(--background-secondary);
+    border: var(--formatbar-border);
+    border-radius: var(--radius-m);
+  }
+
+  &.awesome-format-bar--compact {
+    align-items: center;
+    box-shadow: var(--shadow-s);
+    display: flex;
+    gap: var(--size-2-1);
+    overflow: hidden;
+    padding: var(--size-2-1) var(--size-2-2);
+
+    & .button-row {
+      align-items: center;
+      display: flex;
+      flex: 1 1 auto;
+      gap: 1px;
+      overflow: hidden;
+    }
+    & .separator {
+      background: var(--background-modifier-border);
+      block-size: var(--formatbar-separator-size);
+      flex: 0 0 1px;
+      margin-inline: var(--size-2-1);
+    }
+  }
+
+  &.awesome-format-bar--following {
+    inset: 0 auto auto 0;
+    max-inline-size: calc(100% - 2 * var(--formatbar-side-margin));
+    position: absolute;
+    z-index: var(--layer-popover);
+  }
+
+  &.awesome-format-bar--fixed {
+    align-self: center;
+    flex: 0 0 auto;
+    margin: var(--size-2-2) var(--formatbar-side-margin)
+      calc(
+        var(--formatbar-lift) + env(safe-area-inset-bottom) +
+          var(--formatbar-navbar-lift, 0px)
+      );
+    max-inline-size: calc(100% - 2 * var(--formatbar-side-margin));
+  }
+
+  /* ---------------------------------- Menu ---------------------------------- */
+  &.awesome-format-bar--menu {
+    box-shadow: var(--shadow-l);
+    max-block-size: 60vh;
+    overflow-y: auto;
+    padding: var(--size-2-2);
+    position: fixed;
+    z-index: var(--layer-menu);
+
+    & .menu-section + .menu-section {
+      border-block-start: var(--formatbar-border);
+      margin-block-start: var(--size-2-2);
+      padding-block-start: var(--size-2-2);
+    }
+    & .menu-title {
+      color: var(--text-faint);
+      padding: var(--size-2-1) var(--size-2-2);
+    }
+    & .menu-item {
+      color: var(--text-normal);
+      display: flex;
+      inline-size: 100%;
+      justify-content: flex-start;
+      padding: var(--size-2-1) var(--size-2-3);
+      white-space: nowrap;
+    }
+    & .menu-grid {
+      display: grid;
+      gap: var(--size-2-1);
+      grid-template-columns: repeat(var(--formatbar-menu-columns, 8), 1fr);
+    }
+    & .swatch {
+      block-size: var(--formatbar-swatch);
+      border: var(--formatbar-border);
+      inline-size: var(--formatbar-swatch);
+      &:hover {
+        outline: 2px solid var(--background-modifier-border-focus);
+      }
+    }
+  }
+
+  /* ------------------------- Emoji & Symbols Panel -------------------------- */
+  &.awesome-format-bar--menu.is-char-panel {
+    block-size: var(--formatbar-char-h);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-2-2);
+    inline-size: var(--formatbar-char-w);
+    max-block-size: min(var(--formatbar-char-h), calc(100vh - 32px));
+    max-inline-size: calc(100vw - 16px);
+    overflow: hidden;
+    padding: var(--size-4-2);
+
+    & .char-search-wrapper {
+      align-items: center;
+      background: var(--background-modifier-form-field);
+      border: var(--formatbar-border);
+      border-radius: var(--radius-s);
+      block-size: var(--formatbar-search-h);
+      display: flex;
+      flex: 0 0 auto;
+      padding: 0 var(--size-2-2);
+    }
+    & .char-search-icon {
+      color: var(--text-faint);
+      display: inline-flex;
+      margin-inline-end: var(--size-2-1);
+    }
+    & .char-search-input {
+      background: transparent;
+      border: none;
+      color: var(--text-normal);
+      flex: 1 1 auto;
+      font-size: var(--font-ui-small);
+      padding: var(--size-2-1) 0;
+    }
+    & .char-source-tabs {
+      background: var(--background-modifier-form-field);
+      border-radius: var(--radius-s);
+      display: flex;
+      flex: 0 0 auto;
+      gap: 2px;
+      padding: 2px;
+    }
+    & .char-source-tab {
+      block-size: var(--formatbar-control-h);
+      flex: 1 1 0;
+      padding: 0 var(--size-2-1);
+    }
+    & .char-category-nav:not(.is-hidden) {
+      align-items: center;
+      display: flex;
+      flex: 0 0 auto;
+      flex-wrap: nowrap;
+      gap: var(--size-2-2);
+      min-block-size: 28px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    & .char-category-chip {
+      block-size: var(--formatbar-control-h);
+      border-radius: var(--radius-s);
+      flex: 0 0 auto;
+      font-size: var(--font-ui-smaller);
+      padding: 0 var(--size-2-3);
+      white-space: nowrap;
+      &.is-active {
+        background: var(--background-modifier-active-hover);
+        color: var(--text-normal);
+        font-weight: var(--font-semibold);
+      }
+    }
+    & .menu-grid {
+      flex: 1 1 auto;
+      min-block-size: 0;
+      overflow-y: auto;
+    }
+    & .char-cell {
+      block-size: var(--formatbar-cell-size);
+      font-size: 21px;
+      &.is-inserted {
+        background: var(--background-modifier-active-hover);
+        border-radius: var(--radius-s);
+      }
+    }
+    & .menu-grid.is-wide .char-cell {
+      font-size: var(--font-ui-smaller);
+      justify-content: flex-start;
+      padding: 0 var(--size-2-2);
+    }
+    & .char-empty {
+      color: var(--text-faint);
+      grid-column: 1 / -1;
+      padding: var(--size-4-2);
+      text-align: center;
+    }
+    & .char-preview-footer {
+      align-items: center;
+      block-size: var(--formatbar-footer-h);
+      border-block-start: var(--formatbar-border);
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 0 auto;
+      gap: var(--size-2-3);
+      overflow: hidden;
+      padding-block-start: var(--size-2-2);
+      white-space: nowrap;
+    }
+    & .char-preview-icon {
+      align-items: center;
+      display: flex;
+      flex: 0 0 auto;
+      font-size: 20px;
+      justify-content: center;
+      max-inline-size: 130px;
+    }
+    & .char-preview-details {
+      display: flex;
+      flex: 1 1 0;
+      flex-direction: column;
+      justify-content: center;
+      min-inline-size: 0;
+    }
+    & .char-preview-name {
+      font-weight: var(--font-semibold);
+      line-height: 1.3;
+    }
+    & .char-preview-meta {
+      color: var(--text-faint);
+      font-size: var(--font-ui-smaller);
+      line-height: 1.3;
+      &.is-status {
+        color: var(--text-accent);
+        font-weight: var(--font-medium);
+      }
+    }
+  }
+
+  /* Shared active tab state for Ribbon and Character panel */
+  & :is(.tab, .char-source-tab).is-active {
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-weight: var(--font-semibold);
+  }
+
+  /* ------------------------------ Color Picker ------------------------------ */
+  &.awesome-format-bar--menu.is-color-picker {
+    & .picker_wrapper {
+      box-sizing: border-box;
+      display: grid;
+      gap: var(--size-2-2);
+      grid-template-areas:
+        "hue hue"
+        "square square"
+        "field preview"
+        "ok cancel";
+      grid-template-columns: 1fr 1fr;
+      inline-size: var(--formatbar-picker-w);
+      padding: var(--size-2-2);
+    }
+
+    & :is(.picker_arrow, .picker_alpha) {
+      display: none;
+    }
+
+    & .picker_hue {
+      background-image: linear-gradient(
+        90deg,
+        red,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        magenta,
+        red
+      );
+      block-size: var(--size-4-3);
+      border: var(--formatbar-border);
+      border-radius: var(--radius-s);
+      grid-area: hue;
+      position: relative;
+      & .picker_selector {
+        top: 50%;
+      }
+    }
+
+    & .picker_sl {
+      background-image:
+        linear-gradient(180deg, #fff, rgb(255 255 255 / 0) 50%),
+        linear-gradient(0deg, #000, rgb(255 255 255 / 0) 50%),
+        linear-gradient(90deg, #808080, rgb(128 128 128 / 0));
+      block-size: var(--formatbar-picker-sl-h);
+      border: var(--formatbar-border);
+      border-radius: var(--radius-s);
+      grid-area: square;
+      position: relative;
+    }
+
+    & .picker_selector {
+      background: currentcolor;
+      block-size: var(--size-4-3);
+      border: 2px solid var(--background-primary);
+      border-radius: 100%;
+      box-shadow: 0 0 0 1px var(--background-modifier-border);
+      inline-size: var(--size-4-3);
+      position: absolute;
+      translate: -50% -50%;
+    }
+
+    & .picker_editor {
+      grid-area: field;
+      & input {
+        background: var(--background-modifier-form-field);
+        border: var(--formatbar-border);
+        border-radius: var(--radius-s);
+        color: var(--text-normal);
+        font-family: var(--font-monospace);
+        font-size: var(--font-ui-smaller);
+        inline-size: 100%;
+        padding: var(--size-2-1) var(--size-2-2);
+        &:focus-visible {
+          outline: 2px solid var(--background-modifier-border-focus);
+        }
+      }
+    }
+
+    & .picker_sample {
+      border: var(--formatbar-border);
+      border-radius: var(--radius-s);
+      grid-area: preview;
+      position: relative;
+      &::before {
+        background: currentcolor;
+        border-radius: inherit;
+        content: "";
+        inset: 0;
+        position: absolute;
+      }
+    }
+
+    & .picker_done {
+      grid-area: ok;
+    }
+    & .picker_cancel {
+      grid-area: cancel;
+    }
+
+    & :is(.picker_done, .picker_cancel) button {
+      background: var(--interactive-normal);
+      color: var(--text-normal);
+      display: flex;
+      inline-size: 100%;
+      justify-content: center;
+      min-block-size: var(--formatbar-hit);
+      padding: var(--size-2-1) var(--size-2-3);
+      &:hover {
+        background: var(--interactive-hover);
+      }
+    }
+  }
+}
+
+/* -------------------------- Pinned manager ------------------------------- */
+.awesome-format-bar-pinned-modal {
+  inline-size: min(760px, 90vw);
+  min-block-size: min(560px, 70vh);
+  max-block-size: min(80vh, 720px);
+}
+
+.awesome-format-bar-pinned-manager {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-2);
+  max-block-size: min(70vh, 620px);
+  min-inline-size: min(560px, 80vw);
+  overflow-y: auto;
+
+  & .pinned-manager-toolbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & .pinned-manager-empty {
+    color: var(--text-muted);
+    padding: var(--size-4-4);
+    text-align: center;
+  }
+
+  & .pinned-manager-group {
+    border-block-start: 1px solid var(--background-modifier-border);
+    padding-block-start: var(--size-2-2);
+  }
+
+  & .pinned-manager-group-header,
+  & .pinned-manager-command {
+    align-items: center;
+    display: flex;
+    gap: var(--size-2-2);
+    min-block-size: 34px;
+  }
+
+  & .pinned-manager-group-header {
+    font-weight: var(--font-semibold);
+  }
+
+  & .pinned-manager-group-header > :nth-child(2) {
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  & .pinned-manager-command {
+    padding-inline-start: var(--size-4-4);
+  }
+
+  & .pinned-manager-drag {
+    color: var(--text-faint);
+    cursor: grab;
+    display: inline-flex;
+  }
+
+  & .pinned-manager-icon {
+    color: var(--text-muted);
+    display: inline-flex;
+  }
+
+  & .pinned-manager-label {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  & .pinned-manager-label > :first-child,
+  & .pinned-manager-command-id {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  & .pinned-manager-command-id {
+    color: var(--text-faint);
+    font-size: var(--font-ui-smaller);
+  }
+
+  & .pinned-manager-move {
+    max-inline-size: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  .awesome-format-bar-pinned-manager {
+    min-inline-size: 0;
+
+    & .pinned-manager-command {
+      flex-wrap: wrap;
+      padding-inline-start: 0;
+    }
+
+    & .pinned-manager-label {
+      min-inline-size: calc(100% - 70px);
+    }
+
+    & .pinned-manager-move {
+      flex: 1 1 auto;
+      margin-inline-start: var(--size-4-4);
+      max-inline-size: none;
+    }
+  }
+}
+
+/* ---------------------- Truncation Shared Utility ------------------------- */
+.awesome-format-bar
+  :is(
+    .menu-grid.is-wide .char-cell,
+    .char-preview-icon,
+    .char-preview-details,
+    .char-preview-name,
+    .char-preview-meta
+  ) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------------------- Host Container & Editor Pane ---------------------- */
+.awesome-format-bar-host {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  & > :not(.awesome-format-bar) {
+    flex: 1 1 auto;
+    min-block-size: 0;
+  }
+}
+
+/* ----------------------- Touch Scaling (Coarse Pointer) ------------------- */
+@media (pointer: coarse) {
+  .awesome-format-bar {
+    --formatbar-hit: 32px;
+    --formatbar-swatch: 28px;
+    --formatbar-control-h: 30px;
+    --formatbar-search-h: 34px;
+    /* Obsidian's mobile view already reserves the native toolbar area. */
+    --formatbar-lift: var(--size-4-2);
+  }
+}
+
+/*
+ * On current mobile builds the pane header (upper-left / upper-right raised
+ * buttons) and the bottom navbar float above the content, so the plugin bars
+ * must clear them. Obsidian's own measured offsets are used rather than
+ * device-specific pixel values; when the soft keyboard opens, Obsidian
+ * reserves the toolbar area itself and --keyboard-height reduces the lift.
+ */
+.is-phone:is(.is-floating-nav, .auto-full-screen) {
+  --formatbar-navbar-lift: max(
+    0px,
+    var(--navbar-height, 0px) + var(--navbar-bottom-offset, 0px) -
+      var(--keyboard-height, 0px)
+  );
+
+  /* Scrolling down makes Obsidian slide the navbar off-screen. */
+  &.is-hidden-nav {
+    --formatbar-navbar-lift: 0px;
+  }
+
+  .awesome-format-bar-host--has-ribbon .awesome-format-bar--ribbon {
+    margin-block-start: calc(
+      var(--view-header-top-offset, 0px) + var(--view-header-height, 0px)
+    );
+  }
+
+  /* The ribbon covers the header area, so the editor's own clearance below
+     the floating header would just be a blank band. */
+  .mod-root
+    .workspace-leaf-content
+    .awesome-format-bar-host--has-ribbon
+    .markdown-reading-view
+    > .markdown-preview-view,
+  .mod-root
+    .workspace-leaf-content
+    .awesome-format-bar-host--has-ribbon
+    .markdown-source-view
+    > .cm-editor
+    > .cm-scroller {
+    padding-top: var(--size-4-2);
+  }
+}
+
+/*
+ * Obsidian pads every non-icon button on tablets (`.is-tablet
+ * button:not(.clickable-icon)`), which eats the whole content box of a bar
+ * button and squeezes its icon down to zero width.
+ */
+.is-tablet
+  .awesome-format-bar
+  button:not(.clickable-icon, .tab, .char-source-tab) {
+  padding: 0;
+}
+
+/* ----------------------- Sort by Clicking a Header ------------------------ */
+.awesome-format-bar-sortable .markdown-preview-view th {
+  cursor: pointer;
+  padding-inline-end: 16px;
+  position: relative;
+
+  &::before,
+  &::after {
+    block-size: 0;
+    border: 4px solid transparent;
+    box-sizing: content-box;
+    content: "";
+    inline-size: 0;
+    inset-block: 0;
+    inset-inline-end: 4px;
+    margin-block: auto;
+    position: absolute;
+  }
+  &::before {
+    border-block-end-color: var(--text-faint);
+    border-block-start: 0;
+    translate: 0 -3.5px;
+  }
+  &::after {
+    border-block-end: 0;
+    border-block-start-color: var(--text-faint);
+    translate: 0 3.5px;
+  }
+  &[data-format-bar-sort="asc"]::before {
+    border-block-end-color: var(--text-normal);
+  }
+  &[data-format-bar-sort="desc"]::after {
+    border-block-start-color: var(--text-normal);
+  }
+}
+
+/* ---------------------------- Show Whitespace ----------------------------- */
+.markdown-source-view {
+  &:not(.is-live-preview) .cm-editor {
+    & .cm-highlightSpace {
+      background-image: radial-gradient(
+        circle at 50% 55%,
+        var(--text-faint) 20%,
+        transparent 5%
+      );
+      background-position: center;
+    }
+    & .cm-highlightTab {
+      background-color: var(--text-faint);
+      background-image: none;
+      mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="20"><path stroke="%23888" stroke-width="1" fill="none" d="M1 10H196L190 5M190 15L196 10M197 4L197 16"/></svg>');
+      mask-position: right 90%;
+      mask-repeat: no-repeat;
+      mask-size: auto 100%;
+    }
+    & .cm-highlightOddSpace {
+      background-image: radial-gradient(
+        circle at 50% 55%,
+        var(--text-warning) 20%,
+        transparent 5%
+      );
+      background-position: center;
+    }
+  }
+
+  &.is-live-preview
+    :is(.cm-highlightSpace, .cm-highlightTab, .cm-highlightOddSpace) {
+    background-image: none;
+  }
+}
+
+/* ---------------------------- Typewriter Mode ----------------------------- */
+.awesome-format-bar-typewriter .cm-line {
+  opacity: 0.45;
+}
+
+/* 10% of --interactive-accent: tinted rather than grey, so it follows whatever
+   accent the vault is set to. Dimming carries the contrast, not this. */
+.awesome-format-bar-typewriter .cm-line.awesome-format-bar-current-line {
+  opacity: 1;
+  background-color: var(--background-modifier-active-hover);
+}
+
+/* ------------------------------- Zen Mode ------------------------------- */
+:fullscreen > .view-header {
+  display: none;
+}
+
+/* -------------------------------- Settings -------------------------------- */
+.awesome-format-bar-position {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  gap: var(--size-2-2);
+}

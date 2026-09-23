@@ -49,7 +49,14 @@ GO
 
 SELECT ID,
 	Master_Incident_Number,
-	Problem
+	Response_Date,
+	Address,
+	City,
+	State,
+	Postal_Code,
+	Location_Name,
+	Problem,
+	Caller_Name
 FROM Response_Master_Incident
 WHERE Response_Date BETWEEN '2026-01-01' AND '2026-10-01'
 AND Problem = 'ALARM OUT OF SERVICE'
@@ -73,7 +80,7 @@ AND Master_Incident_Number != ' '
 
 ## Analysis Information
 
-List of Alarm Out of Service calls
+List of Alarm Out of Service calls. Destiny asked me to expand the fields that were reported on 22 Sep 2026, the query above reflects the request for additional information. 
 
 ---
 
