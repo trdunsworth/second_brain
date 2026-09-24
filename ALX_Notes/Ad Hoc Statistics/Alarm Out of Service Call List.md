@@ -56,7 +56,8 @@ SELECT ID,
 	Postal_Code,
 	Location_Name,
 	Problem,
-	Caller_Name
+	Caller_Name,
+	Call_Back_Phone
 FROM Response_Master_Incident
 WHERE Response_Date BETWEEN '2026-01-01' AND '2026-10-01'
 AND Problem = 'ALARM OUT OF SERVICE'

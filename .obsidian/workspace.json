@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-09-23.md",
+                "file": "journal/2026-09-24.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-23"
+              "title": "2026-09-24"
             }
           },
           {
@@ -250,16 +250,18 @@
   },
   "active": "da3909ef37bae9bb",
   "lastOpenFiles": [
-    "ALX_Notes/Ad Hoc Statistics/Call Metrics for FY23 through FY26.md",
+    "HOTKEYS.md",
     "ALX_Notes/Ad Hoc Statistics/Alarm Out of Service Call List.md",
+    "journal/2026-09-24.md",
+    "ALX_Notes/Ad Hoc Statistics/Language Line Use.md",
+    "journal/2026-09-23.md",
+    "ALX_Notes/Ad Hoc Statistics/Call Metrics for FY23 through FY26.md",
     "Obsidian Training Resources.md",
     "Time Series/resources.md",
-    "journal/2026-09-23.md",
     "Toastmasters/Toastmasters Signature for Email.md",
     "Time Series/time_series_evaluation_metrics_benchmarks.md",
     "Time Series/time-series-forecasting-models.md",
     "journal/2026-09-22.md",
-    "HOTKEYS.md",
     "Time Series/Time Series Notes.md",
     "DMA_Notes/DMA Geospatial Education.md",
     "Time Series",
@@ -275,8 +277,6 @@
     "attitude_adjustment/Freemasonry_Research_Document.md",
     "attitude_adjustment/Antero_Alli_Research_Document.md",
     "attitude_adjustment/Dr_Jonice_Webb_Research_Document.md",
-    "attitude_adjustment/daily_reflection_template.md",
-    "attitude_adjustment/daily_log_template.md",
     "attitude_adjustment/opencode.json",
     "attitude_adjustment/analyze_formatting.py",
     "attitude_adjustment/blog_post_template.qmd",
