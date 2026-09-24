@@ -1,5 +1,5 @@
 {
-  "ignoredLints": "{\"context_hashes\":[]}",
+  "ignoredLints": "{\"context_hashes\":[14727592626367643573]}",
   "useWebWorker": true,
   "lintSettings": {
     "ACoupleMore": null,
@@ -896,11 +896,14 @@
     "Yourself": null
   },
   "userDictionary": [
+    "Cyanne",
     "Dubois",
     "Quantico",
+    "Saluda",
     "Sebastien",
     "SitePoint's",
-    "Templater"
+    "Templater",
+    "ectopic"
   ],
   "dialect": 0,
   "delay": -1,

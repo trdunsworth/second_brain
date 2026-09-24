@@ -430,7 +430,7 @@
   "defaultConversationNoteName": "{$topic}@{$date}_{$time}",
   "inlineEditCommands": [],
   "projectList": [],
-  "lastDismissedVersion": null,
+  "lastDismissedVersion": "4.0.11",
   "passMarkdownImages": true,
   "enableAutonomousAgent": true,
   "enableCustomPromptTemplating": true,
@@ -483,7 +483,7 @@
     "debugFullFrames": true,
     "notificationSound": true,
     "notificationSoundId": "piano",
-    "welcomeDismissed": false,
+    "welcomeDismissed": true,
     "skills": {
       "folder": "copilot/skills"
     },
@@ -494,6 +494,14 @@
           "binaryVersion": "1.18.16",
           "binarySource": "managed",
           "probeSessionId": "ses_facb0319fffeu136wgj2DSx7qM"
+        }
+      },
+      "1d079797-de36-4178-af43-1a2c8295e9d3": {
+        "opencode": {
+          "binaryPath": "/Users/tdunsworth/.opencode/bin/opencode",
+          "binaryVersion": "1.18.32",
+          "binarySource": "custom",
+          "probeSessionId": "ses_f2a761cbaffexyMf5Ci45jXv3b"
         }
       }
     }
@@ -525,497 +533,11 @@
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "opencode/claude-fable-5",
-        "displayName": "OpenCode Zen/Claude Fable 5"
-      },
-      "configuredModelId": "a2f34880-f8d5-4f9d-a64b-a0376e4780bd",
-      "configuredAt": 1788104136553
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/claude-haiku-4-5",
-        "displayName": "OpenCode Zen/Claude Haiku 4.5"
-      },
-      "configuredModelId": "07b78d63-91ba-4ef7-b428-5e2e35e97350",
-      "configuredAt": 1788104136560
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/claude-opus-4-5",
-        "displayName": "OpenCode Zen/Claude Opus 4.5"
-      },
-      "configuredModelId": "25698aea-bc96-4a87-8263-1bb2864f24c8",
-      "configuredAt": 1788104136564
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/claude-opus-4-6",
-        "displayName": "OpenCode Zen/Claude Opus 4.6"
-      },
-      "configuredModelId": "cb4f2886-26af-4743-af5b-135fe2b9ee9a",
-      "configuredAt": 1788104136564
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/claude-opus-4-7",
-        "displayName": "OpenCode Zen/Claude Opus 4.7"
-      },
-      "configuredModelId": "74fb7493-b8c4-4ee7-a14b-6b00c2800c25",
-      "configuredAt": 1788104136565
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/claude-opus-4-8",
-        "displayName": "OpenCode Zen/Claude Opus 4.8"
-      },
-      "configuredModelId": "96676ca9-351b-4d27-8f6d-fd98ee2bf5d1",
-      "configuredAt": 1788104136565
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/claude-opus-5",
-        "displayName": "OpenCode Zen/Claude Opus 5"
-      },
-      "configuredModelId": "9419bd92-7ae3-47db-acbd-98026588912f",
-      "configuredAt": 1788104136566
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/claude-sonnet-4",
-        "displayName": "OpenCode Zen/Claude Sonnet 4"
-      },
-      "configuredModelId": "58678627-e5b0-474f-9e0b-d38e12a56cde",
-      "configuredAt": 1788104136566
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/claude-sonnet-4-5",
-        "displayName": "OpenCode Zen/Claude Sonnet 4.5"
-      },
-      "configuredModelId": "93713637-5d98-4a40-b945-dcd40661cdab",
-      "configuredAt": 1788104136566
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/claude-sonnet-4-6",
-        "displayName": "OpenCode Zen/Claude Sonnet 4.6"
-      },
-      "configuredModelId": "97591e19-d7ef-4ee1-b4ea-d19264caee3f",
-      "configuredAt": 1788104136567
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/claude-sonnet-5",
-        "displayName": "OpenCode Zen/Claude Sonnet 5"
-      },
-      "configuredModelId": "646ea849-b49d-4f4d-873d-eba01800d5cc",
-      "configuredAt": 1788104136567
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/deepseek-v4-flash",
-        "displayName": "OpenCode Zen/DeepSeek V4 Flash"
-      },
-      "configuredModelId": "e8913767-2926-4034-89b4-e3b2eb41cb53",
-      "configuredAt": 1788104136567
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/deepseek-v4-pro",
-        "displayName": "OpenCode Zen/DeepSeek V4 Pro"
-      },
-      "configuredModelId": "4e22f1c8-e8ed-42b9-b5d9-5fbacd051808",
-      "configuredAt": 1788104136568
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gemini-3-flash",
-        "displayName": "OpenCode Zen/Gemini 3 Flash"
-      },
-      "configuredModelId": "8fc61b84-eda7-4189-885e-19b0d48046d1",
-      "configuredAt": 1788104136568
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gemini-3.1-pro",
-        "displayName": "OpenCode Zen/Gemini 3.1 Pro Preview"
-      },
-      "configuredModelId": "97fb90f2-67ea-40ec-aac3-3a4920d562e5",
-      "configuredAt": 1788104136568
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gemini-3.5-flash",
-        "displayName": "OpenCode Zen/Gemini 3.5 Flash"
-      },
-      "configuredModelId": "5cfe4913-6cf0-4b33-ae59-36765f86762e",
-      "configuredAt": 1788104136569
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gemini-3.5-flash-lite",
-        "displayName": "OpenCode Zen/Gemini 3.5 Flash Lite"
-      },
-      "configuredModelId": "405bbdc4-1e5d-4956-880b-f152cf4f48c4",
-      "configuredAt": 1788104136569
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gemini-3.6-flash",
-        "displayName": "OpenCode Zen/Gemini 3.6 Flash"
-      },
-      "configuredModelId": "d7623d0e-3e95-4dd2-a523-a09110e8bfc6",
-      "configuredAt": 1788104136569
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gemini-3.7-flash",
-        "displayName": "OpenCode Zen/Gemini 3.7 Flash"
-      },
-      "configuredModelId": "206a9b37-ce02-4794-be23-3f09da3ce1d7",
-      "configuredAt": 1788104136570
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/glm-5",
-        "displayName": "OpenCode Zen/GLM-5"
-      },
-      "configuredModelId": "6561863f-8308-44b7-9dff-d0ef0af9e89a",
-      "configuredAt": 1788104136570
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/glm-5.1",
-        "displayName": "OpenCode Zen/GLM-5.1"
-      },
-      "configuredModelId": "23a3377f-1ddf-41db-835f-8c2517897bc4",
-      "configuredAt": 1788104136570
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/glm-5.2",
-        "displayName": "OpenCode Zen/GLM-5.2"
-      },
-      "configuredModelId": "047b5673-6205-40b3-8939-9d6cbed53ec4",
-      "configuredAt": 1788104136571
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5",
-        "displayName": "OpenCode Zen/GPT-5"
-      },
-      "configuredModelId": "0ef39249-203d-40da-80fa-d3a16a5af591",
-      "configuredAt": 1788104136571
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5-codex",
-        "displayName": "OpenCode Zen/GPT-5 Codex"
-      },
-      "configuredModelId": "17ae272b-2b50-4457-8a14-492e352252b6",
-      "configuredAt": 1788104136572
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5-nano",
-        "displayName": "OpenCode Zen/GPT-5 Nano"
-      },
-      "configuredModelId": "de2fa8ba-548b-4c09-901c-b461f913f1d2",
-      "configuredAt": 1788104136572
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.1",
-        "displayName": "OpenCode Zen/GPT-5.1"
-      },
-      "configuredModelId": "319b230d-adc3-411d-a209-d54adb7e331c",
-      "configuredAt": 1788104136572
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.1-codex",
-        "displayName": "OpenCode Zen/GPT-5.1 Codex"
-      },
-      "configuredModelId": "1db739be-58e1-48f2-ad24-a2077ab16764",
-      "configuredAt": 1788104136573
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.1-codex-max",
-        "displayName": "OpenCode Zen/GPT-5.1 Codex Max"
-      },
-      "configuredModelId": "81f299b6-c15c-44fd-b1db-75bc4cfa78b0",
-      "configuredAt": 1788104136573
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.1-codex-mini",
-        "displayName": "OpenCode Zen/GPT-5.1 Codex Mini"
-      },
-      "configuredModelId": "cf9eac62-9b11-4722-b425-e1719e3a0a63",
-      "configuredAt": 1788104136573
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.2",
-        "displayName": "OpenCode Zen/GPT-5.2"
-      },
-      "configuredModelId": "7190fee0-9bb0-4bc2-896f-c0b683f23b35",
-      "configuredAt": 1788104136574
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.2-codex",
-        "displayName": "OpenCode Zen/GPT-5.2 Codex"
-      },
-      "configuredModelId": "477a740f-7f50-445e-90ff-8f2a22479691",
-      "configuredAt": 1788104136574
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.3-codex",
-        "displayName": "OpenCode Zen/GPT-5.3 Codex"
-      },
-      "configuredModelId": "f60e7bfb-bb67-4344-8159-e3d96e293d8a",
-      "configuredAt": 1788104136574
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.3-codex-spark",
-        "displayName": "OpenCode Zen/GPT-5.3 Codex Spark"
-      },
-      "configuredModelId": "d2e9a4fc-c576-4204-928a-027a6ec54e58",
-      "configuredAt": 1788104136575
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.4",
-        "displayName": "OpenCode Zen/GPT-5.4"
-      },
-      "configuredModelId": "d76becad-5b81-4a98-9792-f7052e08bb45",
-      "configuredAt": 1788104136575
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.4-mini",
-        "displayName": "OpenCode Zen/GPT-5.4 Mini"
-      },
-      "configuredModelId": "5be8091b-69a7-42fe-b988-fd444d4faf45",
-      "configuredAt": 1788104136575
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.4-nano",
-        "displayName": "OpenCode Zen/GPT-5.4 Nano"
-      },
-      "configuredModelId": "1a25b757-e92a-4833-aa1e-1b31cea3e3a8",
-      "configuredAt": 1788104136576
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.4-pro",
-        "displayName": "OpenCode Zen/GPT-5.4 Pro"
-      },
-      "configuredModelId": "3c0ff651-483e-4fa9-8454-39a02748c2db",
-      "configuredAt": 1788104136576
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.5",
-        "displayName": "OpenCode Zen/GPT-5.5"
-      },
-      "configuredModelId": "b53aa382-b026-4fc4-84ba-5169d5ce4b23",
-      "configuredAt": 1788104136579
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.5-pro",
-        "displayName": "OpenCode Zen/GPT-5.5 Pro"
-      },
-      "configuredModelId": "d4a4c719-5d35-4923-abe5-4e666bc27d4f",
-      "configuredAt": 1788104136579
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.6-luna",
-        "displayName": "OpenCode Zen/GPT-5.6 Luna"
-      },
-      "configuredModelId": "c0618120-a732-47db-b670-d539ad343366",
-      "configuredAt": 1788104136579
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.6-sol",
-        "displayName": "OpenCode Zen/GPT-5.6 Sol (50% Off)"
-      },
-      "configuredModelId": "2143dd7f-fe7f-4bf7-92b5-eb5ade1f3882",
-      "configuredAt": 1788104136579
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/gpt-5.6-terra",
-        "displayName": "OpenCode Zen/GPT-5.6 Terra"
-      },
-      "configuredModelId": "bb81cf54-4f20-4bd2-b879-374c31a91a7a",
-      "configuredAt": 1788104136580
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/grok-4.5",
-        "displayName": "OpenCode Zen/Grok 4.5"
-      },
-      "configuredModelId": "598bcb22-a03a-4c6d-a238-75ea3285c6d9",
-      "configuredAt": 1788104136580
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/grok-4.6",
-        "displayName": "OpenCode Zen/Grok 4.6"
-      },
-      "configuredModelId": "94b0c0a8-17ad-47fd-98cd-15d7391eeb27",
-      "configuredAt": 1788104136580
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/grok-build-0.1",
-        "displayName": "OpenCode Zen/Grok Build 0.1"
-      },
-      "configuredModelId": "7135f118-0c1c-49f1-ad05-9f1c5eddd993",
-      "configuredAt": 1788104136580
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/kimi-k2.5",
-        "displayName": "OpenCode Zen/Kimi K2.5"
-      },
-      "configuredModelId": "ea2c8d64-c7fe-4624-bc12-089c67ca6845",
-      "configuredAt": 1788104136581
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/kimi-k2.6",
-        "displayName": "OpenCode Zen/Kimi K2.6"
-      },
-      "configuredModelId": "8f0433e4-31fc-4f95-bb79-9f02268f013e",
-      "configuredAt": 1788104136581
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/kimi-k2.7-code",
-        "displayName": "OpenCode Zen/Kimi K2.7 Code"
-      },
-      "configuredModelId": "5a2d00e7-ddfb-49ce-b63f-2b79a4957074",
-      "configuredAt": 1788104136581
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/kimi-k3",
-        "displayName": "OpenCode Zen/Kimi K3"
-      },
-      "configuredModelId": "9d881dad-512d-4917-b990-a607ccd9a5fc",
-      "configuredAt": 1788104136581
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
         "id": "opencode/ling-3.0-flash-fin-free",
         "displayName": "OpenCode Zen/Ling 3.0 Flash Fin Free"
       },
       "configuredModelId": "55b8c1da-f3d8-4028-a2d5-afb382be5914",
       "configuredAt": 1788104136582
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/mimo-v2.5-free",
-        "displayName": "OpenCode Zen/MiMo V2.5 Free"
-      },
-      "configuredModelId": "1626acc2-617d-4a62-b07c-5469fd750a44",
-      "configuredAt": 1788104136582
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/minimax-m2.5",
-        "displayName": "OpenCode Zen/MiniMax-M2.5"
-      },
-      "configuredModelId": "f54bc383-362f-4e7d-979c-b45767cd37e3",
-      "configuredAt": 1788104136583
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/minimax-m2.7",
-        "displayName": "OpenCode Zen/MiniMax-M2.7"
-      },
-      "configuredModelId": "a05a14da-a5aa-4a5b-85a1-c958a83b2ecd",
-      "configuredAt": 1788104136583
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/minimax-m3",
-        "displayName": "OpenCode Zen/MiniMax-M3"
-      },
-      "configuredModelId": "0dd6eeff-738a-4e3b-a9dd-c268f58e6bd8",
-      "configuredAt": 1788104136583
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/muse-spark-1.2",
-        "displayName": "OpenCode Zen/Muse Spark 1.2"
-      },
-      "configuredModelId": "a855323a-efa5-4b9c-9b9c-ff6754af2e79",
-      "configuredAt": 1788104136583
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
@@ -1043,24 +565,6 @@
       },
       "configuredModelId": "97492d2c-9eab-42de-8c20-8d9956b12ca7",
       "configuredAt": 1788104136584
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/qwen3.5-plus",
-        "displayName": "OpenCode Zen/Qwen3.5 Plus"
-      },
-      "configuredModelId": "6de909b2-140f-439d-82cb-38c510dc17cc",
-      "configuredAt": 1788104136584
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "opencode/qwen3.6-plus",
-        "displayName": "OpenCode Zen/Qwen3.6 Plus"
-      },
-      "configuredModelId": "70fe7204-898a-42ee-86b0-f61c66fc1785",
-      "configuredAt": 1788104136585
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
@@ -1974,190 +1478,3536 @@
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/claude-haiku-4.5",
-        "displayName": "GitHub Copilot/Claude Haiku 4.5 (latest)"
+        "id": "nvidia/z-ai/glm-5.3",
+        "displayName": "Nvidia/GLM-5.3"
       },
-      "configuredModelId": "721d1618-8896-4c62-9417-66d56cb6695e",
-      "configuredAt": 1788104136614
+      "configuredModelId": "16d3725e-de0b-487d-ba87-f33890b094b6",
+      "configuredAt": 1790288979284
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/claude-sonnet-4.5",
-        "displayName": "GitHub Copilot/Claude Sonnet 4.5 (latest)"
+        "id": "nvidia/z-ai/glm-5.3-flash",
+        "displayName": "Nvidia/GLM-5.3-Flash"
       },
-      "configuredModelId": "4d115b0b-1c60-45b7-a3af-de2c3aa7238f",
-      "configuredAt": 1788104136617
+      "configuredModelId": "b5852224-a94b-4358-8802-0ff9443f08dc",
+      "configuredAt": 1790288979285
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/claude-sonnet-4.6",
-        "displayName": "GitHub Copilot/Claude Sonnet 4.6"
+        "id": "openrouter/aion-labs/aion-3.5",
+        "displayName": "OpenRouter/Aion 3.5"
       },
-      "configuredModelId": "2db81a9b-25ee-4ae8-a2c7-671f79908ce6",
-      "configuredAt": 1788104136617
+      "configuredModelId": "4f48908f-069f-4129-88b7-d606f5bf18c7",
+      "configuredAt": 1790288979286
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/claude-sonnet-5",
-        "displayName": "GitHub Copilot/Claude Sonnet 5"
+        "id": "openrouter/aion-labs/aion-3.5-mini",
+        "displayName": "OpenRouter/Aion 3.5 Mini"
       },
-      "configuredModelId": "478484c7-5381-4f7c-8a8e-6b88f25dded5",
-      "configuredAt": 1788104136617
+      "configuredModelId": "6de4fb85-3385-4bd5-9812-c28381221023",
+      "configuredAt": 1790288979286
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/gemini-3.1-pro-preview",
-        "displayName": "GitHub Copilot/Gemini 3.1 Pro Preview"
+        "id": "openrouter/aion-labs/aion-2.0",
+        "displayName": "OpenRouter/Aion-2.0"
       },
-      "configuredModelId": "5e42d39b-41ff-4135-8a5f-390dc02175fb",
-      "configuredAt": 1788104136617
+      "configuredModelId": "d4cdf318-decc-4da7-90cc-4cd716bc5c2d",
+      "configuredAt": 1790288979287
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/gemini-3.5-flash",
-        "displayName": "GitHub Copilot/Gemini 3.5 Flash"
+        "id": "openrouter/aion-labs/aion-3.0",
+        "displayName": "OpenRouter/Aion-3.0"
       },
-      "configuredModelId": "50ce62d5-bea8-416b-bc38-6ae363d61369",
-      "configuredAt": 1788104136618
+      "configuredModelId": "24f60046-1192-40bf-9935-b77bcd31c289",
+      "configuredAt": 1790288979287
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/gemini-3.6-flash",
-        "displayName": "GitHub Copilot/Gemini 3.6 Flash"
+        "id": "openrouter/aion-labs/aion-3.0-mini",
+        "displayName": "OpenRouter/Aion-3.0-Mini"
       },
-      "configuredModelId": "e437cc77-65f0-459c-965e-96b93ec5f8bf",
-      "configuredAt": 1788104136618
+      "configuredModelId": "9afdb40d-69f8-44dc-aae7-ca2e2de4ce62",
+      "configuredAt": 1790288979287
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/gemini-3.7-flash",
-        "displayName": "GitHub Copilot/Gemini 3.7 Flash"
+        "id": "openrouter/aion-labs/aion-rp-llama-3.1-8b",
+        "displayName": "OpenRouter/Aion-RP 1.0 (8B)"
       },
-      "configuredModelId": "64057acf-6296-4793-a105-b97640f60139",
-      "configuredAt": 1788104136618
+      "configuredModelId": "8631e33e-44e1-40a3-a36e-737da36a5f27",
+      "configuredAt": 1790288979288
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/gpt-5-mini",
-        "displayName": "GitHub Copilot/GPT-5 Mini"
+        "id": "openrouter/openrouter/auto",
+        "displayName": "OpenRouter/Auto Router"
       },
-      "configuredModelId": "17c14033-4577-4478-90ea-b9aab4d2b366",
-      "configuredAt": 1788104136619
+      "configuredModelId": "5dafc917-1505-4368-9dbb-b7f1b6ab618d",
+      "configuredAt": 1790288979288
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/gpt-5.3-codex",
-        "displayName": "GitHub Copilot/GPT-5.3 Codex"
+        "id": "openrouter/openrouter/bodybuilder",
+        "displayName": "OpenRouter/Body Builder (beta)"
       },
-      "configuredModelId": "b1b2972f-5295-4511-9c5b-d673342eefdf",
-      "configuredAt": 1788104136619
+      "configuredModelId": "e46f1674-2dc5-455f-b65f-b167d73440c7",
+      "configuredAt": 1790288979288
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/gpt-5.4",
-        "displayName": "GitHub Copilot/GPT-5.4"
+        "id": "openrouter/anthropic/claude-3-haiku",
+        "displayName": "OpenRouter/Claude 3 Haiku"
       },
-      "configuredModelId": "4ea91ddb-f788-4549-86e1-39f48b1a9e0d",
-      "configuredAt": 1788104136620
+      "configuredModelId": "2d3a00ec-b0ac-4420-85e4-a863f934a9e5",
+      "configuredAt": 1790288979288
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/gpt-5.4-mini",
-        "displayName": "GitHub Copilot/GPT-5.4 mini"
+        "id": "openrouter/anthropic/claude-fable-5",
+        "displayName": "OpenRouter/Claude Fable 5"
       },
-      "configuredModelId": "25b0feea-3212-4194-b3c9-2ce88d95b664",
-      "configuredAt": 1788104136620
+      "configuredModelId": "da56453f-6457-4d7a-a874-1ae1636af710",
+      "configuredAt": 1790288979289
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/gpt-5.6-luna",
-        "displayName": "GitHub Copilot/GPT-5.6 Luna"
+        "id": "openrouter/anthropic/claude-fable-5.1",
+        "displayName": "OpenRouter/Claude Fable 5.1"
       },
-      "configuredModelId": "78979f43-eee1-46c6-bdc3-bdd24c675a9e",
-      "configuredAt": 1788104136621
+      "configuredModelId": "c4c3e872-2318-4f0a-a369-1d2f94f2a345",
+      "configuredAt": 1790288979289
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/gpt-5.6-terra",
-        "displayName": "GitHub Copilot/GPT-5.6 Terra"
+        "id": "openrouter/~anthropic/claude-fable-latest",
+        "displayName": "OpenRouter/Claude Fable Latest"
       },
-      "configuredModelId": "8a35802f-2ea8-47fc-b78c-dab2be879e56",
-      "configuredAt": 1788104136621
+      "configuredModelId": "aa12ce16-f655-4dca-b44f-e120063e0b90",
+      "configuredAt": 1790288979289
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/grok-4.5",
-        "displayName": "GitHub Copilot/Grok 4.5"
+        "id": "openrouter/anthropic/claude-haiku-4.5",
+        "displayName": "OpenRouter/Claude Haiku 4.5 (latest)"
       },
-      "configuredModelId": "ca37c87d-27f7-4a06-90c6-1cb709171b8c",
-      "configuredAt": 1788104136621
+      "configuredModelId": "ca36aada-4b1a-4bb4-8073-c8f83775d42a",
+      "configuredAt": 1790288979289
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/grok-4.6",
-        "displayName": "GitHub Copilot/Grok 4.6"
+        "id": "openrouter/~anthropic/claude-haiku-latest",
+        "displayName": "OpenRouter/Claude Haiku Latest"
       },
-      "configuredModelId": "5f21b81a-718d-4345-a5cd-c2509a00e885",
-      "configuredAt": 1788104136622
+      "configuredModelId": "baad6b26-789d-45ec-80ad-90f4b5beac57",
+      "configuredAt": 1790288979290
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/kimi-k2.7-code",
-        "displayName": "GitHub Copilot/Kimi K2.7 Code"
+        "id": "openrouter/anthropic/claude-opus-4.1",
+        "displayName": "OpenRouter/Claude Opus 4.1 (latest)"
       },
-      "configuredModelId": "c901d2bc-3e91-4a50-a4cb-144ef2ed9fed",
-      "configuredAt": 1788104136623
+      "configuredModelId": "c4661ac3-c8ef-428e-a5d0-8d677cece644",
+      "configuredAt": 1790288979290
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/kimi-k3",
-        "displayName": "GitHub Copilot/Kimi K3"
+        "id": "openrouter/anthropic/claude-opus-4.5",
+        "displayName": "OpenRouter/Claude Opus 4.5 (latest)"
       },
-      "configuredModelId": "c21c8a3f-576d-4ac7-8f0b-45ba91b78d16",
-      "configuredAt": 1788104136623
+      "configuredModelId": "cd3e40f7-2efd-4278-b7f8-6a0dc658f9fd",
+      "configuredAt": 1790288979290
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/mai-code-1-flash-picker",
-        "displayName": "GitHub Copilot/MAI-Code-1-Flash"
+        "id": "openrouter/anthropic/claude-opus-4.6",
+        "displayName": "OpenRouter/Claude Opus 4.6"
       },
-      "configuredModelId": "0202476d-0877-4a89-8b1e-a9f8fbfce687",
-      "configuredAt": 1788104136623
+      "configuredModelId": "bcf077b9-1276-46e8-af13-5b6ed69d375b",
+      "configuredAt": 1790288979290
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "github-copilot/mai-code-1.1-flash",
-        "displayName": "GitHub Copilot/MAI-Code-1.1-Flash"
+        "id": "openrouter/anthropic/claude-opus-4.7",
+        "displayName": "OpenRouter/Claude Opus 4.7"
       },
-      "configuredModelId": "a10907c2-1b06-4d7d-b608-f840b02bab88",
-      "configuredAt": 1788104136623
+      "configuredModelId": "cdab1f96-b21b-4026-9d5a-72dbf2a6ce9c",
+      "configuredAt": 1790288979291
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/anthropic/claude-opus-4.8",
+        "displayName": "OpenRouter/Claude Opus 4.8"
+      },
+      "configuredModelId": "59d17444-0866-4b8f-9e0d-c0acaa3a2cf6",
+      "configuredAt": 1790288979291
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/anthropic/claude-opus-5",
+        "displayName": "OpenRouter/Claude Opus 5"
+      },
+      "configuredModelId": "044fdd59-dca1-486e-bb62-af587646b88f",
+      "configuredAt": 1790288979291
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/anthropic/claude-opus-5.5",
+        "displayName": "OpenRouter/Claude Opus 5.5"
+      },
+      "configuredModelId": "79e3362a-5e8d-480f-a2e7-ef5bbd5624e1",
+      "configuredAt": 1790288979291
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~anthropic/claude-opus-latest",
+        "displayName": "OpenRouter/Claude Opus Latest"
+      },
+      "configuredModelId": "ccc2ed32-c3ff-462d-87f4-14b1493d0295",
+      "configuredAt": 1790288979291
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/anthropic/claude-sonnet-4",
+        "displayName": "OpenRouter/Claude Sonnet 4"
+      },
+      "configuredModelId": "310541f4-aae7-4d0a-9535-d9de693d5cb6",
+      "configuredAt": 1790288979292
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/anthropic/claude-sonnet-4.5",
+        "displayName": "OpenRouter/Claude Sonnet 4.5 (latest)"
+      },
+      "configuredModelId": "90d6c48f-5a58-49b9-abb0-3d248ea88d3b",
+      "configuredAt": 1790288979292
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/anthropic/claude-sonnet-4.6",
+        "displayName": "OpenRouter/Claude Sonnet 4.6"
+      },
+      "configuredModelId": "ad620371-cdb0-40f0-b011-5347f1c5110d",
+      "configuredAt": 1790288979292
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/anthropic/claude-sonnet-5",
+        "displayName": "OpenRouter/Claude Sonnet 5"
+      },
+      "configuredModelId": "651d396f-524c-4c21-8dcd-da710ca318c4",
+      "configuredAt": 1790288979292
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~anthropic/claude-sonnet-latest",
+        "displayName": "OpenRouter/Claude Sonnet Latest"
+      },
+      "configuredModelId": "acf70c7c-217b-43e9-b6a0-c2a743d4802b",
+      "configuredAt": 1790288979292
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/codestral-2508",
+        "displayName": "OpenRouter/Codestral 2508"
+      },
+      "configuredModelId": "359e3928-e850-4788-96e6-b60020db28b5",
+      "configuredAt": 1790288979293
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/cohere/command-a",
+        "displayName": "OpenRouter/Command A"
+      },
+      "configuredModelId": "ea32814f-4868-4473-8a53-1573d8f6140f",
+      "configuredAt": 1790288979293
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/cohere/command-a-plus",
+        "displayName": "OpenRouter/Command A+"
+      },
+      "configuredModelId": "8192b870-e3c5-486c-9530-2bfecccbfe9e",
+      "configuredAt": 1790288979293
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/cohere/command-r-08-2024",
+        "displayName": "OpenRouter/Command R"
+      },
+      "configuredModelId": "6f2497e6-51d2-4a64-b654-2cd30528ff3c",
+      "configuredAt": 1790288979293
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/cohere/command-r-plus-08-2024",
+        "displayName": "OpenRouter/Command R+"
+      },
+      "configuredModelId": "748fc419-1455-42e3-8c0f-9328b31241d1",
+      "configuredAt": 1790288979293
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/cohere/command-r7b-12-2024",
+        "displayName": "OpenRouter/Command R7B"
+      },
+      "configuredModelId": "f5ab5fb5-8902-499a-923b-789d42e3f3f1",
+      "configuredAt": 1790288979293
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/thedrummer/cydonia-24b-v4.1",
+        "displayName": "OpenRouter/Cydonia 24B V4.1"
+      },
+      "configuredModelId": "dac5feea-5a7f-460a-92b9-644c8d67de5e",
+      "configuredAt": 1790288979293
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-chat",
+        "displayName": "OpenRouter/DeepSeek Chat"
+      },
+      "configuredModelId": "af9a517a-83e3-42e9-9262-e9e7c1ae3123",
+      "configuredAt": 1790288979294
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~deepseek/deepseek-flash-latest",
+        "displayName": "OpenRouter/DeepSeek Flash Latest"
+      },
+      "configuredModelId": "2727f65c-fe3b-4a79-b877-cc68b4c3cab3",
+      "configuredAt": 1790288979294
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~deepseek/deepseek-pro-latest",
+        "displayName": "OpenRouter/DeepSeek Pro Latest"
+      },
+      "configuredModelId": "84096369-7283-4013-ba1e-881be19ceddc",
+      "configuredAt": 1790288979294
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-chat-v3-0324",
+        "displayName": "OpenRouter/DeepSeek V3 0324"
+      },
+      "configuredModelId": "75b678e6-ffe3-4fa9-adaf-1e52fdd39e7d",
+      "configuredAt": 1790288979295
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-chat-v3.1",
+        "displayName": "OpenRouter/DeepSeek V3.1"
+      },
+      "configuredModelId": "9832432d-8fa1-4871-ab4d-209e18aea79b",
+      "configuredAt": 1790288979295
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-v3.1-terminus",
+        "displayName": "OpenRouter/DeepSeek V3.1 Terminus"
+      },
+      "configuredModelId": "4f9140e2-3f73-499c-89e0-a4c01317f9eb",
+      "configuredAt": 1790288979295
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-v3.2",
+        "displayName": "OpenRouter/DeepSeek V3.2"
+      },
+      "configuredModelId": "13ccf518-bb7c-43a5-b21b-c2cd9f5a99b8",
+      "configuredAt": 1790288979295
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-v3.2-exp",
+        "displayName": "OpenRouter/DeepSeek V3.2 Exp"
+      },
+      "configuredModelId": "5867cf13-739f-4893-bd70-5334c906ed4b",
+      "configuredAt": 1790288979296
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-v4-flash",
+        "displayName": "OpenRouter/DeepSeek V4 Flash"
+      },
+      "configuredModelId": "da66cab0-88a3-4f53-8b97-26a946c4fc45",
+      "configuredAt": 1790288979296
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-v4-flash-0731",
+        "displayName": "OpenRouter/DeepSeek V4 Flash 0731"
+      },
+      "configuredModelId": "14a0e266-ab22-475a-8104-6e414a1d0c13",
+      "configuredAt": 1790288979296
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~deepseek/deepseek-v4-flash-latest",
+        "displayName": "OpenRouter/DeepSeek V4 Flash Latest"
+      },
+      "configuredModelId": "d97e8103-254c-4da8-bb3f-de74e00af804",
+      "configuredAt": 1790288979297
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-v4-flash-vision-exp",
+        "displayName": "OpenRouter/DeepSeek V4 Flash Vision Exp"
+      },
+      "configuredModelId": "28f790ac-7d34-411d-9d76-dfae0ade68ff",
+      "configuredAt": 1790288979297
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-v4-pro",
+        "displayName": "OpenRouter/DeepSeek V4 Pro"
+      },
+      "configuredModelId": "f7c51f40-523d-4f1a-8777-78802aca8c6d",
+      "configuredAt": 1790288979297
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-v4-pro-0813",
+        "displayName": "OpenRouter/DeepSeek V4 Pro 0813"
+      },
+      "configuredModelId": "56ccc4d3-094a-4576-ad74-7cef60bc30ec",
+      "configuredAt": 1790288979297
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-v4.1-flash",
+        "displayName": "OpenRouter/DeepSeek V4.1 Flash"
+      },
+      "configuredModelId": "1308f5f4-e8d8-4f20-ba4a-afd185cc0e38",
+      "configuredAt": 1790288979298
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-r1",
+        "displayName": "OpenRouter/DeepSeek-R1"
+      },
+      "configuredModelId": "4b8d4063-8d00-44cb-8b0d-f4c79a2290cb",
+      "configuredAt": 1790288979298
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/devstral-2512",
+        "displayName": "OpenRouter/Devstral 2"
+      },
+      "configuredModelId": "6f239138-9bd6-4bef-8707-0b62837e9f8b",
+      "configuredAt": 1790288979298
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/dots-studio/dots-3-note-preview:free",
+        "displayName": "OpenRouter/Dots3-Note Preview (free)"
+      },
+      "configuredModelId": "778330b9-0e4c-4917-874d-79f59f08e2e1",
+      "configuredAt": 1790288979298
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/fireworks/ember-1",
+        "displayName": "OpenRouter/Ember-1"
+      },
+      "configuredModelId": "eb72feef-06f7-4691-a99c-bc261f38aad3",
+      "configuredAt": 1790288979298
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/baidu/ernie-4.5-vl-424b-a47b",
+        "displayName": "OpenRouter/ERNIE 4.5 VL 424B A47B "
+      },
+      "configuredModelId": "4a7b1200-c4de-4cd6-9540-6f00d5d01f62",
+      "configuredAt": 1790288979299
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openrouter/free",
+        "displayName": "OpenRouter/Free Models Router"
+      },
+      "configuredModelId": "4d89e8db-2a98-4716-8a74-7a9f61fbc33b",
+      "configuredAt": 1790288979299
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/sakana/fugu-max",
+        "displayName": "OpenRouter/Fugu Max"
+      },
+      "configuredModelId": "acc1afe6-2ce0-4803-9862-f49a3097e2e8",
+      "configuredAt": 1790288979299
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/sakana/fugu-ultra",
+        "displayName": "OpenRouter/Fugu Ultra"
+      },
+      "configuredModelId": "bb616b7b-97d2-4342-abf2-65072e3a247a",
+      "configuredAt": 1790288979299
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/sakana/fugu-ultra-v2",
+        "displayName": "OpenRouter/Fugu Ultra v2"
+      },
+      "configuredModelId": "9f9e5d89-0f11-4ea9-aa89-e29a06c1130f",
+      "configuredAt": 1790288979299
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openrouter/fusion",
+        "displayName": "OpenRouter/Fusion"
+      },
+      "configuredModelId": "5731b586-899a-4b2e-80c3-f93cbf673630",
+      "configuredAt": 1790288979299
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-2.5-flash",
+        "displayName": "OpenRouter/Gemini 2.5 Flash"
+      },
+      "configuredModelId": "2d4e6f06-b8d4-47fd-b07f-86b2e38ff21e",
+      "configuredAt": 1790288979300
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-2.5-flash-lite",
+        "displayName": "OpenRouter/Gemini 2.5 Flash-Lite"
+      },
+      "configuredModelId": "2595eda1-6e39-45fc-9bc3-7b2365d78567",
+      "configuredAt": 1790288979300
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-2.5-pro",
+        "displayName": "OpenRouter/Gemini 2.5 Pro"
+      },
+      "configuredModelId": "500b91cf-5641-4eff-99e2-471406060ae2",
+      "configuredAt": 1790288979300
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-2.5-pro-preview",
+        "displayName": "OpenRouter/Gemini 2.5 Pro Preview 06-05"
+      },
+      "configuredModelId": "506df54e-849f-4fef-84d7-22cb978263f6",
+      "configuredAt": 1790288979301
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3-flash-preview",
+        "displayName": "OpenRouter/Gemini 3 Flash Preview"
+      },
+      "configuredModelId": "aa8eccd2-16bb-4caa-888b-faf30758e739",
+      "configuredAt": 1790288979301
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.1-flash-lite",
+        "displayName": "OpenRouter/Gemini 3.1 Flash Lite"
+      },
+      "configuredModelId": "aaa8ef31-8f23-48a3-84d3-4f8c1b138f78",
+      "configuredAt": 1790288979301
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.1-flash-lite-preview",
+        "displayName": "OpenRouter/Gemini 3.1 Flash Lite Preview"
+      },
+      "configuredModelId": "3a7a8990-f6d9-4998-aeb3-ae2821d29f6a",
+      "configuredAt": 1790288979301
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.1-pro-preview",
+        "displayName": "OpenRouter/Gemini 3.1 Pro Preview"
+      },
+      "configuredModelId": "60f806a1-7730-4b3a-b3ea-3ca18d1ff2f6",
+      "configuredAt": 1790288979301
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.1-pro-preview-customtools",
+        "displayName": "OpenRouter/Gemini 3.1 Pro Preview Custom Tools"
+      },
+      "configuredModelId": "92ccdabe-586e-440c-ab1b-3f8769fea734",
+      "configuredAt": 1790288979302
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.5-flash",
+        "displayName": "OpenRouter/Gemini 3.5 Flash"
+      },
+      "configuredModelId": "cc1210df-d625-4935-b0c8-a7ce0aae461c",
+      "configuredAt": 1790288979302
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.5-flash-lite",
+        "displayName": "OpenRouter/Gemini 3.5 Flash Lite"
+      },
+      "configuredModelId": "b4d2a91f-1cde-4a74-8c1a-36e5d05e70a8",
+      "configuredAt": 1790288979304
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.6-flash",
+        "displayName": "OpenRouter/Gemini 3.6 Flash"
+      },
+      "configuredModelId": "849c9d57-df39-420a-8645-da2cd966bd92",
+      "configuredAt": 1790288979304
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.7-flash",
+        "displayName": "OpenRouter/Gemini 3.7 Flash"
+      },
+      "configuredModelId": "b24106b7-5ff7-4ef0-b8e7-9ed976e61b4a",
+      "configuredAt": 1790288979304
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.8-flash",
+        "displayName": "OpenRouter/Gemini 3.8 Flash"
+      },
+      "configuredModelId": "8c4f9160-0dbd-476b-8d39-1fbbc6188b79",
+      "configuredAt": 1790288979305
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~google/gemini-flash-latest",
+        "displayName": "OpenRouter/Gemini Flash Latest"
+      },
+      "configuredModelId": "a49bf818-95f9-43eb-8697-868ecff129da",
+      "configuredAt": 1790288979305
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~google/gemini-pro-latest",
+        "displayName": "OpenRouter/Gemini Pro Latest"
+      },
+      "configuredModelId": "806820d9-2b5d-42e9-ba11-9b08ed6cb4a0",
+      "configuredAt": 1790288979305
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemma-2-27b-it",
+        "displayName": "OpenRouter/Gemma 2 27B"
+      },
+      "configuredModelId": "d125da90-8020-4d19-b527-4df684774699",
+      "configuredAt": 1790288979305
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemma-3-12b-it",
+        "displayName": "OpenRouter/Gemma 3 12B IT"
+      },
+      "configuredModelId": "e24590c2-2ecd-4016-a912-1460dedf0723",
+      "configuredAt": 1790288979305
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemma-3-27b-it",
+        "displayName": "OpenRouter/Gemma 3 27B IT"
+      },
+      "configuredModelId": "6486bff2-1117-45a6-af38-8a0889704f03",
+      "configuredAt": 1790288979306
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemma-3-4b-it",
+        "displayName": "OpenRouter/Gemma 3 4B IT"
+      },
+      "configuredModelId": "300f5a6d-2a10-4225-826b-4ae9cefb7014",
+      "configuredAt": 1790288979306
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemma-4-26b-a4b-it:free",
+        "displayName": "OpenRouter/Gemma 4 26B A4B  (free)"
+      },
+      "configuredModelId": "1cbcb3b8-57c3-4397-a5c6-dd369f7413f9",
+      "configuredAt": 1790288979307
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemma-4-26b-a4b-it",
+        "displayName": "OpenRouter/Gemma 4 26B A4B IT"
+      },
+      "configuredModelId": "2707924b-374f-4601-b222-aeecd93481fd",
+      "configuredAt": 1790288979307
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemma-4-31b-it:free",
+        "displayName": "OpenRouter/Gemma 4 31B (free)"
+      },
+      "configuredModelId": "076fcb09-1cb5-42a3-8d9b-77e161863a9c",
+      "configuredAt": 1790288979307
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemma-4-31b-it",
+        "displayName": "OpenRouter/Gemma 4 31B IT"
+      },
+      "configuredModelId": "5dce495d-f067-4917-b39b-cfcc03edfb87",
+      "configuredAt": 1790288979307
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-5.2:free",
+        "displayName": "OpenRouter/GLM 5.2 (free)"
+      },
+      "configuredModelId": "9d32a3b1-ed3b-405c-8bfa-4fff8858140b",
+      "configuredAt": 1790288979308
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-5.3-flashx",
+        "displayName": "OpenRouter/GLM 5.3 FlashX"
+      },
+      "configuredModelId": "55f4773d-7b84-4477-96db-d23b822f5c96",
+      "configuredAt": 1790288979308
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-5.3-prime",
+        "displayName": "OpenRouter/GLM 5.3 Prime"
+      },
+      "configuredModelId": "e2b974e7-eccb-4f52-ab43-1abe7127ffd3",
+      "configuredAt": 1790288979308
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~z-ai/glm-flash-latest",
+        "displayName": "OpenRouter/GLM Flash Latest"
+      },
+      "configuredModelId": "fcd70a12-f112-43e7-beca-43d0286d3176",
+      "configuredAt": 1790288979309
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~z-ai/glm-latest",
+        "displayName": "OpenRouter/GLM Latest"
+      },
+      "configuredModelId": "c8853a96-5449-47aa-8c8b-1443132f9e01",
+      "configuredAt": 1790288979309
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-4.5",
+        "displayName": "OpenRouter/GLM-4.5"
+      },
+      "configuredModelId": "145b1ed1-b887-4e56-b01c-66b3916999dd",
+      "configuredAt": 1790288979309
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-4.5-air",
+        "displayName": "OpenRouter/GLM-4.5-Air"
+      },
+      "configuredModelId": "01158443-9ef8-4ec0-ba1d-0748562faba1",
+      "configuredAt": 1790288979309
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-4.5v",
+        "displayName": "OpenRouter/GLM-4.5V"
+      },
+      "configuredModelId": "9afc517d-9cbd-4ef9-8b90-1a3ec9003235",
+      "configuredAt": 1790288979310
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-4.6",
+        "displayName": "OpenRouter/GLM-4.6"
+      },
+      "configuredModelId": "c09d0a8d-74dc-4947-9cec-bbf87e6e9f18",
+      "configuredAt": 1790288979310
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-4.6v",
+        "displayName": "OpenRouter/GLM-4.6V"
+      },
+      "configuredModelId": "38d3558b-d540-4713-b971-195bd4e3120c",
+      "configuredAt": 1790288979310
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-4.7",
+        "displayName": "OpenRouter/GLM-4.7"
+      },
+      "configuredModelId": "73646a26-a076-4500-9726-24fc3e753112",
+      "configuredAt": 1790288979311
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-4.7-flash",
+        "displayName": "OpenRouter/GLM-4.7-Flash"
+      },
+      "configuredModelId": "8a7f73af-66b1-471e-9208-b56d8aa2ed68",
+      "configuredAt": 1790288979312
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-5",
+        "displayName": "OpenRouter/GLM-5"
+      },
+      "configuredModelId": "02cae2ae-3cc6-4574-99fe-71d7a322f2b7",
+      "configuredAt": 1790288979312
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-5-turbo",
+        "displayName": "OpenRouter/GLM-5-Turbo"
+      },
+      "configuredModelId": "bb5bf5f1-2653-4d02-b31f-ae224c2a6b57",
+      "configuredAt": 1790288979312
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-5.1",
+        "displayName": "OpenRouter/GLM-5.1"
+      },
+      "configuredModelId": "5e9c1dc9-c966-439c-92af-447e59d13ce2",
+      "configuredAt": 1790288979312
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-5.2",
+        "displayName": "OpenRouter/GLM-5.2"
+      },
+      "configuredModelId": "954df9a6-2b82-4b17-ab59-2c047c5c98a2",
+      "configuredAt": 1790288979312
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-5.3",
+        "displayName": "OpenRouter/GLM-5.3"
+      },
+      "configuredModelId": "2a886ad8-3ae7-4384-90c6-5ee2445faa28",
+      "configuredAt": 1790288979313
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-5.3-flash",
+        "displayName": "OpenRouter/GLM-5.3-Flash"
+      },
+      "configuredModelId": "eb7707f9-edfe-47a5-8e60-2b32f6bbc9d4",
+      "configuredAt": 1790288979313
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/z-ai/glm-5v-turbo",
+        "displayName": "OpenRouter/GLM-5V-Turbo"
+      },
+      "configuredModelId": "2380dc03-d006-4863-ab9e-2acdf74c5e18",
+      "configuredAt": 1790288979313
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~openai/gpt-astra-latest",
+        "displayName": "OpenRouter/GPT Astra Latest"
+      },
+      "configuredModelId": "c336babf-71b2-4920-9d95-5c5102c04158",
+      "configuredAt": 1790288979313
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-audio",
+        "displayName": "OpenRouter/GPT Audio"
+      },
+      "configuredModelId": "e66a126a-458b-42fb-8d01-94916d882a48",
+      "configuredAt": 1790288979313
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-audio-mini",
+        "displayName": "OpenRouter/GPT Audio Mini"
+      },
+      "configuredModelId": "86f363b5-5d74-4e1b-92a6-4b171e574f9e",
+      "configuredAt": 1790288979313
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-chat-latest",
+        "displayName": "OpenRouter/GPT Chat Latest"
+      },
+      "configuredModelId": "0f3cfaee-391e-4f0a-bc6a-0ec107400dec",
+      "configuredAt": 1790288979314
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~openai/gpt-luna-latest",
+        "displayName": "OpenRouter/GPT Luna Latest"
+      },
+      "configuredModelId": "bd0b070d-bda0-46d8-a30b-e4ccfeb895ce",
+      "configuredAt": 1790288979314
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~openai/gpt-mini-latest",
+        "displayName": "OpenRouter/GPT Mini Latest"
+      },
+      "configuredModelId": "85cca844-3c85-44ff-bf8c-8fa5312225d1",
+      "configuredAt": 1790288979314
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-oss-120b",
+        "displayName": "OpenRouter/GPT OSS 120B"
+      },
+      "configuredModelId": "8d185d05-e5a1-4015-89de-85b75c76e121",
+      "configuredAt": 1790288979314
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-oss-20b",
+        "displayName": "OpenRouter/GPT OSS 20B"
+      },
+      "configuredModelId": "8160eb22-0133-42be-925b-d7cfa0d661f8",
+      "configuredAt": 1790288979314
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-oss-safeguard-20b",
+        "displayName": "OpenRouter/GPT OSS Safeguard 20B"
+      },
+      "configuredModelId": "992a078d-7b9a-45c3-b671-b5c6f7d8df51",
+      "configuredAt": 1790288979314
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~openai/gpt-sol-latest",
+        "displayName": "OpenRouter/GPT Sol Latest"
+      },
+      "configuredModelId": "6ff56ea7-39a0-45b0-beb4-b5537a64b7ac",
+      "configuredAt": 1790288979315
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~openai/gpt-terra-latest",
+        "displayName": "OpenRouter/GPT Terra Latest"
+      },
+      "configuredModelId": "cab57d97-bbbf-4021-af53-8a37cc78c43f",
+      "configuredAt": 1790288979315
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-3.5-turbo-0613",
+        "displayName": "OpenRouter/GPT-3.5 Turbo (older v0613)"
+      },
+      "configuredModelId": "c3cb5498-c6a2-4702-b032-728d46e55219",
+      "configuredAt": 1790288979315
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-3.5-turbo-16k",
+        "displayName": "OpenRouter/GPT-3.5 Turbo 16k"
+      },
+      "configuredModelId": "5068eac5-4867-4f4b-a7d8-fa3e6fb4970f",
+      "configuredAt": 1790288979315
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-3.5-turbo-instruct",
+        "displayName": "OpenRouter/GPT-3.5 Turbo Instruct"
+      },
+      "configuredModelId": "4def50f0-4309-42a9-a554-c5e93507abe0",
+      "configuredAt": 1790288979315
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-3.5-turbo",
+        "displayName": "OpenRouter/GPT-3.5-turbo"
+      },
+      "configuredModelId": "29f77867-04b0-4346-b324-ef064268c131",
+      "configuredAt": 1790288979316
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-4",
+        "displayName": "OpenRouter/GPT-4"
+      },
+      "configuredModelId": "7926ad8b-e357-4f72-bd05-13450a6b2691",
+      "configuredAt": 1790288979316
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-4-turbo",
+        "displayName": "OpenRouter/GPT-4 Turbo"
+      },
+      "configuredModelId": "13eae1f1-d00d-48c4-95f8-28e4eecc837a",
+      "configuredAt": 1790288979316
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-4.1",
+        "displayName": "OpenRouter/GPT-4.1"
+      },
+      "configuredModelId": "fc778490-9fc7-4424-a1d3-db6ae1787b61",
+      "configuredAt": 1790288979316
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-4.1-mini",
+        "displayName": "OpenRouter/GPT-4.1 mini"
+      },
+      "configuredModelId": "87a198d0-a5c2-4a6e-a47b-744c71dfd07e",
+      "configuredAt": 1790288979317
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-4.1-nano",
+        "displayName": "OpenRouter/GPT-4.1 nano"
+      },
+      "configuredModelId": "0941a528-dda3-436f-b1b9-aed7d9684952",
+      "configuredAt": 1790288979317
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-4o",
+        "displayName": "OpenRouter/GPT-4o"
+      },
+      "configuredModelId": "2f5dd908-7de5-4003-bbfd-5b1c7f4353d2",
+      "configuredAt": 1790288979317
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-4o-2024-05-13",
+        "displayName": "OpenRouter/GPT-4o (2024-05-13)"
+      },
+      "configuredModelId": "10228d1a-5df6-4c92-a271-b7d7083c4d03",
+      "configuredAt": 1790288979317
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-4o-2024-08-06",
+        "displayName": "OpenRouter/GPT-4o (2024-08-06)"
+      },
+      "configuredModelId": "0302af25-6e5f-41ab-820f-f224dfa0b65b",
+      "configuredAt": 1790288979318
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-4o-2024-11-20",
+        "displayName": "OpenRouter/GPT-4o (2024-11-20)"
+      },
+      "configuredModelId": "73ec2181-4622-4121-8275-b08c5d9f9c96",
+      "configuredAt": 1790288979318
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-4o-mini",
+        "displayName": "OpenRouter/GPT-4o mini"
+      },
+      "configuredModelId": "3fa1bf06-6302-4d35-a8ab-49cf5abf61f4",
+      "configuredAt": 1790288979319
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-4o-mini-2024-07-18",
+        "displayName": "OpenRouter/GPT-4o-mini (2024-07-18)"
+      },
+      "configuredModelId": "4cd46a7e-7201-4284-ac3d-1ff3e551adef",
+      "configuredAt": 1790288979319
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5",
+        "displayName": "OpenRouter/GPT-5"
+      },
+      "configuredModelId": "174403a6-194b-49f9-90db-a30477d6a2cd",
+      "configuredAt": 1790288979319
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5-image",
+        "displayName": "OpenRouter/GPT-5 Image"
+      },
+      "configuredModelId": "460b7de5-b821-49ef-a12c-8678fe6b21fe",
+      "configuredAt": 1790288979319
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5-image-mini",
+        "displayName": "OpenRouter/GPT-5 Image Mini"
+      },
+      "configuredModelId": "6c82ea2e-137e-4503-bb2a-861848f38ac2",
+      "configuredAt": 1790288979319
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5-mini",
+        "displayName": "OpenRouter/GPT-5 Mini"
+      },
+      "configuredModelId": "aae61957-79be-476a-a25d-a36e6182229e",
+      "configuredAt": 1790288979320
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5-nano",
+        "displayName": "OpenRouter/GPT-5 Nano"
+      },
+      "configuredModelId": "f072e9f0-4071-4463-9a17-05620dc6d2b2",
+      "configuredAt": 1790288979320
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5-pro",
+        "displayName": "OpenRouter/GPT-5 Pro"
+      },
+      "configuredModelId": "40ff3a1a-bf2c-48d8-a990-03a3328fad3a",
+      "configuredAt": 1790288979320
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.1",
+        "displayName": "OpenRouter/GPT-5.1"
+      },
+      "configuredModelId": "a4d0404e-14b7-45e7-a874-75146b97ae23",
+      "configuredAt": 1790288979320
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.1-codex",
+        "displayName": "OpenRouter/GPT-5.1 Codex"
+      },
+      "configuredModelId": "e82f93ff-0de9-4d89-93e3-ab53d1d08f1f",
+      "configuredAt": 1790288979320
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.1-codex-max",
+        "displayName": "OpenRouter/GPT-5.1 Codex Max"
+      },
+      "configuredModelId": "a1b45ce9-391b-4e26-978c-e55642485196",
+      "configuredAt": 1790288979321
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.1-codex-mini",
+        "displayName": "OpenRouter/GPT-5.1 Codex mini"
+      },
+      "configuredModelId": "a4ca308b-de81-4783-a8a6-bf99e3011307",
+      "configuredAt": 1790288979321
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.2",
+        "displayName": "OpenRouter/GPT-5.2"
+      },
+      "configuredModelId": "7cb171ed-a923-4406-ad80-b117dafda560",
+      "configuredAt": 1790288979321
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.2-chat",
+        "displayName": "OpenRouter/GPT-5.2 Chat"
+      },
+      "configuredModelId": "e41ac5d1-a7fb-49f0-8d93-86c4522111b5",
+      "configuredAt": 1790288979321
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.2-codex",
+        "displayName": "OpenRouter/GPT-5.2 Codex"
+      },
+      "configuredModelId": "0a116f23-d137-43c9-b914-3b8a95c0a1af",
+      "configuredAt": 1790288979321
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.2-pro",
+        "displayName": "OpenRouter/GPT-5.2 Pro"
+      },
+      "configuredModelId": "6ca47fff-b998-4d12-b102-5d03bcd8b38f",
+      "configuredAt": 1790288979322
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.3-codex",
+        "displayName": "OpenRouter/GPT-5.3 Codex"
+      },
+      "configuredModelId": "97e242b5-78f4-4f81-941e-9ad438c7644f",
+      "configuredAt": 1790288979322
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.4",
+        "displayName": "OpenRouter/GPT-5.4"
+      },
+      "configuredModelId": "f45f7c0a-622e-481a-ab43-28b51af5b915",
+      "configuredAt": 1790288979322
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.4-image-2",
+        "displayName": "OpenRouter/GPT-5.4 Image 2"
+      },
+      "configuredModelId": "85842da3-e62f-4276-9ce2-c9e03254da40",
+      "configuredAt": 1790288979322
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.4-mini",
+        "displayName": "OpenRouter/GPT-5.4 mini"
+      },
+      "configuredModelId": "9677d144-881b-4a71-927e-8ab2ca337dc7",
+      "configuredAt": 1790288979323
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.4-nano",
+        "displayName": "OpenRouter/GPT-5.4 nano"
+      },
+      "configuredModelId": "f47cbf63-bb77-4609-a82e-28157640c0be",
+      "configuredAt": 1790288979323
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.4-pro",
+        "displayName": "OpenRouter/GPT-5.4 Pro"
+      },
+      "configuredModelId": "7b6837e7-d3ea-452a-ac4b-0e368350cf43",
+      "configuredAt": 1790288979324
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.5",
+        "displayName": "OpenRouter/GPT-5.5"
+      },
+      "configuredModelId": "2882f271-d80e-4ea4-a9d9-2a01c63adcea",
+      "configuredAt": 1790288979324
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.5-pro",
+        "displayName": "OpenRouter/GPT-5.5 Pro"
+      },
+      "configuredModelId": "1b7b476a-949a-45c6-aafe-f2fd13e3663b",
+      "configuredAt": 1790288979324
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.6-luna",
+        "displayName": "OpenRouter/GPT-5.6 Luna"
+      },
+      "configuredModelId": "fc0a5bbc-c5f9-4ec5-afcf-4d0bd22e0396",
+      "configuredAt": 1790288979325
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.6-luna-pro",
+        "displayName": "OpenRouter/GPT-5.6 Luna Pro"
+      },
+      "configuredModelId": "ee0d53b3-44ed-467b-ad55-11bb4e8f17b0",
+      "configuredAt": 1790288979325
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.6-sol",
+        "displayName": "OpenRouter/GPT-5.6 Sol"
+      },
+      "configuredModelId": "93beec4d-1e5a-418c-8b7e-1d1a3bb1eefa",
+      "configuredAt": 1790288979325
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.6-sol-pro",
+        "displayName": "OpenRouter/GPT-5.6 Sol Pro"
+      },
+      "configuredModelId": "7c3ab04d-f82a-4665-9260-fb586d812821",
+      "configuredAt": 1790288979325
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.6-terra",
+        "displayName": "OpenRouter/GPT-5.6 Terra"
+      },
+      "configuredModelId": "3a377fab-65f7-45cd-851a-2e8db8ecc00b",
+      "configuredAt": 1790288979326
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-5.6-terra-pro",
+        "displayName": "OpenRouter/GPT-5.6 Terra Pro"
+      },
+      "configuredModelId": "5d6114ed-f4bd-4be6-91c3-e23f72173ac4",
+      "configuredAt": 1790288979326
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-6-astra",
+        "displayName": "OpenRouter/GPT-6 Astra"
+      },
+      "configuredModelId": "1d00ae5c-c32d-4fba-a95c-33e18b69a59f",
+      "configuredAt": 1790288979326
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-6-astra-pro",
+        "displayName": "OpenRouter/GPT-6 Astra Pro"
+      },
+      "configuredModelId": "6a6d63bd-188a-46ee-9f9d-71936174f953",
+      "configuredAt": 1790288979326
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-6-luna",
+        "displayName": "OpenRouter/GPT-6 Luna"
+      },
+      "configuredModelId": "3907eb68-d5a5-45ef-b0a6-b85f06004aa3",
+      "configuredAt": 1790288979327
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-6-luna-pro",
+        "displayName": "OpenRouter/GPT-6 Luna Pro"
+      },
+      "configuredModelId": "37093efb-92fc-4014-8669-860e6569b67a",
+      "configuredAt": 1790288979327
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-6-sol",
+        "displayName": "OpenRouter/GPT-6 Sol"
+      },
+      "configuredModelId": "4cfb5da6-5daf-4af8-af8f-526dade4eb2c",
+      "configuredAt": 1790288979328
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-6-sol-pro",
+        "displayName": "OpenRouter/GPT-6 Sol Pro"
+      },
+      "configuredModelId": "417396d6-154c-4b52-a101-9e6cf960939e",
+      "configuredAt": 1790288979328
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/ibm-granite/granite-4.0-h-micro",
+        "displayName": "OpenRouter/Granite 4.0 Micro"
+      },
+      "configuredModelId": "2b28610f-925c-4dc9-bdc4-93cc7275dbc2",
+      "configuredAt": 1790288979328
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/ibm-granite/granite-4.2-8b",
+        "displayName": "OpenRouter/Granite 4.2 8B"
+      },
+      "configuredModelId": "940510d1-e2c4-4dd9-a5cc-c2755e8fbeb9",
+      "configuredAt": 1790288979328
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/x-ai/grok-4.20",
+        "displayName": "OpenRouter/Grok 4.20"
+      },
+      "configuredModelId": "6baf51be-3345-4ec2-92bc-40526c9d4af5",
+      "configuredAt": 1790288979329
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/x-ai/grok-4.20-multi-agent",
+        "displayName": "OpenRouter/Grok 4.20 Multi-Agent"
+      },
+      "configuredModelId": "d431bfce-61b9-405a-8668-24a6d696697a",
+      "configuredAt": 1790288979329
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/x-ai/grok-4.3",
+        "displayName": "OpenRouter/Grok 4.3"
+      },
+      "configuredModelId": "de79ee85-6b8b-4ed5-b6d8-1952244ef846",
+      "configuredAt": 1790288979329
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/x-ai/grok-4.5",
+        "displayName": "OpenRouter/Grok 4.5"
+      },
+      "configuredModelId": "3b370771-dd69-46e8-ba58-ed536afe50f8",
+      "configuredAt": 1790288979330
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/x-ai/grok-4.6",
+        "displayName": "OpenRouter/Grok 4.6"
+      },
+      "configuredModelId": "2f181826-11a5-42cf-af8f-884de9cc1d77",
+      "configuredAt": 1790288979330
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/x-ai/grok-4.7",
+        "displayName": "OpenRouter/Grok 4.7"
+      },
+      "configuredModelId": "fa73f577-cdaa-411e-9714-b67f5d627731",
+      "configuredAt": 1790288979330
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/x-ai/grok-build-0.1",
+        "displayName": "OpenRouter/Grok Build 0.1"
+      },
+      "configuredModelId": "6189cd67-6ade-4389-b173-7bb25356cd8e",
+      "configuredAt": 1790288979330
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~x-ai/grok-latest",
+        "displayName": "OpenRouter/Grok Latest"
+      },
+      "configuredModelId": "808fbac7-4d83-4f04-8284-5b5c84f14a30",
+      "configuredAt": 1790288979331
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nousresearch/hermes-3-llama-3.1-405b",
+        "displayName": "OpenRouter/Hermes 3 405B Instruct"
+      },
+      "configuredModelId": "24ede3fa-2677-49b7-b3e9-ed9eeae0fa9e",
+      "configuredAt": 1790288979331
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nousresearch/hermes-3-llama-3.1-70b",
+        "displayName": "OpenRouter/Hermes 3 70B Instruct"
+      },
+      "configuredModelId": "6c48d7fb-71c6-48ff-9328-9fda67ddf0bd",
+      "configuredAt": 1790288979331
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nousresearch/hermes-4-405b",
+        "displayName": "OpenRouter/Hermes 4 405B"
+      },
+      "configuredModelId": "c595045e-b107-4d21-97b0-08e19cf1f4cb",
+      "configuredAt": 1790288979331
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/tencent/hunyuan-a13b-instruct",
+        "displayName": "OpenRouter/Hunyuan A13B Instruct"
+      },
+      "configuredModelId": "e2da3ca8-5f96-4dcd-b7d0-dd61247e7eed",
+      "configuredAt": 1790288979331
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/tencent/hy-mt2-1.8b",
+        "displayName": "OpenRouter/Hy-MT2-1.8B"
+      },
+      "configuredModelId": "6cf8e541-59b6-4e6f-b0fa-80cb30c8f8c2",
+      "configuredAt": 1790288979331
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/tencent/hy-mt2-30b-a3b",
+        "displayName": "OpenRouter/Hy-MT2-30B-A3B"
+      },
+      "configuredModelId": "a7221999-1987-43ea-961d-cb63f5428d83",
+      "configuredAt": 1790288979332
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/tencent/hy-mt2-7b",
+        "displayName": "OpenRouter/Hy-MT2-7B"
+      },
+      "configuredModelId": "fb756829-b4b2-4f0d-b57d-d3f6c0f33313",
+      "configuredAt": 1790288979332
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/tencent/hy3",
+        "displayName": "OpenRouter/Hy3"
+      },
+      "configuredModelId": "66dc903f-4032-4ae8-96f3-3c4559220ff3",
+      "configuredAt": 1790288979332
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/tencent/hy3-preview",
+        "displayName": "OpenRouter/Hy3 preview"
+      },
+      "configuredModelId": "af178747-94e2-41eb-94ab-ea62f13678c3",
+      "configuredAt": 1790288979332
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/tencent/hy4-preview",
+        "displayName": "OpenRouter/Hy4 preview"
+      },
+      "configuredModelId": "0d53cdb8-98d9-42a2-8b27-37978ec84b5a",
+      "configuredAt": 1790288979332
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/thinkingmachines/inkling",
+        "displayName": "OpenRouter/Inkling"
+      },
+      "configuredModelId": "7de1153b-3ea8-4b6e-9697-4dfafc65c374",
+      "configuredAt": 1790288979333
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/thinkingmachines/inkling:free",
+        "displayName": "OpenRouter/Inkling (free)"
+      },
+      "configuredModelId": "5ba20b34-5286-476f-a5c7-830044a55fc8",
+      "configuredAt": 1790288979333
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/thinkingmachines/inkling-small",
+        "displayName": "OpenRouter/Inkling Small"
+      },
+      "configuredModelId": "486dab3c-3a66-4cea-96b3-ca3b549842ab",
+      "configuredAt": 1790288979333
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/thinkingmachines/inkling-small:free",
+        "displayName": "OpenRouter/Inkling Small (free)"
+      },
+      "configuredModelId": "f49e53e8-bd05-457d-8509-ed1d54321365",
+      "configuredAt": 1790288979333
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/kwaipilot/kat-coder-pro-v2.5",
+        "displayName": "OpenRouter/KAT-Coder-Pro V2.5"
+      },
+      "configuredModelId": "c9105d22-6557-4326-81d8-7b933e80e630",
+      "configuredAt": 1790288979333
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/moonshotai/kimi-k2",
+        "displayName": "OpenRouter/Kimi K2 0711"
+      },
+      "configuredModelId": "dbeedf24-f404-458f-8099-e159f5b78c2b",
+      "configuredAt": 1790288979334
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/moonshotai/kimi-k2-0905",
+        "displayName": "OpenRouter/Kimi K2 0905"
+      },
+      "configuredModelId": "2d2c833c-43aa-43e9-889a-4a4b119f42e4",
+      "configuredAt": 1790288979334
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/moonshotai/kimi-k2-thinking",
+        "displayName": "OpenRouter/Kimi K2 Thinking"
+      },
+      "configuredModelId": "f97bafa8-4c80-4850-b4be-d92d3b77e8f9",
+      "configuredAt": 1790288979334
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/moonshotai/kimi-k2.5",
+        "displayName": "OpenRouter/Kimi K2.5"
+      },
+      "configuredModelId": "1f8fded2-9d62-4b1d-b7f1-8b5dbd34d83f",
+      "configuredAt": 1790288979334
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/moonshotai/kimi-k2.6",
+        "displayName": "OpenRouter/Kimi K2.6"
+      },
+      "configuredModelId": "d3ee058e-b495-4c7f-be72-11c4c4a42559",
+      "configuredAt": 1790288979335
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/moonshotai/kimi-k2.7-code",
+        "displayName": "OpenRouter/Kimi K2.7 Code"
+      },
+      "configuredModelId": "6e4b3f71-0347-46dd-b28e-d7457ba0b037",
+      "configuredAt": 1790288979335
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/moonshotai/kimi-k3",
+        "displayName": "OpenRouter/Kimi K3"
+      },
+      "configuredModelId": "2e47ce1e-e648-40fb-8245-b0b789311173",
+      "configuredAt": 1790288979335
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/~moonshotai/kimi-latest",
+        "displayName": "OpenRouter/Kimi Latest"
+      },
+      "configuredModelId": "e0c4cd26-3c3d-4189-a441-8484e61df7f4",
+      "configuredAt": 1790288979335
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/poolside/laguna-s-2.1",
+        "displayName": "OpenRouter/Laguna S 2.1"
+      },
+      "configuredModelId": "92cde5dc-963b-441b-a03f-eacc73c8c2c4",
+      "configuredAt": 1790288979336
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/poolside/laguna-s-2.1:free",
+        "displayName": "OpenRouter/Laguna S 2.1 (free)"
+      },
+      "configuredModelId": "8800b1dd-5e08-474f-b20a-f8c69a6a7c80",
+      "configuredAt": 1790288979337
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/poolside/laguna-xs-2.1",
+        "displayName": "OpenRouter/Laguna XS 2.1"
+      },
+      "configuredModelId": "0c7c65d4-e152-4850-80f2-3e7270eee3da",
+      "configuredAt": 1790288979338
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/poolside/laguna-xs-2.1:free",
+        "displayName": "OpenRouter/Laguna XS 2.1 (free)"
+      },
+      "configuredModelId": "fe340519-3868-4acd-95a6-2284490e488b",
+      "configuredAt": 1790288979338
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/liquid/lfm-2.5-2.6b:free",
+        "displayName": "OpenRouter/LFM2.5-2.6B (free)"
+      },
+      "configuredModelId": "66980953-11bc-4237-ad6e-cc708843b9cc",
+      "configuredAt": 1790288979338
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/inclusionai/ling-3.0-flash",
+        "displayName": "OpenRouter/Ling 3.0 Flash"
+      },
+      "configuredModelId": "149ddcfd-2878-4c52-bb62-b442d53de370",
+      "configuredAt": 1790288979338
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/inclusionai/ling-3.0-flash-fin",
+        "displayName": "OpenRouter/Ling 3.0 Flash Fin"
+      },
+      "configuredModelId": "9c3c96af-a384-48b3-a419-016eaebbe110",
+      "configuredAt": 1790288979338
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/inclusionai/ling-3.0-flash-fin:free",
+        "displayName": "OpenRouter/Ling 3.0 Flash Fin (free)"
+      },
+      "configuredModelId": "9f87bd6d-ca2c-45a4-b8ea-b3685293e33a",
+      "configuredAt": 1790288979338
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/inclusionai/ling-3.0-flash-sante:free",
+        "displayName": "OpenRouter/Ling 3.0 Flash Sante (free)"
+      },
+      "configuredModelId": "bb7c4a33-6e15-4637-80ea-1d9112881952",
+      "configuredAt": 1790288979339
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/inclusionai/ling-3.0-flash-vl",
+        "displayName": "OpenRouter/Ling 3.0 Flash VL"
+      },
+      "configuredModelId": "a5d2f30d-39ec-4d42-b8a7-5a7b14015447",
+      "configuredAt": 1790288979339
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/sao10k/l3-lunaris-8b",
+        "displayName": "OpenRouter/Llama 3 8B Lunaris"
+      },
+      "configuredModelId": "3b0b0b16-c206-40a0-bca8-13b74918b480",
+      "configuredAt": 1790288979339
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/sao10k/l3.1-euryale-70b",
+        "displayName": "OpenRouter/Llama 3.1 Euryale 70B v2.2"
+      },
+      "configuredModelId": "80808bfb-06b7-4310-9739-78cb23a191b0",
+      "configuredAt": 1790288979339
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta-llama/llama-3.2-1b-instruct",
+        "displayName": "OpenRouter/Llama 3.2 1B Instruct"
+      },
+      "configuredModelId": "6aabae1d-9bc3-40a7-aa07-895d1265216a",
+      "configuredAt": 1790288979340
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta-llama/llama-3.2-3b-instruct",
+        "displayName": "OpenRouter/Llama 3.2 3B Instruct"
+      },
+      "configuredModelId": "0e24cb44-f5db-47e5-90b8-ec551e8eeb9a",
+      "configuredAt": 1790288979340
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/sao10k/l3.3-euryale-70b",
+        "displayName": "OpenRouter/Llama 3.3 Euryale 70B"
+      },
+      "configuredModelId": "f81e4e47-1203-49a2-a904-a295523fb36c",
+      "configuredAt": 1790288979340
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta-llama/llama-4-maverick",
+        "displayName": "OpenRouter/Llama 4 Maverick"
+      },
+      "configuredModelId": "e2db75c9-3aed-4a51-a135-798ca387f8eb",
+      "configuredAt": 1790288979340
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta-llama/llama-4-scout",
+        "displayName": "OpenRouter/Llama 4 Scout"
+      },
+      "configuredModelId": "0f4208b1-4f4e-4211-9fc7-e4a079f35516",
+      "configuredAt": 1790288979340
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta-llama/llama-guard-4-12b",
+        "displayName": "OpenRouter/Llama Guard 4 12B"
+      },
+      "configuredModelId": "80aa8eff-80a2-4789-9743-82a091f86b5b",
+      "configuredAt": 1790288979341
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta-llama/llama-3.1-70b-instruct",
+        "displayName": "OpenRouter/Llama-3.1-70B-Instruct"
+      },
+      "configuredModelId": "8a9b6dd0-f8d3-4ed9-b6a7-1d12c00f21cd",
+      "configuredAt": 1790288979341
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta-llama/llama-3.1-8b-instruct",
+        "displayName": "OpenRouter/Llama-3.1-8B-Instruct"
+      },
+      "configuredModelId": "8d5a3c4d-97a5-43b2-adf3-d917102a5d13",
+      "configuredAt": 1790288979342
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta-llama/llama-3.3-70b-instruct",
+        "displayName": "OpenRouter/Llama-3.3-70B-Instruct"
+      },
+      "configuredModelId": "89ebe0d9-7ead-4bc3-b789-1bde88c6e0fc",
+      "configuredAt": 1790288979342
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meituan/longcat-2.0",
+        "displayName": "OpenRouter/LongCat 2.0"
+      },
+      "configuredModelId": "8d2ebaa2-899e-4cc7-8b9c-a1260bd4f2f8",
+      "configuredAt": 1790288979342
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/lyria-3-clip-preview",
+        "displayName": "OpenRouter/Lyria 3 Clip Preview"
+      },
+      "configuredModelId": "29048b70-867b-41de-bb13-194fcf3c1a73",
+      "configuredAt": 1790288979342
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/lyria-3-pro-preview",
+        "displayName": "OpenRouter/Lyria 3 Pro Preview"
+      },
+      "configuredModelId": "8def7708-103f-4d73-b65a-2f6da66b3d16",
+      "configuredAt": 1790288979342
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/anthracite-org/magnum-v4-72b",
+        "displayName": "OpenRouter/Magnum v4 72B"
+      },
+      "configuredModelId": "d1b39c93-eaf6-4650-883e-ce3f7f7df45f",
+      "configuredAt": 1790288979342
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/inception/mercury-2",
+        "displayName": "OpenRouter/Mercury 2"
+      },
+      "configuredModelId": "aa7eea8b-5a37-410c-9014-3379792a8034",
+      "configuredAt": 1790288979342
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/inception/mercury-2.5",
+        "displayName": "OpenRouter/Mercury 2.5"
+      },
+      "configuredModelId": "76e370ec-2eca-45d2-8af3-ba9c4d2ae904",
+      "configuredAt": 1790288979343
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/xiaomi/mimo-v2.5",
+        "displayName": "OpenRouter/MiMo-V2.5"
+      },
+      "configuredModelId": "6071d8fb-eb25-416c-b0af-ff39c17a2387",
+      "configuredAt": 1790288979343
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/xiaomi/mimo-v2.5-pro",
+        "displayName": "OpenRouter/MiMo-V2.5-Pro"
+      },
+      "configuredModelId": "6d0727a3-137f-4f95-868d-f03299119a7b",
+      "configuredAt": 1790288979343
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/xiaomi/mimo-v2.6-flash",
+        "displayName": "OpenRouter/MiMo-V2.6-Flash"
+      },
+      "configuredModelId": "60c31808-ab9b-44ad-9808-8b4bf4f3f022",
+      "configuredAt": 1790288979343
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/xiaomi/mimo-v2.6-pro",
+        "displayName": "OpenRouter/MiMo-V2.6-Pro"
+      },
+      "configuredModelId": "8b44dc0b-334e-4383-8509-cdfef54574e7",
+      "configuredAt": 1790288979343
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/xiaomi/mimo-v2.6-pro-ultraspeed",
+        "displayName": "OpenRouter/MiMo-V2.6-Pro-UltraSpeed"
+      },
+      "configuredModelId": "b1210eb4-98af-4baa-bad2-7a100a125cb4",
+      "configuredAt": 1790288979343
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/minimax/minimax-m1",
+        "displayName": "OpenRouter/MiniMax M1"
+      },
+      "configuredModelId": "80810587-41e3-45bf-bd97-62feadd6d128",
+      "configuredAt": 1790288979343
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/minimax/minimax-01",
+        "displayName": "OpenRouter/MiniMax-01"
+      },
+      "configuredModelId": "d0ef4c0a-48a7-43db-bb52-a3e8d6d8b168",
+      "configuredAt": 1790288979343
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/minimax/minimax-m2",
+        "displayName": "OpenRouter/MiniMax-M2"
+      },
+      "configuredModelId": "02079c29-5bb3-4c3d-b255-75fa93328dc9",
+      "configuredAt": 1790288979344
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/minimax/minimax-m2-her",
+        "displayName": "OpenRouter/MiniMax-M2 Her"
+      },
+      "configuredModelId": "5f6350f1-e3fd-4c7a-a7a7-4a023af150f6",
+      "configuredAt": 1790288979344
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/minimax/minimax-m2.1",
+        "displayName": "OpenRouter/MiniMax-M2.1"
+      },
+      "configuredModelId": "fa707db6-be53-414f-9df8-79308b06c4ac",
+      "configuredAt": 1790288979344
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/minimax/minimax-m2.5",
+        "displayName": "OpenRouter/MiniMax-M2.5"
+      },
+      "configuredModelId": "eafd4e9a-c5ec-4567-a8b7-4c1235ea8586",
+      "configuredAt": 1790288979344
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/minimax/minimax-m2.7",
+        "displayName": "OpenRouter/MiniMax-M2.7"
+      },
+      "configuredModelId": "425f5c5c-495d-48d7-87a7-7e4d2433edde",
+      "configuredAt": 1790288979344
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/minimax/minimax-m3",
+        "displayName": "OpenRouter/MiniMax-M3"
+      },
+      "configuredModelId": "9b12758a-31dc-460c-b077-5447f5fc2f41",
+      "configuredAt": 1790288979344
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/ministral-14b-2512",
+        "displayName": "OpenRouter/Ministral 3 14B 2512"
+      },
+      "configuredModelId": "6eb1f8b1-caaf-42eb-970b-065467928e04",
+      "configuredAt": 1790288979344
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/ministral-3b-2512",
+        "displayName": "OpenRouter/Ministral 3 3B 2512"
+      },
+      "configuredModelId": "831187d1-478f-407c-a437-bb5a5710afe6",
+      "configuredAt": 1790288979345
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/ministral-8b-2512",
+        "displayName": "OpenRouter/Ministral 3 8B 2512"
+      },
+      "configuredModelId": "3a41bb41-28c5-4dd4-9cb5-f5f17e313b85",
+      "configuredAt": 1790288979346
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-large",
+        "displayName": "OpenRouter/Mistral Large"
+      },
+      "configuredModelId": "18c93c49-9a0d-47bf-8c4c-7f06237ee25b",
+      "configuredAt": 1790288979346
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-large-2407",
+        "displayName": "OpenRouter/Mistral Large 2407"
+      },
+      "configuredModelId": "6619fd39-afe2-479e-9e76-5505efb4a910",
+      "configuredAt": 1790288979346
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-large-2512",
+        "displayName": "OpenRouter/Mistral Large 3"
+      },
+      "configuredModelId": "ad733529-79de-4ee0-af43-fc30bc13c560",
+      "configuredAt": 1790288979347
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-medium-3",
+        "displayName": "OpenRouter/Mistral Medium 3"
+      },
+      "configuredModelId": "479bddb9-56fe-45f5-b673-226a576ebbf3",
+      "configuredAt": 1790288979347
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-medium-3.1",
+        "displayName": "OpenRouter/Mistral Medium 3.1"
+      },
+      "configuredModelId": "26639d48-f4a6-4e47-9b67-110470643e06",
+      "configuredAt": 1790288979347
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-medium-3-5",
+        "displayName": "OpenRouter/Mistral Medium 3.5"
+      },
+      "configuredModelId": "61a86040-956a-4b5b-ae30-54b0752c6464",
+      "configuredAt": 1790288979347
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-nemo",
+        "displayName": "OpenRouter/Mistral Nemo"
+      },
+      "configuredModelId": "191c76c2-3f4d-4501-a480-e326d68bb105",
+      "configuredAt": 1790288979348
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-small-24b-instruct-2501",
+        "displayName": "OpenRouter/Mistral Small 3"
+      },
+      "configuredModelId": "2cf6189a-c6c7-4320-8725-1b607734390e",
+      "configuredAt": 1790288979348
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-small-3.1-24b-instruct",
+        "displayName": "OpenRouter/Mistral Small 3.1 24B"
+      },
+      "configuredModelId": "957819b6-6a8d-4821-97ab-66f8b535ea65",
+      "configuredAt": 1790288979348
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-small-3.2-24b-instruct",
+        "displayName": "OpenRouter/Mistral Small 3.2 24B"
+      },
+      "configuredModelId": "f7791533-9576-4f2f-bfee-83da0d49c596",
+      "configuredAt": 1790288979348
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-small-2603",
+        "displayName": "OpenRouter/Mistral Small 4"
+      },
+      "configuredModelId": "abd0e18f-9447-43a8-9d37-0e68d281339f",
+      "configuredAt": 1790288979348
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mixtral-8x22b-instruct",
+        "displayName": "OpenRouter/Mixtral 8x22B Instruct"
+      },
+      "configuredModelId": "5d7106bc-bbc0-42dd-a8fc-6b55d9d91161",
+      "configuredAt": 1790288979349
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/morph/morph-v3-fast",
+        "displayName": "OpenRouter/Morph V3 Fast"
+      },
+      "configuredModelId": "d45df218-af89-4179-bf35-15b53c349bc6",
+      "configuredAt": 1790288979349
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/morph/morph-v3-large",
+        "displayName": "OpenRouter/Morph V3 Large"
+      },
+      "configuredModelId": "a90af62b-4181-4559-8646-44ac78674c51",
+      "configuredAt": 1790288979349
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta/muse-glimmer-30b",
+        "displayName": "OpenRouter/Muse Glimmer 30B"
+      },
+      "configuredModelId": "9bc02df8-050c-44be-ae61-1c072936f0cb",
+      "configuredAt": 1790288979349
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta/muse-spark-1.1",
+        "displayName": "OpenRouter/Muse Spark 1.1"
+      },
+      "configuredModelId": "fd2ce2bc-7d7f-4c60-b0ac-a94b97288108",
+      "configuredAt": 1790288979350
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta/muse-spark-1.2",
+        "displayName": "OpenRouter/Muse Spark 1.2"
+      },
+      "configuredModelId": "b2d985b8-3bff-44b7-99b7-0ab8c73f89f2",
+      "configuredAt": 1790288979350
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta/muse-spark-1.2-contributor",
+        "displayName": "OpenRouter/Muse Spark 1.2 Contributor"
+      },
+      "configuredModelId": "1e2b91b4-1f25-49c1-932f-115d6c326e3a",
+      "configuredAt": 1790288979350
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta/muse-spark-1.3",
+        "displayName": "OpenRouter/Muse Spark 1.3"
+      },
+      "configuredModelId": "7397087f-097a-4b02-81ac-f39ad4c874c9",
+      "configuredAt": 1790288979351
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/meta/muse-spark-1.3-contributor",
+        "displayName": "OpenRouter/Muse Spark 1.3 Contributor"
+      },
+      "configuredModelId": "44bad247-fca5-41a6-8c64-d2ad8ac9c131",
+      "configuredAt": 1790288979351
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/gryphe/mythomax-l2-13b",
+        "displayName": "OpenRouter/MythoMax 13B"
+      },
+      "configuredModelId": "4b9adf22-c7f1-45bb-bbbd-77f3948a7ad7",
+      "configuredAt": 1790288979352
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-2.5-flash-image",
+        "displayName": "OpenRouter/Nano Banana"
+      },
+      "configuredModelId": "9abff9bf-f769-4a04-b4cc-b329f4f1a010",
+      "configuredAt": 1790288979352
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.1-flash-image",
+        "displayName": "OpenRouter/Nano Banana 2"
+      },
+      "configuredModelId": "fe4da218-9590-48c8-9ba0-a25285f4607f",
+      "configuredAt": 1790288979353
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.1-flash-lite-image",
+        "displayName": "OpenRouter/Nano Banana 2 Lite"
+      },
+      "configuredModelId": "b869b5ad-6c9f-4262-91f8-459cddd03e06",
+      "configuredAt": 1790288979353
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3.1-flash-image-preview",
+        "displayName": "OpenRouter/Nano Banana 2 Preview"
+      },
+      "configuredModelId": "418673be-9fd9-4b43-abf3-450e15b3597f",
+      "configuredAt": 1790288979353
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3-pro-image",
+        "displayName": "OpenRouter/Nano Banana Pro"
+      },
+      "configuredModelId": "e450ac28-b9d7-47dd-9bac-7d3893d9d691",
+      "configuredAt": 1790288979353
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/google/gemini-3-pro-image-preview",
+        "displayName": "OpenRouter/Nano Banana Pro Preview"
+      },
+      "configuredModelId": "8248d620-f4b8-4cab-b34a-4fa3785b5433",
+      "configuredAt": 1790288979353
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nvidia/nemotron-3-nano-30b-a3b",
+        "displayName": "OpenRouter/Nemotron 3 Nano 30B A3B"
+      },
+      "configuredModelId": "44be9826-dc85-44ac-9aa0-a74f058d2d94",
+      "configuredAt": 1790288979353
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "displayName": "OpenRouter/Nemotron 3 Nano Omni (free)"
+      },
+      "configuredModelId": "c60e488f-7360-42d7-a4ef-01ccda1bbe8f",
+      "configuredAt": 1790288979354
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+        "displayName": "OpenRouter/Nemotron 3 Super (free)"
+      },
+      "configuredModelId": "4fb12ad7-79ee-46d7-ad93-7793d4ebdb87",
+      "configuredAt": 1790288979354
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nvidia/nemotron-3-super-120b-a12b",
+        "displayName": "OpenRouter/Nemotron 3 Super 120B A12B"
+      },
+      "configuredModelId": "89e07108-24e5-4afc-909f-20b2ced16193",
+      "configuredAt": 1790288979354
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
+        "displayName": "OpenRouter/Nemotron 3 Ultra (free)"
+      },
+      "configuredModelId": "0f841254-1b1e-4fe5-8053-00376138183c",
+      "configuredAt": 1790288979354
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nvidia/nemotron-3-ultra-550b-a55b",
+        "displayName": "OpenRouter/Nemotron 3 Ultra 550B A55B"
+      },
+      "configuredModelId": "d9961896-9dab-47b5-94c0-7f59c03aeb9f",
+      "configuredAt": 1790288979354
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nvidia/nemotron-3.5-content-safety",
+        "displayName": "OpenRouter/Nemotron 3.5 Content Safety"
+      },
+      "configuredModelId": "1a524090-dd3a-467f-a947-0fd6c62601aa",
+      "configuredAt": 1790288979354
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nvidia/nemotron-3.5-content-safety:free",
+        "displayName": "OpenRouter/Nemotron 3.5 Content Safety (free)"
+      },
+      "configuredModelId": "c4fc1ffa-aed4-4184-96f8-8679cc6256a6",
+      "configuredAt": 1790288979354
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nvidia/nemotron-3.5-lightning:free",
+        "displayName": "OpenRouter/Nemotron 3.5 Lightning (free)"
+      },
+      "configuredModelId": "7b074a3f-7da2-4be4-a0b4-1c3a21611323",
+      "configuredAt": 1790288979355
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nvidia/nemotron-3.5-lightning",
+        "displayName": "OpenRouter/Nemotron 3.5 Lightning 30B A3B"
+      },
+      "configuredModelId": "238fd9b1-075c-4709-914a-e59f01d51e59",
+      "configuredAt": 1790288979355
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nex-agi/nex-n2.5-mini:free",
+        "displayName": "OpenRouter/Nex-N2.5-Mini (free)"
+      },
+      "configuredModelId": "02ad667f-eacb-4177-996b-fcf8ea6f57da",
+      "configuredAt": 1790288979355
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/nex-agi/nex-n2.5-pro:free",
+        "displayName": "OpenRouter/Nex-N2.5-Pro (free)"
+      },
+      "configuredModelId": "03f6e87d-726c-4927-99e0-11029aa63c19",
+      "configuredAt": 1790288979356
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/cohere/north-mini-code:free",
+        "displayName": "OpenRouter/North Mini Code (free)"
+      },
+      "configuredModelId": "00a9a444-899b-4f90-9162-348e5d7c0953",
+      "configuredAt": 1790288979356
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/amazon/nova-2-lite-v1",
+        "displayName": "OpenRouter/Nova 2 Lite"
+      },
+      "configuredModelId": "7243ddfc-fb9f-4389-a418-26c00c4e05c6",
+      "configuredAt": 1790288979356
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/amazon/nova-lite-v1",
+        "displayName": "OpenRouter/Nova Lite 1.0"
+      },
+      "configuredModelId": "a9dc8cb9-a054-4fa8-be02-eeeaf2163eee",
+      "configuredAt": 1790288979356
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/amazon/nova-micro-v1",
+        "displayName": "OpenRouter/Nova Micro 1.0"
+      },
+      "configuredModelId": "a4861fd2-02be-4981-a065-65a9aa81d26a",
+      "configuredAt": 1790288979356
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/amazon/nova-premier-v1",
+        "displayName": "OpenRouter/Nova Premier 1.0"
+      },
+      "configuredModelId": "00f3ae26-3d64-4bcb-b942-66d7aad312b1",
+      "configuredAt": 1790288979357
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/amazon/nova-pro-v1",
+        "displayName": "OpenRouter/Nova Pro 1.0"
+      },
+      "configuredModelId": "a5771dbe-e5ba-48c6-8330-9d734c276894",
+      "configuredAt": 1790288979357
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/o1",
+        "displayName": "OpenRouter/o1"
+      },
+      "configuredModelId": "8019a50f-fc95-4cbc-bc5e-05025ba28b00",
+      "configuredAt": 1790288979357
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/o1-pro",
+        "displayName": "OpenRouter/o1-pro"
+      },
+      "configuredModelId": "91997a02-d77e-4c20-867d-7bbf52e6ffd0",
+      "configuredAt": 1790288979357
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/o3",
+        "displayName": "OpenRouter/o3"
+      },
+      "configuredModelId": "6d585685-4fec-42f0-9c21-fde4f6f46890",
+      "configuredAt": 1790288979357
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/o3-mini-high",
+        "displayName": "OpenRouter/o3 Mini High"
+      },
+      "configuredModelId": "0cdccf90-0253-47f9-852d-197f85b22431",
+      "configuredAt": 1790288979358
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/o3-mini",
+        "displayName": "OpenRouter/o3-mini"
+      },
+      "configuredModelId": "aa7c0f74-38cb-4745-a435-b16799da7d55",
+      "configuredAt": 1790288979358
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/o3-pro",
+        "displayName": "OpenRouter/o3-pro"
+      },
+      "configuredModelId": "e94bdb9e-4005-4834-b90e-443b77cd88e3",
+      "configuredAt": 1790288979359
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/o4-mini-high",
+        "displayName": "OpenRouter/o4 Mini High"
+      },
+      "configuredModelId": "814659a4-2068-4eaa-a478-738f948b9bb5",
+      "configuredAt": 1790288979360
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/o4-mini",
+        "displayName": "OpenRouter/o4-mini"
+      },
+      "configuredModelId": "e921bed0-468d-48de-9bd5-3a9c6eb1da21",
+      "configuredAt": 1790288979360
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/writer/palmyra-x5",
+        "displayName": "OpenRouter/Palmyra X5"
+      },
+      "configuredModelId": "c43e2277-cfb3-42b4-a65f-a3f267f4a291",
+      "configuredAt": 1790288979360
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/unbiased/pareto",
+        "displayName": "OpenRouter/Pareto"
+      },
+      "configuredModelId": "94c67ae7-1104-467f-88c8-27028f00cb35",
+      "configuredAt": 1790288979360
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openrouter/pareto-code",
+        "displayName": "OpenRouter/Pareto Code Router"
+      },
+      "configuredModelId": "b7dac5aa-95ec-4914-a0ef-30fa0527e56d",
+      "configuredAt": 1790288979361
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/perceptron/perceptron-mk1",
+        "displayName": "OpenRouter/Perceptron Mk1"
+      },
+      "configuredModelId": "bf6be67d-16d6-40e4-ac43-bfa61bc7de85",
+      "configuredAt": 1790288979362
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/microsoft/phi-4",
+        "displayName": "OpenRouter/Phi 4"
+      },
+      "configuredModelId": "1f03abab-96d5-4dac-8521-f2c367467a40",
+      "configuredAt": 1790288979363
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.8-max-prime",
+        "displayName": "OpenRouter/Qwen 3.8 Max Prime"
+      },
+      "configuredModelId": "5906b178-58e9-45cb-829e-ee078a5025ac",
+      "configuredAt": 1790288979363
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen-plus",
+        "displayName": "OpenRouter/Qwen Plus"
+      },
+      "configuredModelId": "c9efda96-8bed-4677-b485-bd0a91e1d06e",
+      "configuredAt": 1790288979364
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen-plus-2025-07-28",
+        "displayName": "OpenRouter/Qwen Plus 0728"
+      },
+      "configuredModelId": "b200056b-2a8d-4c52-8f68-03707d44afef",
+      "configuredAt": 1790288979364
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen-2.5-72b-instruct",
+        "displayName": "OpenRouter/Qwen2.5 72B Instruct"
+      },
+      "configuredModelId": "33b447e5-9d30-4b63-b4d0-6c54d4820361",
+      "configuredAt": 1790288979364
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen-2.5-7b-instruct",
+        "displayName": "OpenRouter/Qwen2.5 7B Instruct"
+      },
+      "configuredModelId": "7327f3a8-f1c3-4f89-b48f-24a4226df91d",
+      "configuredAt": 1790288979365
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen-2.5-coder-32b-instruct",
+        "displayName": "OpenRouter/Qwen2.5 Coder 32B Instruct"
+      },
+      "configuredModelId": "221d6343-4eff-4c5c-be5d-75d140998999",
+      "configuredAt": 1790288979365
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen2.5-vl-72b-instruct",
+        "displayName": "OpenRouter/Qwen2.5 VL 72B Instruct"
+      },
+      "configuredModelId": "fa5c4912-9ec5-452d-bf42-52000549e627",
+      "configuredAt": 1790288979365
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-14b",
+        "displayName": "OpenRouter/Qwen3 14B"
+      },
+      "configuredModelId": "0105520b-3a8c-42da-a56e-f926b9486e6b",
+      "configuredAt": 1790288979365
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-235b-a22b-2507",
+        "displayName": "OpenRouter/Qwen3 235B A22B Instruct 2507"
+      },
+      "configuredModelId": "770a7183-d3a1-4c6f-b90a-fdf8aed57d10",
+      "configuredAt": 1790288979365
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-235b-a22b-thinking-2507",
+        "displayName": "OpenRouter/Qwen3 235B A22B Thinking 2507"
+      },
+      "configuredModelId": "7040c532-8e08-4df6-9c0a-253adcce0809",
+      "configuredAt": 1790288979365
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-235b-a22b",
+        "displayName": "OpenRouter/Qwen3 235B-A22B"
+      },
+      "configuredModelId": "70e4ec62-4001-4e83-9d22-9b7ae54e4a50",
+      "configuredAt": 1790288979365
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-30b-a3b",
+        "displayName": "OpenRouter/Qwen3 30B A3B"
+      },
+      "configuredModelId": "d5a48be7-21b5-4551-a0c1-80eb52a145d6",
+      "configuredAt": 1790288979366
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-30b-a3b-instruct-2507",
+        "displayName": "OpenRouter/Qwen3 30B A3B Instruct 2507"
+      },
+      "configuredModelId": "405e9be1-16bb-4580-91cb-d6ff960ddb25",
+      "configuredAt": 1790288979366
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-30b-a3b-thinking-2507",
+        "displayName": "OpenRouter/Qwen3 30B A3B Thinking 2507"
+      },
+      "configuredModelId": "f9c0d368-649f-42f0-b326-b1a7fc6f8c29",
+      "configuredAt": 1790288979366
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-32b",
+        "displayName": "OpenRouter/Qwen3 32B"
+      },
+      "configuredModelId": "2da223c8-8192-4698-9cdf-e2ee10ae3393",
+      "configuredAt": 1790288979366
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-8b",
+        "displayName": "OpenRouter/Qwen3 8B"
+      },
+      "configuredModelId": "4b40951f-2707-4487-a355-74a0acfe4ddd",
+      "configuredAt": 1790288979366
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-coder",
+        "displayName": "OpenRouter/Qwen3 Coder 480B A35B"
+      },
+      "configuredModelId": "91f9b6d1-a60d-43f6-aceb-2a60e499132a",
+      "configuredAt": 1790288979366
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-coder-flash",
+        "displayName": "OpenRouter/Qwen3 Coder Flash"
+      },
+      "configuredModelId": "646df8cd-25fe-4177-ae0d-b1603c30fb22",
+      "configuredAt": 1790288979367
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-coder-next",
+        "displayName": "OpenRouter/Qwen3 Coder Next"
+      },
+      "configuredModelId": "6b119843-8fc6-4537-a2db-a9e24915c014",
+      "configuredAt": 1790288979367
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-coder-plus",
+        "displayName": "OpenRouter/Qwen3 Coder Plus"
+      },
+      "configuredModelId": "9c38ff4c-a837-4319-9ec8-f3eb96c74109",
+      "configuredAt": 1790288979367
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-max",
+        "displayName": "OpenRouter/Qwen3 Max"
+      },
+      "configuredModelId": "33b7df6f-1102-4a31-b3e4-72eb8d426778",
+      "configuredAt": 1790288979367
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-max-thinking",
+        "displayName": "OpenRouter/Qwen3 Max Thinking"
+      },
+      "configuredModelId": "19e792b7-7f5a-4fbd-aab3-951a4dc1612d",
+      "configuredAt": 1790288979368
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-vl-235b-a22b-instruct",
+        "displayName": "OpenRouter/Qwen3 VL 235B A22B Instruct"
+      },
+      "configuredModelId": "7625bae7-af90-48db-b3eb-7af559ec3a09",
+      "configuredAt": 1790288979368
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-vl-235b-a22b-thinking",
+        "displayName": "OpenRouter/Qwen3 VL 235B A22B Thinking"
+      },
+      "configuredModelId": "b67f0183-3fc0-487f-a3c0-a943e35f617e",
+      "configuredAt": 1790288979368
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-vl-30b-a3b-instruct",
+        "displayName": "OpenRouter/Qwen3 VL 30B A3B Instruct"
+      },
+      "configuredModelId": "fb2ef2ab-772f-4af9-a4e3-c5dbff82be35",
+      "configuredAt": 1790288979368
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-vl-30b-a3b-thinking",
+        "displayName": "OpenRouter/Qwen3 VL 30B A3B Thinking"
+      },
+      "configuredModelId": "cea2847c-0cc8-482d-a86b-beb9d66ba6ba",
+      "configuredAt": 1790288979369
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-vl-32b-instruct",
+        "displayName": "OpenRouter/Qwen3 VL 32B Instruct"
+      },
+      "configuredModelId": "928a6cb5-5aff-410b-8a04-75f593ceeede",
+      "configuredAt": 1790288979369
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-vl-8b-instruct",
+        "displayName": "OpenRouter/Qwen3 VL 8B Instruct"
+      },
+      "configuredModelId": "1b73c434-096b-4869-a4c2-b3017c87daee",
+      "configuredAt": 1790288979369
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-vl-8b-thinking",
+        "displayName": "OpenRouter/Qwen3 VL 8B Thinking"
+      },
+      "configuredModelId": "119e21f0-7f0d-49e4-a626-01c9536674ae",
+      "configuredAt": 1790288979369
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-coder-30b-a3b-instruct",
+        "displayName": "OpenRouter/Qwen3-Coder 30B-A3B Instruct"
+      },
+      "configuredModelId": "8391dda3-9e28-4f51-921e-c2ea1c56da43",
+      "configuredAt": 1790288979369
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-next-80b-a3b-thinking",
+        "displayName": "OpenRouter/Qwen3-Next 80B-A3B (Thinking)"
+      },
+      "configuredModelId": "38aed332-6a95-4015-affb-377d07710f23",
+      "configuredAt": 1790288979369
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3-next-80b-a3b-instruct",
+        "displayName": "OpenRouter/Qwen3-Next 80B-A3B Instruct"
+      },
+      "configuredModelId": "833298e8-af4a-4b03-bce6-13025e7b2da9",
+      "configuredAt": 1790288979369
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.5-122b-a10b",
+        "displayName": "OpenRouter/Qwen3.5 122B-A10B"
+      },
+      "configuredModelId": "8525120d-5208-4ad3-a232-f5151325932c",
+      "configuredAt": 1790288979369
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.5-27b",
+        "displayName": "OpenRouter/Qwen3.5 27B"
+      },
+      "configuredModelId": "7be3cdfd-5466-4c35-b393-8215bb3ab5a6",
+      "configuredAt": 1790288979370
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.5-35b-a3b",
+        "displayName": "OpenRouter/Qwen3.5 35B-A3B"
+      },
+      "configuredModelId": "5ea03640-5573-4e2a-8ec5-655eb23d6ac6",
+      "configuredAt": 1790288979370
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.5-397b-a17b",
+        "displayName": "OpenRouter/Qwen3.5 397B-A17B"
+      },
+      "configuredModelId": "fb577a0a-1919-4231-bb9f-a29380f06529",
+      "configuredAt": 1790288979370
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.5-9b",
+        "displayName": "OpenRouter/Qwen3.5 9B"
+      },
+      "configuredModelId": "8c9a3526-efb0-4e23-b765-c1c9e2a2d8d5",
+      "configuredAt": 1790288979370
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.5-plus-02-15",
+        "displayName": "OpenRouter/Qwen3.5 Plus 2026-02-15"
+      },
+      "configuredModelId": "d7c621d8-46fd-43c0-bdf4-41e871ed2ea3",
+      "configuredAt": 1790288979370
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.5-plus-20260420",
+        "displayName": "OpenRouter/Qwen3.5 Plus 2026-04-20"
+      },
+      "configuredModelId": "359d754f-3f42-4384-9918-eb1374e2a0f3",
+      "configuredAt": 1790288979370
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.5-flash-02-23",
+        "displayName": "OpenRouter/Qwen3.5-Flash"
+      },
+      "configuredModelId": "b0a0eaa6-ba54-431e-a564-4684d0287488",
+      "configuredAt": 1790288979371
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.6-27b",
+        "displayName": "OpenRouter/Qwen3.6 27B"
+      },
+      "configuredModelId": "50e5b812-193e-4764-bb56-d4036b4b8ef8",
+      "configuredAt": 1790288979371
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.6-35b-a3b",
+        "displayName": "OpenRouter/Qwen3.6 35B-A3B"
+      },
+      "configuredModelId": "26aa7e60-72a5-44a4-ac43-bb69290ffbe8",
+      "configuredAt": 1790288979371
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.6-flash",
+        "displayName": "OpenRouter/Qwen3.6 Flash"
+      },
+      "configuredModelId": "0916238f-18c3-4a0a-810e-6a308ecd4a60",
+      "configuredAt": 1790288979372
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.6-max-preview",
+        "displayName": "OpenRouter/Qwen3.6 Max Preview"
+      },
+      "configuredModelId": "b2ac8cb7-a6f3-4f5c-8c2d-b8b04f972bbd",
+      "configuredAt": 1790288979372
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.6-plus",
+        "displayName": "OpenRouter/Qwen3.6 Plus"
+      },
+      "configuredModelId": "69d7bc9e-d85a-41a2-afbe-10e028631158",
+      "configuredAt": 1790288979372
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.7-flash",
+        "displayName": "OpenRouter/Qwen3.7 Flash"
+      },
+      "configuredModelId": "65ab40da-5c5a-4db9-91ab-5f83681686ec",
+      "configuredAt": 1790288979372
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.7-max",
+        "displayName": "OpenRouter/Qwen3.7 Max"
+      },
+      "configuredModelId": "6b802ef8-0387-4a87-88dc-a3e76d8dbb2e",
+      "configuredAt": 1790288979372
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.7-plus",
+        "displayName": "OpenRouter/Qwen3.7 Plus"
+      },
+      "configuredModelId": "9931c2aa-8f81-42f1-9b5f-65bd429459d9",
+      "configuredAt": 1790288979372
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.8-2.4t-a95b",
+        "displayName": "OpenRouter/Qwen3.8 2.4T A95B"
+      },
+      "configuredModelId": "48daab18-cb80-41a8-ae8a-0b14885d0486",
+      "configuredAt": 1790288979373
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.8-27b",
+        "displayName": "OpenRouter/Qwen3.8 27B"
+      },
+      "configuredModelId": "db994424-df90-4612-8fbf-f207a9c3115c",
+      "configuredAt": 1790288979373
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.8-27b:free",
+        "displayName": "OpenRouter/Qwen3.8 27B (free)"
+      },
+      "configuredModelId": "5f30f77c-3125-4ec1-baa5-c678e1e67162",
+      "configuredAt": 1790288979373
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.8-flash",
+        "displayName": "OpenRouter/Qwen3.8 Flash"
+      },
+      "configuredModelId": "c94d0172-3c0c-4819-af08-aa94a270e80e",
+      "configuredAt": 1790288979373
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.8-max-0902",
+        "displayName": "OpenRouter/Qwen3.8 Max 0902"
+      },
+      "configuredModelId": "0fe4d9e1-91b3-4b59-8fd7-32a56804c01f",
+      "configuredAt": 1790288979373
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/qwen/qwen3.8-omni-flash",
+        "displayName": "OpenRouter/Qwen3.8 Omni Flash"
+      },
+      "configuredModelId": "f752bca4-e1b9-4aac-9de0-da66997ee627",
+      "configuredAt": 1790288979373
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-r1-0528",
+        "displayName": "OpenRouter/R1 0528"
+      },
+      "configuredModelId": "6155ae66-de64-47a5-b471-6ee2ae4fb10c",
+      "configuredAt": 1790288979373
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/deepseek/deepseek-r1-distill-llama-70b",
+        "displayName": "OpenRouter/R1 Distill Llama 70B"
+      },
+      "configuredModelId": "e53b5740-df67-4503-a1d0-fde29cbc04c2",
+      "configuredAt": 1790288979373
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/rekaai/reka-edge",
+        "displayName": "OpenRouter/Reka Edge"
+      },
+      "configuredModelId": "c1300c6f-90b5-4ffc-9044-1edb635b8b22",
+      "configuredAt": 1790288979373
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/rekaai/reka-flash-3",
+        "displayName": "OpenRouter/Reka Flash 3"
+      },
+      "configuredModelId": "4e31afd7-b544-4d6d-9caa-f4e284c7aa66",
+      "configuredAt": 1790288979374
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/relace/relace-apply-3",
+        "displayName": "OpenRouter/Relace Apply 3"
+      },
+      "configuredModelId": "ad2bed7c-6658-4f86-9d9f-9c36e5494f85",
+      "configuredAt": 1790288979374
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/relace/relace-search",
+        "displayName": "OpenRouter/Relace Search"
+      },
+      "configuredModelId": "6ebc9619-c58d-4190-9e86-a6dbadfd01f9",
+      "configuredAt": 1790288979374
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/undi95/remm-slerp-l2-13b",
+        "displayName": "OpenRouter/ReMM SLERP 13B"
+      },
+      "configuredModelId": "84fa700c-60eb-4f49-bf36-8160f330bd90",
+      "configuredAt": 1790288979374
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/mistral-saba",
+        "displayName": "OpenRouter/Saba"
+      },
+      "configuredModelId": "e1c00ff4-7d03-42ff-9383-12a8d407b15f",
+      "configuredAt": 1790288979374
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/sakana/sakana-namazu",
+        "displayName": "OpenRouter/Sakana Namazu"
+      },
+      "configuredModelId": "041b3e20-3fa1-4cb7-9fa0-0860194a47e0",
+      "configuredAt": 1790288979374
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/inference-net/schematron-v2-small",
+        "displayName": "OpenRouter/Schematron V2 Small"
+      },
+      "configuredModelId": "a983e0c9-00aa-4bd1-9327-ce2538d7a6ce",
+      "configuredAt": 1790288979374
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/inference-net/schematron-v2-turbo",
+        "displayName": "OpenRouter/Schematron V2 Turbo"
+      },
+      "configuredModelId": "166bd0ad-abb1-413d-a7c1-2f537cf11fd9",
+      "configuredAt": 1790288979375
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/bytedance-seed/seed-1.6",
+        "displayName": "OpenRouter/Seed 1.6"
+      },
+      "configuredModelId": "6333a667-b1f1-42c6-9304-899d4141a382",
+      "configuredAt": 1790288979375
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/bytedance-seed/seed-1.6-flash",
+        "displayName": "OpenRouter/Seed 1.6 Flash"
+      },
+      "configuredModelId": "3e7539b3-db44-4d66-ae6b-0aaf65a32788",
+      "configuredAt": 1790288979375
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/bytedance-seed/seed-2.0-code",
+        "displayName": "OpenRouter/Seed 2.0 Code"
+      },
+      "configuredModelId": "5ad86a3e-747d-4708-a363-fdde6eaf5ec4",
+      "configuredAt": 1790288979375
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/bytedance-seed/seed-2.0-lite",
+        "displayName": "OpenRouter/Seed 2.0 Lite"
+      },
+      "configuredModelId": "5f023545-5321-4e59-95d8-393baf326226",
+      "configuredAt": 1790288979375
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/bytedance-seed/seed-2.0-mini",
+        "displayName": "OpenRouter/Seed 2.0 Mini"
+      },
+      "configuredModelId": "91d31302-efe0-42f5-bf3d-4ae24ebcaa3c",
+      "configuredAt": 1790288979375
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/bytedance-seed/seed-2-1-turbo",
+        "displayName": "OpenRouter/Seed 2.1 Turbo"
+      },
+      "configuredModelId": "250db7de-a386-4a10-a0d4-bcaa50acca00",
+      "configuredAt": 1790288979375
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/thedrummer/skyfall-36b-v2",
+        "displayName": "OpenRouter/Skyfall 36B V2"
+      },
+      "configuredModelId": "826b6a62-7185-40a8-a25f-c58278e1e519",
+      "configuredAt": 1790288979375
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/upstage/solar-mini4",
+        "displayName": "OpenRouter/Solar Mini 4"
+      },
+      "configuredModelId": "d6a07567-e7a6-4036-a8e6-0e18b4c96fbe",
+      "configuredAt": 1790288979376
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/upstage/solar-pro-3",
+        "displayName": "OpenRouter/Solar Pro 3"
+      },
+      "configuredModelId": "1ee20014-ea0a-494a-bdca-2a23cef33c23",
+      "configuredAt": 1790288979376
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/upstage/solar-pro4",
+        "displayName": "OpenRouter/Solar Pro 4"
+      },
+      "configuredModelId": "7f7b430f-a29a-49ce-99e2-06ee2c53ff37",
+      "configuredAt": 1790288979376
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/perplexity/sonar",
+        "displayName": "OpenRouter/Sonar"
+      },
+      "configuredModelId": "c8616379-1234-488b-abe4-3be7f4eeea88",
+      "configuredAt": 1790288979376
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/perplexity/sonar-deep-research",
+        "displayName": "OpenRouter/Sonar Deep Research"
+      },
+      "configuredModelId": "fe78ef7d-2f33-48bb-b38f-1fdb8b00cf4f",
+      "configuredAt": 1790288979376
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/perplexity/sonar-pro",
+        "displayName": "OpenRouter/Sonar Pro"
+      },
+      "configuredModelId": "2bcab5f1-2bd5-4c36-b8c1-0ac65fa521d6",
+      "configuredAt": 1790288979377
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/perplexity/sonar-pro-search",
+        "displayName": "OpenRouter/Sonar Pro Search"
+      },
+      "configuredModelId": "597ef186-00d9-4f4a-9205-b62b9f629df8",
+      "configuredAt": 1790288979377
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/perplexity/sonar-reasoning-pro",
+        "displayName": "OpenRouter/Sonar Reasoning Pro"
+      },
+      "configuredModelId": "e75ebd4f-6130-4c1e-9e0b-b68747da8a19",
+      "configuredAt": 1790288979377
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/stealth/space-bunny-alpha",
+        "displayName": "OpenRouter/Space Bunny Alpha"
+      },
+      "configuredModelId": "5d2d3421-438c-483c-a646-4eb03e4c02ea",
+      "configuredAt": 1790288979377
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/stepfun/step-3.5-flash",
+        "displayName": "OpenRouter/Step 3.5 Flash"
+      },
+      "configuredModelId": "df63262d-6c34-4ee4-8e74-06605b25e950",
+      "configuredAt": 1790288979378
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/stepfun/step-3.7-flash",
+        "displayName": "OpenRouter/Step 3.7 Flash"
+      },
+      "configuredModelId": "6a21c5ad-50aa-4819-bb8c-ee467766f87f",
+      "configuredAt": 1790288979378
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/prism-ml/ternary-bonsai-2-27b",
+        "displayName": "OpenRouter/Ternary Bonsai 2 27B"
+      },
+      "configuredModelId": "5db879fa-7ee6-4e30-8c21-8722eb059e13",
+      "configuredAt": 1790288979379
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/arcee-ai/trinity-large-thinking",
+        "displayName": "OpenRouter/Trinity Large Thinking"
+      },
+      "configuredModelId": "7c51e989-4cb3-487c-a67a-c8faf766384f",
+      "configuredAt": 1790288979380
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/bytedance/ui-tars-1.5-7b",
+        "displayName": "OpenRouter/UI-TARS 7B "
+      },
+      "configuredModelId": "3732b5c2-a695-4188-9a98-c3f49821bf43",
+      "configuredAt": 1790288979381
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/cognitivecomputations/dolphin-mistral-24b-venice-edition",
+        "displayName": "OpenRouter/Uncensored"
+      },
+      "configuredModelId": "9d8bec14-8f63-4a5a-97a9-d66085278e16",
+      "configuredAt": 1790288979381
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/thedrummer/unslopnemo-12b",
+        "displayName": "OpenRouter/UnslopNemo 12B"
+      },
+      "configuredModelId": "1b6f429f-ef6a-40d0-8218-d20695e38339",
+      "configuredAt": 1790288979381
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mistralai/voxtral-small-24b-2507",
+        "displayName": "OpenRouter/Voxtral Small 24B 2507"
+      },
+      "configuredModelId": "d13f5e5b-1128-4ac6-9b41-502f3dc3dbc0",
+      "configuredAt": 1790288979382
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/mancer/weaver",
+        "displayName": "OpenRouter/Weaver (alpha)"
+      },
+      "configuredModelId": "ca8d51ce-04a2-4382-be1b-f1a8b816a00e",
+      "configuredAt": 1790288979382
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/microsoft/wizardlm-2-8x22b",
+        "displayName": "OpenRouter/WizardLM-2 8x22B"
+      },
+      "configuredModelId": "817c2689-a08f-4c5f-ad14-7da89ea33ceb",
+      "configuredAt": 1790288979382
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/mimo-v2.6-flash-free",
+        "displayName": "OpenCode Zen/MiMo-V2.6-Flash Free"
+      },
+      "configuredModelId": "8ec504b6-f876-40e1-ba23-72c460fc1c4d",
+      "configuredAt": 1790288979382
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/muse-spark-1.3-contributor-free",
+        "displayName": "OpenCode Zen/Muse Spark 1.3 Free"
+      },
+      "configuredModelId": "0a62c911-7c6c-45ba-8e68-ffa3d8384c48",
+      "configuredAt": 1790288979382
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/space-bunny-free",
+        "displayName": "OpenCode Zen/Space Bunny Free"
+      },
+      "configuredModelId": "5a9fabdd-2827-494b-810e-89aa7951cfdc",
+      "configuredAt": 1790288979383
     }
   ],
   "backends": {
     "opencode": {
       "enabledModels": [
-        "9b5554ab-e7c2-44d1-bfde-7fea71f7381e",
-        "a2f34880-f8d5-4f9d-a64b-a0376e4780bd",
-        "07b78d63-91ba-4ef7-b428-5e2e35e97350"
+        "9b5554ab-e7c2-44d1-bfde-7fea71f7381e"
       ]
     }
   },

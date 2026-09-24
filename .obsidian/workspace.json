@@ -64,8 +64,23 @@
               "icon": "lucide-file",
               "title": "Toastmasters Signature for Email"
             }
+          },
+          {
+            "id": "30366da28439a038",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Politics/Essex County Democratic Committee Meeting.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Essex County Democratic Committee Meeting"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -220,9 +235,19 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "22d65fc11819cb81",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-agent-chat-view",
+              "state": {},
+              "icon": "copilot-agent",
+              "title": "Copilot Agent"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -248,11 +273,13 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "da3909ef37bae9bb",
+  "active": "30366da28439a038",
   "lastOpenFiles": [
+    "journal/2026-09-24.md",
+    "Politics/Essex County Democratic Committee Meeting.md",
+    "Politics",
     "HOTKEYS.md",
     "ALX_Notes/Ad Hoc Statistics/Alarm Out of Service Call List.md",
-    "journal/2026-09-24.md",
     "ALX_Notes/Ad Hoc Statistics/Language Line Use.md",
     "journal/2026-09-23.md",
     "ALX_Notes/Ad Hoc Statistics/Call Metrics for FY23 through FY26.md",
@@ -275,8 +302,6 @@
     "attitude_adjustment/daily_mood_log_template.md",
     "attitude_adjustment/TEMPLATE_INSTANTIATION_GUIDE.md",
     "attitude_adjustment/Freemasonry_Research_Document.md",
-    "attitude_adjustment/Antero_Alli_Research_Document.md",
-    "attitude_adjustment/Dr_Jonice_Webb_Research_Document.md",
     "attitude_adjustment/opencode.json",
     "attitude_adjustment/analyze_formatting.py",
     "attitude_adjustment/blog_post_template.qmd",
@@ -285,7 +310,6 @@
     "attitude_adjustment/personality",
     "attitude_adjustment/research",
     "attitude_adjustment",
-    "ALX_Notes/Ad Hoc Statistics/CALEA---CIMRS-Performance-Measures-Data.pdf",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
