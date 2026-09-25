@@ -1,0 +1,12 @@
+Audience: `{python} print(audience)` · Week starting: `{python} print(week_start)` · Period: `{python} print(period)`
+
+```{python}
+#| output: asis
+import hashlib
+for f in ["../duckdb-lab/data/eda_numeric_export.csv",
+          "../duckdb-lab/data/hourly_export.csv"]:
+    h = hashlib.sha256(open(f, "rb").read()).hexdigest()[:12]
+    print(f"- `{f}` sha256:{h}")
+print("- Random seeds: bootstrap 7; backtests deterministic.")
+print("- Locks: `Project.toml`/`Manifest.toml` (Julia lab), `requirements.txt` (Python).")
+```

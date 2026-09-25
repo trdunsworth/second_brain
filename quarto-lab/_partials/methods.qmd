@@ -1,0 +1,8 @@
+All figures aggregate event-level CAD/phone records with DuckDB views (`duckdb-lab/sql/`).
+Descriptives use medians and IQRs throughout because response-time columns are
+right-skewed; means are reported only alongside medians. Compliance percentages
+are simple rates against the thresholds above; binomial p-values, where shown,
+come from the Python/R/Julia stats layer. Outliers are consensus flags (≥2 of
+IQR fence, |z| > 3, MAD, p01/p99). Forecasts are seasonal-naive baselines unless
+the figure notes an ETS/SARIMA model, and every forecast is accompanied by its
+rolling-origin backtest RMSE.

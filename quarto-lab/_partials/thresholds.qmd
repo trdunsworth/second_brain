@@ -1,0 +1,7 @@
+| Standard | Threshold |
+|----------|-----------|
+| NENA answering | 90% ≤ 15s, 95% ≤ 20s |
+| APCO handling | 90% ≤ 20s, 75% ≤ 10s |
+| NFPA 1710 alarm processing | 64s (90th percentile), 106s (95th) |
+| NFPA 1710 turnout (EMS / Fire) | 60s / 80s (90th percentile) |
+| NFPA 1710 travel (first unit) | 240s (90th percentile) |

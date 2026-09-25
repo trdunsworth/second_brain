@@ -1,0 +1,13 @@
+---
+title: "Toolchain Smoke Test"
+---
+
+## Proof of render
+
+If this document renders to HTML, Word, and PDF, the Quarto project
+(`_quarto.yml`) parses and all three writers work on this machine.
+
+| Check | Value |
+|-------|-------|
+| Project | quarto-lab |
+| Formats | html, docx, typst |

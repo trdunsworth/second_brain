@@ -1,0 +1,11 @@
+```{python}
+#| output: asis
+lead = {
+    "exec": "Demand was typical for the week; answering held near the NENA line — see the scorecard.",
+    "ops": "Answering compliance and alarm-processing quantiles need review where marked FAIL — see findings.",
+    "shift": "Shift panels show where handle time diverged — check your shift's scorecard row.",
+    "qa": "Data-completeness flags lead this week — UNDEFINED dispositions are the top defect.",
+    "analyst": "Treat the verdict as provisional — full backtests, CIs, and model comparisons are in the appendix.",
+}[audience]
+print(lead)
+```

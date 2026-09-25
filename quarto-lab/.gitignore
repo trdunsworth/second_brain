@@ -1,0 +1,7 @@
+_out/
+.quarto/
+*_cache/
+*.log
+
+/.quarto/
+**/*.quarto_ipynb

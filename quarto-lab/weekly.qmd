@@ -1,0 +1,82 @@
+---
+title: "Weekly 9-1-1 Report"
+author: "DMA Reporting Engine"
+date: last-modified
+params:
+  audience: ops
+  week_start: 2026-08-10
+  period: week
+---
+
+```{python}
+#| tags: [parameters]
+audience = "ops"
+week_start = "2026-08-10"
+period = "week"
+```
+
+```{python}
+# Setup: read the DuckDB-lab exports (demo data). Real deployment filters
+# by week_start in SQL (see duckdb-lab/sql/timeseries.sql) — the exports
+# below already represent one reporting window.
+import duckdb
+import pandas as pd
+
+con = duckdb.connect()
+num = con.execute(
+    "SELECT * FROM read_csv_auto('../duckdb-lab/data/eda_numeric_export.csv')"
+).fetchdf()
+hourly = con.execute(
+    "SELECT * FROM read_csv_auto('../duckdb-lab/data/hourly_export.csv')"
+).fetchdf()
+hourly["day"] = pd.to_datetime(hourly["hour"]).dt.date
+daily = hourly.groupby("day", as_index=False)["ncalls"].sum()
+```
+
+## Verdict
+
+{{< include _partials/verdict.qmd >}}
+
+## Scorecard
+
+```{python}
+#| label: tbl-kpi
+#| tbl-cap: "Alarm-processing quantiles vs NFPA 1710 (64s p90 / 106s p95)"
+from great_tables import GT
+
+q = num["dispatch_queue_seconds"]
+kpi = pd.DataFrame({
+    "metric": ["p90 queue (s)", "p95 queue (s)", "median queue (s)", "total calls"],
+    "value": [round(q.quantile(0.90), 1), round(q.quantile(0.95), 1),
+              round(q.median(), 1), int(hourly["ncalls"].sum())],
+    "target": ["<= 64", "<= 106", "info only", "info only"],
+})
+GT(kpi).tab_header(title="Processing & Volume Scorecard")
+```
+
+## Volume
+
+```{python}
+#| label: fig-volume
+#| fig-cap: "Daily call volume for the reporting window"
+from plotnine import ggplot, aes, geom_col, labs, theme_minimal
+
+(ggplot(daily, aes(x="day", y="ncalls"))
+ + geom_col(fill="#0077CC")
+ + labs(x="Day", y="Calls")
+ + theme_minimal())
+```
+
+Findings: volume is in @fig-volume and processing compliance in @tbl-kpi.
+Rows failing the NFPA lines route to the shift scorecards
+(`duckdb-lab/sql/audiences.sql`); data-quality flags route to QA.
+
+## Methods & thresholds
+
+{{< include _partials/thresholds.qmd >}}
+
+{{< include _partials/methods.qmd >}}
+
+## Appendix — reproducibility
+
+{{< include _partials/reproducibility.qmd >}}

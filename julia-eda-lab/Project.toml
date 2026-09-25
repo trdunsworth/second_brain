@@ -1,0 +1,8 @@
+name = "JuliaEdaLab"
+version = "0.1.0"
+
+[compat]
+julia = "1.10"
+
+# Dependencies are added by setup.jl (run: julia setup.jl).
+# Committing the generated Manifest.toml locks exact versions.

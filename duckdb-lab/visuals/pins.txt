@@ -1,0 +1,4 @@
+ggsql>=0.3 (alpha) — re-check https://ggsql.org/syntax/ before upgrading.
+writer: vegalite (portable JSON); alternates: ggplot2 backend, SVG/PNG via V8+rsvg.
+reader: duckdb_reader() (R) — SQL half must stay DuckDB-dialect.
+queries: every file must contain VISUALISE (or VISUALIZE) + at least one DRAW + LABEL.

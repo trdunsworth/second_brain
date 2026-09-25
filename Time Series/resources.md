@@ -332,19 +332,20 @@ Conformal prediction (CP) wraps any point forecaster to produce prediction inter
 
 ## 7. Libraries & Tools
 
-| Library | Description | Language |
-|---------|-------------|----------|
-| [statsforecast](https://github.com/Nixtla/statsforecast) | Statistical forecasting (ARIMA, ETS, Theta) | Python |
-| [neuralforecast](https://github.com/Nixtla/neuralforecast) | Deep learning forecasting (N-BEATS, PatchTST, etc.) | Python |
-| [sktime](https://www.sktime.net/) | Unified ML framework for time series | Python |
-| [darts](https://unit8co.github.io/darts/) | Time series forecasting library (stats + ML) | Python |
-| [pmdarima](https://alkaline-ml.com/pmdarima/) | Auto-ARIMA implementation | Python |
-| [Prophet](https://facebook.github.io/prophet/) | Meta's forecasting tool | Python/R |
-| [AutoGluon-TimeSeries](https://auto.gluon.ai/stable/tutorials/timeseries/index.html) | AutoML for time series | Python |
-| [Nixtla](https://www.nixtla.io/) | TimeGPT API + open-source tools | Python |
-| [CatBoost](https://catboost.ai/) | Gradient boosting with native categorical support | Python/R |
-| [MAPIE](https://github.com/scikit-learn-contrib/MAPIE) | Model Agnostic Prediction Interval Estimation (conformal) | Python |
-| [crepes](https://github.com/tommartinsson/crepes) | Conformal prediction via predictive intervals | Python |
+| Library                                                                              | Description                                               | Language |
+| ------------------------------------------------------------------------------------ | --------------------------------------------------------- | -------- |
+| [statsforecast](https://github.com/Nixtla/statsforecast)                             | Statistical forecasting (ARIMA, ETS, Theta)               | Python   |
+| [neuralforecast](https://github.com/Nixtla/neuralforecast)                           | Deep learning forecasting (N-BEATS, PatchTST, etc.)       | Python   |
+| [sktime](https://www.sktime.net/)                                                    | Unified ML framework for time series                      | Python   |
+| [darts](https://unit8co.github.io/darts/)                                            | Time series forecasting library (stats + ML)              | Python   |
+| [pmdarima](https://alkaline-ml.com/pmdarima/)                                        | Auto-ARIMA implementation                                 | Python   |
+| [Prophet](https://facebook.github.io/prophet/)                                       | Meta's forecasting tool                                   | Python/R |
+| [AutoGluon-TimeSeries](https://auto.gluon.ai/stable/tutorials/timeseries/index.html) | AutoML for time series                                    | Python   |
+| [Nixtla](https://www.nixtla.io/)                                                     | TimeGPT API + open-source tools                           | Python   |
+| [CatBoost](https://catboost.ai/)                                                     | Gradient boosting with native categorical support         | Python/R |
+| [MAPIE](https://github.com/scikit-learn-contrib/MAPIE)                               | Model Agnostic Prediction Interval Estimation (conformal) | Python   |
+| [crepes](https://github.com/tommartinsson/crepes)                                    | Conformal prediction via predictive intervals             | Python   |
+| [Awesome Time Series](https://github.com/lmmentel/awesome-time-series)               | List of resources                                         | Agnostic |
 
 ---
 

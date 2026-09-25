@@ -1,0 +1,20 @@
+project:
+  type: default
+  output-dir: _out
+
+execute:
+  echo: false
+  warning: false
+  freeze: auto
+
+format:
+  html:
+    code-fold: true
+  docx: default
+  typst:
+    margin:
+      top: 2cm
+      bottom: 2cm
+      left: 2.5cm
+      right: 2.5cm
+    fontsize: 11pt
