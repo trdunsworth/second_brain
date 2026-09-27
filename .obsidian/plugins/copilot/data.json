@@ -542,15 +542,6 @@
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "opencode/muse-spark-1.2-contributor-free",
-        "displayName": "OpenCode Zen/Muse Spark 1.2 Free"
-      },
-      "configuredModelId": "42b698c0-3f71-426a-9da2-6deb6b7702cb",
-      "configuredAt": 1788104136584
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
         "id": "opencode/nemotron-3-ultra-free",
         "displayName": "OpenCode Zen/Nemotron 3 Ultra Free"
       },
@@ -1568,15 +1559,6 @@
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "openrouter/anthropic/claude-3-haiku",
-        "displayName": "OpenRouter/Claude 3 Haiku"
-      },
-      "configuredModelId": "2d3a00ec-b0ac-4420-85e4-a863f934a9e5",
-      "configuredAt": 1790288979288
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
         "id": "openrouter/anthropic/claude-fable-5",
         "displayName": "OpenRouter/Claude Fable 5"
       },
@@ -2239,15 +2221,6 @@
       },
       "configuredModelId": "5dce495d-f067-4917-b39b-cfcc03edfb87",
       "configuredAt": 1790288979307
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "openrouter/z-ai/glm-5.2:free",
-        "displayName": "OpenRouter/GLM 5.2 (free)"
-      },
-      "configuredModelId": "9d32a3b1-ed3b-405c-8bfa-4fff8858140b",
-      "configuredAt": 1790288979308
     },
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
@@ -3971,24 +3944,6 @@
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "openrouter/nex-agi/nex-n2.5-mini:free",
-        "displayName": "OpenRouter/Nex-N2.5-Mini (free)"
-      },
-      "configuredModelId": "02ad667f-eacb-4177-996b-fcf8ea6f57da",
-      "configuredAt": 1790288979355
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "openrouter/nex-agi/nex-n2.5-pro:free",
-        "displayName": "OpenRouter/Nex-N2.5-Pro (free)"
-      },
-      "configuredModelId": "03f6e87d-726c-4927-99e0-11029aa63c19",
-      "configuredAt": 1790288979356
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
         "id": "openrouter/cohere/north-mini-code:free",
         "displayName": "OpenRouter/North Mini Code (free)"
       },
@@ -5002,6 +4957,24 @@
       },
       "configuredModelId": "5a9fabdd-2827-494b-810e-89aa7951cfdc",
       "configuredAt": 1790288979383
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/perceptron/perceptron-mk1.5",
+        "displayName": "OpenRouter/Perceptron Mk1.5"
+      },
+      "configuredModelId": "b3f263c7-6705-43bb-9149-debdef48579b",
+      "configuredAt": 1790452882512
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/longcat-2.5-preview-free",
+        "displayName": "OpenCode Zen/LongCat 2.5 Preview Free"
+      },
+      "configuredModelId": "b89dba23-18ca-459a-ab49-34f781a573b1",
+      "configuredAt": 1790452882515
     }
   ],
   "backends": {

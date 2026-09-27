@@ -1,0 +1,10 @@
+{
+  "id": "carve",
+  "name": "Carve",
+  "version": "0.1.1",
+  "minAppVersion": "1.5.0",
+  "description": "Edit and read .crv documents using the Carve markup language.",
+  "author": "Mark Scherer",
+  "authorUrl": "https://github.com/markup-carve",
+  "isDesktopOnly": false
+}
