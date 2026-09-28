@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-09-26.md",
+                "file": "journal/2026-09-27.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-26"
+              "title": "2026-09-27"
             }
           },
           {
@@ -37,7 +37,8 @@
               "title": "HOTKEYS"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -230,44 +231,44 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "da3909ef37bae9bb",
+  "active": "62112e7700d11e7c",
   "lastOpenFiles": [
+    "DnD/Worldbuilding/NPC Framework.md",
     "HOTKEYS.md",
+    "DnD/Worldbuilding/Cosmology and Planes.md",
+    "DnD/Worldbuilding/Free Resources Directory.md",
+    "journal/2026-09-27.md",
+    "DnD/Worldbuilding/Encounter and Adventure Design.md",
+    "DnD/Worldbuilding/Economy and Downtime.md",
+    "DnD/Worldbuilding/History and Timelines.md",
+    "DnD/Worldbuilding/Settlements and Locations Template.md",
+    "DnD/Worldbuilding/Nations and Politics Template.md",
+    "DnD/Worldbuilding/Factions and Organizations Template.md",
+    "DnD/Worldbuilding/Pantheon and Deities Template.md",
+    "DnD/Worldbuilding/Worldbuilding Checklist.md",
+    "DnD/Worldbuilding/Worldbuilding MOC.md",
+    "DnD/Worldbuilding",
+    "DnD/3.5e-to-5.5e-Conversion.md",
+    "DnD/SRD_CC_v5.2.1.pdf",
+    "DnD/converting-to-srd-5.2.1.pdf",
+    "DnD/character-sheet.pdf",
+    "DnD",
+    "journal/2026-09-26.md",
     "Data_Sources/04_dbt.md",
     "Visualizations/04_ggplot2.md",
     "Visualizations/05_grammar_of_graphics.md",
     "Typography/03_typst.md",
     "Time Series/resources.md",
     "Typography/01_markdown.md",
-    "journal/2026-09-26.md",
     "Statistical_Modeling/01_stan.md",
     "Toastmasters/Toastmasters Signature for Email.md",
     "Statistical_Modeling/03_wang_queueing_game_models.md",
     "Statistical_Modeling/02_queueing_game_theory.md",
     "Statistical_Modeling",
-    "Visualizations/03_plotnine.md",
-    "Visualizations/02_streamlit.md",
-    "Visualizations/01_shiny.md",
-    "journal/2026-09-25.md",
     "Visualizations",
-    "Data_Sources/05_databricks.md",
     "quarto-lab/_out/weekly_files/libs/quarto-html/tabsets/tabsets.js",
     "quarto-lab/_out/weekly_files/libs/quarto-html/tippy.umd.min.js",
     "quarto-lab/_out/weekly_files/libs/quarto-html/tabsets",
-    "quarto-lab/_out/weekly_files/libs/quarto-html/tippy.css",
-    "quarto-lab/_out/weekly_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css",
-    "quarto-lab/_out/weekly_files/libs/quarto-html/quarto.js",
-    "quarto-lab/_out/weekly_files/libs/quarto-html/popper.min.js",
-    "quarto-lab/_out/weekly_files/libs/quarto-html/anchor.min.js",
-    "quarto_notes.md",
-    "ggsql_notes.md",
-    "duckdb_notes.md",
-    "julia_notes.md",
-    "Time Series/time-series-forecasting-models.md",
-    "journal/2026-09-24.md",
-    "Politics/Essex County Democratic Committee Meeting.md",
-    "ALX_Notes/Ad Hoc Statistics/Alarm Out of Service Call List.md",
-    "ALX_Notes/Ad Hoc Statistics/Language Line Use.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
