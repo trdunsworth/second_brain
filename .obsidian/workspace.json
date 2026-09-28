@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-09-27.md",
+                "file": "journal/2026-09-28.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-27"
+              "title": "2026-09-28"
             }
           },
           {
@@ -233,11 +233,18 @@
   },
   "active": "62112e7700d11e7c",
   "lastOpenFiles": [
-    "DnD/Worldbuilding/NPC Framework.md",
+    "duckdb_notes.md",
+    "journal/2026-09-28.md",
     "HOTKEYS.md",
+    "Synthetic_Data/Books - Competition Scan.md",
+    "Synthetic_Data/Tools - Software Packages and Websites.md",
+    "Synthetic_Data/Synthetic Data Book Research Plan.md",
+    "Synthetic_Data/Papers - Synthetic Data 2023-2026.md",
+    "Synthetic_Data",
+    "journal/2026-09-27.md",
+    "DnD/Worldbuilding/NPC Framework.md",
     "DnD/Worldbuilding/Cosmology and Planes.md",
     "DnD/Worldbuilding/Free Resources Directory.md",
-    "journal/2026-09-27.md",
     "DnD/Worldbuilding/Encounter and Adventure Design.md",
     "DnD/Worldbuilding/Economy and Downtime.md",
     "DnD/Worldbuilding/History and Timelines.md",
@@ -258,17 +265,10 @@
     "Visualizations/04_ggplot2.md",
     "Visualizations/05_grammar_of_graphics.md",
     "Typography/03_typst.md",
-    "Time Series/resources.md",
-    "Typography/01_markdown.md",
-    "Statistical_Modeling/01_stan.md",
-    "Toastmasters/Toastmasters Signature for Email.md",
-    "Statistical_Modeling/03_wang_queueing_game_models.md",
-    "Statistical_Modeling/02_queueing_game_theory.md",
     "Statistical_Modeling",
     "Visualizations",
     "quarto-lab/_out/weekly_files/libs/quarto-html/tabsets/tabsets.js",
     "quarto-lab/_out/weekly_files/libs/quarto-html/tippy.umd.min.js",
-    "quarto-lab/_out/weekly_files/libs/quarto-html/tabsets",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
