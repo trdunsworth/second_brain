@@ -49,6 +49,10 @@ tags:
 | [[Neovim_Distributions]] | LazyVim, NvChad, AstroNvim compared + decision flowchart |
 | [[Emacs_Tutorial]] | The other path: org, magit, dired |
 | [[Emacs_Cheatsheet]] | Emacs keys at a glance |
+| [[Helix_Tutorial]] | Selection-first path: Kakoune's model + built-in LSP, zero plugins |
+| [[Helix_Cheatsheet]] | Helix keys at a glance |
+| [[Kakoune_Tutorial]] | The selection-first original: noun then verb, scriptable |
+| [[Kakoune_Cheatsheet]] | Kakoune keys at a glance |
 
 ### Vault from the shell
 | Note | What it is |
@@ -63,13 +67,13 @@ Terminal_Fluency_Program  (learn in this order)
   ├─ lookup ──── Linux_Terminal_Toolkit  (the table you keep open)
   ├─ sessions ── Tmux_Tutorial/ Cheatsheet
   ├─ tools ───── TUI_Programs  (added phase by phase, not all at once)
-  ├─ editor ──── Vim_Tutorial/ Cheatsheet  (Neovim_* = later ladder)
+  ├─ editor ──── Vim_Tutorial/ Cheatsheet  (Neovim_*/Helix_*/Kakoune_* = later ladders)
   └─ capture ─── Obsidian_CLI  (drill results → daily notes)
 ```
 
 ## Status
 
-- [x] Folder: 14 notes (13 content + this index), cross-linked, frontmatter verified
+- [x] Folder: 18 notes (17 content + this index), cross-linked, frontmatter verified
 - [x] Week 0 environment: WSL2 Ubuntu 24.04 — bash 5.2, systemd, tmux 3.4, vim 9.1, rg/fd/bat/fzf/zoxide/jq/shellcheck/gh/delta/tldr, `~/lab` + `~/dotfiles` repos
 - [ ] `gh auth login` — **manual**: run inside WSL, completes Phase 0 fully
 - [ ] Program Week 1 → see [[Terminal_Fluency_Program]] §4

@@ -128,8 +128,8 @@ Almost every program below obeys the same contract — learn it once, guess keys
 | Editor | Flavor | Start here |
 |--------|--------|-----------|
 | **micro** | nano-easy, mouse, real editing | `micro f.txt` — nano-like chords for save/quit (status bar + help in `Ctrl-G` docs); config in `~/.config/micro/` |
-| **helix** (`hx`) | selection-first, built-in LSP + fuzzy picker | `hx f.py` — run `:tutor` for the built-in tutorial; modal like vim but selection comes first |
-| **kakoune** | selection-first, scriptable | helix's ancestor; same "select, then act" philosophy |
+| **helix** (`hx`) | selection-first, built-in LSP + fuzzy picker | `hx f.py` — run `:tutor` for the built-in tutorial; modal like vim but selection comes first → [[Helix_Tutorial]] / [[Helix_Cheatsheet]] |
+| **kakoune** | selection-first, scriptable | helix's ancestor; same "select, then act" philosophy → [[Kakoune_Tutorial]] / [[Kakoune_Cheatsheet]] |
 | **nano** | the server default | `Ctrl-O` write, `Ctrl-X` exit, `Ctrl-W` search |
 | **vim / neovim** | the full craft | [[Vim_Tutorial]] / [[Neovim_Tutorial]] |
 | **emacs -nw** | the other philosophy, in-terminal | [[Emacs_Tutorial]] |

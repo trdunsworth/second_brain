@@ -66,7 +66,7 @@ Do before Week 1. Everything later assumes this environment.
 - [ ] **tmux**: baseline config from [[Tmux_Tutorial]] §7 installed; detach/reattach drill done once.
 - [ ] **Lab**: `~/lab` created with `git init`, `drills.md`, and a `data/` dir seeded with sample logs/CSVs you generate (see drill bank §6).
 - [ ] **Dotfiles repo**: `~/.bashrc`, `~/.gitconfig`, `~/.tmux.conf` committed to a private git repo (or the lab repo with subdirs) — from today, config changes are commits.
-- [ ] **Editor**: pick [[Neovim_Tutorial]] or [[Vim_Tutorial]] path (or emacs) — you'll write scripts in it; `EDITOR` exported in bashrc.
+- [ ] **Editor**: pick [[Neovim_Tutorial]] or [[Vim_Tutorial]] path — or the selection-first pair [[Helix_Tutorial]] / [[Kakoune_Tutorial]] (or emacs) — you'll write scripts in it; `EDITOR` exported in bashrc.
 
 ## 3. Weekly rhythm (the operating loop)
 
