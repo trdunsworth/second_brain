@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-09-28.md",
+                "file": "journal/2026-09-29.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-28"
+              "title": "2026-09-29"
             }
           },
           {
@@ -36,23 +36,8 @@
               "icon": "lucide-file",
               "title": "HOTKEYS"
             }
-          },
-          {
-            "id": "d87dfe8608b80147",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Official Visit Notes - Toast of Fredericksburg.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Official Visit Notes - Toast of Fredericksburg"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -245,12 +230,29 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "d87dfe8608b80147",
+  "active": "da3909ef37bae9bb",
   "lastOpenFiles": [
-    "Official Visit Notes - Toast of Fredericksburg.md",
     "HOTKEYS.md",
-    "Untitled.md",
+    "terminal_stuff/TUI_Programs.md",
+    "terminal_stuff/Neovim_Distributions.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
+    "terminal_stuff/Neovim_Tutorial.md",
+    "journal/2026-09-29.md",
+    "terminal_stuff/README.md",
+    "terminal_stuff/Terminal_Fluency_Program.md",
+    "terminal_stuff/Obsidian_CLI.md",
+    "terminal_stuff/Linux_Terminal_Toolkit.md",
+    "terminal_stuff/Tmux_Cheatsheet.md",
+    "terminal_stuff/Tmux_Tutorial.md",
+    "terminal_stuff/Neovim_Cheatsheet.md",
+    "terminal_stuff/Vim_Cheatsheet.md",
+    "terminal_stuff/Vim_Tutorial.md",
+    "terminal_stuff/Emacs_Cheatsheet.md",
+    "terminal_stuff/Emacs_Tutorial.md",
+    "terminal_stuff",
     "journal/2026-09-28.md",
+    "Toastmasters/Official Visit Notes - Toast of Fredericksburg.md",
+    "Untitled.md",
     "duckdb_notes.md",
     "Synthetic_Data/Books - Competition Scan.md",
     "Synthetic_Data/Tools - Software Packages and Websites.md",
@@ -258,31 +260,14 @@
     "Synthetic_Data/Papers - Synthetic Data 2023-2026.md",
     "Synthetic_Data",
     "journal/2026-09-27.md",
-    "DnD/Worldbuilding/NPC Framework.md",
-    "DnD/Worldbuilding/Cosmology and Planes.md",
-    "DnD/Worldbuilding/Free Resources Directory.md",
-    "DnD/Worldbuilding/Encounter and Adventure Design.md",
-    "DnD/Worldbuilding/Economy and Downtime.md",
-    "DnD/Worldbuilding/History and Timelines.md",
-    "DnD/Worldbuilding/Settlements and Locations Template.md",
-    "DnD/Worldbuilding/Nations and Politics Template.md",
-    "DnD/Worldbuilding/Factions and Organizations Template.md",
-    "DnD/Worldbuilding/Pantheon and Deities Template.md",
-    "DnD/Worldbuilding/Worldbuilding Checklist.md",
-    "DnD/Worldbuilding/Worldbuilding MOC.md",
     "DnD/Worldbuilding",
-    "DnD/3.5e-to-5.5e-Conversion.md",
     "DnD/SRD_CC_v5.2.1.pdf",
     "DnD/converting-to-srd-5.2.1.pdf",
     "DnD/character-sheet.pdf",
     "DnD",
-    "journal/2026-09-26.md",
-    "Data_Sources/04_dbt.md",
-    "Visualizations/04_ggplot2.md",
     "Statistical_Modeling",
     "Visualizations",
     "quarto-lab/_out/weekly_files/libs/quarto-html/tabsets/tabsets.js",
-    "quarto-lab/_out/weekly_files/libs/quarto-html/tippy.umd.min.js",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
