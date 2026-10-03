@@ -4570,6 +4570,24 @@
       },
       "configuredModelId": "5ff0dcbf-b3e2-4d62-b703-ccb29d4477c6",
       "configuredAt": 1790634948783
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-6.1-sol",
+        "displayName": "OpenRouter/GPT-6.1 Sol"
+      },
+      "configuredModelId": "6431aceb-652a-43c6-beff-cc978a824f11",
+      "configuredAt": 1790813725611
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/openai/gpt-6.1-sol-pro",
+        "displayName": "OpenRouter/GPT-6.1 Sol Pro"
+      },
+      "configuredModelId": "11b421d1-dc0b-4f3d-a744-99a34a7a15b7",
+      "configuredAt": 1790813725628
     }
   ],
   "backends": {
