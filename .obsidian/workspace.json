@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-10-02.md",
+                "file": "journal/2026-10-03.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-02"
+              "title": "2026-10-03"
             }
           },
           {
@@ -246,11 +246,12 @@
   },
   "active": "da3909ef37bae9bb",
   "lastOpenFiles": [
+    "journal/2026-10-02.md",
+    "journal/2026-10-03.md",
     "USERSGUIDE.md",
     "StatLang/language_specification (2).md",
     "HOTKEYS.md",
     "Data_Sources/05_databricks.md",
-    "journal/2026-10-02.md",
     "StatLang/language_specification.md",
     "StatLang",
     "journal/2026-10-01.md",
@@ -281,7 +282,6 @@
     "Synthetic_Data/3548785.3548793.pdf",
     "Synthetic_Data/2401.02524v2.pdf",
     "Synthetic_Data/2404.07503v2.pdf",
-    "journal/2026-09-29.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",

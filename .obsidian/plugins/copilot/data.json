@@ -848,33 +848,6 @@
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "nvidia/mistralai/mistral-nemotron",
-        "displayName": "Nvidia/mistral-nemotron"
-      },
-      "configuredModelId": "f1cfe098-7916-487a-832f-2511c092d150",
-      "configuredAt": 1788104136603
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "nvidia/mistralai/mixtral-8x22b-instruct",
-        "displayName": "Nvidia/Mistral: Mixtral 8x22B Instruct"
-      },
-      "configuredModelId": "986ce37f-2ffb-4e8a-abe3-8791ab23ee1f",
-      "configuredAt": 1788104136604
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "nvidia/mistralai/mixtral-8x7b-instruct",
-        "displayName": "Nvidia/Mistral: Mixtral 8x7B Instruct"
-      },
-      "configuredModelId": "571c5b80-6729-440e-99d6-bd172a840a36",
-      "configuredAt": 1788104136604
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
         "id": "nvidia/meta/muse-glimmer-30b",
         "displayName": "Nvidia/Muse Glimmer 30B"
       },
@@ -4588,6 +4561,78 @@
       },
       "configuredModelId": "11b421d1-dc0b-4f3d-a744-99a34a7a15b7",
       "configuredAt": 1790813725628
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/deepseek-ai/deepseek-v4.1-flash",
+        "displayName": "Nvidia/DeepSeek V4.1 Flash"
+      },
+      "configuredModelId": "0d5911f1-e968-4e9d-ac21-9b4b2c6d0f91",
+      "configuredAt": 1790999752135
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/google/diffusiongemma-26b-a4b-it",
+        "displayName": "Nvidia/DiffusionGemma 26B A4B IT"
+      },
+      "configuredModelId": "048a44b6-a362-4295-8774-48c7daeab035",
+      "configuredAt": 1790999752137
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "nvidia/nvidia/nemotron-3.5-content-safety",
+        "displayName": "Nvidia/Nemotron 3.5 Content Safety"
+      },
+      "configuredModelId": "ccdd8381-e4d1-4fed-8279-bd053efdd142",
+      "configuredAt": 1790999752138
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/apodex/apodex-1.1-mini:free",
+        "displayName": "OpenRouter/Apodex 1.1 Mini (free)"
+      },
+      "configuredModelId": "c4ce2a68-8867-480f-a529-b5af51c52750",
+      "configuredAt": 1790999752138
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/inclusionai/ling-3.1-flash",
+        "displayName": "OpenRouter/Ling 3.1 Flash"
+      },
+      "configuredModelId": "21d28cc3-36d4-421b-985a-d527a393f49d",
+      "configuredAt": 1790999752139
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "openrouter/unbiased/pareto-26.10-preview",
+        "displayName": "OpenRouter/Pareto 26.10 Preview"
+      },
+      "configuredModelId": "015f7087-907f-4a52-b8fe-990988acdf16",
+      "configuredAt": 1790999752139
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/fledge-alpha-free",
+        "displayName": "OpenCode Zen/Fledge Alpha Free"
+      },
+      "configuredModelId": "850efe3e-0ce6-482a-b03f-7374283863bd",
+      "configuredAt": 1790999752139
+    },
+    {
+      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
+      "info": {
+        "id": "opencode/ling-3.1-flash-free",
+        "displayName": "OpenCode Zen/Ling 3.1 Flash Free"
+      },
+      "configuredModelId": "0d3bd6e4-08ec-4e85-908c-09cf397da904",
+      "configuredAt": 1790999752139
     }
   ],
   "backends": {
