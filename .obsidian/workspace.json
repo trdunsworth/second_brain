@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-10-03.md",
+                "file": "journal/2026-10-04.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-03"
+              "title": "2026-10-04"
             }
           },
           {
@@ -246,8 +246,9 @@
   },
   "active": "da3909ef37bae9bb",
   "lastOpenFiles": [
-    "journal/2026-10-02.md",
     "journal/2026-10-03.md",
+    "journal/2026-10-04.md",
+    "journal/2026-10-02.md",
     "USERSGUIDE.md",
     "StatLang/language_specification (2).md",
     "HOTKEYS.md",
@@ -277,7 +278,6 @@
     "Lisp/Common_Lisp_Cheatsheet.md",
     "Lisp/Clojure_Cheatsheet.md",
     "Lisp/Clojure_Tutorial.md",
-    "Lisp/README.md",
     "Lisp",
     "Synthetic_Data/3548785.3548793.pdf",
     "Synthetic_Data/2401.02524v2.pdf",
