@@ -6,7 +6,7 @@ tags:
   - guide
   - obsidian
 ---
-
+**
 # Second Brain User Guide
 
 Your vault is organized around four pillars: **Daily Notes**, **Research**, **Projects**, and **Books**. Everything connects.

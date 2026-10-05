@@ -1,18 +1,18 @@
 ---
-title: "<% tp.system.prompt('Speech Title:') %>"
-date: "<% tp.system.prompt('Speech Date (YYYY-MM-DD):', '', true, tp.date.now('YYYY-MM-DD')) %>"
-pathway: "<% tp.system.prompt('Pathway:', 'Presentation Mastery / Dynamic Leadership / Effective Coaching / Innovative Planning / Leadership Development / Motivational Strategies / Persuasive Influence / Strategic Relationships / Engaging Humor / Visionary Communication') %>"
-level: "<% tp.system.prompt('Level:', 'Level 1 / Level 2 / Level 3 / Level 4 / Level 5') %>"
-project: "<% tp.system.prompt('Project Name:', '') %>"
-club: "<% tp.system.prompt('Club:', 'Northwest Narrators Toastmasters Club') %>"
-evaluator: "<% tp.system.prompt('Evaluator (optional):', '') %>"
-tags: [toastmasters, speech, "<% tp.system.prompt('Pathway:', '').toLowerCase().replace(' ', '-') %>", "<% tp.system.prompt('Level:', '').toLowerCase().replace(' ', '-') %>"]
+title: "<% window._title = await tp.system.prompt('Speech Title:', '') %>"
+date: "<% window._date = await tp.system.prompt('Speech Date (YYYY-MM-DD):', tp.date.now('YYYY-MM-DD'), true) %>"
+pathway: "<% window._pathway = await tp.system.prompt('Pathway:', 'Presentation Mastery / Dynamic Leadership / Effective Coaching / Innovative Planning / Leadership Development / Motivational Strategies / Persuasive Influence / Strategic Relationships / Engaging Humor / Visionary Communication') %>"
+level: "<% window._level = await tp.system.prompt('Level:', 'Level 1 / Level 2 / Level 3 / Level 4 / Level 5') %>"
+project: "<% window._project = await tp.system.prompt('Project Name:', '') %>"
+club: "<% window._club = await tp.system.prompt('Club:', 'Northwest Narrators Toastmasters Club') %>"
+evaluator: "<% window._evaluator = await tp.system.prompt('Evaluator (optional):', '') %>"
+tags: [toastmasters, speech, "<% (window._pathway || '').toLowerCase().replace(/\s+/g, '-') %>", "<% (window._level || '').toLowerCase().replace(/\s+/g, '-') %>"]
 ---
 
-# <% tp.system.prompt('Speech Title:') %>
+# <% window._title || '' %>
 
-**Date:** <% tp.system.prompt('Speech Date (YYYY-MM-DD):', '', true, tp.date.now('YYYY-MM-DD')) %> | **Pathway:** <% tp.system.prompt('Pathway:', 'Presentation Mastery / Dynamic Leadership / Effective Coaching / Innovative Planning / Leadership Development / Motivational Strategies / Persuasive Influence / Strategic Relationships / Engaging Humor / Visionary Communication') %> | **Level:** <% tp.system.prompt('Level:', 'Level 1 / Level 2 / Level 3 / Level 4 / Level 5') %> | **Project:** <% tp.system.prompt('Project Name:', '') %>
-**Club:** <% tp.system.prompt('Club:', 'Northwest Narrators Toastmasters Club') %> | **Evaluator:** <% tp.system.prompt('Evaluator (optional):', '') %>
+**Date:** <% window._date || '' %> | **Pathway:** <% window._pathway || '' %> | **Level:** <% window._level || '' %> | **Project:** <% window._project || '' %>
+**Club:** <% window._club || '' %> | **Evaluator:** <% window._evaluator || '' %>
 **Time:** <% tp.system.prompt('Time (e.g., 5-7 min):', '5-7 min') %>
 
 ---
@@ -91,6 +91,6 @@ tags: [toastmasters, speech, "<% tp.system.prompt('Pathway:', '').toLowerCase().
 
 ---
 
-*Template: Toastmasters Speech Template | Pathway: <% tp.system.prompt('Pathway:', '') %> | Level: <% tp.system.prompt('Level:', '') %> | Project: <% tp.system.prompt('Project Name:', '') %> | Date: <% tp.date.now('YYYY-MM-DD') %>*
+*Template: Toastmasters Speech Template | Pathway: <% window._pathway || '' %> | Level: <% window._level || '' %> | Project: <% window._project || '' %> | Date: <% window._date || '' %>*
 
 <%* tp.file.cursor() %>

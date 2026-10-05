@@ -424,6 +424,8 @@ function processParams(element, context, app) {
   if (!origin)
     return null;
   const codeBlockInfo = origin.match(paramRegex);
+  if (!codeBlockInfo)
+    return null;
   const params = codeBlockInfo.slice(1);
   if (!params.length)
     return null;
@@ -538,7 +540,7 @@ var livePreviewCM6Extension = import_view.ViewPlugin.fromClass(class {
             const isCodeblockLine = classes.has("HyperMD-codeblock-bg") && !classes.has("HyperMD-codeblock-begin") && !classes.has("HyperMD-codeblock-end");
             if (isCodeblockBegin) {
               const startLine = view.state.doc.lineAt(from2);
-              const codeblockParams = startLine.text.match(paramRegex).slice(1);
+              const codeblockParams = (startLine.text.match(paramRegex) || []).slice(1);
               const highlightParam = (_a = codeblockParams.find((param) => braceSurroundingRegex.test(param))) == null ? void 0 : _a.slice(1, -1);
               startLineNum = startLine.number;
               codeblockInfo.showLineNumbers = false;
