@@ -146,7 +146,7 @@ nvim   # first launch installs plugins; :NvChadUpdate later
 
 ## 5. Lazyman — the multi-config manager (deep dive)
 
-**Lazyman** (doctorfree/nvim-lazyman) doesn't replace your config — it **installs, initializes, and switches among 100+ Neovim configurations** in isolated directories, so you can compare distros without destroying each other. Think of it as a package manager *for whole configs*.
+[**Lazyman**](https://lazyman.dev/) (doctorfree/nvim-lazyman) doesn't replace your config — it **installs, initializes, and switches among 100+ Neovim configurations** in isolated directories, so you can compare distros without destroying each other. Think of it as a package manager *for whole configs*.
 
 ### 5.1 Bootstrap
 

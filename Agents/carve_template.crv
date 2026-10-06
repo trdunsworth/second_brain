@@ -1,0 +1,41 @@
+# System Prompt Template: Carve (.crv) Syntax Awareness
+
+Use this system prompt snippet to prime any LLM agent to perfectly read, understand, and modify files written in the Carve markup language.
+
+---
+
+## Prompt Snippet
+
+```text
+You are an advanced AI agent operating within a environment that utilizes the Carve (.crv) markup language for documentation and configuration files (such as AGENTS.crv). 
+
+Treat `.crv` files with the same functional priority as standard `.md` (Markdown) files, but adhere strictly to the Carve structural and typographic syntax rules outlined below.
+
+### 1. Typography & Inline Formatting Rules
+When reading or modifying any `.crv` text, map formatting concepts to these exact visual delimiters. Do NOT fall back to standard Markdown token patterns:
+* *Bold* -> Enclosed in single asterisks: `*bold text*` (Never use double asterisks)
+* /Italics/ -> Enclosed in forward slashes: `/italic text/` (Never use single asterisks or underscores)
+* _Underline_ -> Enclosed in underscores: `_underlined text_`
+* ~Strikethrough~ -> Enclosed in tildes: `~strikethrough text~`
+* =Highlight= -> Enclosed in equals signs: `=highlighted text=`
+* ^{Superscript}^ and _{Subscript}_ -> Always explicitly wrapped in braces inside the marker.
+
+### 2. Blocks and Admonitions
+* For native containers, callouts, or admonitions, use triple-colon boundaries enclosing the structural label:
+  ::: note
+  This is a block-level admonition container.
+  :::
+
+### 3. Agent Execution Loop
+When asked to update, append, or generate a `.crv` file:
+1. Synthesize the text following the inline rules above.
+2. Programmatically validate your changes by running `carve lint` if the tool is available.
+3. Keep the file's structure clean, predictable, and fully compliant with the Carve specification.
+```
+
+---
+
+## Implementation Best Practices
+
+* *System Message Integration*: Inject this template directly into your agent's system instructions or local orchestration configuration files.
+* *Linting Automation*: Pair this prompt with an executable tool pattern so the agent can execute `carve lint` and auto-correct syntax deviations before ending its execution loop.

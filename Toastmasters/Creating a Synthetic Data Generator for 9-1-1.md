@@ -4,8 +4,8 @@ date: 2026-10-05
 pathway: Dynamic Leadership
 level: Level 1
 project: Writing a Persuasive Speech
-club: Northwest Narrators Toastmasters Club
-evaluator: Calvin Harper
+club: Northern Neck Toastmasters Club
+evaluator: Basheer Abdul-Malik
 tags:
   - toastmasters
   - speech
@@ -17,7 +17,7 @@ author: Dr. Tony Dunsworth
 # Creating a Synthetic Data Generator for 9-1-1
 
 **Date:** 2026-10-05 | **Pathway:** Dynamic Leadership | **Level:** Level 1 | **Project:** Writing a Persuasive Speech
-**Club:** Northwest Narrators Toastmasters Club | **Evaluator:** Calvin Harper
+**Club:** Northern Neck Toastmasters Club | **Evaluator:** Basheer Abdul-Malik
 **Time:** 5-7 min
 
 ---
