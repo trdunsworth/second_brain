@@ -52,7 +52,7 @@
             }
           },
           {
-            "id": "02625fed2d462762",
+            "id": "20423231cc7800f0",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -259,13 +259,13 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "02625fed2d462762",
+  "active": "20423231cc7800f0",
   "lastOpenFiles": [
-    "HOTKEYS.md",
+    "journal/2026-10-05.md",
     "Toastmasters/Creating a Synthetic Data Generator for 9-1-1.md",
     "USERSGUIDE.md",
+    "HOTKEYS.md",
     "Untitled.md",
-    "journal/2026-10-05.md",
     "journal/2026-10-04.md",
     "journal/2026-10-03.md",
     "journal/2026-10-02.md",

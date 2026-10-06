@@ -4115,15 +4115,6 @@
     {
       "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
       "info": {
-        "id": "openrouter/qwen/qwen3.8-27b:free",
-        "displayName": "OpenRouter/Qwen3.8 27B (free)"
-      },
-      "configuredModelId": "5f30f77c-3125-4ec1-baa5-c678e1e67162",
-      "configuredAt": 1790288979373
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
         "id": "openrouter/qwen/qwen3.8-flash",
         "displayName": "OpenRouter/Qwen3.8 Flash"
       },
@@ -4371,15 +4362,6 @@
         "displayName": "OpenRouter/Sonar Reasoning Pro"
       },
       "configuredModelId": "e75ebd4f-6130-4c1e-9e0b-b68747da8a19",
-      "configuredAt": 1790288979377
-    },
-    {
-      "providerId": "e7a86ac6-1342-4605-bc46-70cb94fe5530",
-      "info": {
-        "id": "openrouter/stealth/space-bunny-alpha",
-        "displayName": "OpenRouter/Space Bunny Alpha"
-      },
-      "configuredModelId": "5d2d3421-438c-483c-a646-4eb03e4c02ea",
       "configuredAt": 1790288979377
     },
     {

@@ -66,17 +66,19 @@ SynthCCD, the first 9-1-1-centric synthetic data generator has been publicly rel
 *To be filled in by evaluator during/after the speech*
 
 ### Strengths
-- 
-- 
-- 
+- Keeping attention
+- Knew the subject
+- Audience comfort
+- Gestures in place.
 
 ### Suggestions for Improvement
-- 
+- Vary gestures in speeches
 - 
 - 
 
 ### Overall Comments
 
+Drew in my audience. Better organized. Knew my subject
 
 ---
 
