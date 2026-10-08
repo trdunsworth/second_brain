@@ -897,13 +897,16 @@
   },
   "userDictionary": [
     "ALX",
+    "Analyses",
     "Cyanne",
     "Djot",
     "Dubois",
     "Frontmatter",
+    "GovWorx",
     "Hadley",
     "LaTex",
     "Lazyman",
+    "Moodle",
     "Quantico",
     "Rappahannock",
     "Saluda",
@@ -913,7 +916,10 @@
     "Templater",
     "Wickham",
     "artefact",
-    "ectopic"
+    "centre",
+    "centre's",
+    "ectopic",
+    "telecommunicators"
   ],
   "dialect": 0,
   "delay": -1,

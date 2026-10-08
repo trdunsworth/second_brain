@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-10-07.md",
+                "file": "journal/2026-10-08.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-07"
+              "title": "2026-10-08"
             }
           },
           {
@@ -247,9 +247,17 @@
   "active": "da3909ef37bae9bb",
   "lastOpenFiles": [
     "USERSGUIDE.md",
+    "ALX_Notes/Tenesia Conversation Recap.md",
+    "journal/2026-10-08.md",
+    "ALX_Notes/Ad Hoc Statistics/Drone Calls.md",
+    "Research/20251008_9-1-1-Emergency-Response-Times-Audit.pdf",
+    "Research/91120Performance20June%202022.pdf",
+    "Research/aor.pdf",
+    "Research/Statistical_Analysis_of_a_Telephone_Call_Center_A_.pdf",
+    "Research/TR04-09.pdf",
+    "journal/2026-10-07.md",
     "Toastmasters/ClubSuccessPlan.pdf",
     "Agents/Untitled.md",
-    "journal/2026-10-07.md",
     "Typography/07_carve.md",
     "HOTKEYS.md",
     "Agents/10 Practical Techniques for Mastering Agent Skills in AI Coding Agents.md",
@@ -271,16 +279,9 @@
     "Rust/resources",
     "Rust/cheatsheets",
     "Rust/tutorials",
-    "Rust",
-    "Typography/carve_mermaid_pdf_guide.pdf",
-    "Agents/2603.22519v1.pdf",
-    "Agents/carve_template.crv",
     "Toastmasters/Toastmasters Signature for Email.md",
     "terminal_stuff/Neovim_Distributions.md",
     "journal/2026-10-05.md",
-    "Toastmasters/Creating a Synthetic Data Generator for 9-1-1.md",
-    "Untitled.md",
-    "StatLang",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
