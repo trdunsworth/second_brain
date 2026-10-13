@@ -49,7 +49,7 @@ Pretrained on massive, cross-domain time series corpora, then applied to a new s
 
 - VAR, VARMA, VARMAX (vector autoregression)
 - Dynamic Factor Models
-- Panel / hierarchical forecasting (reconciliation methods: bottom-up, top-down, MinT)
+- Panel / hierarchical forecasting — **see [[forecast-reconciliation]]** for the full treatment: coherent subspace and summing matrices, GLS and MinT, the choice of `W` (variance / structural / sample / shrinkage), bottom-up vs. top-down vs. optimal, temporal and cross-temporal hierarchies, reconciliation for **counts** and discreteness, scalability, and probabilistic reconciliation
 
 ## Probabilistic / Ensemble
 
