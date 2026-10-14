@@ -223,83 +223,122 @@ Styled callout boxes. Use native Obsidian syntax:
 
 ## Frontmatter Reference
 
-Every note type uses YAML frontmatter for Dataview queries.
+> **Rewritten 2026-10-14.** The vault previously carried three competing schemas
+> (`type/status/date/topic`, `title/date_created/aliases`, `created/creator/sources`) across
+> ~126 notes. This is now **one core schema with closed vocabularies**, plus type-specific
+> extras. **Apply forward — do not backfill.** Older notes work fine as plain files; only a
+> note you are actively editing needs converting.
 
-### Book Review
+### The core schema
+
+Every vault note gets these five keys. Nothing else is universal.
+
 ```yaml
 ---
-type: book-review
-title: ""
-author: ""
-rating: 
-date_read: ""
-genre: ""
-status: ""
+type: reference          # closed list, see below
+status: active            # closed list, see below
+topic: "One-line abstract — what this note is actually about."
+created: 2026-10-14
+updated: 2026-10-14       # only when you edit it
+aliases:                  # only when these differ from the filename
+  - Alternative Name
 tags:
-  - book
-  - review
+  - domain-tag
 ---
 ```
 
-### Research Note
-```yaml
----
-type: research-note
-topic: ""
-source: ""
-method: ""
-date: ""
-status: ""
-tags:
-  - research
-  - 
----
-```
+### Rules that matter
 
-### Research Project
+| Rule | Why |
+|---|---|
+| **No `title:`** | Obsidian already displays the filename (or H1). `title` drifts out of sync with both. The exception is a published work whose real title differs from the filename — book reviews, papers. |
+| **One date field: `created:`** | Replaces both `date:` and `date_created:`. `updated:` is optional and only appears on edit. |
+| **`topic:` is a full sentence** | It is the most useful field in the vault and the one most often wasted on a restatement of the filename. Compare `Staffing_Model_Reference` — good — against most others. |
+| **`aliases:` is functional, not decorative** | It is what lets a differently-phrased link resolve to a real note — e.g. an alias of `Forecasting Accuracy` makes that link reach a file named `forecasting-metrics-and-botchkarev`. Omit it when the filename already works. |
+| **Data tables and project READMEs get no frontmatter** | A 500 KB spells list is not a vault object. Headerless is correct there. |
+
+### `type:` — closed list of nine
+
+| Value | Use for |
+|---|---|
+| `moc` | Map of content, folder index, dashboard |
+| `research-project` | An active project with a question and eventually a finding |
+| `research-note` | A question you asked and answered |
+| `practice` | A runnable exercise or worked example |
+| `reference` | Durable lookup material you will consult repeatedly |
+| `bibliography` | Annotated source list |
+| `cheatsheet` | Fast lookup |
+| `template` | Anything in `Templates/` |
+| `capture` | Ad-hoc query result, interview note, inbox item |
+
+Anything else is a new type — add it here first. Nineteen ad-hoc values was the old failure
+mode, and it is what made the dashboards unreliable.
+
+### `status:` — closed list of five
+
+| Value | Meaning |
+|---|---|
+| `active` | Being worked on now |
+| `draft` | Exists, not yet reviewed or finished |
+| `parked` | Deliberately stopped, **resumable** — say where in the note body |
+| `complete` | Done, no further work intended |
+| `abandoned` | Killed. **Keep the note** — it records that you tried |
+
+> `parked` and `abandoned` did not exist before this rewrite, and their absence is why
+> finished work and abandoned work are indistinguishable. Adding them is the single
+> cheapest improvement to how the vault reports on itself.
+
+### Type-specific extras
+
+These are legitimate *on top of* the core schema, not alternatives to it.
+
+**Research project**
+
 ```yaml
----
-type: research-project
-topic: ""
 hypothesis: ""
 methodology: ""
 data_source: ""
 start_date: ""
 end_date: ""
-status: ""
-tags:
-  - research
-  - project
-  - 
----
 ```
 
-### Project Status
+**Book review**
+
 ```yaml
----
-type: project-status
+author: ""
+rating:
+date_read: ""
+genre: ""
+```
+
+**Ad-hoc query capture** (the `ad_hoc_query_template` family)
+
+```yaml
+creator: "LLM or person"
+requestor: ""
+sources: []
+```
+
+**Project status**
+
+```yaml
 project: ""
 phase: ""
 owner: ""
-last_updated: ""
-tags:
-  - project
-  - status
----
 ```
 
-### Meeting Note
-```yaml
----
-type: meeting
-title: ""
-date: ""
-attendees: ""
-tags:
-  - meeting
-  - 
----
+### Dataview queries that work under this schema
+
+```dataview
+LIST
+FROM ""
+WHERE type = "research-project" AND status = "active"
+SORT start_date DESC
 ```
+
+Note the `FROM ""` — searching the **whole vault** rather than one folder. The old
+dashboard scoped to `"Research"` and therefore never saw `Staffing/`, `Synthetic_Data/`, or
+anything else that mattered.
 
 ---
 
