@@ -20,6 +20,11 @@ aliases:
 
 A comprehensive collection of papers, libraries, and resources for time series forecasting methods, models, and evaluation metrics.
 
+> **Partly superseded by dedicated notes.** This remains the original reading list. Several
+> sections now have fuller treatment elsewhere: §1 → [[Time Series Foundation Models]],
+> §2.3–2.5 (decomposition) → [[Time Series Decomposition]], §3.6 (gradient boosting) →
+> [[Gradient Boosting for Time Series]], §3.7 (conformal) → [[Model Validation Strategies]] §6.
+
 ---
 
 ## 1. Foundation Models & Pre-trained Architectures
@@ -97,6 +102,14 @@ A comprehensive collection of papers, libraries, and resources for time series f
 - **Overview**: Additive regression model: y(t) = g(t) + s(t) + h(t) + ε. Handles trends, multiple seasonalities, holidays, and missing data.
 - **Best for**: Business forecasting, retail sales, web traffic, data with holiday effects, non-expert users.
 - **When to use**: Multiple seasonalities, known events/holidays, missing data, need for interpretable decomposition.
+
+> **Decomposition as a family — full treatment in [[Time Series Decomposition]].** Classical
+> decomposition, STL, X-13ARIMA-SEATS, MSTL, Theta and Prophet are all covered there, together
+> with the additive/multiplicative identity, the `m=168` vs `m=24` argument, and why the seasonal
+> period must be supplied rather than learned.
+>
+> For boosting *over* a decomposition rather than treating it as a fixed preprocessing step, see
+> [[ThymeBoost]] and [[Time Series Decomposition]] §8.
 
 ---
 
@@ -187,6 +200,15 @@ A comprehensive collection of papers, libraries, and resources for time series f
 - **LightGBM paper**: [LightGBM: A Highly Efficient Gradient Boosting Decision Tree](https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html) (Ke et al., 2017)
 - **Overview**: XGBoost uses regularized gradient boosting; LightGBM uses histogram-based splitting and leaf-wise growth for speed.
 - **Best for**: Tabular forecasting with engineered features, rapid prototyping, competitions.
+
+> **Gradient boosting as a family — full treatment in [[Gradient Boosting for Time Series]].**
+> Friedman's stagewise algorithm, shrinkage vs number-of-rounds, the AIC/AICc/BIC correspondence,
+> the three time-series failure modes (no extrapolation, recursive error accumulation, feature
+> engineering burden), and the feature-based vs component-based distinction.
+>
+> **Component-based variant:** [[ThymeBoost]] boosts over a decomposition (trend → seasonality →
+> exogenous) rather than over a feature matrix. Different algorithm, same name, and the most
+> interesting thing in this library.
 
 ### 3.7 Conformal Prediction for Time Series
 

@@ -18,7 +18,6 @@ aliases:
   - MLForecast
   - Nixtla
 ---
-
 # The Nixtlaverse
 
 An ecosystem of **seven interoperable open-source Python libraries** for time series

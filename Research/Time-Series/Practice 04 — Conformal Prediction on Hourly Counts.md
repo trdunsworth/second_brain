@@ -14,7 +14,6 @@ aliases:
   - Conformal Practice
   - Interval Calibration Practice
 ---
----
 
 # Practice 04 — Conformal Prediction on Hourly Counts
 
@@ -55,7 +54,7 @@ Split conformal:
 >    that is badly wrong in both directions.
 >
 > Points 2 and 3 are what EnbPI, ACI and SPCI exist to fix. See
-> [[Model Validation Strategies]] §6 and §4.2 of [[resources]].
+> [[Model Validation Strategies]] §6 and §3.7 of [[resources]].
 
 ---
 

@@ -15,7 +15,6 @@ aliases:
   - Linear Models Practice
   - RevIN Practice
 ---
----
 
 # Practice 02 — Linear Models and the Baseline Question
 

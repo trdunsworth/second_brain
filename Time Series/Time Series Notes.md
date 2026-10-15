@@ -22,7 +22,7 @@ tags:
 
 ## Methods
 
-<!-- How was this研究done? -->
+<!-- How was this done? -->
 
 ## Key Findings
 

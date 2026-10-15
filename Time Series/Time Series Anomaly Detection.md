@@ -210,7 +210,7 @@ good detection at peaks — and peaks are exactly what you want to detect. Strat
 
 1. Goswami, M. et al. (2024). MOMENT: A Family of Open Time-series Foundation Models. *ICML 2024*. 🔗 https://arxiv.org/abs/2402.03885
 2. Liu, F.T. et al. (2008). Isolation Forest. *ICDM 2008*. 🔗 https://arxiv.org/abs/0811.0172
-3. Yeh, C.M. et al. (2016). Matrix Profile I: All Pairs Similarity Joins for Time Series. 🔗 https://www.cs.ucr.edu/~eamonn/time_series_data_2018/
+3. Yeh, C.-C.M., Zhu, Y., Ulanova, L., Begum, N., Ding, Y., Dau, H.A., Silva, D.F., Mueen, A. & Keogh, E. (2016). Matrix Profile I: All Pairs Similarity Joins for Time Series. *ICDM*, 1317–1322. 🔗 https://doi.org/10.1109/ICDM.2016.0179
 4. Su, Y. et al. (2019). OmniAnomaly. 🔗 https://arxiv.org/abs/1809.10341
 5. Audibert, J. et al. (2020). USAD. 🔗 https://arxiv.org/abs/2009.13807
 6. Tatbul, N. et al. (2023). A Range-based Metric for Anomaly Detection Benchmarking. 🔗 https://arxiv.org/abs/2303.03241
@@ -219,7 +219,7 @@ good detection at peaks — and peaks are exactly what you want to detect. Strat
 9. Sørbø, A. & Ruocco, J. (2024). Navigating the metric maze: a taxonomy of evaluation metrics for anomaly detection in time series. *Data Mining and Knowledge Discovery*. 🔗 https://arxiv.org/abs/2403.13935
 
 ## Cross-links
-
+ 
 - [[Intermittent and Sparse Demand]]
 - [[Generative and Probabilistic Forecasting]]
 - [[Distribution Shift and Normalization]]
@@ -227,4 +227,6 @@ good detection at peaks — and peaks are exactly what you want to detect. Strat
 - [[Practice 05 — Intermittency, Counts and Anomaly Detection]]
 - [[Practice 04 — Conformal Prediction on Hourly Counts]]
 - [[Time Series Foundation Models]]
+- [[Time Series Similarity, Clustering and Motif Discovery]] — matrix profile, stumpy, discord discovery, and the z-normalisation warning that applies to motif-based detection
+- [[Time Series EDA and Data Quality]] — the index-validity checks that must precede any detection
 - [[168-Point Forecast Comparison - Discrete vs Continuous]]

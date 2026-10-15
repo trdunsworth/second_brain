@@ -15,7 +15,6 @@ aliases:
   - Anomaly Detection Practice
   - Counts Practice
 ---
----
 
 # Practice 05 — Intermittency, Counts and Anomaly Detection
 

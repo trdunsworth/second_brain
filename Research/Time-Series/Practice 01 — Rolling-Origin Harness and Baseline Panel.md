@@ -14,7 +14,6 @@ aliases:
   - Rolling Origin Harness
   - Baseline Panel Practice
 ---
----
 
 # Practice 01 — Rolling-Origin Harness and Baseline Panel
 

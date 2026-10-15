@@ -74,7 +74,7 @@ No single baseline transfers across datasets. See §6.
 
 ### 3.3 Where the denominator is computed
 
-For MASE the naive MAE **must be computed on the training set only** (Hyndman & Koehler, 2006). Computing it across the full series leaks test information into the metric itself — a quiet version of the leakage problem in [[Model Validation Strategies]] §2.
+For MASE the naive MAE **must be computed on the training set only** (Hyndman & Koehler, 2006). Computing it across the full series leaks test information into the metric itself - a quiet version of the leakage problem in [[Model Validation Strategies]] §1.
 
 ### 3.4 Which metric family?
 
@@ -155,7 +155,7 @@ Empirical findings that should change how you design the comparison:
 
 ## 7. Is a baseline comparison significant?
 
-Comparing two models on average error is not a significance test. The correct machinery — Diebold-Mariano, the Harvey-Leybourne-Newbold small-sample correction, Clark-West for nested models, and the multiple-comparison corrections that become essential at 168-way comparisons — is set out in [[Model Validation Strategies]] §6.
+Comparing two models on average error is not a significance test. The correct machinery — Diebold-Mariano, the Harvey-Leybourne-Newbold small-sample correction, Clark-West for nested models, and the multiple-comparison corrections that become essential at 168-way comparisons - is set out in [[Model Validation Strategies]] §4.
 
 Short version: **do not write "beats naive" without a test.** With overlapping 168-hour forecasts the naive standard errors are badly anti-conservative.
 

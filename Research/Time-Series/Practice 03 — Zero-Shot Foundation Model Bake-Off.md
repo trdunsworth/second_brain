@@ -15,7 +15,6 @@ aliases:
   - Foundation Model Practice
   - Zero-Shot Practice
 ---
----
 
 # Practice 03 — Zero-Shot Foundation Model Bake-Off
 

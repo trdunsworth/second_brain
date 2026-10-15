@@ -122,12 +122,17 @@ over-modelling if fitted to level data.
 
 ## 2. Decomposition-based
 
+**Full treatment in [[Time Series Decomposition]].** Summary of the trade:
+
 | Method | Strengths | Weaknesses |
 |---|---|---|
-| Classical decomposition | Transparent, fast | Two moving averages; no model for the components |
+| Classical decomposition | Transparent, fast | Two moving averages; no model for the components; one fixed seasonal period |
 | STL 🔗 [otexts.com/fpp3/decomposition](https://otexts.com/fpp3/decomposition.html) | Robust to outliers (LOESS), flexible seasonal shape | Seasonal shape must be supplied, not learned; not a forecaster |
-| MSTL | Handles *multiple* seasonalities cleanly — daily → weekly → annual | Same limitations as STL |
+| MSTL | Handles *multiple* seasonalities cleanly — daily → weekly → annual | Same limitations as STL; decomposition order is fixed |
+| Theta (Makarov & Smith 2002 — see [[Time Series Decomposition]] §5) | Linear trend + seasonal indices + SES; M3 winner, hard to beat on short clean series | One seasonal period; straight-line trend only |
+| X-13ARIMA-SEATS | Trading-day, moving-day and holiday adjustment — the only place done properly | Heavily parameterised; regulation programs exist for a reason |
 | Prophet 🔗 [PeerJ cs-143](https://peerj.com/articles/cs-143/) | Built for the business case: changepoints and holidays as first-class inputs; interpretable decomposition | Frequentist, point-forecast oriented; uncertainty bands are known to be badly calibrated; the "flexible trend" can absorb real signal; slower than ETS |
+| Boosted decomposition ([[ThymeBoost]]) | Components scheduled per round; continuity at changepoints is an explicit switch; per-component learning rates | Single-series only; additive only; complexity penalty can be silently understated |
 
 > **Prophet's uncertainty bands are the thing to watch.** They come from simulated
 > residual trends, which assume future trend variance is proportional to historical trend
@@ -135,11 +140,19 @@ over-modelling if fitted to level data.
 > need calibrated intervals, wrap it in a conformal method ([[Model Validation Strategies]] §6)
 > rather than trusting them.
 
+> **The shared failure mode across this whole family: the seasonal period and shape are inputs,
+> not learned.** Classical decomposition, STL, MSTL, Theta and Prophet all require you to state
+> `m` in advance. Only the learned-basis approaches (N-BEATS, N-HiTS, DLinear's learned variant)
+> and GBDTs on calendar features estimate seasonality from the data. For hourly call volume that
+> matters — see [[Time Series Decomposition]] §4 on why `m=168` beats `m=24`.
+
 ---
 
 ## 3. Machine learning approaches
 
 ### Gradient-boosted trees (XGBoost, LightGBM, CatBoost)
+
+**Full treatment in [[Gradient Boosting for Time Series]].** Summary of the trade:
 
 **Strengths**
 - Strongest single family when you have **rich exogenous features** — weather, calendar,
@@ -160,6 +173,12 @@ over-modelling if fitted to level data.
 
 > The extrapolation limitation is not a nuisance, it is disqualifying for trend extrapolation.
 > If your series has real level drift, trees will flatline.
+
+> **There is a second, less-discussed version of this family.** [[ThymeBoost]] boosts over a
+> *decomposition* rather than over a feature matrix — the base learner is a trend or seasonal
+> estimator, not a tree. Different algorithm, same name, and it sidesteps both the feature
+> engineering burden and (partly) the extrapolation problem. See
+> [[Time Series Decomposition]] §8.
 
 ### Support vector regression, Gaussian processes
 
@@ -333,6 +352,8 @@ exchangeability is violated by autocorrelated series without an adaptation (EnbP
 | Hourly counts, weather + events available | CatBoost with lags + calendar + weather | Linear (DLinear/NLinear); whether features are worth it |
 | Long horizon, multivariate | PatchTST, N-HiTS | DLinear as the honesty check |
 | Multi-seasonality (24 / 168 / 8766) | MSTL + ETS, or TBATS | A global model that sees all three |
+| Known level shift or policy change in the series | Prophet (L1 changepoint prior), or MSTL + local linear trend | Whether a continuous-only changepoint model is enough — see [[ThymeBoost]] §2.3 |
+| Structure is known and the forecast must be explainable | ETS, Prophet, boosted decomposition | Whether the extra flexibility earns its complexity penalty |
 | Small data, cold start | Zero-shot TSFM | Never report without a seasonal-naive comparison |
 | Many related series, probabilistic needed | DeepAR, N-HiTS, Chronos-2 | Quantile calibration on held-out |
 | Intermittent / many zeros | Croston family, TSB | See [[Intermittent and Sparse Demand]] |
@@ -354,6 +375,9 @@ Each is now a dedicated note:
 - [[LLM-as-Forecaster and Agentic Forecasting]] — Time-LLM, Synapse, TFR-Bench
 - [[Intermittent and Sparse Demand]] — Croston, TSB, ADIDA, IMAPA
 - [[Time Series Anomaly Detection]] — MOMENT, deep AD, evaluation
+- [[Time Series Decomposition]] — STL, MSTL, Theta, Prophet, decomposition as a base learner
+- [[Gradient Boosting for Time Series]] — Friedman's algorithm, XGBoost/LightGBM/CatBoost, the TS failure modes
+- [[ThymeBoost]] — gradient boosting over a decomposition
 
 ## References
 
@@ -368,19 +392,20 @@ Each is now a dedicated note:
 6. Chen, T. & Guestrin, C. (2016). XGBoost. 🔗 https://arxiv.org/abs/1603.02754
 7. Ke, G. et al. (2017). LightGBM. 🔗 https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html
 8. Prokhorenkova, L. et al. (2018). CatBoost. 🔗 https://arxiv.org/abs/1706.09516
+9. Friedman, J.H. (2001). Greedy function approximation. *Annals of Statistics* 29(5). 🔗 https://doi.org/10.1214/aos/1013203451
 
 **Deep learning**
-9. Salinas, D. et al. (2020). DeepAR. 🔗 https://arxiv.org/abs/1704.04110
-10. Oreshkin, B.N. et al. (2020). N-BEATS. 🔗 https://arxiv.org/abs/1905.10437
-11. Challu, C. et al. (2023). N-HiTS. 🔗 https://arxiv.org/abs/2201.12886
-12. Nie, Y. et al. (2023). A Time Series is Worth 64 Words (PatchTST). 🔗 https://arxiv.org/abs/2211.14730
-13. Zeng, A. et al. (2023). Are Transformers Effective for Time Series Forecasting? 🔗 https://arxiv.org/abs/2205.13504
-14. Liu, T. et al. (2021). TSMamba. 🔗 https://arxiv.org/abs/2411.02941
-15. Goswami, M. et al. (2024). MOMENT. 🔗 https://arxiv.org/abs/2402.03885
+10. Salinas, D. et al. (2020). DeepAR. 🔗 https://arxiv.org/abs/1704.04110
+11. Oreshkin, B.N. et al. (2020). N-BEATS. 🔗 https://arxiv.org/abs/1905.10437
+12. Challu, C. et al. (2023). N-HiTS. 🔗 https://arxiv.org/abs/2201.12886
+13. Nie, Y. et al. (2023). A Time Series is Worth 64 Words (PatchTST). 🔗 https://arxiv.org/abs/2211.14730
+14. Zeng, A. et al. (2023). Are Transformers Effective for Time Series Forecasting? 🔗 https://arxiv.org/abs/2205.13504
+15. Liu, T. et al. (2021). TSMamba. 🔗 https://arxiv.org/abs/2411.02941
+16. Goswami, M. et al. (2024). MOMENT. 🔗 https://arxiv.org/abs/2402.03885
 
 **Evaluation and combination**
-16. Montero-Manso, P. & Hyndman, R.J. (2021). Attributes that define forecasting benchmarks. 🔗 https://arxiv.org/abs/2003.07823
-17. Makridakis, S., Spiliotis, E. & Assimakopoulos, V. (2020). The M4 Competition. 🔗 https://doi.org/10.1016/j.ijforecast.2019.11.001
+17. Montero-Manso, P. & Hyndman, R.J. (2021). Attributes that define forecasting benchmarks. 🔗 https://arxiv.org/abs/2003.07823
+18. Makridakis, S., Spiliotis, E. & Assimakopoulos, V. (2020). The M4 Competition. 🔗 https://doi.org/10.1016/j.ijforecast.2019.11.001
 
 ## Status
 
@@ -389,7 +414,8 @@ Each is now a dedicated note:
 - [x] Error-accumulation and local/global/pretrained framings
 - [x] arXiv references throughout
 - [x] Decision table by situation
-- [x] Cross-links to the ten new notes
+- [x] Cross-links to the dedicated notes
+- [x] §2 and §3 point at dedicated decomposition and gradient-boosting notes
 - [ ] Empirical: run the decision table against the Douglas County data once acquired
 
 ## Cross-links
@@ -401,6 +427,9 @@ Each is now a dedicated note:
 - [[LLM-as-Forecaster and Agentic Forecasting]]
 - [[Intermittent and Sparse Demand]]
 - [[Time Series Anomaly Detection]]
+- [[Time Series Decomposition]]
+- [[Gradient Boosting for Time Series]]
+- [[ThymeBoost]]
 - [[Time Series Forecasting Baselines]]
 - [[Model Validation Strategies]]
 - [[forecast-reconciliation]]

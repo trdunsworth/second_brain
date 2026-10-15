@@ -36,8 +36,22 @@ Entry point for the forecasting side of the vault. Created 2026-10-14.
 | [[LLM-as-Forecaster and Agentic Forecasting]] | Time-LLM, TimeCopilot, Synapse, TFR-Bench | New |
 | [[Intermittent and Sparse Demand]] | Croston family, Syntetos–Boylan, metric instability | New |
 | [[Time Series Anomaly Detection]] | Classical, deep, MOMENT, benchmark contamination | New |
+| [[Time Series Decomposition]] | Additive/multiplicative, STL, MSTL, Theta, Prophet, decomposition as a base learner | New |
+| [[Gradient Boosting for Time Series]] | Friedman's algorithm, feature-based vs component-based boosting, the three TS failure modes | New |
+| [[Hierarchical and Mixed-Effects Models for Forecasting]] | Partial pooling, the locality–globality continuum, hour-of-week random effects | New |
+| [[Change-Point Detection]] | PELT, binary segmentation, Bai–Perron, Chow/Quandt, CUSUM, Bayesian online, Prophet's prior | New |
+| [[Count Distributions and Kolassa Evaluation]] | Poisson/NB, randomized PIT, Quantile Score, Variance Score, WIS | New |
+| [[Forecast Combination]] | Bates–Granger weights, constraints, convex picture, combination vs reconciliation | New |
+| [[State Space Models and Bayesian Structural Time Series]] | UCM, Kalman filter, BSTS/CausalImpact, temporal hierarchies | New |
+| [[Feature Engineering for Time Series]] | Lags, rolling, calendar, decomposition features, leakage, scaling | New |
+| [[Forecasting MLOps]] | Retraining cadence, drift, coverage monitoring, shadow deployment, the ACI hazard | New |
+| [[Benchmarks and Datasets]] | M1–M5, Monash, GIFT-Eval, fev-bench, contamination | New |
+| [[Time Series EDA and Data Quality]] | Diagnostic plots, index integrity, DST and value validity checks, missing data | New |
+| [[Feature Importance and Explainability]] | SHAP, permutation importance, PDP/ICE/ALE, and the collinearity trap | New |
+| [[Time Series Similarity, Clustering and Motif Discovery]] | DTW, matrix profile, stumpy, k-Shape, PCA on features | New |
 | [[TimeCopilot]] | Dedicated page | New |
 | [[Nixtlaverse]] | Dedicated page — the seven libraries | New |
+| [[ThymeBoost]] | Dedicated page — gradient boosting over a decomposition | New |
 
 ### Pre-existing
 
@@ -97,27 +111,67 @@ Weighted toward hourly counts and univariate series, per the 9-1-1 / PSAP contex
 - The above, plus [[Time Series Foundation Models]] §1–3, [[Distribution Shift and Normalization]] §1–4, and [[Model Validation Strategies]] §1 and §6
 
 **If you have a week**
-- All of the above, plus [[Generative and Probabilistic Forecasting]], [[Intermittent and Sparse Demand]], [[Time Series Anomaly Detection]], [[Nixtlaverse]], [[TimeCopilot]], and the five Practice notes end to end
+- All of the above, plus [[Generative and Probabilistic Forecasting]], [[Intermittent and Sparse Demand]], [[Time Series Anomaly Detection]], [[Nixtlaverse]], [[TimeCopilot]], [[Time Series Decomposition]], [[Gradient Boosting for Time Series]], and the five Practice notes end to end
 
 ---
 
 ## Known gaps
 
-- [ ] **No R material** — everything practical is Python. Your `forecast` package and `fable`
-      coverage from the FPP3 links is not written up
-- [ ] **No spatiotemporal forecasting note** — GNNs get three lines in `resources.md` §3.5
-- [ ] **No change-point detection note** — only mentioned under BSTS
-- [ ] **No VAR / cointegration note** — listed in the taxonomy, never treated
-- [ ] **No quantile regression / distributional regression note** as a standalone topic
-- [ ] **No panel-data / mixed-effects treatment** — this is the real answer to the
-      discrete-vs-continuous question and it is missing entirely
+> **Refreshed 2026-10-15.** An audit of both folders closed eight gaps and found this list stale
+> - it still claimed a quantile-regression note was missing when
+> [[Generative and Probabilistic Forecasting]] §2 covers it properly, and it under-weighted
+> several gaps that are real. Re-derived
+> rather than transcribed.
 
-> ⚠️ **That last gap is the most consequential.** The [[168-Point Forecast Comparison - Discrete vs Continuous]] study pits 168 per-hour models against one continuous model. The
-> established middle ground — **hierarchical Bayesian pooling, or mixed-effects models with
-> hour-of-week random effects** — lets you share strength across hours while keeping
-> hour-specific structure. Neither the note nor the study currently considers it, and both
-> the hypothesis and the "hybrid approaches" bullet in the Limitations section would benefit.
-> See [[168-Point Forecast Comparison - Discrete vs Continuous]] §Limitations.
+**Still open**
+
+- [ ] **No R material** — everything practical is Python. `forecast`, `fable` and `hts` are the
+      prescribed implementations in [[Model Validation Strategies]] §4 and
+      [[forecast-reconciliation]] §13, and none of them is written up. Consequence: `Practice 01`
+      hand-rolls the HLN correction in NumPy instead of calling `dm.test(..., c=H1)`
+- [ ] **No VAR / cointegration note** — listed in the taxonomy §6, never treated. Note the
+      taxonomy argues *against* it for univariate call volume; that argument should be revisited
+      given Douglas County's 4 population centres and any call-type split
+- [ ] **No spatiotemporal forecasting note** — GNNs get three lines in `resources.md` §3.5. The
+      realistic version for this vault is *spatial aggregation and boundary consistency* (model the
+      county directly, or model the sub-jurisdictions and sum?), which is a data-construction
+      question that will bite before the data arrives
+- [ ] **No interrupted-time-series / intervention analysis note** — [[Change-Point Detection]] §6
+      names this. You can now *find* a break; you still cannot *evaluate* one
+- [ ] **No energy / load-forecasting treatment** — the closest structural analogue in existence
+      (hourly, 24h + 168h seasonality, weather covariates, overdispersed counts, national
+      competitions). One unreferenced line in the study's reference list
+- [ ] **No forecast → staffing translation layer** — the queueing material lives in
+      `Statistical_Modeling/` and `Staffing/` and is barely linked. The sensitivity of recommended
+      headcount to forecast error is the right objective for the study and is nowhere derived
+- [ ] **No practice note for the combination arm** — `Practice 01`–`05` never combine anything,
+      despite [[Forecast Combination]] being the highest-return operation available
+
+**Closed in the 2026-10-15 pass**
+
+- [x] ~~Change-point detection~~ → [[Change-Point Detection]] (PELT, `ruptures`, Bai–Perron, CUSUM)
+- [x] ~~Panel-data / mixed-effects~~ → [[Hierarchical and Mixed-Effects Models for Forecasting]]
+- [x] ~~Count distributions / distributional evaluation~~ → [[Count Distributions and Kolassa Evaluation]]
+- [x] ~~Forecast combination as a method~~ → [[Forecast Combination]]
+- [x] ~~State space / UCM / BSTS~~ → [[State Space Models and Bayesian Structural Time Series]]
+- [x] ~~Feature engineering~~ → [[Feature Engineering for Time Series]]
+- [x] ~~Forecasting MLOps~~ → [[Forecasting MLOps]]
+- [x] ~~Benchmarks and datasets~~ → [[Benchmarks and Datasets]]
+- [x] ~~Time series EDA~~ → [[Time Series EDA and Data Quality]]
+- [x] ~~Feature importance / explainability~~ → [[Feature Importance and Explainability]]
+- [x] ~~Similarity, clustering, motifs~~ → [[Time Series Similarity, Clustering and Motif Discovery]]
+- [x] ~~Quantile regression~~ — already covered by [[Generative and Probabilistic Forecasting]] §2;
+      the entry above was simply out of date
+
+> ⚠️ **Three unresolved contradictions this pass surfaced, flagged but not fixed.**
+> 1. **MAPE.** The [[168-Point Forecast Comparison - Discrete vs Continuous]] metrics table still
+>    lists MAPE; [[Intermittent and Sparse Demand]] §1, [[Practice 05]] and
+>    [[Time Series Forecasting Baselines]] §3.2 all say never report it. It is undefined at
+>    `y = 0`. See [[Count Distributions and Kolassa Evaluation]].
+> 2. **Contaminated stand-in data.** `Practice 01`–`05` run on M4-Hourly, which is the corpus
+>    TSFMs were pretrained on. See [[Benchmarks and Datasets]] §2.
+> 3. **Practice 04 and 05 re-implement the harness** rather than importing it, contrary to the hub's
+>    "run them in order" instruction — the unpinned-defaults failure mode the vault flags elsewhere.
 
 ---
 
