@@ -47,7 +47,7 @@ series from one small jurisdiction, and why leaderboard numbers should be discou
 - **M2** — the value of real-time evaluation. **11 of 16 entrants were human** — a useful reminder
   that winning a benchmark is not the whole story for a PSAP.
 - **M3** — replicated M1/M2 conclusions on 3× the data.
-- **M4** — (1) combinations win; (2) Smyl's Uber hybrid (theta + residual ARIMA + gradient-boosted
+- **M4** — (1) combinations win; (2) [Smyl's Uber hybrid](https://www.personal.soton.ac.uk/cz1y20/Reading_Group/mlts-2023/week8/Smyl_2020.pdf) (theta + residual ARIMA + gradient-boosted
   features) won; (3) **pure ML underperformed**; (4) the first two methods got 95% PIs right.
 - **M5** — **ML won this time.** LightGBM with Tweedie loss, deep nets and ensembles dominated.
 

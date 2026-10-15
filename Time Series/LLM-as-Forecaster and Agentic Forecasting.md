@@ -47,7 +47,7 @@ by Reprogramming Large Language Models*. Rather than retraining the LLM, **repro
 No (or minimal) fine-tuning. The claim is that the LLM's in-context learning and world
 knowledge transfer.
 
-**GPT4TS** (2023) — supervised fine-tuning of a frozen GPT on flattened look-back/horizon
+[**GPT4TS**](https://github.com/ekto42/GPT4TS) [arXiv:2302.11939](https://arxiv.org/abs/2302.11939) (2023) — supervised fine-tuning of a frozen GPT on flattened look-back/horizon
 pairs. **TEMPO**, **OFA** — further variants.
 
 ### The evidence, honestly

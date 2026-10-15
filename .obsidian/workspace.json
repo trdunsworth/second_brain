@@ -51,7 +51,8 @@
               "title": "USERSGUIDE"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -244,34 +245,34 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "da3909ef37bae9bb",
+  "active": "55c2267b79bad640",
   "lastOpenFiles": [
+    "Time Series/LLM-as-Forecaster and Agentic Forecasting.md",
+    "USERSGUIDE.md",
+    "Time Series/Change-Point Detection.md",
+    "HOTKEYS.md",
+    "Time Series/Benchmarks and Datasets.md",
+    "journal/2026-10-15.md",
     "Time Series/Time Series Similarity, Clustering and Motif Discovery.md",
     "Time Series/Feature Importance and Explainability.md",
     "Time Series/Time Series EDA and Data Quality.md",
-    "USERSGUIDE.md",
     "Time Series/resources.md",
-    "Time Series/Benchmarks and Datasets.md",
     "Time Series/Forecasting MLOps.md",
     "Time Series/Feature Engineering for Time Series.md",
     "Time Series/State Space Models and Bayesian Structural Time Series.md",
     "Time Series/Forecast Combination.md",
     "Time Series/Count Distributions and Kolassa Evaluation.md",
-    "Time Series/Change-Point Detection.md",
     "Time Series/Hierarchical and Mixed-Effects Models for Forecasting.md",
     "Time Series/Gradient Boosting for Time Series.md",
     "Time Series/Time Series Decomposition.md",
     "Time Series/ThymeBoost.md",
-    "HOTKEYS.md",
     "terminal_stuff/Emacs_Cheatsheet.md",
     "terminal_stuff/Emacs_Tutorial.md",
-    "journal/2026-10-15.md",
     "Time Series/TimeCopilot.md",
     "Time Series/Nixtlaverse.md",
     "Templates/scripts/daily_journal_template.md",
     "journal/2026-10-14.md",
     "Staffing/Staffing_Dispatcher_Feasibility.md",
-    "Staffing/9_1_1_call_center_wfm_simulation_experiment.md",
     "Staffing/_pdf.txt",
     "Linux",
     "Research/20251008_9-1-1-Emergency-Response-Times-Audit.pdf",

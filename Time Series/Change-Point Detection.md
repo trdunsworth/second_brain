@@ -31,7 +31,7 @@ process stop generating data the way it used to, and how confident are we about 
 
 ## 1. Why this must run *before* you model
 
-A structural break is not a modelling preference. It is a **contamination of the training data.**
+A structural break is not a modeling preference. It is a **contamination of the training data.**
 
 For the 168-point study the consequences are concrete and severe:
 
