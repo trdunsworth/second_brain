@@ -1,7 +1,8 @@
 ---
 type: cheatsheet
-topic: Emacs key bindings — core, org-mode, ESS
-date: 2026-09-29
+topic: Emacs key bindings and configuration frameworks — core editing, motion, search, Dired, Magit, Org-mode, ESS, completion, and a comparison of the eight mainstream Emacs distributions.
+created: 2026-09-29
+updated: 2026-10-16
 status: active
 tags:
   - emacs
@@ -222,3 +223,84 @@ tags:
 | Lost cursor / buffer | `C-x b`, pick buffer |
 | Window layout wrecked | `M-x winner-undo` (if winner-mode on) or `C-x 1` then re-split |
 | Init file broken | `emacs -Q` (no config), fix `init.el`, restart |
+
+## 12. Emacs Frameworks
+
+[Here](https://www.linuxlinks.com/best-free-configuration-frameworks-emacs/) is my starting point — the LinuxLinks roundup of eight, last reviewed May 2026 with each framework page updated October 2026.
+
+A *configuration framework* (a.k.a. an Emacs distribution) replaces your `.emacs.d` with curated defaults, a preset package set, and its own layer/module system. You adopt one to be productive in an afternoon instead of a month, then gradually strip it back toward vanilla as you learn what you actually want.
+
+> [!warning] Read this before adopting one
+> **§1–§11 of this cheatsheet document vanilla Emacs.** Doom, Spacemacs, Prelude, Purcell, Centaur and MinEmacs all rebind large parts of that surface — `C-x b`, `C-x C-s`, `C-c C-c` in ESS, the whole `M-x` muscle memory. Adopting one invalidates a chunk of this sheet. That is the trade, not a bug: you trade your existing bindings for a coherent, complete, fast setup on day one.
+> The three that *don't* rebind you are **Crafted Emacs**, **minimal-emacs.d**, and (with care) **Purcell** — they extend rather than impose.
+
+### 12.1 The eight at a glance
+
+| Framework | Needs Emacs | License | Mental model | Windows? | Best for |
+|-----------|-------------|---------|--------------|----------|----------|
+| [Doom Emacs](https://github.com/doomemacs/doomemacs) | 29.1+ | MIT | ~150 optional modules, pinned packages, own CLI | ✅ native | Power users who want control *and* speed |
+| [Spacemacs](https://www.spacemacs.org) | 28.2+ (+git, tar) | GPLv3 | Mnemonic `SPC` prefixes, layer system | ✅ native | Vim refugees; biggest community + docs |
+| [Prelude](https://prelude.emacsredux.com) | 29.1+ | GPLv3 | Vanilla-first, opt-in modules | ✅ native | Want modern defaults without a framework's opinions |
+| [Purcell Emacs](https://github.com/purcell/emacs.d) | 28.1+ | BSD-2 | Since 2000; a bundle, not a distribution | ✅ native | Pragmatic, doesn't impose keybindings |
+| [Centaur Emacs](https://github.com/seagle0128/.emacs.d) | 28.1+ | GPLv3 | Ready-to-use, opinionated, lots of extras | ⚠️ Cygwin/MSYS only | Want everything on, don't want to decide |
+| [MinEmacs](https://github.com/abougouffa/minemacs) | not specified | MIT | Batteries-included, deferred loading, modules | not stated | Fast daily driver, batteries but no opinion |
+| [minimal-emacs.d](https://github.com/jamescherti/minimal-emacs.d) | not specified | GPLv3 | Tiny `early-init.el` + `init.el` scaffold | ❌ Linux/macOS | Building your own config from scratch |
+| [Crafted Emacs](https://github.com/SystemCrafters/crafted-emacs) | not specified | MIT | Plain Elisp modules, no layer system | ✅ | Learning Emacs *and* wanting it to work now |
+
+### 12.2 Notes on each
+
+**[Doom Emacs](https://github.com/doomemacs/doomemacs)** — the most engineered option. Packages are *pinned* to exact commits, so `doom upgrade` is reproducible rather than a roulette spin. Ships `doom doctor` (diagnoses a broken install), treats lazy-loading as a first-class concern, and offers ~150 modules you enable declaratively in `init.el`. Evil-mode vim emulation is a flag, not a requirement — you can use leader keys instead. The only entry here with real CLI tooling wrapped around the config. Requires Emacs 29.1+.
+
+**[Spacemacs](https://www.spacemacs.org)** — the famous one, and the largest community by a wide margin. Every command hangs off a mnemonic prefix: `SPC b` for buffers, `SPC f` for files, `SPC p` for projects. It runs either vanilla Emacs keys or Vim modal editing and lets you switch. The `layers` system is enormous and is both its strength (whatever you need probably exists) and its cost (configuration sprawl). GPLv3.
+
+**[Prelude](https://github.com/prelude/prelude)** — deliberately stays near vanilla. Most functionality is opt-in modules; the parts it turns on are things Emacs 29 now does natively well (tree-sitter, Eglot, use-package). Notably it can be tested *without* touching your real config via `emacs --init-dir`. A good middle path: modern capabilities, no opinionated leader key.
+
+**[Purcell Emacs](https://github.com/purcell/emacs.d)** — refined continuously since 2000, which shows: Corfu/Corafy completion, Vertico, Flymake + Flycheck, Eglot, Magit, Projectile, Org, plus strong Haskell/Elm/PureScript/OCaml and Common Lisp (Sly) support. Keeps `init-local` files so customisation never requires editing upstream files. BSD-2, and it does **not** rebind your keys.
+
+**[Centaur Emacs](https://github.com/seagle0128/.emacs.d)** — the maximalist entry: Pomodoro timer, MPD music control, Docker, Chinese calendar/dictionary/Pinyin. Own update commands (`M-x centaur-update`). Note for this machine: **Windows support is via Cygwin/MSYS only**, which is a real friction point on a native Windows Emacs.
+
+**[MinEmacs](https://github.com/abougouffa/minemacs)** — batteries-included with deferred loading, organised into modules that load on demand when you open a matching file. Customisation lives in `modules.el` / `config.el` in a separate user config directory, plus machine-local files and env vars. MIT.
+
+**[minimal-emacs.d](https://github.com/jamescherti/minimal-emacs.d)** — the opposite end: a fast, quiet *scaffold*. Provides `early-init.el` and `init.el` with hook points (`pre-early-init.el`, `post-early-init.el`, `pre-init.el`, `post-init.el`), disables the startup screen/menu/tool/scroll-bars, and otherwise forces nothing. **Linux and macOS only** — not a Windows option.
+
+**[Crafted Emacs](https://github.com/SystemCrafters/crafted-emacs)** — modular but deliberately *not* a framework: plain Elisp, no layer model or custom DSL, preferring built-in Emacs functionality. Optional modules for completion, IDE features, Org, UI, workspaces, writing, Lisp dev, startup, modal editing. Ships examples and docs so you learn while you use it, and integrates with Guix.
+
+### 12.3 Picking one
+
+| Answer honestly… | Then use |
+|------------------|----------|
+| Do I want to learn Emacs *and* have it work today? | **Crafted Emacs** |
+| Will I be on native Windows? | **Doom**, **Spacemacs**, **Prelude**, or **Purcell** — skip Centaur (Cygwin/MSYS) and minimal-emacs.d (Unix-only) |
+| Am I a Vim user? | **Spacemacs** (switchable) or **Doom** (evil-mode flag) |
+| Do I want reproducibility and a doctor command? | **Doom** |
+| Do I refuse to relearn keybindings? | **Crafted**, **minimal-emacs.d**, or **Purcell** |
+| Do I just want it fast, batteries, no decisions? | **MinEmacs** or **Centaur** |
+| Am I starting from a clean slate and want to learn the craft? | **minimal-emacs.d**, then build up |
+
+For **this machine specifically** (Windows, no Emacs installed yet): install Emacs 29.1+ first, then start with **Doom** or **Spacemacs** if you want a complete setup immediately, or **Crafted Emacs** if the point is to understand what you're running. Note that on native Windows both Magit and `consult-ripgrep` want a POSIX-ish environment — ripgrep on Windows wants its `rg.exe` on `PATH`, and file paths in shell commands need care.
+
+### 12.4 Installing — and how to escape
+
+Every one of these replaces `~/.emacs.d`, which means the escape hatch is the same for all of them: **move the directory aside and you are back to vanilla Emacs instantly.**
+
+```bash
+# The universal undo — works for every framework in the table
+mv ~/.emacs.d ~/.emacs.d.bak      # Windows PowerShell: Rename-Item $env:USERPROFILE\.emacs.d .emacs.d.bak
+emacs -Q                          # confirm you can start clean before blaming the config
+
+# Typical clone-and-go (substitute the repo for the one you want)
+git clone https://github.com/doomemacs/doomemacs     ~/.emacs.d   # Doom
+git clone https://github.com/syl20bn/spacemacs        ~/.emacs.d   # Spacemacs
+git clone https://github.com/purcell/emacs.d          ~/.emacs.d   # Purcell
+git clone https://github.com/jamescherti/minimal-emacs.d ~/.emacs.d  # minimal-emacs.d
+
+# Doom additionally ships its own tooling
+~/.emacs.d/bin/doom install
+~/.emacs.d/bin/doom upgrade        # pinned commits -> reproducible
+~/.emacs.d/bin/doom doctor         # diagnose a broken install
+```
+
+Commit your existing `.emacs.d` to git *before* adopting any of these. That turns "I lost my config" from a disaster into `git checkout .emacs.d`.
+
+> [!tip] Don't start here
+> §1–§11 of this sheet are a perfectly good vanilla setup, and most of the packages named in §10 (Vertico, Corfu, Eglot, Flymake, Consult, Projectile, Magit) are exactly what these frameworks install for you. Adopting a framework is the *fast* path; learning your own config is the *portable* one. You can do the second one whenever you want — and the framework you leave will make you faster at it.
