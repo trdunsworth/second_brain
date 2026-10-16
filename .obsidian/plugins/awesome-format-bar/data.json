@@ -3,12 +3,14 @@
   "desktop": {
     "top": true,
     "following": false,
-    "fixed": false
+    "fixed": false,
+    "editorMenu": true
   },
   "mobile": {
     "top": false,
     "following": false,
-    "fixed": true
+    "fixed": true,
+    "editorMenu": true
   },
   "enableOnMobile": false,
   "tableKeyNavigation": true,
@@ -16,7 +18,8 @@
   "sortTableOnHeaderClick": true,
   "showWhitespace": false,
   "charUsage": {
-    "😛": 1
+    "😛": 1,
+    "🤨": 1
   },
   "pinned": []
 }

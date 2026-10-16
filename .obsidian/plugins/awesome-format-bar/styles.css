@@ -7,6 +7,7 @@
   /* Design Tokens: Sizing, Hit Targets & Dimensions */
   --formatbar-hit: 26px;
   --formatbar-swatch: 20px;
+  --formatbar-grid-cell: 20px;
   --formatbar-icon-size: var(--icon-size);
   --formatbar-separator-size: 18px;
   --formatbar-control-h: 26px;
@@ -69,6 +70,12 @@
     position: relative;
   }
 
+  /* A mode that is on until the user ends it: the Format Painter's brush. */
+  & .format-button.is-active {
+    background: var(--background-modifier-active-hover);
+    color: var(--text-accent);
+  }
+
   & .svg-icon {
     block-size: var(--formatbar-icon-size);
     inline-size: var(--formatbar-icon-size);
@@ -101,6 +108,14 @@
     & .tab {
       border-radius: var(--radius-s) var(--radius-s) 0 0;
       padding: var(--size-2-1) var(--size-4-2);
+    }
+    & .ribbon-collapse {
+      block-size: var(--formatbar-hit);
+      inline-size: var(--formatbar-hit);
+      margin-inline-start: auto;
+      & .svg-icon {
+        transition: transform 100ms ease;
+      }
     }
     & .tab-panel {
       background: var(--background-primary);
@@ -236,6 +251,58 @@
         outline: 2px solid var(--background-modifier-border-focus);
       }
     }
+    /* Shared with the Emoji & Symbols panel; sticky over a list of hundreds. */
+    & .menu-search-wrapper {
+      align-items: center;
+      background: var(--background-modifier-form-field);
+      border: var(--formatbar-border);
+      border-radius: var(--radius-s);
+      block-size: var(--formatbar-search-h);
+      display: flex;
+      flex: 0 0 auto;
+      inset-block-start: 0;
+      padding: 0 var(--size-2-2);
+      position: sticky;
+      z-index: 1;
+    }
+    & .menu-search-icon {
+      color: var(--text-faint);
+      display: inline-flex;
+      margin-inline-end: var(--size-2-1);
+    }
+    & .menu-search-input {
+      background: transparent;
+      border: none;
+      color: var(--text-normal);
+      flex: 1 1 auto;
+      font-size: var(--font-ui-small);
+      padding: var(--size-2-1) 0;
+    }
+    & .menu-item.is-unavailable {
+      color: var(--text-faint);
+    }
+    & .table-grid-size {
+      color: var(--text-normal);
+      padding: var(--size-2-1) var(--size-2-2);
+    }
+    & .table-grid {
+      display: grid;
+      gap: 2px;
+      grid-template-columns: repeat(var(--formatbar-grid-columns, 10), 1fr);
+      padding: var(--size-2-1) var(--size-2-2) var(--size-2-2);
+    }
+    & .table-grid-cell {
+      background: var(--background-primary);
+      block-size: var(--formatbar-grid-cell);
+      border: var(--formatbar-border);
+      border-radius: 0;
+      inline-size: var(--formatbar-grid-cell);
+      padding: 0;
+    }
+    & .table-grid-cell.is-picked {
+      background: var(--interactive-accent);
+      border-color: var(--interactive-accent-hover);
+    }
   }
 
   /* ------------------------- Emoji & Symbols Panel -------------------------- */
@@ -251,29 +318,6 @@
     overflow: hidden;
     padding: var(--size-4-2);
 
-    & .char-search-wrapper {
-      align-items: center;
-      background: var(--background-modifier-form-field);
-      border: var(--formatbar-border);
-      border-radius: var(--radius-s);
-      block-size: var(--formatbar-search-h);
-      display: flex;
-      flex: 0 0 auto;
-      padding: 0 var(--size-2-2);
-    }
-    & .char-search-icon {
-      color: var(--text-faint);
-      display: inline-flex;
-      margin-inline-end: var(--size-2-1);
-    }
-    & .char-search-input {
-      background: transparent;
-      border: none;
-      color: var(--text-normal);
-      flex: 1 1 auto;
-      font-size: var(--font-ui-small);
-      padding: var(--size-2-1) 0;
-    }
     & .char-source-tabs {
       background: var(--background-modifier-form-field);
       border-radius: var(--radius-s);
@@ -501,6 +545,20 @@
         background: var(--interactive-hover);
       }
     }
+  }
+}
+
+/* ----------------------------- Collapsed Ribbon --------------------------- */
+/* The state is memory-only, so it rides on <body> instead of a setting. */
+body.awesome-format-bar-ribbon-collapsed {
+  & .awesome-format-bar--ribbon .tab-panel {
+    display: none;
+  }
+  & .awesome-format-bar--ribbon .tab-row {
+    padding-block-end: var(--size-2-2);
+  }
+  & .awesome-format-bar--ribbon .ribbon-collapse .svg-icon {
+    transform: rotate(180deg);
   }
 }
 
@@ -766,11 +824,24 @@
       );
       background-position: center;
     }
+    /* A zero-width character has been replaced by this, so it needs a body. */
+    & .cm-highlightInvisible {
+      background-color: var(--text-warning);
+      border-radius: 2px;
+      display: inline-block;
+      width: 0.35em;
+      height: 1em;
+      vertical-align: text-bottom;
+    }
   }
 
   &.is-live-preview
     :is(.cm-highlightSpace, .cm-highlightTab, .cm-highlightOddSpace) {
     background-image: none;
+  }
+  /* Replacements would race Live Preview's own, so they are Source-only too. */
+  &.is-live-preview .cm-highlightInvisible {
+    display: none;
   }
 }
 
@@ -784,6 +855,13 @@
 .awesome-format-bar-typewriter .cm-line.awesome-format-bar-current-line {
   opacity: 1;
   background-color: var(--background-modifier-active-hover);
+}
+
+/* ---------------------------- Format Painter ----------------------------- */
+/* Word turns the pointer into a brush while the painter is armed. No
+   `!important`: the body class carries it on specificity alone. */
+.awesome-format-bar-painter .cm-editor .cm-content {
+  cursor: crosshair;
 }
 
 /* ------------------------------- Zen Mode ------------------------------- */
