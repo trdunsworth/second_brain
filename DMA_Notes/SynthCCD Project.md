@@ -82,20 +82,23 @@ Build a TUI-first synthetic data generator that emulates 9-1-1 CAD (Computer-Aid
 
 ## Resources
 
-- [[synth911gen3/README.md]] — Project overview, quick start, CLI reference
-- [[synth911gen3/AGENTS.md]] — Agent instructions, goals, tech stack, permissions
-- [[synth911gen3/TODO.md]] — Full backlog with priorities (P0/P1/P2)
-- [[synth911gen3/CHANGELOG.md]] — Release history (v0.1.0 → v0.9.5)
-- [[synth911gen3/REVIEW.md]] — Code audit: 28 findings (6 security, 10 efficiency, 12 quality)
-- [[synth911gen3/USERSGUIDE.md]] — CLI flags, TUI fields, params files, output schema, Python API, FAQ
-- [[synth911gen3/REALISMGUIDE.md]] — YAML realism config, validation rules, default distributions
-- [[synth911gen3/CONTRIBUTING.md]] — Dev setup, code style, testing gates, PR process
-- [[synth911gen3/pyproject.toml]] — Dependencies, entry points, coverage config
-- [[synth911gen3/Dockerfile]] — Multi-stage Docker build
-- [[synth911gen3/docker-compose.yml]] — API server + generation job profiles
-- [[synth911gen3/config/]] — Example params (JSON/YAML/TOML) and realism configs
-- [[synth911gen3/docs/adr/]] — 10 architecture decision records
-- [[synth911gen3/future_work/]] — NENA/NFPA standards PDFs, compliance analysis scripts
+> The code lives in a sibling repository, `../../synth911gen3/` — outside this vault, so these
+> are standard markdown relative paths rather than `[[wikilinks]]`, which could never resolve.
+
+- [synth911gen3/README.md](../../synth911gen3/README.md) — Project overview, quick start, CLI reference
+- [synth911gen3/AGENTS.md](../../synth911gen3/AGENTS.md) — Agent instructions, goals, tech stack, permissions
+- [synth911gen3/TODO.md](../../synth911gen3/TODO.md) — Full backlog with priorities (P0/P1/P2)
+- [synth911gen3/CHANGELOG.md](../../synth911gen3/CHANGELOG.md) — Release history (v0.1.0 → v0.9.5)
+- [synth911gen3/REVIEW.md](../../synth911gen3/REVIEW.md) — Code audit: 28 findings (6 security, 10 efficiency, 12 quality)
+- [synth911gen3/USERSGUIDE.md](../../synth911gen3/USERSGUIDE.md) — CLI flags, TUI fields, params files, output schema, Python API, FAQ
+- [synth911gen3/REALISMGUIDE.md](../../synth911gen3/REALISMGUIDE.md) — YAML realism config, validation rules, default distributions
+- [synth911gen3/CONTRIBUTING.md](../../synth911gen3/CONTRIBUTING.md) — Dev setup, code style, testing gates, PR process
+- [synth911gen3/pyproject.toml](../../synth911gen3/pyproject.toml) — Dependencies, entry points, coverage config
+- [synth911gen3/Dockerfile](../../synth911gen3/Dockerfile) — Multi-stage Docker build
+- [synth911gen3/docker-compose.yml](../../synth911gen3/docker-compose.yml) — API server + generation job profiles
+- `synth911gen3/config/` — Example params (JSON/YAML/TOML) and realism configs
+- `synth911gen3/docs/adr/` — 10 architecture decision records
+- `synth911gen3/future_work/` — NENA/NFPA standards PDFs, compliance analysis scripts
 - GitHub: https://github.com/trdunsworth/synth911gen3
 - Previous version: https://github.com/trdunsworth/synth911gen2
 

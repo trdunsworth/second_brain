@@ -262,6 +262,7 @@
   },
   "active": "7795f285bbb0e1c3",
   "lastOpenFiles": [
+    "Link Audit.md",
     "Synthetic_Data/README.md",
     "Synthetic_Data/2609.37989v1.pdf",
     "Synthetic_Data/2609.37959v1.pdf",
@@ -289,7 +290,6 @@
     "Time Series/Feature Importance and Explainability.md",
     "Time Series/Time Series EDA and Data Quality.md",
     "Time Series/resources.md",
-    "Time Series/Forecasting MLOps.md",
     "Staffing/_pdf.txt",
     "Linux",
     "Research/20251008_9-1-1-Emergency-Response-Times-Audit.pdf",

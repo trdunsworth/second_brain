@@ -48,6 +48,14 @@ second_brain/
 > and `terminal_stuff/`. A folder README states that folder's **scope** — read one before
 > filing a new note into an unfamiliar folder.
 
+> ### Linking rules
+>
+> 1. A `[[wikilink]]` may only target a note **inside this vault**. Anything else — sibling git
+>    repositories, external files, URLs — uses a markdown link (`[text](../../repo/file.md)`) or
+>    a code span.
+> 2. After a bulk folder move or rename, re-run the link audit. Moves break links silently;
+>    writing does not. Method and current findings: [[Link Audit]].
+
 ---
 
 ## Templates

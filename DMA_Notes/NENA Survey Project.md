@@ -89,22 +89,22 @@ Build a web-based survey platform for NENA to collect standardized data from PSA
 
 ## Resources
 
-- [[survey_site_dev/README.md]] — Runtime architecture, ELT workflow, env vars, API endpoints
-- [[survey_site_dev/README_DATABASE.md]] — Two-store pattern (local DuckDB + MotherDuck), retention lifecycle
-- [[survey_site_dev/TODO.md]] — Full task list with priorities and save-feature workflow
-- [[survey_site_dev/TESTING.md]] — Vitest setup, test workflows, coverage, PR checklists
-- [[survey_site_dev/deploy.txt]] — Production deployment guide and runbook
-- [[survey_site_dev/DEPLOYMENT.md]] — Detailed deployment instructions (static + full stack modes)
-- [[survey_site_dev/NENA Survey.md]] — Full survey instrument (97 questions across 12 sections)
-- [[survey_site_dev/todo_suggestions.txt]] — Working-group feedback and suggested rewordings
-- [[survey_site_dev/package.json]] — Dependencies (React, Express, DuckDB, RxJS)
-- [[survey_site_dev/server/]] — Backend (Express + TypeScript): API routes, validation, analytics, retention
-- [[survey_site_dev/server/duckdb.ts]] — Local DuckDB adapter for transactional storage
-- [[survey_site_dev/server/pg.ts]] — PostgreSQL adapter (available as alternative)
-- [[survey_site_dev/server/analytics.ts]] — DuckDB/MotherDuck ELT pipeline
-- [[survey_site_dev/src/]] — Frontend (React + Vite): survey UI, components, services, hooks
-- [[survey_site_dev/RXJS_INTEGRATION.md]] — RxJS integration notes
-- [[survey_site_dev/TYPESCRIPT_MIGRATION.md]] — TypeScript migration notes
+- [survey_site_dev/README.md](../../survey_site_dev/README.md) — Runtime architecture, ELT workflow, env vars, API endpoints
+- [survey_site_dev/README_DATABASE.md](../../survey_site_dev/README_DATABASE.md) — Two-store pattern (local DuckDB + MotherDuck), retention lifecycle
+- [survey_site_dev/TODO.md](../../survey_site_dev/TODO.md) — Full task list with priorities and save-feature workflow
+- [survey_site_dev/TESTING.md](../../survey_site_dev/TESTING.md) — Vitest setup, test workflows, coverage, PR checklists
+- [survey_site_dev/deploy.txt](../../survey_site_dev/deploy.txt) — Production deployment guide and runbook
+- [survey_site_dev/DEPLOYMENT.md](../../survey_site_dev/DEPLOYMENT.md) — Detailed deployment instructions (static + full stack modes)
+- [survey_site_dev/NENA Survey.md](../../survey_site_dev/NENA Survey.md) — Full survey instrument (97 questions across 12 sections)
+- [survey_site_dev/todo_suggestions.txt](../../survey_site_dev/todo_suggestions.txt) — Working-group feedback and suggested rewordings
+- [survey_site_dev/package.json](../../survey_site_dev/package.json) — Dependencies (React, Express, DuckDB, RxJS)
+- `survey_site_dev/server/` — Backend (Express + TypeScript): API routes, validation, analytics, retention
+- [survey_site_dev/server/duckdb.ts](../../survey_site_dev/server/duckdb.ts) — Local DuckDB adapter for transactional storage
+- [survey_site_dev/server/pg.ts](../../survey_site_dev/server/pg.ts) — PostgreSQL adapter (available as alternative)
+- [survey_site_dev/server/analytics.ts](../../survey_site_dev/server/analytics.ts) — DuckDB/MotherDuck ELT pipeline
+- `survey_site_dev/src/` — Frontend (React + Vite): survey UI, components, services, hooks
+- [survey_site_dev/RXJS_INTEGRATION.md](../../survey_site_dev/RXJS_INTEGRATION.md) — RxJS integration notes
+- [survey_site_dev/TYPESCRIPT_MIGRATION.md](../../survey_site_dev/TYPESCRIPT_MIGRATION.md) — TypeScript migration notes
 - License: MIT
 
 ## Log
