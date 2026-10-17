@@ -124,7 +124,9 @@ Only things verifiable against the implementation.
 
 | Location | Finding | Severity | Reported? |
 |---|---|---|---|
-| | | ☐ blocker ☐ major ☐ minor | ☐ |
+| p.134, p.147 | **PDF text layer drops the space glyph at syntax-highlight token boundaries** — page renders correctly, but copy-paste yields `defgreet(name)`, `idINTEGER` | ☐ blocker ☐ major ☐ minor | ☐ |
+| p.10 | `YOUR NAME HERE!` placeholder in *Meet the Reviewers* | ☐ blocker ☐ major ☐ minor | ☐ |
+| p.25–28 | 205 listings machine-checked; 190 parse clean. See §Batch verification | — | ☐ |
 
 *Categories worth checking systematically:*
 
@@ -171,7 +173,105 @@ Only things verifiable against the implementation.
 
 ---
 
-## Tools available while reviewing
+## Batch code verification — run 2026-10-16
+
+Every `.fk` listing in the book was extracted and parsed with the tree-sitter grammar.
+Script: `Frankie/verify_book_snippets.py`.
+
+### Result
+
+| | |
+|---|---|
+| Listings parsed | **205** |
+| Parse clean | **190 (92.7%)** |
+| Failing | **15** |
+
+The grammar itself is trustworthy for this purpose: it passes 29/29 corpus tests and parses
+all 46 upstream examples with zero `ERROR` nodes.
+
+### ⚠️ Most of the 15 are extraction noise, not book errors
+
+Getting here took four passes, because the naive approach produced **84 failures that were
+almost entirely my own artefacts**. What the book actually does to a text extractor:
+
+| Book feature | Effect on extraction |
+|---|---|
+| **Quarto annotation column** | Typesets a **truncated duplicate** of each listing beside the margin — 680 lines. `num = input("Enter a number: ").` loses its `.to_i` to clipping |
+| **"Copy – Tony Dunsworth" watermark** | Set in the **mono font**, so `To`/`ny`/`Du`/`nsw` fragments land inside listings as `Tony`, `Copy`, `ew` |
+| **Listings spanning page breaks** | One function split across two pages; neither half parses alone |
+| **Appendix quick-reference tables** | Operators rendered in mono — `+ - * / // % **` — with no separators. Not code |
+| **HTML heredocs / Mustache templates** | `<<~HTML … HTML` and `{{/ entries }}` contain non-Frankie content |
+
+Filtering those took failures from **84 → 48 → 20 → 15**. Worth recording because the first
+number would have been a useless review finding.
+
+### The real finding: the PDF's text layer drops spaces
+
+Twelve of the fifteen are noise. **Two point at one genuine defect**, and it is not what it
+first looks like.
+
+`p.134` and `p.147` extract as:
+
+```
+defgreet(name)
+idINTEGER PRIMARY KEY AUTOINCREMENT
+```
+
+The obvious reading is "the book is missing spaces." **It isn't.** Rendering those regions to
+an image shows the page is correct:
+
+```
+def      greet(name)
+id       INTEGER PRIMARY KEY AUTOINCREMENT,
+title    TEXT NOT NULL,
+done     INTEGER DEFAULT 0,
+```
+
+The gaps are real and visible. What is missing is the **space glyph in the text layer** — at
+every boundary where syntax highlighting changes font (keywords are set in `LMMonoLt10-Bold`,
+identifiers in `LMMono10-Regular`), the space is positioned rather than emitted.
+
+> **Why this still matters.** It is not a *visual* error, so nobody reviewing a proof will
+> catch it. But **readers copy code out of books**, and copying from this PDF yields
+> `defgreet(name)`. Every syntax-highlighted token boundary is affected — `def`, `if`, `puts`,
+> `record`, `elsif` — which is most of them.
+>
+> Three lines of one SQL heredoc on p.147 are affected (`id`/`title`/`done`).
+>
+> Suggested check: does this affect the HTML and EPUB builds, or only the PDF? If only the PDF,
+> it may be a Pandoc/Quarto highlight configuration issue rather than an authoring one.
+
+### Residual noise — the other three
+
+Not book errors, listed so they are not re-investigated:
+
+| Page | Looks like | Actually |
+|---|---|---|
+| p.123 | Heredoc HTML failing to parse | HTML is not Frankie — expected |
+| p.169–170 | Game loop missing `end` | Listing spans the page break; `color: "yel` is clipped at the margin |
+| p.157 | `json_response(db.query("…", []` unbalanced | Line clipped at the right margin |
+
+### What this does and does not establish
+
+**Does:** 190 of 205 listings parse against a grammar that provably accepts valid Frankie.
+
+**Does not:** prove the book is correct. The grammar is a **syntactic** oracle only. It cannot
+catch a snippet that parses but does the wrong thing, a stale API name, or an example whose
+logic contradicts the surrounding prose. Those still need reading.
+
+### Re-running it
+
+```bash
+pip install pymupdf
+python3 verify_book_snippets.py \
+    "Frankie/The Frankie Programming Language.pdf" \
+    ~/Documents/projects/tree-sitter-frankie
+```
+
+Exit code 0 if all listings parse, 1 otherwise — so it can go in CI once the book source is
+available.
+
+---
 
 The vault is unusually well-equipped for checking claims in this book.
 

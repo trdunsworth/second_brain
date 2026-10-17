@@ -12,3 +12,5 @@
 
 # Local scratch
 .DS_Store
+# Scratch output from Frankie/verify_book_snippets.py
+/Frankie/verify-snippets/
