@@ -1,0 +1,14 @@
+# Unpublished manuscripts under review — do not commit.
+#
+# "The Frankie Programming Language" (205 pp, Blag/Alvaro Tejada Galindo) is a
+# pre-publication review copy, watermarked "To Tony Dunsworth". The author has
+# stated the book is not yet released and is holding publication pending reviewer
+# input. This repository is PUBLIC, so committing it would publish an
+# unpublished third-party manuscript irreversibly.
+#
+# The file stays on disk and is reachable from the Frankie/ folder in Obsidian.
+# If the author later releases it, remove this entry and commit normally.
+/Frankie/*.pdf
+
+# Local scratch
+.DS_Store

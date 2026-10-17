@@ -36,6 +36,7 @@ second_brain/
 ├── references/           → Wisdom sources & philosophical research
 │   └── Wisdom Sources MOC.md → Map of Content for wisdom traditions
 ├── SynthCCD/             → Synthetic CAD data generator project
+├── Frankie/              → Frankie programming language, its book, and the .fk tree-sitter grammar
 ├── attitude_adjustment/  → Personal development project (git submodule; contains Kairos agent)
 ├── Reporting Engine/     → Reporting engine development notes
 ├── Cheatsheets/          → R/Python reference materials
@@ -44,9 +45,9 @@ second_brain/
 ```
 
 > **Folders with their own `README.md` index:** `Staffing/`, `SynthCCD/`, `Synthetic_Data/`,
-> `Reporting Engine/`, `attitude_adjustment/`, plus the code-adjacent `Rust/`, `Linux/`, `Lisp/`
-> and `terminal_stuff/`. A folder README states that folder's **scope** — read one before
-> filing a new note into an unfamiliar folder.
+> `Frankie/`, `Reporting Engine/`, `attitude_adjustment/`, plus the code-adjacent `Rust/`,
+> `Linux/`, `Lisp` and `terminal_stuff/`. A folder README states that folder's **scope** — read
+> one before filing a new note into an unfamiliar folder.
 
 > ### Linking rules
 >
