@@ -126,8 +126,8 @@ Read first. Background in [[Generative and Probabilistic Forecasting]].
 - [Flow Matching for Generative Modeling](https://arxiv.org/abs/2210.02747)
 - [NGBoost: Natural Gradient Boosting for Probabilistic Prediction](https://arxiv.org/abs/2002.09495)
 - [Conformalized Quantile Regression](https://arxiv.org/abs/1905.03222)
-- [Adaptive Conformal Inference under Distribution Shift](https://arxiv.org/abs/1906.00130)
-- [Conformal Prediction for Time Series (EnbPI)](https://arxiv.org/abs/2202.02631)
+- [Adaptive Conformal Inference under Distribution Shift](https://arxiv.org/abs/2106.00170)
+- [Conformal prediction interval for dynamic time-series (EnbPI)](https://proceedings.mlr.press/v139/xu21h.html)
 
 ## 2026-10-14 — Agentic and LLM Forecasting
 

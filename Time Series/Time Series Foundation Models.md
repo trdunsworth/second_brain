@@ -97,6 +97,7 @@ know which axis a model sits on, you can predict most of its properties.
 | **Chronos-2** 🔗 [2510.15821](https://arxiv.org/abs/2510.15821) · [HF](https://huggingface.co/amazon/chronos-2) | 120M | T5-style encoder | 8192 / 1024 | The current reference point. Univariate + multivariate + **past-only and future-known covariates** in one architecture, via group attention. >300 forecasts/sec on one A10G. SOTA on fev-bench, GIFT-Eval, Chronos Benchmark II |
 | **TiRex** 🔗 [2505.23719](https://arxiv.org/abs/2505.23719) · [HF](https://huggingface.co/NX-AI/TiRex) | 35M | xLSTM | — | Best aggregate CRPS on GIFT-Eval (0.411) among non-leaking zero-shot models. Tiny, CPU-friendly |
 | **TiRex-2** 🔗 [2607.01204](https://arxiv.org/abs/2607.01204) | 38.4M univariate (+44.1M multivariate) | xLSTM | streaming | Multivariate + covariates + **streaming** inference as new data arrives |
+| **Timestral** 🔗 [GH](https://github.com/mistralai/timestral) · [HF](https://huggingface.co/collections/mistralai/timestral) · [blog](https://mistral.ai/news/timestral) | 5M / 28M / 123M / 209M | Causal patch transformer + **Decoupled Horizon Forecasting (DHF)** | 32,768 / block-decoded | **Mistral AI.** Claims **#1 on all three** public benchmarks at launch — GIFT-Eval, TIME (98 tasks), fev-bench (100 tasks); all four sizes on the accuracy/size Pareto front. **Native 21 quantiles**, past + known-future + **categorical** covariates, CPU inference. See §2.1 |
 | **Chronos-Bolt** 🔗 [2403.07815](https://arxiv.org/abs/2403.07815) | 9M–710M | T5 | 2048 / 64 | Older, fast, univariate. Superseded by Chronos-2 for most purposes |
 | **Moirai 2.0** 🔗 [2511.11698](https://arxiv.org/abs/2511.11698) · [HF](https://huggingface.co/Salesforce/moirai-2.0-R-small) | 11M (Small) | Decoder-only | — | 30× smaller and 2× faster than Moirai-1.0-Large, and better. Performance **plateaus with parameter count** and declines at long horizons |
 | **TimesFM** 🔗 [2310.10688](https://arxiv.org/abs/2310.10688) · [GH](https://github.com/google-research/timesfm) | 200M+ | Decoder-only | up to 16k (v2.5) | v3.0 adds native multivariate and covariate support |
@@ -110,6 +111,7 @@ know which axis a model sits on, you can predict most of its properties.
 | **TinyTimeMixers (TTM)** 🔗 IBM | 1M-ish | MLP mixer | — | Edge deployment. Strong per-parameter efficiency |
 | **FlowState** 🔗 [arXiv:2508.05287](https://arxiv.org/abs/2508.05287) | — | Diffusion / flow | — | **Sampling-rate invariant** forecasting — trained across frequencies rather than per-frequency |
 | **TabPFN (v2 for time series)** 🔗 [arXiv:2501.02945](https://arxiv.org/abs/2501.02945) | — | TabPFN backbone | — | A *tabular* foundation model repurposed for forecasting. Unexpectedly strong; one of the models TiRex had to beat |
+| **TabFM** 🔗 [arXiv:2609.37959](https://arxiv.org/abs/2609.37959) | 400M | Tabular FM, in-context learning | — | Google Research. **No time-series variant exists yet** — listed because it is the strongest current claim that *synthetic-only* pretraining transfers, which is the mechanism every TSFM above relies on. Trained purely on synthetic tables from structural causal models; #1 among tabular FMs on TabArena (51 datasets) |
 | **Timer** 🔗 [arXiv:2402.02368](https://arxiv.org/abs/2402.02368) · **Timer-XL** 🔗 [arXiv:2410.04803](https://arxiv.org/abs/2410.04803) | — | Decoder-only | long context | THUML; large expert counts. Weak on recent benchmarks |
 | **Time-MoE** 🔗 [arXiv:2409.16040](https://arxiv.org/abs/2409.16040) | — | Decoder-only + MoE | — | Billion-scale MoE. Superseded in practice by smaller models |
 
@@ -118,6 +120,59 @@ know which axis a model sits on, you can predict most of its properties.
 **TimeGPT** 🔗 [arXiv:2310.03589](https://arxiv.org/abs/2310.03589) — Nixtla, API-first.
 Forecast and anomaly detection from a few lines. Supports intervals, exogenous variables and
 fine-tuning. See [[Nixtlaverse]] for the full ecosystem.
+
+### 2.1 Timestral (Mistral AI) — worth its own treatment
+
+**No paper.** The repo links a blog post and Hugging Face model cards; there is no arXiv entry
+to check methodology against. That is the first thing to know about a claim of "#1 on three
+benchmarks."
+
+```bash
+pip install git+https://github.com/mistralai/timestral.git   # not on PyPI; Python >=3.10, torch >=2.4
+```
+
+| Property | Value |
+|---|---|
+| Sizes | 5M (21 MB) · 28M (111 MB) · 123M (490 MB) · 209M (837 MB) |
+| Context | up to **32,768 steps** — among the longest published |
+| Probabilistic | **21 quantiles per step**, guaranteed non-crossing |
+| Covariates | past-only, known-future, and **categorical** (target-encoded) |
+| Inference | **CPU-only is fine** — needs just PyTorch, NumPy, `safetensors`, `huggingface_hub` |
+| Licence | **code** Apache-2.0; **weights** Modified MIT (see below) |
+
+**Architecture — DHF.** Causal patch transformer trained with **Decoupled Horizon
+Forecasting**: forecasts come from separate *prediction tokens* reading a causally-encoded
+context. Each variate is a target, a past-only covariate, or a known-future covariate;
+covariates pass information *to* targets but never read them, and only known-future covariates
+see the forecast horizon. Each forecast patch is denormalised with the context statistics and
+the block's earlier predicted medians — that is instance normalisation, and it is the mechanism
+behind [[Distribution Shift and Normalization]].
+
+Horizons beyond one decode block (32 patches = 1,024 steps) are produced block by block, each
+block's median fed back as context.
+
+> ### ⚠️ Split licence — read this before deploying
+>
+> The **code** is Apache-2.0. The **weights are a separate Modified MIT** with a third-party
+> rights clause. This is the first entry in this table where the model artefact and the code
+> are licensed differently, and it is the kind of detail that gets missed until procurement asks.
+
+> ### ⚠️ The "#1 on three benchmarks" claim needs decomposing
+>
+> This is finding 1 applied to a specific claim. Timestral reports #1 on **GIFT-Eval**, **TIME**
+> (98 tasks) and **fev-bench** (100 tasks) among pretrained and zero-shot models.
+>
+> Two different things are being averaged together:
+>
+> - **TIME** is *designed* to be contamination-resistant (🔗 [arXiv:2602.12147](https://arxiv.org/abs/2602.12147)) — it is the most meaningful of the three, and the one to weight.
+> - **GIFT-Eval** and **fev-bench** are public corpora, and Mistral's pre-training corpus is not
+>   disclosed in the README. Per finding 1, **"trained on public data, evaluated on a public
+>   benchmark" is not zero-shot** — TiRex documented leakage rates of 10–19% for its
+>   competitors on exactly this axis.
+>
+> So: a genuinely strong result on TIME, plus two leaderboard positions whose independence from
+> the pre-training corpus cannot be checked from the public material. Not disqualifying —
+> unverifiable, which is different. Worth one run on your own data before it enters a study.
 
 ### Not strictly forecasting
 
@@ -153,6 +208,15 @@ data and found a consistent structure:
 > The model that forecasts best and the model whose intervals are trustworthy can be
 > different models. For staffing work this is the whole question — see
 > [[Model Validation Strategies]] §6.4.
+
+> **Timestral's 21 native quantiles do not settle this.** Emitting many quantiles is a
+> *sharpness* capability; it says nothing about whether the interval is *conditional* — i.e.
+> whether the 90% holds at peaks specifically. The finding above is about calibration *degrading
+> with horizon*, which Timestral's per-patch denormalisation (§2.1) plausibly addresses, but
+> that is a mechanism, not evidence. Timestral's own reporting is CRPS/MASE on public
+> benchmarks; **no peak-stratified coverage evaluation is published**. That gap is the same one
+> [[Conformal Prediction]] §4 describes, and it is the thing to measure if Timestral goes into
+> the 168-point study.
 
 ### ⚠️ 3. The zero-shot advantage shrinks as your data grows
 
@@ -229,6 +293,7 @@ cross-domain generalisation test than most competitors.
 | Can a TSFM be *conditioned* on domain knowledge usefully? | Chronos-2's group attention is the first real answer; underexplored |
 | Conditional coverage | Still unsolved — see [[Model Validation Strategies]] §6.4 |
 | Is the scaling story real? | Contested. Toto 2.0 says yes; Reverso and Moirai 2.0 say parameter count is not the driver |
+| Does purely-synthetic pretraining transfer to *temporal* data? | **Open, and it is the load-bearing assumption.** TabFM 🔗 [arXiv:2609.37959](https://arxiv.org/abs/2609.37959) shows it works for tables — trained only on synthetic SCM tables, #1 among tabular FMs on 51 real datasets. Every TSFM above relies on pretraining corpora nobody fully discloses. The temporal case is untested |
 
 ---
 
@@ -257,15 +322,19 @@ cross-domain generalisation test than most competitors.
 20. Shi, X. et al. (2025). Time-MoE: billion-scale time series foundation models with mixture of experts. 🔗 https://arxiv.org/abs/2409.16040
 21. Wen, Y., Gifford, W.M., Reddy, C., Nguyen, L.M., Kalagnanam, J. & Julius, A.A. (2026). Revisiting the Generic Transformer: Deconstructing a Strong Baseline for Time Series Foundation Models (PatchTST-FM). *IBM Research / RPI*. 🔗 https://arxiv.org/abs/2602.06909
 22. Meyer, L. et al. (2026). $t_0$: A Time-Series Foundation Model for Forecasting with Context. *The Forecasting Company*. 🔗 https://arxiv.org/abs/2609.24559
+23. **Mistral AI (2026). Timestral** — time series foundation models for multivariate probabilistic forecasting. *No paper published; blog post and model cards only.* 🔗 https://github.com/mistralai/timestral · 🔗 https://mistral.ai/news/timestral · 🔗 https://huggingface.co/collections/mistralai/timestral
+24. Kong, W. et al. (2026). TabFM: A Zero-Shot Foundation Model for Tabular Data. *Google Research*. 🔗 https://arxiv.org/abs/2609.37959 — **tabular, not temporal**; pretraining on synthetic SCM tables
+25. Fu, D. et al. (2026). TabFM-Auto: Self-Evolving Pipelines for Tabular Foundation Models. *Google Research / DeepMind / USC / Harvard / UT Austin*. 🔗 https://arxiv.org/abs/2609.37989
 
 **Surveys and evaluation**
-23. Liang, Y. et al. (2024). Foundation Models for Time Series Analysis: A Tutorial and Survey. (listed within 🔗 https://arxiv.org/abs/2411.05793)
-24. Aksu, T. et al. (2024). Gift-Eval. 🔗 https://arxiv.org/abs/2410.10393
-25. Shchur, A. et al. (2025). fev-bench. 🔗 https://arxiv.org/abs/2509.26468
-26. Michael, P., Symeonides, M. & Trihinas, D. (2026). Evaluating Accuracy and Probabilistic Reliability of Zero-Shot TSFMs. *ADBIS 2026*. 🔗 https://arxiv.org/abs/2609.25788
-27. Laglil, M. et al. (2026). Foundation Models and Fine-Tuning: Toward a New Generation. 🔗 https://arxiv.org/abs/2607.23146
-28. Dai, Z., Bader, D. & Gysi, A. (2026). Unified Zero-Shot Time Series Forecasting: A Darts Foundation. 🔗 https://arxiv.org/abs/2606.27438
-29. Garza, A. & Rosillo, R. (2025). TimeCopilot — the most complete public TSFM catalogue. 🔗 https://arxiv.org/abs/2509.00616
+26. Liang, Y. et al. (2024). Foundation Models for Time Series Analysis: A Tutorial and Survey. (listed within 🔗 https://arxiv.org/abs/2411.05793)
+27. Aksu, T. et al. (2024). Gift-Eval. 🔗 https://arxiv.org/abs/2410.10393
+28. Shchur, A. et al. (2025). fev-bench. 🔗 https://arxiv.org/abs/2509.26468
+29. Michael, P., Symeonides, M. & Trihinas, D. (2026). Evaluating Accuracy and Probabilistic Reliability of Zero-Shot TSFMs. *ADBIS 2026*. 🔗 https://arxiv.org/abs/2609.25788
+30. Laglil, M. et al. (2026). Foundation Models and Fine-Tuning: Toward a New Generation. 🔗 https://arxiv.org/abs/2607.23146
+31. Dai, Z., Bader, D. & Gysi, A. (2026). Unified Zero-Shot Time Series Forecasting: A Darts Foundation. 🔗 https://arxiv.org/abs/2606.27438
+32. Garza, A. & Rosillo, R. (2025). TimeCopilot — the most complete public TSFM catalogue. 🔗 https://arxiv.org/abs/2509.00616
+33. Qiao, Z. et al. (2026). It's TIME: Towards the Next Generation of Time Series Forecasting Benchmarks. *ICML 2026*. 🔗 https://arxiv.org/abs/2602.12147
 
 ## Status
 

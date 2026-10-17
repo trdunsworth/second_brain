@@ -53,8 +53,9 @@ Split conformal:
 >    busy Friday-evening series get the same absolute width. For heteroscedastic counts
 >    that is badly wrong in both directions.
 >
-> Points 2 and 3 are what EnbPI, ACI and SPCI exist to fix. See
-> [[Model Validation Strategies]] §6 and §3.7 of [[resources]].
+> Points 2 and 3 are what EnbPI, ACI and SPCI exist to fix. See [[Conformal Prediction]]
+> §3 for the method ladder and what each one actually guarantees, and
+> [[Model Validation Strategies]] §6 for the validation protocol.
 
 ---
 
@@ -159,7 +160,7 @@ fc = nf.predict(df=df_cal)          # gives lo-0.05, NHITS, hi-0.95 columns
 
 ## Step 6 — Adaptive: ACI, for drifting data
 
-Romano, Patterson & Candès (2020), 🔗 [arXiv:1906.00130](https://arxiv.org/abs/1906.00130).
+Gibbs & Candès (2021), 🔗 [arXiv:2106.00170](https://arxiv.org/abs/2106.00170).
 Updates the interval width online as new data arrives — which is what you need when the
 calibration set goes stale.
 
@@ -299,15 +300,16 @@ print(alarm_hours.value_counts().sort_index().to_string())
 
 1. Vovk, V., Gammerman, A. & Shafer, G. (2005). *Algorithmic Learning in a Random World*. 🔗 https://doi.org/10.1007/0-387-25040-6
 2. Romano, Y., Patterson, E. & Candès, E. (2019). Conformalized Quantile Regression. *NeurIPS*. 🔗 https://arxiv.org/abs/1905.03222
-3. Romano, Y., Patterson, E. & Candès, E. (2020). Adaptive Conformal Inference under Distribution Shift. *NeurIPS*. 🔗 https://arxiv.org/abs/1906.00130
-4. Xu, C. & Xie, Y. (2023). Conformal Prediction for Time Series (EnbPI). 🔗 https://arxiv.org/abs/2202.02631
+3. Gibbs, I. & Candès, E. (2021). Adaptive conformal inference under distribution shift. *NeurIPS 2021*. 🔗 https://arxiv.org/abs/2106.00170
+4. Xu, C. & Xie, Y. (2021). Conformal prediction interval for dynamic time-series (EnbPI). *ICML 2021*, PMLR 139, 11559–11569. 🔗 https://proceedings.mlr.press/v139/xu21h.html
 5. Zaffran, M. et al. (2022). Adaptive conformal predictions for time series. 🔗 https://arxiv.org/abs/2202.07282
 6. Galvão Lopes, R. et al. (2024). ConForME. *AISTATS 2024*. 🔗 https://proceedings.mlr.press/v230/galvao-lopes24a.html
-7. MAPIE documentation. 🔗 https://contrib.scikit-learn.org/MAPIE/
+7. MAPIE documentation. 🔗 https://mapie.readthedocs.io/en/stable/
 8. Hyndman, R.J. & Athanasopoulos, G. (2021). FPP3 §5.8. 🔗 https://otexts.com/fpp3/prediction-intervals.html
 
 ## Cross-links
 
+- [[Conformal Prediction]] — the theory note behind this exercise: method ladder, guarantees, impossibility results
 - [[Model Validation Strategies]]
 - [[Generative and Probabilistic Forecasting]]
 - [[Time Series Anomaly Detection]]

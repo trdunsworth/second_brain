@@ -33,6 +33,18 @@
    - Models: ACTGAN (CTGAN superset, better memory/typing), Timeseries DGAN (DoppelGANger/PyTorch)
    - Note: needs `sdv<0.18` + `torch==2.0` for respective paths; free tier limited to small datasets.
 
+5b. **SynForecast (Nixtla, Apache-2.0, ALPHA — added 2026-10-16)**
+   - GitHub: https://github.com/Nixtla/synforecast — Docs: https://nixtlaverse.nixtla.io/synforecast/ — Generator reference: https://github.com/Nixtla/synforecast/blob/main/GENERATORS.md
+   - Install: `pip install synforecast` (prebuilt wheels carry the Rust extension; source build needs a Rust toolchain)
+   - **The one on this list that is purpose-built for *time series*.** Everything above is tabular or generic; this is a parametric DGP library.
+   - 32 generators, five families: statistical (RandomWalk, Seasonal, SARIMA, ETS, **INAR counts**); stochastic (GARCH, OU, GBM, jump diffusion, **Poisson**, Cyclic, **fBm**, **Hawkes**, stochastic volatility, **regime switching**, chaotic, bounded, Lévy); multivariate (Copula, VAR, GP); domain (**IntermittentDemand**, IoTSensor, **EnergyLoad**, StateSpace, ActiveUsers, VitalSigns, Clickstream); pretraining (TSI, TCM, **KernelSynth**, **TSMixup**, MAR).
+   - **Injection is the differentiator for book chapters:** changepoints, anomalies, missingness (MCAR/MAR/MARF), exogenous variables — you get *labelled* ground truth, which no generator on this list gives you.
+   - Augmentation: `SynAugment` (fit-and-simulate, TSMixup, moving-block bootstrap, DTW barycenters); `SynSet` for composition. **Fit on train split only** — fitting on validation/test leaks.
+   - Output is Nixtla long format `[unique_id, ds, y]` via Narwhals (pandas/Polars/cuDF/Modin/PyArrow); seed-deterministic.
+   - **Not an anonymisation or DP tool** — `SynAugment` output deliberately resembles its input. Says so explicitly; worth quoting in a privacy chapter.
+   - Caveats: alpha (APIs and seed-identical outputs may change pre-1.0); Rust dependency; synthetic structure only rewards methods matching the generator's assumptions — the circularity to warn students about.
+   - Vault: [[Nixtlaverse]] §4
+
 6. **Research reference implementations (clone for labs)**
    - TabDiff: https://github.com/MinkaiXu/TabDiff
    - HARMONIC: https://github.com/Wendy619/HARMONIC

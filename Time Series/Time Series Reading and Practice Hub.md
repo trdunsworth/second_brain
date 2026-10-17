@@ -35,6 +35,7 @@ Entry point for the forecasting side of the vault. Created 2026-10-14.
 | [[Generative and Probabilistic Forecasting]] | Quantile / parametric / diffusion / flow matching | New |
 | [[LLM-as-Forecaster and Agentic Forecasting]] | Time-LLM, TimeCopilot, Synapse, TFR-Bench | New |
 | [[Intermittent and Sparse Demand]] | Croston family, Syntetos–Boylan, metric instability | New |
+| [[Conformal Prediction]] | Split → CQR → ACI/AgACI → EnbPI → SPCI; the guarantees ladder; why conditional coverage is impossible | New |
 | [[Time Series Anomaly Detection]] | Classical, deep, MOMENT, benchmark contamination | New |
 | [[Time Series Decomposition]] | Additive/multiplicative, STL, MSTL, Theta, Prophet, decomposition as a base learner | New |
 | [[Gradient Boosting for Time Series]] | Friedman's algorithm, feature-based vs component-based boosting, the three TS failure modes | New |
@@ -93,7 +94,8 @@ Weighted toward hourly counts and univariate series, per the 9-1-1 / PSAP contex
    [[time-series-forecasting-models]] §7.
 4. **Marginal calibration is not conditional calibration.** You can have exactly 90% coverage
    overall and near-zero coverage at peaks — which is the only part that matters for staffing.
-   See [[Model Validation Strategies]] §6.4.
+   See [[Model Validation Strategies]] §6.4 and [[Conformal Prediction]] §4–§5. Reproduced
+   empirically in §8.1 of the latter.
 5. **The LLM orchestration question is genuinely open.** Does an LLM router beat a learned
    router over the same model hub? Nobody has a clean answer, and it is answerable on your
    data. See [[LLM-as-Forecaster and Agentic Forecasting]] §2.

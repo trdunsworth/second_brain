@@ -191,7 +191,7 @@ Marginal coverage:    P( Y ∈ C(X) )        ≥ 1 − α     (averaged over all
 Conditional coverage: P( Y ∈ C(X) | X = x ) ≥ 1 − α   (for every x)
 ```
 
-Conformal prediction delivers **marginal** coverage. It says nothing about *where* in the input space coverage holds.
+Conformal prediction delivers **marginal** coverage. It says nothing about *where* in the input space coverage holds. The method ladder (split → CQR → ACI/AgACI → EnbPI → SPCI), what each actually guarantees, and the impossibility result for exact conditional coverage are in [[Conformal Prediction]].
 
 The failure mode is fully achievable and operationally total:
 
@@ -206,7 +206,7 @@ For 9-1-1 capacity planning this is the whole ball game. A staffing interval tha
 | Split conformal | Marginal only, distribution-free |
 | Normalised split conformal | Marginal, scale-adaptive |
 | **CQR** — Romano, Patterson & Candès (2019) 🔗 https://arxiv.org/abs/1905.03222 | Score-function based; adapts to local difficulty |
-| **ACI** — Romano, Patterson & Candès (2020) 🔗 https://arxiv.org/abs/1906.00130 | Adaptive under distribution shift — the variance-based companion |
+| **ACI** — Gibbs & Candès (2021) 🔗 https://arxiv.org/abs/2106.00170 | Adaptive under distribution shift — the variance-based companion |
 
 Neither CQR nor ACI guarantees conditional coverage. That remains open, and it is exactly the finding this project is positioned to report: **test conditional coverage at peaks directly**, and treat the result as a contribution rather than a failure.
 
@@ -312,7 +312,7 @@ For a comparative forecasting study of the type in [[168-Point Forecast Comparis
 **Probabilistic evaluation**
 14. Botchkarev, A. (2018). Evaluating accuracy of probabilistic forecasting methods. *Int. J. Inform. Decision Sciences* 14(1). 🔗 https://www.ijikm.org/Volume14/IJIKMv14p045-076Botchkarev5064.pdf
 15. Romano, Y., Patterson, E. & Candès, E. (2019). Conformalized quantile regression. *NeurIPS*. 🔗 https://arxiv.org/abs/1905.03222
-16. Romano, Y., Patterson, E. & Candès, E. (2020). Adaptive conformal inference under distribution shift. *NeurIPS*. 🔗 https://arxiv.org/abs/1906.00130
+16. Gibbs, I. & Candès, E. (2021). Adaptive conformal inference under distribution shift. *NeurIPS 2021*. 🔗 https://arxiv.org/abs/2106.00170
 
 ## Status
 

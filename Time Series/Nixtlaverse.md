@@ -1,6 +1,9 @@
 ---
 type: reference
 status: active
+updated: 2026-10-16
+topic: "Nixtla's shared-data-contract ecosystem for Python time series forecasting — the seven components in the 2026 paper, plus the two libraries added since, including conformalforecast."
+created: 2026-10-14
 tags:
   - time-series
   - forecasting
@@ -9,7 +12,7 @@ tags:
   - statsforecast
   - neuralforecast
   - mlforecast
-created: 2026-10-14
+  - conformal-prediction
 aliases:
   - Nixtla Ecosystem
   - Nixtlaverse
@@ -17,11 +20,18 @@ aliases:
   - NeuralForecast
   - MLForecast
   - Nixtla
+  - ConformalForecast
 ---
 # The Nixtlaverse
 
 An ecosystem of **seven interoperable open-source Python libraries** for time series
 forecasting, built around a shared data contract rather than a shared estimator interface.
+**Two more have landed since the paper** — see §2.1 — so the live ecosystem is nine.
+
+> **Updated 2026-10-16.** The paper's seven are accurate as of its Table 1. Since then Nixtla
+> has shipped **`conformalforecast`** (§2.1, §3) and, per the docs index, **`synforecast`** —
+> which this note does not yet cover. The "seven" framing below describes the *paper*; treat the
+> ecosystem as having grown.
 
 - **Paper** — Sprangers, O., Mergenthaler Canseco, M., Peixeiro, M. et al. (2026).
   *The Nixtlaverse: An Open-Source Ecosystem for Forecasting.* Accepted, *International
@@ -63,12 +73,217 @@ standardises **data and output**, not **estimators**.
 
 \* Versions recorded July 2026 from the paper's Table 1.
 
+### 2.1 Added since the paper
+
+| Library | Role | Version* | Licence |
+|---|---|---|---|
+| **ConformalForecast** | Conformal prediction intervals over any of the three engines, or a plain callable. Seven methods, four online/adaptive. **§3** | 0.1.0 | Apache-2.0 |
+| **SynForecast** | Synthetic time-series generation, injection, and augmentation. 32 generators. **§4** | alpha | Apache-2.0 |
+
+\* Verified 2026-10-16 from PyPI. Both post-date the paper's Table 1.
+
 Separately: **TimeGPT**, Nixtla's hosted foundation model — 🔗
 [arXiv:2310.03589](https://arxiv.org/abs/2310.03589).
 
+> ### ⚠️ The ecosystem is nine, not seven — and both additions are pre-1.0
+>
+> The docs index (`/llms.txt`) lists **nine** libraries; the paper's Table 1 has seven. The two
+> newcomers are **both alpha**, and `ConformalForecast` is two days old (released 2026-10-14,
+> 6 stars, 0 forks).
+>
+> This matters for how much weight the ecosystem carries. The seven paper components have years
+> of production use behind them. These two do not. The shared data contract underneath is the
+> proven part; the new libraries are untested consumers of it.
+>
+> Neither replaces anything already here. `SynForecast` fills a genuine gap (§4);
+> `ConformalForecast` is a convenience over MAPIE on the Nixtla path (§3). Neither should be
+> load-bearing in a study yet.
+
 ---
 
-## 3. The data contract
+## 3. ConformalForecast
+
+**Released 2026-10-14 — two days old at time of writing. Alpha.** It wraps any point forecaster
+into one that emits calibrated intervals, and it ships the full method ladder rather than one
+method. 🔗 [GitHub](https://github.com/Nixtla/conformalforecast) · 🔗
+[Docs](https://nixtlaverse.nixtla.io/conformalforecast/) · 🔗
+[PyPI](https://pypi.org/project/conformalforecast/)
+
+```bash
+pip install conformalforecast              # core: numpy, narwhals, pydantic, scipy
+pip install "conformalforecast[nixtla]"     # + statsforecast, mlforecast, neuralforecast, utilsforecast
+pip install "conformalforecast[spci]"       # + quantile-forest, for SPCI
+```
+
+### The seven methods
+
+| Class | Method | Handles | Online | Reference |
+|---|---|---|---|---|
+| Static | `SplitConformal` | the exchangeable baseline | – | Papadopoulos et al. 2002 |
+| Static | `ConformalizedQuantileRegression` | heteroscedastic errors, via quantile forecasts | – | Romano et al. 2019 |
+| Static | `WeightedSplit` | covariate shift and transfer | – | Tibshirani et al. 2019 |
+| **Online** | `AdaptiveConformalInference` | distribution shift, by adapting `alpha` | ✅ | Gibbs & Candès 2021 |
+| **Online** | `AggregatedAdaptiveConformalInference` | shift without picking a learning rate | ✅ | Zaffran et al. 2022 |
+| **Online** | `NonexchangeableConformalPrediction` | shift, by down-weighting stale residuals | ✅ | Barber et al. 2023 |
+| **Online** | `SequentialPredictiveConformalInference` | **conditional** coverage, via a quantile regressor | ✅ | Xu & Xie 2023 |
+
+> Note the reference attributions match this vault's corrected citations exactly — ACI is
+> **Gibbs & Candès 2021**, not Romano/Patterson/Candès. Independent confirmation of the
+> repairs in [[Conformal Prediction]] §"Citation errors".
+>
+> And note **`SPCI` is in the list.** Of the seven methods, it is the only one targeting
+> conditional coverage — which is the H4 crux in [[Staffing_Forecasting_Experiment]]. The
+> escalation ladder's answer is now `pip install`-able.
+
+### Adapters and the two surfaces
+
+Adapters are the uniform boundary: they convert long-format frames to arrays so the calibration
+math never sees a DataFrame. Four ship — `StatsForecastAdapter`, `MLForecastAdapter`,
+`NeuralForecastAdapter`, `CallableAdapter`.
+
+```python
+from conformalforecast import AdaptiveConformalInference
+from conformalforecast.adapters import StatsForecastAdapter
+
+forecaster = StatsForecastAdapter(sf=sf, train_df=df, horizon=168,
+                                  freq="h", model_name="AutoETS")
+
+method  = AdaptiveConformalInference(alpha=0.1, gamma=0.01)   # 90% intervals
+fitted  = method.calibrate_cv(forecaster, n_windows=30, refit=True)
+result  = fitted.predict(panel)
+
+result.point       # (n_series, 1, horizon)
+result.interval    # (n_series, 1, horizon, 2)  -- (lower, upper)
+
+fitted.update(result.point, truth)   # online methods advance in place
+```
+
+Two entry points, and which one you call depends on who owns your CV loop:
+
+| Surface | Calls | For |
+|---|---|---|
+| **Array** | `method.fit` → `fitted.interval` → `fitted.update` | Libraries that already own CV/predict orchestration — statsforecast, mlforecast, neuralforecast |
+| **Forecaster** | `method.calibrate` / `calibrate_cv` → `fitted.predict` | Standalone users; CV dispatch goes through the adapter |
+
+`calibrate_cv` runs the forecaster's **own** cross-validation and calibrates on the resulting
+errors — which is convenient, and is precisely the thing that makes a calibration set easy to
+contaminate. See §7.
+
+### Why it matters here
+
+> **This is the Nixtla-native answer to the whole conformal problem in this vault.** It replaces
+> MAPIE (used in [[Practice 04 — Conformal Prediction on Hourly Counts]]) with something that
+> speaks the same long-panel contract as your forecaster and returns intervals in the same keyed
+> frame `evaluate()` already consumes. One `pivot` at the boundary instead of a bespoke adapter
+> per engine.
+>
+> Concretely: the 168-point study's conformal arm can wrap AutoETS, LGBMRegressor and NHITS in
+> the same loop, with `SPCI` available for the conditional-coverage arm. That is the
+> [[Staffing_Forecasting_Experiment]] §3 escalation ladder, implemented.
+
+### ⚠️ Cautions
+
+- **Alpha. APIs unstable until v0.2.0, no deprecation cycle.** Do not build anything you cannot
+  afford to rewrite.
+- **Two days old, 6 stars, 16 commits, zero forks.** Unproven. The other six libraries have
+  years of production use behind them.
+- **Not the same as the paper's components.** It is a *consumer* of the data contract rather
+  than an engine, which is why it belongs alongside rather than inside the seven.
+- **It partly consolidates what was already scattered.** StatsForecast, MLForecast and
+  NeuralForecast each already ship their own conformal tutorials and intervals
+  (`mlforecast/conformal_prediction`, `neuralforecast/tutorials/conformal_prediction`,
+  `statsforecast/docs/tutorials/conformalprediction`, plus a Conformal Seasonal Pool model).
+  There is a compatibility shim for registering these methods into MLForecast's interval
+  registry — the overlap is real and worth checking before you commit to one path.
+- **Its own docs state the limit plainly**, which is worth quoting because it is the correct
+  framing: *"Conformal coverage is marginal, not conditional… Adaptive methods trade
+  finite-sample exactness for robustness to shift, and their guarantees are asymptotic or
+  regret-based."* That is §4 of [[Conformal Prediction]], in the maintainers' own words.
+
+---
+
+## 4. SynForecast
+
+**Alpha.** Synthetic time-series generation, injection, and augmentation. 🔗
+[GitHub](https://github.com/Nixtla/synforecast) · 🔗
+[Docs](https://nixtlaverse.nixtla.io/synforecast/) · 🔗 [Generator
+reference](https://github.com/Nixtla/synforecast/blob/main/GENERATORS.md)
+
+```bash
+pip install synforecast     # prebuilt wheels carry the Rust extension
+```
+
+**32 generators** across five categories, emitting the standard `[unique_id, ds, y]` long
+format. Native Rust via PyO3, seed-deterministic, and output through Narwhals to pandas,
+Polars, cuDF, Modin or PyArrow.
+
+```python
+from synforecast import generate_series
+
+df = generate_series(n_series=100, freq="h", min_length=168*12,
+                     max_length=168*12, seed=42)
+# -> the same frame StatsForecast / MLForecast / NeuralForecast already take
+```
+
+### The generators that matter for this vault
+
+| Generator | Produces | Why it is here |
+|---|---|---|
+| **`RegimeSwitching`** | Markov regime chain, AR(1) per regime; `generate_with_regimes` returns labels | The drift **ACI/AgACI** exist to handle — and regime labels are known, so coverage under shift is directly testable |
+| **`FractionalBrownianMotion`** | fBm / fGn at a chosen Hurst `H`; `estimate_hurst` available | **H > 0.5 is long memory**, which is exactly where **EnbPI's strong-mixing assumption fails**. Turns a hand-wavy caveat in [[Conformal Prediction]] §11 into a test |
+| **`HawkesProcess`** | Self-exciting point process, exponential or power-law kernel, branching ratio `n < 1` | **9-1-1 call volume is self-exciting.** An incident generates follow-on calls; a branching ratio is a principled way to model that clustering. Also emits raw event times |
+| **`INAR`** | Integer-valued counts | The count distribution in [[Count Distributions and Kolassa Evaluation]] |
+| **`IntermittentDemand`** | Zero-inflated / lumpy demand | [[Intermittent and Sparse Demand]] |
+| **`PoissonProcess`** | Counts per bin, or the counting process | The naive count baseline |
+| **`EnergyLoad`** | Load-shaped series | The gap flagged in [[Time Series Reading and Practice Hub]] — energy/load is the closest structural analogue to hourly 9-1-1 |
+| **`SARIMA` / `ETS` / `Seasonal`** | Textbook parametric forms | Sanity-check generators with known parameters |
+| **`KernelSynth` / `TSMixup` / `MAR`** | Pretraining corpora | `TSMixup` is already referenced in [[Linear Models for Forecasting]] as a synthetic-corpus lever |
+
+### Injection — the actual point
+
+| Injection | Gives you |
+|---|---|
+| **Changepoints** | Labelled structural breaks. [[Change-Point Detection]] names no evaluation strategy without this |
+| **Anomalies** | Labelled anomalies. Answers the "synthetic injection" route in [[Time Series Anomaly Detection]] §3 by name |
+| **Missingness** | Known gap patterns — MCAR / MAR / MARF, block gaps |
+| **Exogenous** | Covariates with known influence, so you can test whether a model *uses* them |
+
+### Augmentation and composition
+
+`SynAugment` fits a generator to observed series and adds synthetic siblings: fit-and-simulate,
+TSMixup, moving-block bootstrap (`mbb`), DTW barycenters (`dba`). `SynSet` composes multiple
+generators into one dataset.
+
+> ⚠️ **Fit augmentation parameters on the training split only.** Fitting on validation or test
+> observations leaks observed data into model training. The docs say this explicitly, and it is
+> the easiest way to invalidate an otherwise clean experiment.
+>
+> `SynAugment` is also **not an anonymisation or DP tool** — its output deliberately resembles
+> the input it was fitted to. Keep it away from the SynthCCD public-safety data.
+
+### Why it matters here
+
+> **This is the instrument several vault notes are missing.**
+>
+> The recurring blocker across the Time Series notes is the same one: **you cannot evaluate a
+> detector, a coverage guarantee, or a changepoint algorithm without labels, and real data has
+> none you trust.** `Time Series Anomaly Detection` §3 says so outright. `Change-Point
+> Detection` names no evaluation strategy at all. `Conformal Prediction` §11 lists peak
+> coverage on real call-volume data as untested.
+>
+> SynForecast does not dissolve the problem — synthetic structure only rewards methods that
+> match the generator's assumptions, which is precisely the circularity the *"when does
+> synthetic data help"* guide exists to confront. Credit to Nixtla: that guide publishes
+> **negative** results alongside positive ones, which is rarer than it should be.
+>
+> But it makes the alternative concrete. *Known* peak structure, *known* regime boundaries,
+> *known* anomaly positions. That converts an untestable question into a falsifiable one — and
+> it is the only practical way to learn whether SPCI actually fixes conditional coverage
+> **before** betting the study on it.
+
+---
+
+## 5. The data contract
 
 Everything hinges on two things.
 
@@ -102,7 +317,7 @@ reconciliation possible without the engines knowing about each other.
 
 ---
 
-## 4. Why this matters for your work
+## 6. Why this matters for your work
 
 ### Cross-family evaluation is one merge and one `evaluate()` call
 
@@ -147,7 +362,7 @@ The ecosystem is embedded in a lot of other people's code:
 
 ---
 
-## 5. Reach (21 August 2026 snapshot)
+## 7. Reach (21 August 2026 snapshot)
 
 | Library | GitHub stars | PyPI downloads (30d) | Scholar citations |
 |---|---|---|---|
@@ -159,10 +374,14 @@ The ecosystem is embedded in a lot of other people's code:
 > The paper is careful, and so should you be: these are **distribution events, not users**.
 > They include CI builds, caches and repeated installs. Read them as evidence of sustained
 > maintenance activity, not adoption. The paper makes exactly this caveat.
+>
+> ConformalForecast has no row here on purpose. It shipped **2026-10-14** with 6 stars, 0 forks
+> and 16 commits. Any download figure would be almost entirely CI and transitive pulls. There is
+> no adoption signal to report yet, and inventing one would be worse than saying so.
 
 ---
 
-## 6. Assessment — strengths
+## 8. Assessment — strengths
 
 - **Correct abstraction boundary.** Standardising data and outputs rather than estimators is
   the right call; it is the only part of the pipeline that genuinely *should* be shared.
@@ -175,7 +394,7 @@ The ecosystem is embedded in a lot of other people's code:
   a library Nixtla has never heard of.
 - **Apache-2.0** across the board.
 
-## 7. Assessment — weaknesses and cautions
+## 9. Assessment — weaknesses and cautions
 
 - **Manual cross-repo coordination.** Data conventions, frequency handling, defaults and
   output schemas are aligned by hand across seven repositories. Cross-library tests only
@@ -192,10 +411,20 @@ The ecosystem is embedded in a lot of other people's code:
   Nixtla's offering that is not permissively licensed.
 - **Sparse citation practice.** `MLForecast` had no independently indexed software record on
   the snapshot date despite appearing in applied studies.
+- **`ConformalForecast` is alpha and two days old.** APIs unstable until v0.2.0 with no
+  deprecation cycle. 6 stars, zero forks. Treat as a serious prototype, not infrastructure.
+- **The ecosystem is growing faster than its shared contracts are specified.** Two libraries in,
+  neither in the paper, and `ConformalForecast` in particular *duplicates* conformal
+  functionality the three engines already expose independently. The "manual cross-repo
+  coordination" fragility above is being actively amplified by the release cadence.
+- **`calibrate_cv` is a calibration-integrity trap.** It calibrates on the forecaster's own
+  cross-validation output, which is convenient and makes it easy to calibrate on data you have
+  already used for selection. The three-way `train → calibrate → test` discipline in
+  [[Model Validation Strategies]] §8 still applies; the API does not enforce it.
 
 ---
 
-## 8. Quick start
+## 10. Quick start
 
 ```python
 from datasetsforecast.m5 import M5
@@ -229,7 +458,7 @@ evaluate(pd.concat([cv_sf, cv_mf, cv_nf]), metrics=[mase, rmse], groupby=["uniqu
 
 ---
 
-## 9. Try it
+## 11. Try it
 
 - [ ] Run the M5 example end to end; confirm `evaluate()` joins all three frames on
       `(unique_id, ds, cutoff)`
@@ -240,6 +469,18 @@ evaluate(pd.concat([cv_sf, cv_mf, cv_nf]), metrics=[mase, rmse], groupby=["uniqu
       external-engine conformance test
 - [ ] Attempt dense reconciliation on a large hierarchy and find the memory wall; then use
       the sparse path
+- [ ] Install `conformalforecast[nixtla]`, wrap AutoETS and NHITS, and confirm the returned
+      interval frame joins `evaluate()` without reshaping
+- [ ] Run `SplitConformal` and `SequentialPredictiveConformalInference` at matched marginal
+      coverage; compare **worst hour-of-week stratum**, not just mean width — this is the H4 test
+- [ ] Compare `calibrate_cv` against an explicit held-out calibration split; does the
+      convenient version inflate coverage?
+- [ ] Read `synforecast`'s changepoint / anomaly injection generators — the synthetic control
+      the conditional-coverage work needs
+- [ ] Generate a `RegimeSwitching` panel with known regime labels; fit `AdaptiveConformalInference`
+      and check whether coverage degrades in the transition windows specifically
+- [ ] Generate fBm at `H = 0.8` and run `EnbPI` against it — the strong-mixing assumption
+      should fail visibly, which is the test [[Conformal Prediction]] §11 says is missing
 
 ## References
 
@@ -253,9 +494,19 @@ evaluate(pd.concat([cv_sf, cv_mf, cv_nf]), metrics=[mase, rmse], groupby=["uniqu
 8. Löning, J. et al. (2019). sktime. 🔗 https://www.sktime.net/
 9. Hyndman, R.J. et al. (2011). Optimal hierarchical forecasts. 🔗 https://robjhyndman.com/publications/hierarchical/
 10. Wickramasuriya, S.L., Athanasopoulos, G. & Hyndman, R.J. (2019). Optimal forecast reconciliation. 🔗 https://robjhyndman.com/publications/hierarchical/
+11. Peixeiro, M., Caballero Ramirez, S. & Nixtla (2026). *ConformalForecast*: Adaptive conformal prediction for time series forecasting. v0.1.0, Apache-2.0. 🔗 https://github.com/Nixtla/conformalforecast · 🔗 https://pypi.org/project/conformalforecast/
+12. Nixtla (2026). *SynForecast*: Synthetic time series generation, injection, and augmentation. Alpha, Apache-2.0. 🔗 https://github.com/Nixtla/synforecast · 🔗 https://pypi.org/project/synforecast/
+    Generator reference: 🔗 https://github.com/Nixtla/synforecast/blob/main/GENERATORS.md
+
+> **ConformalForecast's own method attributions**, for cross-checking citations elsewhere:
+> Split → Papadopoulos et al. 2002 · CQR → Romano et al. 2019 · Weighted split → Tibshirani
+> et al. 2019 · ACI → **Gibbs & Candès 2021** · AgACI → Zaffran et al. 2022 · NexCP → Barber
+> et al. 2023 · SPCI → Xu & Xie 2023.
 
 ## Cross-links
 
+- [[Conformal Prediction]] — the method ladder and the guarantees these seven implement
+- [[Practice 04 — Conformal Prediction on Hourly Counts]] — the MAPIE-based exercise this replaces
 - [[TimeCopilot]]
 - [[forecast-reconciliation]]
 - [[Time Series Foundation Models]]

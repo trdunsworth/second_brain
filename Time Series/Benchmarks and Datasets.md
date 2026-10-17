@@ -179,6 +179,30 @@ auditing; `TS-Arena` 🔗 [arXiv:2512.20761](https://arxiv.org/abs/2512.20761) f
 rolling-origin folds*. See Tashman (2000) and Bergmeir et al. (2018) in
 [[Feature Engineering for Time Series]] §3.2.
 
+### The benchmark built to avoid this — TIME
+
+**Qiao, Z. et al. (2026). "It's TIME: Towards the Next Generation of Time Series Forecasting
+Benchmarks." *ICML 2026*.** 🔗 [arXiv:2602.12147](https://arxiv.org/abs/2602.12147)
+
+**50 fresh datasets, 98 forecasting tasks**, built specifically for *strict* zero-shot TSFM
+evaluation. The authors' four criticisms of existing benchmarks name contamination first:
+constrained composition "dominated by reused legacy sources," plus compromised data integrity,
+misaligned task formulations, and rigid analysis. Their construction pipeline is
+**human-in-the-loop** with LLM assistance, and the evaluation is **pattern-level** — structural
+TS features characterise each task rather than static meta-labels.
+
+> **This is the benchmark to weight when a leaderboard claim matters.** The others —
+> GIFT-Eval, fev-bench, M4/M5 — reuse public corpora that a large lab's pre-training set
+> plausibly contains. TIME's datasets are new.
+>
+> It is also the one most TSFM vendors are *least* likely to have trained on, because it
+> postdates most pre-training runs. That asymmetry is the entire point.
+>
+> Worked example: **Timestral** (Mistral) claims #1 on GIFT-Eval, TIME and fev-bench
+> simultaneously. Decomposed honestly, that is *one* contamination-resistant result and *two*
+> unverifiable leaderboard positions, since Mistral's pre-training corpus is not disclosed. See
+> [[Time Series Foundation Models]] §2.1.
+
 ---
 
 ## 6. The statistical standard you should hold yourself to

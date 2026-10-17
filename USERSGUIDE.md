@@ -23,6 +23,10 @@ second_brain/
 │   ├── Time-Series/      → Time series forecasting notes & papers
 │   ├── Research MOC.md   → Map of Content for research
 │   └── Research Dashboard.md → Dataview queries for research tracking
+├── Time Series/          → Forecasting reference notes (one topic per note) + Hub index
+├── Statistical_Modeling/ → Stan & queueing theory (numbered stage notes)
+├── Staffing/             → PSAP staffing model — feasibility → methods → forecasting
+├── Synthetic_Data/       → Synthetic-data book research. See its README for scope
 ├── DMA_Notes/            → DMA LLC project tracking
 │   └── DMA Projects MOC.md → Map of Content for DMA projects
 ├── ALX_Notes/            → City of Alexandria work notes
@@ -32,11 +36,17 @@ second_brain/
 ├── references/           → Wisdom sources & philosophical research
 │   └── Wisdom Sources MOC.md → Map of Content for wisdom traditions
 ├── SynthCCD/             → Synthetic CAD data generator project
+├── attitude_adjustment/  → Personal development project (git submodule; contains Kairos agent)
 ├── Reporting Engine/     → Reporting engine development notes
 ├── Cheatsheets/          → R/Python reference materials
 ├── Archive/              → Legacy content (foam_artefacts, etc.)
 └── scripts/              → Templater user scripts
 ```
+
+> **Folders with their own `README.md` index:** `Staffing/`, `SynthCCD/`, `Synthetic_Data/`,
+> `Reporting Engine/`, `attitude_adjustment/`, plus the code-adjacent `Rust/`, `Linux/`, `Lisp/`
+> and `terminal_stuff/`. A folder README states that folder's **scope** — read one before
+> filing a new note into an unfamiliar folder.
 
 ---
 

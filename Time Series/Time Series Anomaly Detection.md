@@ -135,11 +135,18 @@ frequency explicitly.
 
 For genuinely unsupervised deployment, the only defensible evaluations are:
 1. **Synthetic injection** — inject known anomalies into real normal data. Controllable, but
-   assumes your anomaly types are representative.
+   assumes your anomaly types are representative. **Tool:** `synforecast` (Nixtla) has anomaly
+   injection built in and emits the same long-format panel the rest of your pipeline reads —
+   see [[Nixtlaverse]] §4
 2. **Expert review** — have domain experts label a sample. Slow, but this is what actually
    validates a detector.
 3. **Proxy operational metrics** — alarm burden per shift, time-to-detection, and whether
    responders still trust the alarm after a month.
+
+> **Purely synthetic generation is the weaker version of (1).** Injecting into *real* normal data
+> keeps your baseline distribution; generating the whole series from a generator tests the
+> detector against assumptions you chose yourself, which is circular. Injection is strictly
+> better where you have real data to inject into — and for 9-1-1 you do.
 
 > For 9-1-1, **expert review is feasible and nobody has done it.** Having dispatch
 > supervisors label a few hundred hours of "would you have escalated this?" is achievable and

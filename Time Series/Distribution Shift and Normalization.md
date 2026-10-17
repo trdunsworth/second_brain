@@ -170,6 +170,30 @@ it may be largely noise, and normalising by it discards genuine level informatio
   correct distributional skew and multimodality that RevIN structurally cannot. It also
   gives you invertibility for free, which matters if you want a likelihood.
 
+
+### The same idea, baked into a pretrained model
+
+Most of the row above are *layers* you add to a model you train. Several TSFMs now absorb the
+idea into the architecture itself, which matters because you inherit the mechanism without
+implementing it:
+
+| Model | How it normalises |
+|---|---|
+| **Timestral** (Mistral) 🔗 [GH](https://github.com/mistralai/timestral) | Each forecast patch is **denormalised with the context statistics *and* the block's earlier predicted medians** — instance normalisation extended across decode blocks |
+| **PatchTST-FM** (IBM) | Patch-level instance normalisation as standard practice |
+| **NLinear** | Subtract the last value, add it back — the degenerate `mu`-only case |
+
+> **Timestral's version is the interesting refinement.** Vanilla RevIN normalises by one
+> `(mu, sigma)` computed over the whole context. Timestral recomputes the statistics at every
+> decode block, folding in medians it has *already predicted* for that block. That is closer to
+> **Non-stationary Transformers** in the table above — predicting the future normalisation
+> statistics rather than assuming they are constant — implemented inside a zero-shot model.
+>
+> The caveat from section 2 stands regardless: this removes a **scale** difference. The
+> **conditional shift** — `p(y_horizon | x_lookback)` itself moving — is untouched, and no
+> normalisation scheme in this table addresses it. Timestral denormalises; it does not re-learn
+> the relationship.
+
 ---
 
 ## 6. Why this matters more than it looks

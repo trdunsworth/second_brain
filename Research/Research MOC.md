@@ -26,7 +26,7 @@ This MOC connects all research projects, papers, and analytical work in the vaul
 **Status:** In Progress
 **Question:** Which forecasting approach is more accurate for polystochastic 9-1-1 call volume: 168 discrete hourly forecasts or 168 continuous forecast points?
 **Methods:** Comparative time series forecasting, backtesting
-**Related:** [[ARIMA vs Prophet]] · [[Time Series Paper Links]]
+**Related:** [[ARIMA vs Prophet]] · [[Research/Time-Series/Time Series Paper Links]]
 
 ### [[PSAP Staffing Model]]
 
@@ -35,18 +35,20 @@ This MOC connects all research projects, papers, and analytical work in the vaul
 **Methods:** Queueing theory, simulation, comparative analysis
 **Related:** [[Staffing/README]] · queueing theory literature
 
-### [[Synthetic Data/Synthetic Data Book Research Plan]]
+### [[Synthetic Data Book Research Plan]]
 
 **Status:** In Progress
 **Question:** When does a finding established on synthetic data transfer to real data?
 **Methods:** Literature review, methodological assessment
-**Related:** [[SynthCCD/USERSGUIDE]]
+**Folder:** [[Synthetic_Data/README]] — scope covers synthetic-data methods *and* qualifying
+applications (e.g. TabFM, a FM pretrained purely on synthetic SCM tables)
+**Related:** [[SynthCCD/USERSGUIDE]] · [[Conformal Prediction]] §12 · [[Nixtlaverse]] §4
 
 ### [[ARIMA vs Prophet]]
 
 **Status:** Reference/Exploration
 **Topic:** Comparing ARIMA and Prophet for time series forecasting
-**Related:** [[168-Point Forecast Comparison - Discrete vs Continuous]] · [[Time Series Paper Links]]
+**Related:** [[168-Point Forecast Comparison - Discrete vs Continuous]] · [[Research/Time-Series/Time Series Paper Links]]
 
 ---
 
@@ -106,7 +108,7 @@ A five-step feasibility sequence, all built on SynthCCD data. Read in order.
 
 ## Research Resources
 
-- [[Time Series Paper Links]] — papers by theme, arXiv IDs verified 2026-10-14
+- [[Research/Time-Series/Time Series Paper Links]] — papers by theme, arXiv IDs verified 2026-10-14
 - [[Staffing_Sources]] — annotated staffing bibliography
 - [[USERSGUIDE]] — vault conventions and the frontmatter schema
 

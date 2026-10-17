@@ -22,11 +22,12 @@ How to produce a **distribution** over the future rather than a point, and the t
 families that do it.
 
 > Your notes are strong on conformal prediction (a *wrapper* that turns points into
-> intervals — [[Model Validation Strategies]] §6, [[resources]] §3.7) and weak on models that
+> intervals — [[Conformal Prediction]], with the runnable exercise in
+> [[Practice 04 — Conformal Prediction on Hourly Counts]]) and weak on models that
 > *natively* output distributions. This note closes that
 > gap. The distinction matters: a conformally-wrapped point forecast inherits the point
 > forecast's error structure, whereas a generative model can represent **multiple plausible
-> futures** and non-Gaussian, heteroscedastic shapes.
+> futures** and non-Gaussian, heteroscedastic shapes. See [[Conformal Prediction]] §10.
 
 ---
 
@@ -195,7 +196,7 @@ These compose. A sensible production stack:
 | Question | Recommendation |
 |---|---|
 | Need calibrated intervals, low compute | Quantile model + split/CQR conformal. Start here. |
-| Need intervals under shift | ACI 🔗 [arXiv:1906.00130](https://arxiv.org/abs/1906.00130) or SPCI — not plain split conformal |
+| Need intervals under shift | ACI 🔗 [arXiv:2106.00170](https://arxiv.org/abs/2106.00170) or SPCI — not plain split conformal |
 | Need multimodality (events, outages) | Flow-matching / Sundial; **verify multimodality exists first** |
 | Long horizon, tight compute | Quantile model. Do not attempt iterative diffusion. |
 | Need honest intervals at peaks | Nothing above guarantees it. Test it. See H4 in your 168-point study. |
@@ -231,7 +232,7 @@ network. That makes it a practical middle rung between quantile regression and d
 
 **Calibration**
 14. Romano, Y., Patterson, E. & Candès, E. (2019). Conformalized Quantile Regression. 🔗 https://arxiv.org/abs/1905.03222
-15. Romano, Y., Patterson, E. & Candès, E. (2020). Adaptive Conformal Inference. 🔗 https://arxiv.org/abs/1906.00130
+15. Gibbs, I. & Candès, E. (2021). Adaptive Conformal Inference under Distribution Shift. *NeurIPS 2021*. 🔗 https://arxiv.org/abs/2106.00170
 16. Michael, P., Symeonides, M. & Trihinas, D. (2026). TSFM-Eval. 🔗 https://arxiv.org/abs/2609.25788
 
 ## Cross-links
