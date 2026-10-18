@@ -90,6 +90,33 @@ Access with `Ctrl/Cmd + T` or via Command Palette → "Insert Template". Templat
 3. Fill in the frontmatter fields (the `---` block at the top)
 4. Write your content below
 
+### Which engine runs which template
+
+Obsidian has **two** template engines and they do not understand each other's syntax. Putting a
+template in the wrong one does not error — it pastes the raw markup.
+
+| Template written in | Must be run by | Must **not** be referenced from |
+| -------------------- | -------------- | -------------------------------- |
+| `<% %>` / `tp.*`     | Templater      | core Daily Notes, core Templates |
+| `{{ }}`              | core Templates | Templater, including startup templates |
+
+So `daily_journal_template.md` is Templater's, and the core Daily Notes **template** field must
+stay empty — Templater's folder trigger supplies it. Symmetrically, `daily_log_template.md` is
+core syntax, so hotkeys should point at a `*_templater.md` twin; three still point at the core
+file instead. See [[HOTKEYS]].
+
+> ### If a daily note comes out empty
+>
+> Templater's **Trigger Templater on new file creation** must be on:
+> *Settings → Templater → Trigger Templater on new file creation*.
+>
+> **This setting is not stored in the vault.** As of Templater 2.26.0 it lives in per-device
+> localStorage, so it does not travel via git sync or GitHub Sync and does not survive a
+> reinstall. On upgrade Templater deletes the old value from `data.json` without carrying it
+> over and defaults it to **false**, so after any Templater version bump the folder trigger can
+> die silently — new daily notes are created empty and nothing is reported. Check this box
+> first whenever a new note fails to populate.
+
 ---
 
 ## Plugins Quick Reference
@@ -205,6 +232,13 @@ Styled callout boxes. Use native Obsidian syntax:
 3. Write freely — tasks, thoughts, notes
 4. Link to other notes with `[[note name]]`
 5. Review [[Journal Dashboard]] for patterns
+
+Unchecked `- [ ]` items under `## TODO` carry forward to the next day's note automatically.
+Everything else starts empty. If the note opens blank, or full of literal `<% %>` / `{{ }}`
+markup, see **Which engine runs which template** above.
+
+**Weekday sections:** `## ALX Work` appears Monday–Friday only. Its absence on a weekend is
+correct behaviour, not a failed template.
 
 ### Research Session
 
