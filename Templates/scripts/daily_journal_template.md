@@ -40,13 +40,19 @@ if (isWeekday) {
 <%*
 // Carry forward unchecked TODOs from previous day
 const prevDate = tp.date.now("YYYY-MM-DD", -1);
-const prevFile = tp.file.find_tfile(prevDate);
-if (prevFile) {
-  const prevContent = await tp.file.include(`[[${prevDate}]]`);
-  const todoSection = prevContent.split("## TODO")[1];
+const folder = tp.file.folder(true);
+const prevPath = folder ? `${folder}/${prevDate}.md` : `${prevDate}.md`;
+const prevFile = app.vault.getAbstractFileByPath(prevPath);
+// TFile always has `extension`; TFolder does not. Templater does not expose
+// the TFile class, so discriminate structurally rather than via instanceof.
+if (prevFile && typeof prevFile.extension === "string") {
+  const prevContent = await tp.file.include(prevFile);
+  const todoSection = prevContent.split(/^##[ \t]+TODO[ \t]*$/m)[1];
   if (todoSection) {
-    const lines = todoSection.split("\n");
-    const unchecked = lines.filter(line => line.trim().startsWith("- [ ]"));
+    // Cut at the next H2 so checkboxes from later sections aren't swept up.
+    // ### is deliberately not a boundary.
+    const lines = todoSection.split(/^##[ \t]+/m)[0].split("\n");
+    const unchecked = lines.filter((line) => line.trim().startsWith("- [ ]"));
     if (unchecked.length > 0) {
       tR += unchecked.join("\n") + "\n";
     }
