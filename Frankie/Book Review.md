@@ -161,8 +161,8 @@ Only things verifiable against the implementation.
 
 ### 3. Chapters read
 
-- [ ] Part I (1–3)
-- [ ] Part II (4–12)
+- [x] Part I (1–3) ✅ 2026-10-16
+- [x] Part II (4–12) ✅ 2026-10-16
 - [ ] Part III (13–19)
 - [ ] Part IV (20–24)
 - [ ] Part V (25–28)
@@ -309,3 +309,7 @@ The vault is unusually well-equipped for checking claims in this book.
 - [[Frankie Language]] — the language itself
 - [[Tree-sitter Grammar]] — the `.fk` parser, and the source of a testing idea
 - [[Frankie/README]] — folder index
+
+## Random Notes
+
+*Truthiness* really is a word and used appropriately. 

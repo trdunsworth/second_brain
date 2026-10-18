@@ -8,48 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "da3909ef37bae9bb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "journal/2026-10-16.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-10-16"
-            }
-          },
-          {
-            "id": "7795f285bbb0e1c3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Time Series/Nixtlaverse.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Nixtlaverse"
-            }
-          },
-          {
-            "id": "74874b1813b8a25b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "terminal_stuff/Emacs_Cheatsheet.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Emacs_Cheatsheet"
-            }
-          },
-          {
             "id": "62112e7700d11e7c",
             "type": "leaf",
             "pinned": true,
@@ -66,17 +24,17 @@
             }
           },
           {
-            "id": "55c2267b79bad640",
+            "id": "ab48efc68d29601e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "USERSGUIDE.md",
+                "file": "journal/2026-10-17.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "USERSGUIDE"
+              "title": "2026-10-17"
             }
           }
         ],
@@ -260,8 +218,17 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "7795f285bbb0e1c3",
+  "active": "ab48efc68d29601e",
   "lastOpenFiles": [
+    "HOTKEYS.md",
+    "journal/2026-10-17.md",
+    "journal/2026-10-16.md",
+    "Frankie/Book Review.md",
+    "Frankie/Tree-sitter Grammar.md",
+    "journal/Journal Dashboard.md",
+    "Frankie/The Frankie Programming Language.pdf",
+    "Time Series/Nixtlaverse.md",
+    "USERSGUIDE.md",
     "Frankie/verify-snippets/results.json",
     "Frankie/verify-snippets/a0204.fk",
     "Frankie/verify-snippets/a0203.fk",
@@ -271,15 +238,10 @@
     "Frankie/verify-snippets/a0199.fk",
     "Frankie/verify-snippets/a0198.fk",
     "Frankie/verify-snippets/a0197.fk",
-    "Frankie/verify-snippets/a0196.fk",
-    "Frankie/verify-snippets/a0195.fk",
     "Frankie/README.md",
-    "Frankie/Tree-sitter Grammar.md",
-    "Frankie/Book Review.md",
     "Frankie/Frankie Language.md",
     "Link Audit.md",
     "Synthetic_Data/README.md",
-    "journal/2026-10-16.md",
     "Time Series/Conformal Prediction.md",
     "terminal_stuff/Emacs_Cheatsheet.md",
     "Typography/Publishing_Print_and_Distribution.md",
@@ -294,10 +256,6 @@
     "Typography/01_markdown.md",
     "Typography/quarto_notes.md",
     "journal/2026-10-15.md",
-    "USERSGUIDE.md",
-    "Time Series/LLM-as-Forecaster and Agentic Forecasting.md",
-    "Time Series/Change-Point Detection.md",
-    "HOTKEYS.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
