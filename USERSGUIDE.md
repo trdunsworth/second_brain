@@ -38,6 +38,7 @@ second_brain/
 ├── SynthCCD/             → Synthetic CAD data generator project
 ├── Frankie/              → Frankie programming language, its book, and the .fk tree-sitter grammar
 ├── attitude_adjustment/  → Personal development project (git submodule; contains Kairos agent)
+├── Agents/                → LLM agent development guides (Python, R, guardrails, personality)
 ├── Reporting Engine/     → Reporting engine development notes
 ├── Cheatsheets/          → R/Python reference materials
 ├── Archive/              → Legacy content (foam_artefacts, etc.)
