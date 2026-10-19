@@ -89,7 +89,7 @@ $y_{t+h} = \ell_t + h b_t + s_{t+h-m} + \varepsilon_t$
   annual seasonality produces an order `(p,d,q)(P,D,Q,24,168,8766)` model that is not
   estimable
 - Requires stationarity or explicit differencing; ADF tests are low-powered and their
-  interpretation is contested
+  interpretation is contested — full treatment in [[Forecasting Non-Stationary Data]]
 - Linear by construction — no covariates without the *X*, no interactions
 
 > **The seasonal-differencing trap is the single most common ARIMA failure.** Choose `D`
@@ -357,7 +357,7 @@ exchangeability is violated by autocorrelated series without an adaptation (EnbP
 | Small data, cold start | Zero-shot TSFM | Never report without a seasonal-naive comparison |
 | Many related series, probabilistic needed | DeepAR, N-HiTS, Chronos-2 | Quantile calibration on held-out |
 | Intermittent / many zeros | Croston family, TSB | See [[Intermittent and Sparse Demand]] |
-| Interpretability is a hard requirement | ETS, ARIMA, Prophet, N-BEATS-I | — |
+| Interpretability is a hard requirement | ETS, ARIMA, Prophet, N-BEATS-I | What attribution can and cannot claim on a GBM — [[Feature Importance and Explainability]] |
 | You must ship | **Ensemble of the above** | — |
 
 ---
@@ -433,4 +433,6 @@ Each is now a dedicated note:
 - [[Time Series Forecasting Baselines]]
 - [[Model Validation Strategies]]
 - [[forecast-reconciliation]]
+- [[Forecasting Non-Stationary Data]] — §1's ARIMA stationarity caveat now has a full treatment; ADF/KPSS protocol in §2
+- [[Feature Importance and Explainability]] — the §9 "interpretability" row, and the collinearity caveats on GBM importances
 - [[resources]]

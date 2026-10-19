@@ -292,6 +292,7 @@ cross-domain generalisation test than most competitors.
 | What is the right objective for a generative TSFM? | Open — Sundial's flow matching vs quantile loss is unresolved |
 | Can a TSFM be *conditioned* on domain knowledge usefully? | Chronos-2's group attention is the first real answer; underexplored |
 | Conditional coverage | Still unsolved — see [[Model Validation Strategies]] §6.4 |
+| Do attention maps explain anything? | **No for time series.** Saliency methods fail specifically on TS data — the time/feature conflations paper, [[Feature Importance and Explainability]] §3.3 |
 | Is the scaling story real? | Contested. Toto 2.0 says yes; Reverso and Moirai 2.0 say parameter count is not the driver |
 | Does purely-synthetic pretraining transfer to *temporal* data? | **Open, and it is the load-bearing assumption.** TabFM 🔗 [arXiv:2609.37959](https://arxiv.org/abs/2609.37959) shows it works for tables — trained only on synthetic SCM tables, #1 among tabular FMs on 51 real datasets. Every TSFM above relies on pretraining corpora nobody fully discloses. The temporal case is untested |
 

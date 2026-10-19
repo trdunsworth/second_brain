@@ -228,9 +228,9 @@ phone_metrics:
   non_emergency_abandonment_rate: 0.04
   max_abandonment_rate: 0.10
   weekend_multiplier: 1.10
-  nine_one_one_answer_time_mu: 1.60
+  nine_one_one_answer_time_mean: 6.3
   nine_one_one_answer_time_sigma: 0.70
-  non_emergency_answer_time_mu: 1.80
+  non_emergency_answer_time_mean: 8.3
   non_emergency_answer_time_sigma: 0.80
   answer_time_thresholds: [10, 15, 20, 40]
   answer_time_load_sensitivity: 0.25
@@ -551,7 +551,7 @@ uv run SynthCCD generate [OPTIONS]
 |--------|-------|---------|-------------|
 | `--params` | `-p` | *(none)* | Path to a JSON/YAML/TOML file specifying multiple generation parameters at once |
 | `--save-params` | | *(none)* | Write the effective parameters (CLI flags merged over any `--params` file) to a JSON/YAML/TOML file and exit without generating |
-| `--rows` | `-r` | `10000` | Number of incident rows to generate (minimum: 1) |
+| `--rows` | `-r` | *(derived)* | Number of incident rows to generate (minimum: 1). Omit to derive from `--population`, else 10000. Explicit `--rows` always wins for incidents (see [Rows / Population Precedence](#rows--population-precedence)) |
 | `--area` | `-a` | `"Kansas City, MO"` | Area query for OpenStreetMap address lookup |
 | `--format` | `-f` | `csv` | Output format: `csv`, `parquet`, `json`, `yaml`, `pandas`, `polars`, `geojson`, `shapefile`, `postgresql`, `sqlserver`, `mariadb`, `duckdb`, `sqlite` |
 | `--dataset` | `-d` | `incidents` | Dataset to generate: `incidents`, `phone`, `all` |
@@ -561,16 +561,18 @@ uv run SynthCCD generate [OPTIONS]
 | `--start-date` | | `Jan 1 current year` | Inclusive start date (YYYY-MM-DD) |
 | `--end-date` | | `Dec 31 current year` | Inclusive end date (YYYY-MM-DD) |
 | `--seed` | | `911` | Random seed for reproducible output |
-| `--calltaker-pool-size` | | `12` | Number of unique calltaker names |
-| `--dispatcher-pool-size` | | `10` | Number of unique dispatcher names |
+| `--calltaker-pool-size` | | `12` | Total calltaker posts across all shifts. Each shift's declared staffing acts as a weight, so the structure is scaled to this total |
+| `--dispatcher-pool-size` | | `10` | Total dispatcher posts across all shifts, scaled the same way |
 | `--shift-preset` | | *(realism config)* | Shift structure preset: `2x12h-4shift-14day`, `2x12h-2shift`, `3x8h-3shift`, or `4x10h-4shift` |
 | `--max-memory-bytes` | | `2147483648` | Approximate in-memory budget per incident chunk in bytes; CSV/Parquet exports stream in chunks to stay under it |
-| `--population` | | *(none)* | Population of the service area. When set, phone-metrics volume is derived from population (calls per 1,000 residents per year) instead of the incident row count |
+| `--population` | | *(auto-resolved)* | Population of the service area. When omitted, automatically resolved from the Nominatim `extratags.population` field during area geocoding (no extra HTTP request). Derives incident rows (when `--rows` is omitted) and phone-metrics volume via the tiered `population_rates` realism section. With `--rows` also given, rows win for incidents while population still drives phone volume. Explicit `--population` always wins over the auto-resolved value. The resolved population and its source (`"explicit"`, `"nominatim"`, or `""`) are recorded in the manifest |
+| `--auto-parquet-threshold` | | `100000` | Automatically switch to Parquet format when row count exceeds this threshold. Set to 0 to disable auto-switching (always use the explicit format). Only applies when `--format` is `csv` |
 | `--psap-agency` | | `all` | PSAP agency filter: `all`, `law`, `fire`, `ems`, `fire_ems`. Restricts which agency types appear in the output |
 | `--config` | | *(none)* | Path to YAML realism configuration file |
 | `--country` | | `US` | ISO 3166-1 alpha-2 country code selecting the emergency-number registry (see [Emergency Number Registry](#emergency-number-registry)) |
 | `--emergency-numbers` | | *(registry)* | Comma-separated emergency numbers to model, overriding the country registry (e.g. `"999,112"`) |
 | `--include-10-digit-emergency` | | *(off)* | Include 10-digit direct-dial emergency lines from the registry |
+| `--include-event-counts` | | *(off)* | With `--dataset all`, add an `events_created` column (incidents per hour) to hourly phone metrics |
 | `--db-dialect` | | *(auto)* | Explicit database dialect: `postgresql`, `sqlserver`, `mariadb`, `duckdb`, `sqlite` (auto-detected from `--format`) |
 | `--db-host` | | *(none)* | Database host (not needed for file-based `duckdb`/`sqlite`) |
 | `--db-port` | | *(dialect default)* | Database port (defaults: postgresql 5432, sqlserver 1433, mariadb 3306) |
@@ -702,9 +704,15 @@ parameter sits.
 Fields are grouped into sections — General, Geography, Personnel, and Configuration Files.
 The status panel and help tab explain each field.
 
+> **Theme.** The TUI ships with two colour schemes built from the
+> [DMA Theme](https://github.com/trdunsworth/DMA_Theme_2) palette:
+> `dma-light` (default, soft white background) and `dma-dark`. Press `t`
+> inside the TUI to switch between them.
+
 | Field | Description |
 |-------|-------------|
-| Rows | Number of incident rows (default: 10000) |
+| Rows | Number of incident rows (default: 10000). Clear the field to derive rows from Population instead |
+| Population | Service-area population (blank = auto-resolve from OSM). Derives incident rows when Rows is cleared, and always drives phone-metrics volume |
 | Seed | Random seed for reproducible output (default: 911) |
 | Area query | OpenStreetMap query (default: "Kansas City, MO") |
 | Output format | All supported formats: csv, parquet, json, yaml, pandas, polars, geojson, shapefile, postgresql, sqlserver, mariadb, duckdb, sqlite |
@@ -717,10 +725,13 @@ The status panel and help tab explain each field.
 | Calltaker pool size | Unique calltaker names (default: 12) |
 | Dispatcher pool size | Unique dispatcher names (default: 10) |
 | Shift preset | Shift structure preset (default: 2x12h-4shift-14day) |
+| Dispatcher consoles | How per-shift dispatcher positions split by agency: Auto (by staffing, default), Combined, LAW vs FIRE/EMS, LAW / FIRE / EMS. Applied over the realism config file's values |
+| Console split threshold | Smallest per-shift dispatcher count Auto splits by discipline (default: 4; shifts of 4-7 split LAW vs FIRE/EMS, 8+ split LAW / FIRE / EMS) |
 | Max memory (bytes) | Per-chunk memory budget for CSV/Parquet streaming (blank = 2 GiB default) |
 | Country | ISO 3166-1 alpha-2 code selecting the emergency-number registry (default: US) |
 | Emergency numbers | Comma-separated override of the emergency lines to model (blank uses the country registry, e.g. `999,112`) |
 | 10-digit lines | Include 10-digit direct-dial emergency lines from the registry |
+| Include event counts | With Dataset=all, add an `events_created` column (incidents per hour) to hourly phone metrics |
 | Params file | JSON/YAML/TOML preset; Load Params fills the fields |
 | Realism config file | YAML realism configuration (optional) |
 
@@ -748,6 +759,7 @@ and provides:
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/health` | GET | Health check |
+| `/metrics` | GET | Prometheus metrics (text exposition format) |
 | `/schema` | GET | Schema preview (no OSM fetch, no data generation) |
 | `/generate` | POST | Generate data (returns JSON summary or file download) |
 | `/generate/stream` | POST | Stream CSV/Parquet for large datasets |
@@ -759,6 +771,38 @@ per client IP. When exceeded, the endpoint returns `429 Too Many Requests` with 
 `Retry-After` header. To override, edit `_DEFAULT_RATE_LIMIT` and
 `_DEFAULT_WINDOW_SECONDS` in `serve.py`, or use `uvicorn` directly with a
 production reverse proxy that handles throttling.
+
+### Prometheus Metrics (GET `/metrics`)
+
+The server exposes Prometheus metrics in text exposition format at `/metrics`:
+
+```bash
+# Scrape metrics
+curl http://localhost:8000/metrics
+
+# Example Prometheus scrape config
+scrape_configs:
+  - job_name: "synthccd"
+    static_configs:
+      - targets: ["localhost:8000"]
+    metrics_path: "/metrics"
+```
+
+Available metrics:
+
+| Metric | Type | Labels | Description |
+|--------|------|--------|-------------|
+| `synthccd_requests_total` | Counter | method, endpoint, status_code | Total HTTP requests served |
+| `synthccd_request_duration_seconds` | Histogram | method, endpoint | HTTP request latency |
+| `synthccd_active_requests` | Gauge | — | Requests currently being processed |
+| `synthccd_generations_total` | Counter | dataset, output_format | Total generation runs started |
+| `synthccd_generation_rows_total` | Counter | dataset | Total rows generated |
+| `synthccd_generation_duration_seconds` | Histogram | dataset, output_format | Generation time (request to result) |
+| `synthccd_generation_errors_total` | Counter | dataset, error_type | Generation errors by type |
+| `synthccd_info` | Info | version, python_version | Server build metadata |
+
+The `/metrics` endpoint itself is excluded from request tracking to avoid
+recursive metric inflation.
 
 ### Bind Address
 
@@ -877,7 +921,9 @@ docker run --rm   -v SynthCCD-cache:/home/synth911/.cache/synth911gen3   -v Synt
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `rows` | int | 10000 | Number of CAD incidents to generate |
+| `rows` | int | None (= 10000, or derived from `population`) | Number of CAD incidents to generate; omit to derive from `population`. See [Rows / Population Precedence](#rows--population-precedence) |
+| `population` | int | None (auto-resolved from Nominatim) | Service-area population. When omitted, automatically resolved from the Nominatim `extratags.population` field during geocoding. Derives incident rows (when `rows` is omitted) and phone-metrics volume via the tiered `population_rates` realism section |
+| `include_event_counts` | bool | false | With `dataset=all`, add an `events_created` column to hourly phone metrics showing incidents per hour (for correlation analysis and forecasting controls) |
 | `area_query` | str | "Kansas City, MO" | OpenStreetMap Nominatim query for address geocoding |
 | `output_format` | enum | CSV | Export format (see [Output Formats](#output-formats)) |
 | `dataset` | enum | INCIDENTS | Which dataset(s) to generate |
@@ -953,15 +999,66 @@ uv run SynthCCD generate --shift-preset 3x8h-3shift
 GenerationRequest(rows=10000, shift_preset="4x10h-4shift")
 ```
 
-Each shift also carries its own staffing (calltakers/dispatchers). Shifts that
-omit staffing fall back to splitting the global `calltaker_pool_size` /
-`dispatcher_pool_size` totals. Custom structures — arbitrary shift hours,
-overnight shifts, rotation patterns, and per-shift staffing — are defined in the
-realism config's `shift_config` section; see the [Realism Guide](REALISMGUIDE.md).
+Each shift also carries its own staffing (calltakers/dispatchers). Those declared
+counts act as **weights**: the whole structure is scaled to the global
+`calltaker_pool_size` / `dispatcher_pool_size` totals, so the pool flags really do
+size the roster (the default 4-shift structure declares 3 calltakers each, giving
+3/3/3/3 against the default pool of 12 and 12/12/12/12 against 48). A shift that
+omits a count carries the mean of those that declare one.
+
+Staffing is always an input you supply. It is never inferred from call volume —
+doing so would make staffing collinear with the volume being generated, so you
+could not hold volume fixed and vary headcount.
+
+Custom structures — arbitrary shift hours, overnight shifts, rotation patterns,
+and per-shift staffing — are defined in the realism config's `shift_config`
+section; see the [Realism Guide](REALISMGUIDE.md).
+
+For medium and large centres, dispatcher positions can be split by agency
+discipline (LAW vs FIRE/EMS, or LAW / FIRE / EMS) once a shift staffs four or
+more dispatchers — three or fewer stay on one combined console — so each
+incident is dispatched from the console matching its
+agency. This is controlled by the realism config's `dispatcher_disciplines`
+section (`mode: auto|combined|two_way|three_way`); calltakers always remain a
+single cross-trained pool. See [Dispatcher Console Disciplines](REALISMGUIDE.md#dispatcher-console-disciplines).
 
 ### Supplying Parameters from a File
 
 All parameters in this section can be supplied at once from a JSON, YAML, or TOML file with `--params`. See [Params Files](#params-files-bundled-options).
+
+### Rows / Population Precedence
+
+Incident rows and phone-metrics volume follow independent precedence rules, so
+the same tool serves both realistic center modeling and free-form synthetic
+training data:
+
+| `--rows` | `--population` | Incident rows | Phone-metrics volume |
+|---|---|---|---|
+| omitted | omitted | 10,000 (default) | derived from rows (legacy) |
+| omitted | given | **derived from population** (`incidents_per_1000_yearly` × days/365) | **derived from population** (tiered 911 rate) |
+| given | omitted | `rows` (pure manual — no population constant is used) | derived from rows (legacy) |
+| given | given | `rows` wins for incidents | population still drives phone volume |
+
+> **Both flags given?** This is the decoupled mode: incidents are exactly
+> `--rows` while phone volume follows `--population`. To train models on fully
+> synthetic volumes, pass `--rows` *without* `--population` — then no
+> population constant touches either dataset.
+
+Example — one Kansas City week, both datasets, hourly event counts included:
+
+```bash
+uv run SynthCCD generate --population 521250 \
+  --config config/calibrations/kansas_city_mo.yaml \
+  --dataset all --include-event-counts \
+  --start-date 2026-01-01 --end-date 2026-01-07 \
+  --output-dir output --output-stem kc_week
+# kc_week_incidents.csv (~24,000 rows) + kc_week_hourly_call_counts.csv
+# (168 rows with an events_created column summing to the incident count)
+```
+
+Ready-made per-center starting points live in `config/calibrations/`
+(Kansas City, New York, DC, Norfolk, King County, rural Vermont) — see its
+README for the area-to-file map and source citations.
 
 ### Date Range Behavior
 
@@ -974,6 +1071,8 @@ All parameters in this section can be supplied at once from a JSON, YAML, or TOM
 Addresses are fetched from OpenStreetMap using the `area_query` parameter. The query accepts **any valid location query** that OpenStreetMap's Nominatim API supports, which is geocoded to a bounding box. Real street addresses with `addr:housenumber` + `addr:street` tags are then pulled from that bounding box via the Overpass API (overpy). Where an area lacks mapped house numbers, the generator falls back to real named streets with synthesized house numbers so output is still produced.
 
 Each address is emitted as individual components (`prefix_directional`, `street_number`, `street_name`, `street_type`, `postfix_directional`, `postal_code`) in addition to the combined `street_address`. Directionals are normalized to abbreviations (e.g., `NORTH` → `N`); a component is left empty when it cannot be determined from the source data. US `postal_code` values are normalized to the 5-digit ZIP: OpenStreetMap sometimes stores a 9-digit ZIP+4 (e.g. `64110-1234`), which is truncated to `64110`. Non-US postal codes (e.g. Canadian `L4T 2D6`, UK `SW1A 2AA`) are passed through unchanged.
+
+Addresses that correspond to a business or landmark carry a `commonplace_name` (e.g. `"T-Mobile Center"`, `"Union Station"`) extracted from the OSM `name` tag on elements with `amenity`, `shop`, `tourism`, or `historic` tags, or on named apartment buildings. The field is empty for ordinary residential addresses. Sub-address components such as suite or apartment numbers are captured in `unit_number` (e.g. `"Suite 15"`, `"Unit C"`) from `addr:flats` / `addr:unit` / `addr:suite` / `addr:door` / `addr:floor` OSM tags.
 
 Larger areas provide more address variety but take longer to fetch initially (addresses are cached locally after first query).
 
@@ -1002,6 +1101,22 @@ Larger areas provide more address variety but take longer to fetch initially (ad
 - Postal codes: `"90210, USA"`
 - Landmarks: `"Central Park, New York, NY"`
 - Bounding boxes: `"40.7128,-74.0060,40.7739,-73.9636"` (minlat,minlon,maxlat,maxlon)
+
+#### County-Wide PSAPs
+
+When the `--area` query resolves to a county (e.g., `"Douglas County, KS"`, `"Los Angeles County, CA"`), the generator automatically discovers real city and town names within the county via Overpass. Synthesized addresses are distributed across these discovered cities instead of all receiving the county name. For US areas, USPS postal code data is also used as a fallback when OSM elements lack `addr:city` tags.
+
+This produces realistic output for county-wide PSAPs where calls come from multiple jurisdictions:
+
+```bash
+# Generate incidents for a county-wide PSAP
+uv run SynthCCD generate --rows 5000 --area "Douglas County, KS" --format parquet
+
+# The output will include addresses from Lawrence, Eudora, Baldwin City, etc.
+# rather than all addresses labeled "Douglas County"
+```
+
+> **Note**: County-level Nominatim features often lack population data. For accurate phone metrics, supply `--population` explicitly when using a county area query.
 
 Larger areas provide more address variety but may take longer to fetch initially (addresses are cached locally after first query).
 
@@ -1047,6 +1162,75 @@ uv run SynthCCD validate-config my_center.yaml
 uv run SynthCCD validate-config broken.yaml
 # broken.yaml: Priority weights defined for unknown agency: UNKNOWN
 ```
+
+If a config carries an `answer_time_targets` section (published percentile
+compliance, e.g. NENA 90% within 15 s / 95% within 20 s), `validate-config`
+also reports how closely the configured 9-1-1 / non-emergency answer-time
+lognormal reproduces those targets, so you can confirm a hand-tuned or
+`calibrate-answer-time`-derived block actually meets the center's standard:
+
+```yaml
+answer_time_targets:
+  nine_one_one:        # line '911' is accepted as an alias
+    - [15, 0.90]       # 90% of calls answered within 15 s
+    - [20, 0.95]       # 95% within 20 s
+  non_emergency:
+    - {threshold: 20, percentile: 0.55}
+```
+
+```bash
+uv run SynthCCD validate-config my_center.yaml
+# my_center.yaml: OK
+#   answer-time calibration check:
+#     nine_one_one @  15s: target  90.0%  implied  92.5%  gap  +2.5pp  [OFF]
+#     nine_one_one @  20s: target  95.0%  implied  96.8%  gap  +1.8pp  [OK]
+#   1 target(s) outside tolerance ±2.0pp
+```
+
+Flags: `--calibration-tolerance` (default `0.02`, i.e. 2 percentage points) sets
+how close the implied % must be to the target; `--strict` makes any miss fail the
+run (exit 1), which is handy in CI to guard against config drift away from a
+published service-level standard. Targets are a validation aid only — they never
+change generated data.
+
+---
+
+## Calibrating Answer Times from Real Data
+
+The 9-1-1 and non-emergency answer-time distributions are lognormal, driven by
+the `nine_one_one_answer_time_mean` / `nine_one_one_answer_time_sigma`
+(and `non_emergency_*`) keys in `phone_metrics`. Public PSAP data rarely ships
+raw per-call histograms; what it publishes is **percentile compliance** — e.g.
+"90% answered within 15 s, 95% within 20 s" (the NENA 020.1-2020 gold standard).
+The `calibrate-answer-time` command fits the matching lognormal so you can anchor
+a center's defaults to its own published performance instead of hand-picking numbers.
+
+```bash
+# Fit from published percentile points (repeatable -p flag):
+uv run SynthCCD calibrate-answer-time -p 15,0.90 -p 20,0.95
+
+# Emit a ready-to-paste phone_metrics block as YAML:
+uv run SynthCCD calibrate-answer-time -p 15,0.90 -p 20,0.95 --emit-yaml
+
+# Fit from raw per-call answer times (CSV/JSON/JSONL; 'seconds' column or first numeric):
+uv run SynthCCD calibrate-answer-time --samples-file calls.csv --line 911
+
+# Calibrate only the non-emergency line; 911 is derived by dividing the mean by --ne-ratio (default 2.5):
+uv run SynthCCD calibrate-answer-time --samples-file ne_calls.csv --line non_emergency
+```
+
+The command prints the fitted `mean seconds` and `sigma`, the implied percentage
+answered within 10/15/20/40 s (so you can sanity-check the fit), and the four
+`phone_metrics` keys. Two fitting strategies are available:
+
+- **Percentile points** — solve the lognormal CDF `p = Φ((ln t − μ)/σ)` linearly
+  (`ln t = μ + σ·Φ⁻¹(p)`); two points solve exactly, more than two use least squares.
+- **Raw samples** — maximum-likelihood fit on the log-transformed data (the gold
+  standard when microdata such as NYC 911 End-to-End records is available).
+
+The same math is exposed in the Python API via
+`synth911gen3.calibration` (`fit_lognormal_from_percentiles`,
+`fit_lognormal_from_samples`, `lognormal_cdf`, `answer_time_config_block`).
 
 ---
 
@@ -1122,7 +1306,9 @@ shift_preset: "4x10h-4shift"
 | `dispatcher_pool_size` | | int | Unique dispatcher names |
 | `shift_preset` | | str | Shift structure preset name |
 | `max_memory_bytes` | | int | Per-chunk memory budget for CSV/Parquet streaming |
-| `population` | | int | Service area population for phone-volume scaling |
+| `population` | | int | Service area population; derives rows (when `rows` omitted) and phone volume (see [Rows / Population Precedence](#rows--population-precedence)) |
+| `auto_parquet_threshold` | | int | Auto-switch to Parquet when rows exceed this threshold (default: 100000). Set to 0 to disable |
+| `include_event_counts` | | bool | With `dataset=all`, add `events_created` per hour to phone metrics |
 | `psap_agency` | | str | PSAP agency filter: `all`, `law`, `fire`, `ems`, `fire_ems` |
 | `realism_config_path` | `config` | str | Path to YAML realism config |
 | `country` | | str | ISO 3166-1 alpha-2 code selecting the emergency-number registry (see [Emergency Number Registry](#emergency-number-registry)) |
@@ -1172,6 +1358,57 @@ uv run SynthCCD generate --params run.toml
 ```
 
 Three ready-made examples are included in the repo: `config/example_params.json`, `config/example_params.yaml`, and `config/example_params.toml`.
+
+### Per-Center Calibrations (`config/calibrations/`)
+
+Open-data-anchored realism starting points for specific centers. Each file cites
+its portal sources and confidence level in its header:
+
+| Area | File | 911/1,000/yr | 911 share | 911 abandon |
+|------|------|--------------|-----------|-------------|
+| Kansas City, MO | `kansas_city_mo.yaml` | 1,148 | 51.5% | ~10% |
+| New York, NY | `new_york_ny.yaml` | 1,200 | ~51% | ~8% |
+| Washington, DC | `washington_dc.yaml` | 1,300 | ~51% | ~12% |
+| Norfolk, VA | `norfolk_va.yaml` | 722 | ~48% | ~15% |
+| King County, WA | `king_county_wa.yaml` | 1,100 | ~51% | ~7% |
+| Vermont (rural) | `vermont_rural.yaml` | 360 | ~51% | ~6.5% |
+
+```bash
+# Kansas City week: both datasets + hourly event counts
+uv run SynthCCD generate --population 521250 \
+  --config config/calibrations/kansas_city_mo.yaml \
+  --dataset all --include-event-counts \
+  --start-date 2026-01-01 --end-date 2026-01-07
+```
+
+To mint a new center file, copy the closest one, replace `population_rates` and
+`phone_metrics` with the center's published volumes, cite the portal URL and
+access date in the header, and check it with
+`SynthCCD validate-config <file>`.
+
+### Bundled Samples (`config/samples/`)
+
+Scenario-driven samples that demonstrate how to build a params file for different
+centre sizes. Each loads through the same `--params` pipeline and is covered by
+`tests/test_samples.py`, so they always stay in sync with the CLI schema.
+
+| Sample | Scenario | Demonstrates |
+|--------|----------|--------------|
+| `small_centre.json` | Rural combined-console PSAP (Manhattan, KS) | Minimal JSON params; modest pools (5 dispatchers over four shifts stays on one combined console) |
+| `midsize_centre.yaml` | Alexandria, VA-style mid-size centre | Referencing a realism YAML via `config:`; per-shift staffing of 4 calltakers + 4 dispatchers split into LAW vs FIRE/EMS consoles |
+| `large_centre.toml` | Metro centre (Phoenix, AZ) | SQLite output, `population`-based phone volume, 1 GiB chunk budget, 10 dispatchers/shift → LAW / FIRE / EMS consoles |
+| `realism_disciplines.yaml` | Companion realism file | A minimal realism override: `shift_config` + `dispatcher_disciplines` (untouched sections fall back to defaults) |
+
+```bash
+# Preview what a sample does without generating or fetching addresses
+uv run SynthCCD generate --params config/samples/midsize_centre.yaml --dry-run
+
+# Run one for real
+uv run SynthCCD generate --params config/samples/large_centre.toml
+```
+
+> Paths inside samples (such as the realism file reference) are resolved relative to
+> the working directory — run from the repository root as shown.
 
 ### Capturing Parameters with `--save-params`
 
@@ -1241,6 +1478,8 @@ For every file-based export (CSV, Parquet, JSON, YAML), a **data governance mani
 | `shift_preset` | Shift structure preset (if any) |
 | `realism_config_hash` | SHA-256 hash (first 16 chars) of the realism YAML config |
 | `max_memory_bytes` | Per-chunk memory budget for chunked exports |
+| `population` | Service-area population used for row/phone-volume derivation |
+| `population_source` | How population was resolved: `"explicit"` (user-provided), `"nominatim"` (auto-resolved from OSM), or `""` (not set) |
 | `schema_hash` | SHA-256 hash (first 16 chars) of the output schema |
 | `schema_version` | Data schema version (`DATA_SCHEMA_VERSION` in `constants.py`) |
 | `datasets_generated` | List of dataset names produced |
@@ -1254,6 +1493,17 @@ The manifest enables:
 - **Config verification**: Confirm the realism config matches expectations via hash
 
 > **Note**: The manifest is not emitted for in-memory formats (`pandas`/`polars`) since no files are written.
+
+### Data Dictionaries
+
+For every file-based export, **data dictionary YAML files** are copied into the output directory alongside the generated data:
+
+- `incidents_data_dict.yaml` — full column reference for the incidents dataset (50 columns, types, glossary, definitions)
+- `phone_volume_data_dict.yaml` — full column reference for the hourly phone metrics dataset (22 columns, types, glossary, definitions)
+
+These files follow the [tidyverse data-dict spec](https://data-dict.tidyverse.org/) and can be validated, rendered as HTML, or consumed by agents/LLMs for schema-aware analysis. See the `docs/` directory for the source dictionaries and rendered HTML versions.
+
+> **Note**: Like the manifest, data dictionaries are not emitted for in-memory formats (`pandas`/`polars`).
 
 ### Parquet Metadata Embedding
 
@@ -1272,6 +1522,7 @@ Every Parquet file (incidents, hourly call counts — both full and chunked expo
 | `synth911:area_query` / `synth911:id_format` | Address area and ID scheme |
 | `synth911:calltaker_pool_size` / `synth911:dispatcher_pool_size` | Personnel pools |
 | `synth911:shift_preset` / `synth911:max_memory_bytes` | Shift structure / memory budget |
+| `synth911:population` / `synth911:population_source` | Service-area population and its resolution source |
 | `synth911:datasets_generated` | JSON list of datasets produced |
 | `synth911:manifest_version` | Manifest schema version (`1.0`) |
 
@@ -1288,6 +1539,38 @@ Notes:
 - `row_counts`/`column_counts` are intentionally **not** embedded (the footer row count and the sidecar manifest cover those); this keeps chunked-mode exports truthful, since final counts may be unknown at write time.
 - The embedded metadata matches the sidecar manifest values on the same run.
 
+### Auto-Parquet Threshold
+
+By default, the generator automatically switches from CSV to Parquet format when the row count reaches 100,000 rows or more. This provides better compression and performance for large datasets while maintaining CSV compatibility for smaller runs.
+
+**How it works:**
+- When `--format csv` (the default) and `--rows` ≥ 100,000: output is Parquet
+- When `--format csv` and `--rows` < 100,000: output is CSV
+- When `--format parquet` (explicit): always Parquet regardless of row count
+- When `--format` is any other value: format is unchanged
+
+**Custom threshold:**
+```bash
+# Switch to Parquet at 50,000 rows instead of 100,000
+uv run SynthCCD generate --rows 75000 --auto-parquet-threshold 50000
+
+# Disable auto-switching (always use CSV)
+uv run SynthCCD generate --rows 200000 --auto-parquet-threshold 0
+```
+
+**Params file:**
+```yaml
+# In your params.yaml file
+rows: 150000
+auto_parquet_threshold: 100000  # Default value
+format: csv  # Will auto-switch to parquet when rows >= threshold
+```
+
+**Benefits:**
+- Small datasets (< 100K rows): CSV for compatibility and ease of use
+- Large datasets (≥ 100K rows): Parquet for 3-10x compression and faster analytics
+- No manual format switching needed - the system optimizes automatically
+
 ### File Naming
 
 - **CSV/Parquet**: `{output_stem}_{dataset}.{ext}` (e.g., `synthetic_911_incidents.csv`)
@@ -1296,6 +1579,7 @@ Notes:
 - **Shapefile**: `{output_stem}_incidents.shp` + sidecars (`.shx`, `.dbf`, `.prj`, `.cpg`)
 - **DuckDB/SQLite**: `{output_stem}.duckdb` / `{output_stem}.sqlite3` unless `--db-name` is given
 - **Manifest**: `{output_stem}_manifest.json` (data governance sidecar; all file-based formats)
+- **Data dictionaries**: `incidents_data_dict.yaml` and `phone_volume_data_dict.yaml` (schema specs emitted alongside CSV, Parquet, JSON, YAML, GeoJSON, and Shapefile exports)
 
 ### Geospatial Exports
 
@@ -1469,6 +1753,10 @@ frame in memory by **streaming records in chunks**. The per-chunk budget
 (`--max-memory-bytes`), TUI, or a params file. Only the *incidents* dataset is
 chunked; the hourly phone-metrics dataset is tiny and always built in one pass.
 
+- Chunk size is chosen from a statistical bytes-per-row estimate built from the
+  output column dtypes plus the mean string lengths of the address, personnel, and
+  registry pools, with a 10% safety margin. Sizing generates no sample rows, so it
+  never consumes the seeded generation stream.
 - When the estimated full frame fits in the budget, a single chunk is written and
   the file is byte-for-byte identical to a non-chunked run.
 - When it does not fit, chunks are written incrementally: CSV writes a header on
@@ -1495,7 +1783,7 @@ uv run SynthCCD generate --rows 5000000 --format parquet --max-memory-bytes 1073
 | Column | Type | Description |
 |--------|------|-------------|
 | `id_number` | int or str | Incident ID: sequential integer (1 to N), or UUID v4 string when `id_format` is `guid` |
-| `internal_reference_number` | str | Agency-specific reference: `{AGENCY}-{YYMMDD}-{SEQ:06d}` |
+| `internal_reference_number` | str | Agency-specific reference: `{AGENCY}-{DDD}-{SEQ:05d}` where DDD is the 3-digit day of year (001–366) |
 | `agency` | str | Responding agency: LAW, FIRE, EMS |
 | `shift` | str | Shift on duty at `call_start_time` (e.g., A, B, C, D) |
 | `shift_label` | str | Shift label (e.g., DAY, NIGHT) |
@@ -1514,11 +1802,13 @@ uv run SynthCCD generate --rows 5000000 --format parquet --max-memory-bytes 1073
 | `latitude` | float | Latitude from OSM address node; `0.0` when no coordinates available (synthesized fallback addresses) |
 | `longitude` | float | Longitude from OSM address node; `0.0` when no coordinates available |
 | `zone` | str | Geographic zone classification: URBAN, SUBURBAN, or RURAL (OSM-based) |
+| `commonplace_name` | str | Business or landmark name from OSM (e.g. `"T-Mobile Center"`, `"Union Station"`); empty for residential addresses |
+| `unit_number` | str | Sub-address component from OSM `addr:flats`/`addr:unit`/`addr:suite`/`addr:door`/`addr:floor` tags (e.g. `"Suite 15"`, `"Unit C"`); empty when not present |
 | `location` | str | `street_address, city, state` |
 | `call_start_time` | datetime | Call received timestamp |
 | `hour` | int | Hour of day (0–23) of `call_start_time` |
-| `dow` | str | Day of week abbreviation (MON–SUN) of `call_start_time` |
-| `week_no` | int | ISO week number (1–53) of `call_start_time` |
+| `dow` | str | Day of week abbreviation (MON–SUN) of `call_start_time` (`MON`=0 per ISO day-of-week) |
+| `week_no` | int | ISO-8601 week number (1–53) of `call_start_time`. Weeks roll over at **Monday 00:00** — a Sunday and the preceding Saturday share a week number, while the following Monday starts the next one. Note ISO edge behavior: dates in early January can carry week 52/53 of the prior year (the week belongs to the year containing its Thursday) |
 | `incident_start_time` | datetime | CAD incident record opened; 0–3 s after `call_start_time` |
 | `time_phone_pickup` | datetime | Call answered by calltaker |
 | `time_call_enters_queue` | datetime | Call queued for dispatch |
@@ -1528,8 +1818,8 @@ uv run SynthCCD generate --rows 5000000 --format parquet --max-memory-bytes 1073
 | `time_last_unit_cleared` | datetime | Last unit cleared scene |
 | `time_call_closed` | datetime | Incident closed in CAD |
 | `time_phone_disconnect` | datetime | Caller disconnected |
-| `calltaker` | str | Calltaker name |
-| `dispatcher` | str | Dispatcher name |
+| `calltaker` | str | Calltaker name (drawn from the shift's cross-trained calltaker pool) |
+| `dispatcher` | str | Dispatcher name (drawn from the shift's console pool matching the incident's agency when `dispatcher_disciplines` splits consoles) |
 | `method_of_call_reception` | str | E-911, Phone, OFFICER, Radio, C2C, NOT CAPTURED, Text, CAD2CAD |
 | `call_disposition` | str | Code+label pair, e.g., NR-No Report, RE-Report, CI-Citation, UNDEFINED |
 | `pickup_delay_seconds` | int | Ring-to-answer time |
@@ -1558,6 +1848,8 @@ column set is:
 | `nine_one_one_calls_abandoned` | int | 9-1-1 calls abandoned |
 | `non_emergency_calls_received` | int | Non-emergency calls received |
 | `non_emergency_calls_abandoned` | int | Non-emergency calls abandoned |
+| `sms_rtt_calls_received` | int | SMS/RTT (text-to-911) sessions received |
+| `sms_rtt_calls_abandoned` | int | SMS/RTT sessions abandoned |
 | `outbound_calls_placed` | int | Outbound calls placed |
 | `nine_one_one_answered_10s_pct` | float | % of 9-1-1 calls answered within 10 seconds |
 | `nine_one_one_answered_15s_pct` | float | % of 9-1-1 calls answered within 15 seconds |
@@ -1567,20 +1859,52 @@ column set is:
 | `non_emergency_answered_15s_pct` | float | % of non-emergency calls answered within 15 seconds |
 | `non_emergency_answered_20s_pct` | float | % of non-emergency calls answered within 20 seconds |
 | `non_emergency_answered_40s_pct` | float | % of non-emergency calls answered within 40 seconds |
+| `sms_rtt_answered_60s_pct` | float | % of SMS/RTT sessions answered within 60 seconds |
+| `sms_rtt_answered_120s_pct` | float | % of SMS/RTT sessions answered within 120 seconds |
+| `sms_rtt_answered_300s_pct` | float | % of SMS/RTT sessions answered within 300 seconds |
+| `sms_rtt_answered_600s_pct` | float | % of SMS/RTT sessions answered within 600 seconds |
 | `nine_one_one_mean_duration` | float | Mean phone duration (seconds) of 9-1-1 calls answered that hour |
 | `non_emergency_mean_duration` | float | Mean phone duration (seconds) of non-emergency calls answered that hour |
+| `sms_rtt_mean_duration` | float | Mean phone duration (seconds) of SMS/RTT sessions answered that hour |
 | `outbound_mean_duration` | float | Mean phone duration (seconds) of outbound calls placed that hour |
-| `call_mean_duration` | float | Volume-weighted mean of the three duration means across all calls |
-| `total_emergency_calls` | int | Total emergency calls received across all emergency numbers |
+| `call_mean_duration` | float | Volume-weighted mean of the four channel duration means across all calls |
+| `total_emergency_calls` | int | Total emergency calls received across all emergency numbers (voice only) |
 | `total_nonemergency_calls` | int | Total non-emergency calls received (with floor constraint applied) |
-| `total_calls` | int | Sum of all received + outbound calls |
+| `total_calls` | int | Sum of emergency + non-emergency + outbound + SMS/RTT |
 
 `911` keeps the legacy `nine_one_one` column prefix for schema stability; every
 other number uses an `emergency_<digits>` prefix. For example, `--country GB`
 produces `emergency_999_calls_received`, `emergency_999_calls_abandoned`,
 `emergency_999_answered_15s_pct`, `emergency_999_mean_duration`, and the same
-set for `emergency_112`. The non-emergency line and the outbound counter are
-always present regardless of country.
+set for `emergency_112`. The non-emergency line, the SMS/RTT line, and the
+outbound counter are always present regardless of country.
+
+### SMS/RTT (text-to-911)
+
+SMS/RTT text sessions are modelled as their own line rather than as a share of
+the voice 9-1-1 queue, because centres log text contacts as discrete sessions
+and report them separately, and because a text interaction happens inside and
+between calls rather than as a voice answer-time distribution. Columns:
+
+`sms_rtt_calls_received`, `sms_rtt_calls_abandoned`, `sms_rtt_mean_duration`,
+and four engagement columns — `sms_rtt_answered_60s_pct`,
+`sms_rtt_answered_120s_pct`, `sms_rtt_answered_300s_pct`,
+`sms_rtt_answered_600s_pct`.
+
+Three things to know when reading them:
+
+- **Thresholds are minute-scale.** A text reply is not a voice answer time, so
+  the voice 10/15/20/40 s thresholds do not apply. Override with
+  `sms_rtt_answer_time_thresholds`.
+- **SMS/RTT is excluded from `total_emergency_calls`.** Text is not a voice
+  emergency call; counting it there would inflate reported 9-1-1 volume and
+  distort the non-emergency floor, which is computed against voice emergency
+  volume. It *is* included in `total_calls`.
+- **Engagement percentages are bounded by `answered / received`**, the same
+  convention as the voice lines. With the default 18% abandonment rate no
+  `sms_rtt_answered_*` column can exceed ~82%, so read the absolute values
+  rather than expecting them to approach 100%. Lower
+  `sms_rtt_abandonment_rate` to raise that ceiling.
 
 The `answered_Ns_pct` columns are simulated from the hour's per-call answer
 times (see `REALISMGUIDE.md` → Answer Time Percentages), so they are always

@@ -326,4 +326,5 @@ are unusually sensitive to it because early stopping is itself a fitted quantity
 - [[Model Validation Strategies]] — rolling origin, leakage, conditional coverage
 - [[Linear Models for Forecasting]] — the result that limits when this family is worth it
 - [[Nixtlaverse]] §4 — `MLForecast` and its feature-construction burden
+- [[Feature Importance and Explainability]] — reading the fitted model back: built-in importances, SHAP, and why they mislead on a lag matrix
 - [[resources]] §3.6 — the application survey

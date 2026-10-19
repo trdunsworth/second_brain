@@ -10,6 +10,104 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- SMS/RTT (text-to-911) channel in the hourly phone-metrics dataset. Modelled
+  as its own session-counted line rather than a share of the voice 9-1-1 queue,
+  because centres log text contacts as discrete sessions and measure them
+  separately. Adds `sms_rtt_calls_received`, `sms_rtt_calls_abandoned`,
+  `sms_rtt_mean_duration`, and four minute-scale engagement columns
+  (`sms_rtt_answered_60s_pct` … `600s_pct`); a text reply is not a voice
+  answer time, so the voice 10/15/20/40 s thresholds do not apply. New
+  `phone_metrics` keys: `sms_rtt_received_fraction` (0.04),
+  `sms_rtt_abandonment_rate` (0.18), `sms_rtt_answer_time_mean` (150.0),
+  `sms_rtt_answer_time_sigma` (0.95), `sms_rtt_answer_time_thresholds`,
+  `sms_rtt_phone_duration_mu`, `sms_rtt_phone_duration_sigma`.
+  `total_emergency_calls` stays voice-only so reported 9-1-1 volume and the
+  non-emergency floor are undistorted; `total_calls` now includes SMS/RTT, and
+  `call_mean_duration` is the volume-weighted mean of four channel means rather
+  than three. Schema version bumped 1.2 → 1.3. All SMS/RTT draws are appended
+  after the existing voice draws, so pre-existing datasets are byte-identical
+  (confirmed: the regression baseline's incident and phone signatures are
+  unchanged). Covered by 17 tests in `tests/test_sms_rtt.py`.
+- Automatic population lookup when `--population` is omitted. When the user
+  does not provide a population, the generator now extracts it from the
+  Nominatim `extratags.population` field during area geocoding (no extra HTTP
+  request). The resolved value is persisted in the address-cache `.meta.json`
+  sidecar and reused on cache hits. The manifest records `population_source`
+  as `"explicit"` (user-provided), `"nominatim"` (auto-resolved), or `""` (not
+  set). Explicit `--population` always wins. Covered by 15 tests in
+  `tests/test_addresses.py` and 3 tests in `tests/test_application.py`.
+- Business/landmark indicator and unit-number columns. Two new incident-output
+  columns: `commonplace_name` holds the OSM `name` when the address is a business
+  or landmark (amenity/shop/tourism/historic tags or named apartment building),
+  otherwise empty; `unit_number` captures sub-address components (suite, unit,
+  apartment, floor) from `addr:flats`/`addr:unit`/`addr:suite`/`addr:door`/`addr:floor`
+  OSM tags. Backward-compatible with old address caches. Covered by
+  `tests/test_addresses.py` and `tests/test_application.py`.
+- Hourly event counts in phone metrics. `--include-event-counts` (params key
+  `include_event_counts`, TUI select) adds an `events_created` column to the
+  hourly phone-metrics frame when `dataset=all`, binning incidents per hour for
+  correlation analysis and forecasting controls. Covered by 6 tests in
+  `tests/test_application.py`.
+- Tiered population-based volume calibration. The flat
+  `CALLS_PER_1000_POPULATION_YEARLY` constant is replaced by a
+  `population_rates` realism section: `emergency_tiers` (911-only calls per
+  1,000 residents/year by population bracket: 400 / 650 / 1,000 / 1,100,
+  anchored to Vermont, Iowa, Norfolk, Kansas City, DC, and NYC open data)
+  plus `incidents_per_1000_yearly` (2,200). 911 phone volume is anchored to
+  the tiered rate; incident rows derive from population when `--rows` is
+  omitted. New per-center calibration library in `config/calibrations/`
+  (Kansas City, New York, DC, Norfolk, King County, rural Vermont) with a
+  source-cited index README. Covered by 21 tests in
+  `tests/test_population_scaling.py`.
+- Optional incident row count. `GenerationRequest.rows` (and the pydantic/API
+  schema) is now `None` by default meaning "unspecified": explicit `--rows`
+  always wins for incidents, population derivation fills the gap, otherwise
+  10,000. With both flags given, rows win for incidents while population
+  still drives phone volume (documented precedence table in USERSGUIDE.md).
+  The TUI Rows field derives from Population when cleared.
+- **Load testing benchmarks.** `tests/test_benchmarks.py` with `pytest-benchmark`
+  measures incident-generation throughput at four scale tiers (10K, 100K, 1M, 10M
+  rows) and tracks peak memory via `tracemalloc`. Run with `--benchmark-only` for
+  throughput tables; without for memory assertions. CI job (`benchmarks`) runs
+  10K/100K tiers and uploads JSON results as artifacts for regression tracking.
+  10M tier excluded from default runs (slow); select with `-k 10m`.
+- **Prometheus metrics endpoint.** `GET /metrics` serves the full text exposition
+  format for scraping by Prometheus or compatible collectors. New `synth911gen3.metrics`
+  module with counters (`synthccd_requests_total`, `synthccd_generations_total`,
+  `synthccd_generation_rows_total`, `synthccd_generation_errors_total`), histograms
+  (`synthccd_request_duration_seconds`, `synthccd_generation_duration_seconds`),
+  gauges (`synthccd_active_requests`), and info (`synthccd_info`). `_MetricsMiddleware`
+  in `serve.py` tracks per-endpoint request count, duration, and active-request gauge.
+  Generation endpoints record count/duration/errors by dataset and output format.
+  `app.py` increments row counters per dataset. Covered by 16 tests in
+  `tests/test_metrics.py`. Documented in `USERSGUIDE.md`.
+- Bundled CLI samples in `config/samples/`: `small_centre.json` (rural combined-console
+  PSAP), `midsize_centre.yaml` (Alexandria-style LAW vs FIRE/EMS consoles via a companion
+  realism YAML), `large_centre.toml` (metro centre with SQLite output, population-based
+  phone volume, and a chunked memory budget), and `realism_disciplines.yaml` (minimal
+  realism override showcasing `shift_config` + `dispatcher_disciplines`). Each params
+  sample is round-tripped through the real loader in `tests/test_samples.py`.
+- TUI dispatcher-console controls. The Personnel section gains a "Dispatcher consoles"
+  select (Auto / Combined / LAW vs FIRE/EMS / LAW / FIRE / EMS) and a "Console split
+  threshold" input, applied over the realism config file's values; an invalid or
+  unreadable config file now fails fast with the field highlighted instead of
+  mid-generation.
+- DMA Theme for the TUI. Two registered Textual themes — `dma-light` (default) and
+  `dma-dark` — built from the DMA Theme palette
+  (https://github.com/trdunsworth/DMA_Theme_2): soft-white/dark-blue-grey backgrounds,
+  blue/teal/turquoise accents, and the documented AA-compliant semantic status stops.
+  Press `t` in the TUI to toggle between them.
+- Agency-disciplined dispatcher consoles for medium/large centres. Real centres staff
+  dispatch positions by discipline (e.g. Alexandria, VA: 4 dispatchers per shift as
+  2 LAW + 2 FIRE/EMS). A new `dispatcher_disciplines` realism-YAML section
+  (`mode`: `auto`/`combined`/`two_way`/`three_way`, `min_dispatchers_for_split`,
+  default threshold 4) splits each shift's dispatcher pool into LAW vs FIRE/EMS
+  consoles (4-7 positions) or LAW / FIRE / EMS consoles (8+), with remainders going
+  to LAW first. Each incident's `dispatcher` is drawn from the console matching the
+  incident's agency; calltakers stay one cross-trained pool; single-agency PSAPs
+  (`psap_agency`) and shifts below the threshold keep a combined console, so
+  default-config output is byte-identical. The realism config hash in the manifest
+  and regression baseline now covers the new section.
 - FIRE problem pool: `Chimney Fire` added at priority 3. It previously existed only in
   `SEASONAL_MULTIPLIERS` (winter-weighted: 2.5/0.5/0.1/1.5), so its seasonal profile never
   applied to generated incidents. FIRE problem count is now 22.
@@ -22,6 +120,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `non_emergency_phone_duration_mu`/`sigma` (mean ≈ 120 s), and
   `outbound_phone_duration_mu`/`sigma` (mean ≈ 60 s), with per-line
   `phone_duration_mu`/`phone_duration_sigma` overrides. Schema version bumped to 1.2.
+- Answer-time calibration command and API. `SynthCCD calibrate-answer-time` fits the
+  9-1-1 / non-emergency answer-time lognormal from published percentile-compliance
+  points (`-p threshold,prob`, repeatable) or raw per-call samples
+  (`--samples-file`, CSV/JSON/JSONL). It prints `mean seconds`/`sigma`, the implied
+  % answered within 10/15/20/40 s, and a paste-ready `phone_metrics` YAML block
+  (`--emit-yaml`). The math lives in `synth911gen3.calibration`
+  (`fit_lognormal_from_percentiles`, `fit_lognormal_from_samples`, `lognormal_cdf`,
+  `answer_time_config_block`), so a center's defaults can be anchored to its own
+  NENA-style compliance report instead of hand-picked numbers.
+- `validate-config` now checks a config's answer times against published targets.
+  A new optional `answer_time_targets` realism-YAML section lists per-line
+  percentile-compliance points (e.g. `nine_one_one: [[15, 0.90], [20, 0.95]]`, with
+  `911`/`non_emergency` aliases accepted, and dict form `{threshold, percentile}`).
+  `validate-config` reports each target's implied % answered within the threshold
+  and the gap vs the configured lognormal; `--calibration-tolerance` (default 0.02)
+  sets the pass band and `--strict` fails (exit 1) when any point misses, so CI can
+   guard against config drift away from a published service-level standard. Targets
+   are a validation aid only and never affect generated data.
+
+### Changed
+- Validation rules consolidated into `synth911gen3.validation`. The
+  output-path, PSAP-agency, date-range, and database-option checks
+  previously duplicated between `config.GenerationRequest.validate()`
+  (runtime dataclass) and the pydantic `schema.GenerationRequest` validators
+  now live once as pure functions in the new `validation` module, called by
+  both layers. Per ADR-0002 the dataclass remains the single runtime type
+  and pydantic remains the edge contract; neither layer's error surface
+  changed. This also completes the duplicate-enums consolidation:
+  `OutputFormat`, `DatasetKind`, `IdFormat`, and `DatabaseDialect` are now
+  defined once in `constants.py`. No behavior change. Covered by
+  `tests/test_validation.py` plus the existing config/schema/db-exporter
+  suites.
+- Volume-mix recalibration (Reading B). `nine_one_one_received_fraction`
+  `0.48 -> 0.55` and `non_emergency_received_fraction` `0.58 -> 0.52`
+  (≈51.4% 911 of received, matching Kansas City's 51.5%; cross-checked
+  against Norfolk ~47% and MARC regional ~36%).
+  `nine_one_one_abandonment_rate` `0.02 -> 0.07` (published band: Vermont
+  6.5%, DC 6–18%, Norfolk 16.8%, KC ~9%), `max_abandonment_rate`
+  `0.12 -> 0.20`, and the non-emergency floor is now a per-center
+  `non_emergency_floor_ratio` override (default 1.2, KC 0.9 — a 51.5% 911
+  share cannot satisfy a 1.2 floor). Committed regression baseline refreshed
+  (incidents unchanged; `phone.911_abandonment_rate` 0.022 -> 0.072,
+  `phone.received_911_per_hour` 73.6 -> 84.3).
+- 9-1-1 answer-time default now exactly meets NENA 020.1-2020. `nine_one_one_answer_time_mean`
+  moved `7.0 -> 7.44` and `nine_one_one_answer_time_sigma` `0.70 -> 0.79`, the joint
+  lognormal fit for 90% within 15 s / 95% within 20 s (μ = ln(mean) − σ²/2). At the
+  no-load level the standard is now met exactly; the realized hourly average (after
+  load-sensitivity and per-hour μ noise) lands around 87% within 15 s and 92% within
+  20 s. `config/example_realism.yaml` mirrors the new values, and the committed
+  regression baseline was refreshed (`phone.911_answered_10s_mean` 77.34 -> 74.68,
+  `phone.911_answered_40s_mean` 97.13 -> 96.76). Non-emergency defaults are unchanged.
 
 ### Fixed
 - `maybe_inject_system_trust()` is now guarded against re-entry: a module-level
@@ -91,6 +240,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   their configured targets. `hypothesis` added to the dev dependency group.
 
 ### Changed
+- **Phone answer-time config keys switched to mean-seconds convention (breaking for
+  custom realism YAMLs).** The old log-scale keys `nine_one_one_answer_time_mu` /
+  `non_emergency_answer_time_mu` (and the per-line `answer_time_mu`) are renamed to
+  `nine_one_one_answer_time_mean` / `non_emergency_answer_time_mean` /
+  `answer_time_mean`. Values are now the *population mean answer time in seconds*
+  (the generator converts to log-scale via `mu = ln(mean) − σ²/2`, matching the
+  incident phone-duration columns), so operators no longer translate seconds into
+  log-space by hand. Defaults are recalibrated so 9-1-1 is answered faster than
+  non-emergency (9-1-1 mean 7 s, σ 0.70 → ~89% within 15 s / ~94% within 20 s;
+  non-emergency mean 18 s, σ 0.90), tracking the NENA 020.1-2020 standard. Legacy
+  `*_answer_time_mu` keys are still accepted and auto-converted (with a deprecation
+  warning) via `RealismConfig.from_yaml`. Regression baseline refreshed for the new
+  defaults.
 - TLS proxy workaround: `UV_NATIVE_TLS=true` (deprecated by uv) replaced with
   `UV_SYSTEM_CERTS=true` in AGENTS.md, CONTRIBUTING.md, and USERSGUIDE.md. Behavior
   is unchanged — uv still verifies against the OS trust store.

@@ -1,5 +1,10 @@
 # AGENTS.md
 
+## MANDATORY: Use td for Task Management
+
+You must run td usage --new-session at conversation start (or after /clear) to see current work.
+Use td usage -q for subsequent reads.
+
 You are an experienced Python developer working on this project under my guidance.
 
 ## Task

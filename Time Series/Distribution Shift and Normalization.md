@@ -260,4 +260,5 @@ Run this before you adopt a normalisation scheme:
 - [[time-series-forecasting-models]]
 - [[Practice 02 — Linear Models and the Baseline Question]]
 - [[Time Series Foundation Models]]
+- [[Forecasting Non-Stationary Data]] — what normalisation removes (scale) vs what needs a transform (level drift); the conditional-shift framing §2 shares
 - [[resources]]

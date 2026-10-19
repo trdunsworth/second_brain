@@ -332,6 +332,8 @@ For a comparative forecasting study of the type in [[168-Point Forecast Comparis
 - [[time_series_evaluation_metrics_benchmarks]] — the metrics this note validates
 - [[Time Series Forecasting Baselines]] — the comparison targets, and why the baseline choice affects validity
 - [[forecast-reconciliation]] — §7 on evaluating at the level you consume
+- [[Forecasting Non-Stationary Data]] — expanding vs sliding windows is also a stationarity decision; §6 uses the protocol here
 - [[168-Point Forecast Comparison - Discrete vs Continuous]] — the study this protocol is built for
 - [[Staffing_Forecasting_Experiment]] — §6.4 maps to hypothesis H4
 - [[resources]] — §3.7 conformal prediction, §4.4 probabilistic metrics
+- [[Feature Importance and Explainability]] — importance must be measured on a held-out set, and ablations must be validated out-of-sample: attribution and validation share their failure modes

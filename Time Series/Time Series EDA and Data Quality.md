@@ -388,6 +388,7 @@ feature combinations. For a single series this has nothing to work on. See
 - [[State Space Models and Bayesian Structural Time Series]] §2 — missing data natively
 - [[Count Distributions and Kolassa Evaluation]] — value validity for counts specifically
 - [[Time Series Similarity, Clustering and Motif Discovery]] — characterisation and PCA
+- [[Forecasting Non-Stationary Data]] §6 — the pre-test look: diagnostics first, ADF/KPSS second
 - `julia-eda-lab/eda.jl` — the reusable columnar profiler in this vault, whose `missingness_table` and
   `flag_outliers` pair with §3's index checks. This note's §3 does not duplicate it; it supplies the
   time-series layer it lacks

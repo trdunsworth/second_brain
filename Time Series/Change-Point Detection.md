@@ -343,3 +343,4 @@ Detection is step one. **Step two — attributing it — is where the vault is c
 - [[Hierarchical and Mixed-Effects Models for Forecasting]] — a joint model absorbs breaks instead of
   splitting
 - [[time-series-forecasting-models]] §1 — structural/state space as the model-side alternative
+- [[Forecasting Non-Stationary Data]] §4 — the "break, not unit root" test-ordering argument this note powers

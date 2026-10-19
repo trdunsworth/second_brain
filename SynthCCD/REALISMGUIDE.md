@@ -4,7 +4,7 @@ A companion to the [User Guide](USERSGUIDE.md) describing how the generator prod
 realistic CAD and hourly phone-center statistics, the YAML realism configuration
 file, and the default distribution parameters baked in at build time.
 
-- User-facing interface, CLI reference, schema, and quick start: see [[USERSGUIDE]]
+- User-facing interface, CLI reference, schema, and quick start: see `USERSGUIDE.md`
 - Default statistical distributions and how they are tuned: this document
 
 ---
@@ -153,21 +153,38 @@ dispatch_init_fraction:
 # volume, abandonment rates, weekend multiplier, and answer-time distributions)
 phone_metrics:
   min_hourly_volume: 2.0
-  nine_one_one_received_fraction: 0.48
-  non_emergency_received_fraction: 0.58
+  nine_one_one_received_fraction: 0.55
+  non_emergency_received_fraction: 0.52
   outbound_calls_fraction: 0.26
-  nine_one_one_abandonment_rate: 0.02
+  sms_rtt_received_fraction: 0.04
+  sms_rtt_abandonment_rate: 0.18
+  sms_rtt_answer_time_mean: 150.0
+  sms_rtt_answer_time_sigma: 0.95
+  sms_rtt_answer_time_thresholds: [60.0, 120.0, 300.0, 600.0]
+  nine_one_one_abandonment_rate: 0.07
   night_abandonment_increment: 0.03
   non_emergency_abandonment_rate: 0.05
-  max_abandonment_rate: 0.12
+  max_abandonment_rate: 0.20
+  non_emergency_floor_ratio: 1.2
   weekend_multiplier: 1.12
-  nine_one_one_answer_time_mu: 1.80
-  nine_one_one_answer_time_sigma: 0.80
-  non_emergency_answer_time_mu: 1.70
-  non_emergency_answer_time_sigma: 0.80
+  nine_one_one_answer_time_mean: 7.44
+  nine_one_one_answer_time_sigma: 0.79
+  non_emergency_answer_time_mean: 18.0
+  non_emergency_answer_time_sigma: 0.90
   answer_time_thresholds: [10, 15, 20, 40]
   answer_time_load_sensitivity: 0.25
   answer_time_mu_noise_sd: 0.05
+
+# Population-based volume calibration (tiered 911-only rates + incident rate).
+# emergency_tiers entries are [exclusive_upper_bound, calls_per_1000_per_year];
+# a null bound means infinity. Partial sections merge over these defaults.
+population_rates:
+  emergency_tiers:
+    - [100000, 400.0]
+    - [500000, 650.0]
+    - [1000000, 1000.0]
+    - [null, 1100.0]
+  incidents_per_1000_yearly: 2200.0
 
 # Diurnal call volume pattern (24 values for hours 0-23, will be normalized)
 hourly_weights:
@@ -179,8 +196,11 @@ hourly_weights:
 # rotation: one crew-group id per calendar day, repeating. Day 1 is the weekday
 #   given by cycle_start_weekday (0 = Monday).
 # shifts: each entry lists a shift name, a human label, its on-duty hours, its
-#   crew rotation group, and staffing. Omit calltakers/dispatchers to fall back
-#   to the global --calltaker-pool-size / --dispatcher-pool-size split.
+#   crew rotation group, and staffing. Declared calltakers/dispatchers act as
+#   weights: the structure is scaled to the global --calltaker-pool-size /
+#   --dispatcher-pool-size totals, so a 4-shift structure declaring 3 each
+#   resolves to 3/3/3/3 against a pool of 12 and 12/12/12/12 against 48.
+#   Omit a count to have that shift carry the mean of those that declare one.
 shift_config:
   name: "2x12h-4shift-14day"
   cycle_start_weekday: 0
@@ -222,6 +242,15 @@ shift_config:
       rotation: 2
       calltakers: 3
       dispatchers: 2
+
+# Dispatcher console disciplines: how per-shift dispatcher pools split by
+# agency discipline in medium/large centres. auto keeps shifts of 3 or
+# fewer on one combined console and splits 4-7 positions into LAW vs
+# FIRE/EMS, 8+ into LAW / FIRE / EMS. See "Dispatcher Console Disciplines"
+# below.
+dispatcher_disciplines:
+  mode: auto
+  min_dispatchers_for_split: 4
 ```
 
 ### Customizable Parameters
@@ -239,6 +268,7 @@ shift_config:
 | `phone_metrics` | Volume fractions, abandonment rates, weekend multiplier, and answer-time distributions for hourly call counts | All required keys; max_abandonment_rate in [0, 1] |
 | `hourly_weights` | 24-hour call volume pattern | 24 values, auto-normalized |
 | `shift_config` | Crew rotation pattern and per-shift hours/rotation/staffing | Unique shift names, every rotation group covers all 24 hours |
+| `dispatcher_disciplines` | Agency-discipline breakdown of per-shift dispatcher consoles (LAW / FIRE / EMS) | `mode` in auto/combined/two_way/three_way; `min_dispatchers_for_split` >= 1 |
 | `name_locales` | Faker locale blend for personnel rosters, per country | Valid Faker locales, positive weights, uppercase ISO country keys |
 | `problem_phone_multipliers` | Per-problem-type phone duration multipliers | Positive floats; unlisted problems default to 1.0 |
 
@@ -364,6 +394,66 @@ shift_config:
       rotation: 1
       calltakers: 3
       dispatchers: 2
+```
+
+### Dispatcher Console Disciplines
+
+Real centres staff dispatch positions by agency discipline: a mid-size centre
+such as Alexandria, VA runs four dispatchers per shift as two LAW consoles plus
+two FIRE/EMS consoles, while larger centres split FIRE and EMS onto separate
+channels. Small centres run one combined console where every dispatcher covers
+all agencies. The `dispatcher_disciplines` section models this.
+
+```yaml
+dispatcher_disciplines:
+  mode: auto                  # auto | combined | two_way | three_way
+  min_dispatchers_for_split: 4
+```
+
+| Key | Description |
+|-----|-------------|
+| `mode` | `combined` keeps one console pool per shift; `two_way` splits LAW vs FIRE/EMS (FIRE and EMS share a console); `three_way` splits LAW / FIRE / EMS; `auto` (default) decides per shift from its staffing level |
+| `min_dispatchers_for_split` | Shifts staffing fewer than this many dispatchers stay combined under `auto` (default `4`, i.e. shifts of four or more split and three or fewer stay combined) |
+
+**Auto-mode resolution.** With more than one active agency, a shift of 4-7
+dispatchers splits into LAW vs FIRE/EMS consoles and a shift of 8 or more
+splits into LAW / FIRE / EMS. Positions are distributed as evenly as possible,
+with any remainder going to LAW first. Groups whose agencies are inactive get
+no positions — a fire/EMS-only PSAP (`psap_agency: fire_ems`) never receives a
+LAW console, and single-agency PSAPs always keep one combined console
+regardless of position count. Explicit `two_way`/`three_way` modes ignore the
+threshold and split at any staffing level.
+
+Each incident's `dispatcher` is drawn (Zipf-weighted, per shift) only from the
+console matching the incident's agency, so a LAW incident is never dispatched
+by a FIRE-position dispatcher within the same shift. Calltakers remain a
+single cross-trained pool on every shift. Default staffing (2 dispatchers per
+shift) stays combined, so default-config output is unchanged.
+
+```yaml
+# Example: Alexandria-style centre — 4 dispatchers per shift, 2 LAW + 2 FIRE/EMS
+shift_config:
+  name: "alexandria"
+  cycle_start_weekday: 0
+  rotation: [1]
+  shifts:
+    - name: A
+      label: DAY
+      start_hour: 6
+      end_hour: 18
+      rotation: 1
+      calltakers: 4
+      dispatchers: 4
+    - name: B
+      label: NIGHT
+      start_hour: 18
+      end_hour: 6
+      rotation: 1
+      calltakers: 4
+      dispatchers: 4
+dispatcher_disciplines:
+  mode: three_way   # separate FIRE and EMS consoles; default auto gives this
+                    # 4-position shift two LAW + two FIRE/EMS consoles instead
 ```
 
 ### Personnel Name Locales
@@ -549,6 +639,9 @@ The default shift structure is **2x12h-4shift-14day**: shifts A/B on day
 night and group 2 = B day + D night. Each shift is staffed with 3 calltakers
 and 2 dispatchers. This same structure is used when no `--shift-preset` or
 `shift_config` is supplied. See [Shift Structures](#shift-structures) above.
+At the default staffing every shift stays on one combined dispatcher console;
+see [Dispatcher Console Disciplines](#dispatcher-console-disciplines) for how
+larger per-shift staffing levels split consoles by agency.
 
 ### Priority Weights (by Agency)
 
@@ -593,27 +686,70 @@ A weekend multiplier (+12% Fri/Sat) is configurable via `phone_metrics.weekend_m
 
 ### Hourly Phone Metrics
 
-Hourly call counts are driven by a base volume (`rows / hours`, floored at
-`min_hourly_volume`) split by fractions per call type, with abandonment drawn
-binomial on the received counts:
+Hourly call counts are driven by a base volume (incident rows / hours, or the
+population-anchored 911 volume — see Population-Based Volume Scaling below),
+floored at `min_hourly_volume` and split by fractions per call type, with
+abandonment drawn binomial on the received counts. The volume fractions are
+independent per-line Poisson means, not shares of a fixed total:
 
 | Key | Default | Meaning |
 |-----|---------|---------|
 | `min_hourly_volume` | 2.0 | Floor on base calls-per-hour |
-| `nine_one_one_received_fraction` | 0.48 | Share of base volume received as 9-1-1 |
-| `non_emergency_received_fraction` | 0.58 | Share received as non-emergency |
-| `outbound_calls_fraction` | 0.26 | Share placed as outbound |
-| `nine_one_one_abandonment_rate` | 0.02 | Baseline 9-1-1 abandonment rate |
+| `nine_one_one_received_fraction` | 0.55 | Per-line mean for 9-1-1 received (≈51.4% of received with the 0.52 non-emergency fraction; Kansas City Reading B: 51.5%) |
+| `non_emergency_received_fraction` | 0.52 | Per-line mean for non-emergency received |
+| `outbound_calls_fraction` | 0.26 | Per-line mean for outbound placed |
+| `sms_rtt_received_fraction` | 0.04 | Per-line mean for SMS/RTT (text-to-911) sessions received. Modelled as its own line, not a share of the voice 9-1-1 queue; text is a minority channel in most centres and higher where Deaf/HH outreach is strong |
+| `sms_rtt_abandonment_rate` | 0.18 | Text-session abandonment. Higher than voice because senders routinely give up before a reply arrives; caps the SMS/RTT engagement percentages at ≈82% (see below) |
+| `sms_rtt_answer_time_mean` | 150.0 | Population **mean** time to a first reply in seconds (same μ = ln(mean) − σ²/2 convention) |
+| `sms_rtt_answer_time_sigma` | 0.95 | Lognormal σ for text time-to-reply |
+| `sms_rtt_answer_time_thresholds` | `[60, 120, 300, 600]` | Minute-scale engagement thresholds. The voice 10/15/20/40 s thresholds do not apply to text |
+| `sms_rtt_phone_duration_mu` | 1.35 | Lognormal μ for text-session duration (log-scale; far longer than a voice call) |
+| `sms_rtt_phone_duration_sigma` | 0.80 | Lognormal σ for text-session duration |
+| `nine_one_one_abandonment_rate` | 0.07 | Baseline 9-1-1 abandonment rate (published band: VT 6.5%, DC 6–18%, Norfolk 16.8%, KC ~9%) |
 | `night_abandonment_increment` | 0.03 | Added to 9-1-1 rate during 00:00-05:59 |
 | `non_emergency_abandonment_rate` | 0.05 | Non-emergency abandonment rate |
-| `max_abandonment_rate` | 0.12 | Cap applied to abandonment draws |
+| `max_abandonment_rate` | 0.20 | Cap applied to abandonment draws |
+| `non_emergency_floor_ratio` | 1.2 | Floor of non-emergency received as a multiple of emergency received (overridable per center; KC uses 0.9) |
 | `weekend_multiplier` | 1.12 | Volume multiplier on Fri/Sat |
-| `nine_one_one_answer_time_mu` | 1.80 | Lognormal μ for 9-1-1 answer time (seconds) |
-| `nine_one_one_answer_time_sigma` | 0.80 | Lognormal σ for 9-1-1 answer time |
-| `non_emergency_answer_time_mu` | 1.70 | Lognormal μ for non-emergency answer time (seconds) |
-| `non_emergency_answer_time_sigma` | 0.80 | Lognormal σ for non-emergency answer time |
+| `nine_one_one_answer_time_mean` | 7.44 | Population **mean** answer time in seconds for 9-1-1 (converted to lognormal μ = ln(mean) − σ²/2). Calibrated to NENA 020.1-2020 (90% ≤ 15 s, 95% ≤ 20 s). |
+| `nine_one_one_answer_time_sigma` | 0.79 | Lognormal σ (shape) for 9-1-1 answer time |
+| `non_emergency_answer_time_mean` | 18.0 | Population **mean** answer time in seconds for non-emergency lines (slower than 9-1-1; not staffed to the emergency standard) |
+| `non_emergency_answer_time_sigma` | 0.90 | Lognormal σ (shape) for non-emergency answer time |
 | `answer_time_thresholds` | [10, 15, 20, 40] | Seconds thresholds for % answered columns |
-| `answer_time_load_sensitivity` | 0.25 | How strongly the answer-time lognormal μ shifts with hourly load (busy hours answer slower) |
+| `answer_time_load_sensitivity` | 0.25 | How strongly the answer-time lognormal μ shifts with hourly load (busy hours answer slower). Only used when `queue_model_enabled` is off |
+| `queue_model_enabled` | `false` | **Off by default.** When enabled, staffing drives the answer-time curve (Erlang-C) and the abandoned-call counts (Erlang-A) instead of the tuned rates. See "Queue modelling" below |
+| `queue_patience_seconds` | 75.0 | Mean caller patience for Erlang-A. Callers who have waited this long give up |
+
+### Queue modelling (opt-in)
+
+`queue_model_enabled` is **off by default**, and turning it on is a deliberate
+experimental treatment rather than a realism switch.
+
+When enabled, the queue mechanics in `generators/queueing.py` make staffing an
+input that drives outcomes:
+
+- **Erlang-C** (`M/M/c`, infinite patience) shapes the answer-time curve from
+  the agents actually on duty each hour and the arrival rate that hour.
+- **Erlang-A** (`M/M/c+M`, exponential patience) supplies the load-dependent
+  share of callers who queue and then hang up, added to the configured rate.
+
+Staffing comes **only** from the caller-supplied `--calltaker-pool-size` /
+`--dispatcher-pool-size`. It is never inferred from call volume: doing so would
+make staffing collinear with the volume being generated, so an experiment that
+holds volume fixed and varies staffing could not be run. Both models are
+verified against the scalar references vendored in `tests/reference/`.
+
+**Why it defaults to off.** The tuned values the queue would act on are already
+end-to-end figures: `nine_one_one_answer_time_mean` is a NENA 020.1-2020 fit of
+observed answer times, and the `*_abandonment_rate` values are observed totals
+that already contain queue hang-ups. Applying the queue on top charges the same
+wait twice and drives the 15-second service level to near zero at ordinary
+staffing. Enable it when you want staffing to drive the queue explicitly, and
+treat the queue as superseding the tuned rates rather than augmenting them.
+
+Only inbound **voice** lines contend for the calltaker pool. SMS/RTT is staffed
+separately and outbound calls place no load on it, so neither is queued here.
+With the model off — the default — staffing does not affect this dataset at all.
 | `answer_time_mu_noise_sd` | 0.05 | Std-dev of per-hour random noise applied to lognormal μ, so answer-time percentages vary hour-to-hour |
 | `nine_one_one_phone_duration_mu` | 5.10 | Lognormal μ for 9-1-1 phone duration (mean ≈ 210 s) |
 | `nine_one_one_phone_duration_sigma` | 0.70 | Lognormal σ for 9-1-1 phone duration |
@@ -624,34 +760,58 @@ binomial on the received counts:
 
 ### Population-Based Volume Scaling
 
-When the `--population` flag (or `population` params-file key) is set, phone-metrics
-volume is derived from the service area population instead of the incident row count.
-The formula is:
+When the `--population` flag (or `population` params-file key) is set, both the
+incident row count (when `--rows` is omitted) and the phone-metrics volume derive
+from the service area population instead of the incident row count. An explicit
+`--rows` always wins for incidents; population still drives phone volume in that
+case (see the precedence table in USERSGUIDE.md).
+
+911 volume is anchored to a tiered 911-only rate because per-capita call rates
+rise with center size in the published data. The `population_rates` realism
+section configures it:
+
+```yaml
+population_rates:
+  emergency_tiers:          # [exclusive_upper_bound, 911 calls per 1,000/yr]
+    - [100000, 400.0]       # rural (VT E911 2025 ≈ 360; Iowa FY24 ≈ 372)
+    - [500000, 650.0]       # midsize (Norfolk VA ≈ 722)
+    - [1000000, 1000.0]     # large (below measured KC/DC)
+    - [null, 1100.0]        # major (NYC/DC band ≈ 1,100–1,300; null = infinity)
+  incidents_per_1000_yearly: 2200.0   # incident rows per 1,000/yr (KC Reading B ≈ 2,394)
+```
+
+The formulas are:
 
 ```
-total_annual_calls = (population / 1000) × CALLS_PER_1000_POPULATION_YEARLY
-base_hourly_volume = total_annual_calls / hours_in_year × hours_in_date_range
+emergency_annual = (population / 1000) × tier_rate(population)
+base_hourly_volume = (emergency_annual / 8760) / total_emergency_fraction
+incident_rows = round(population / 1000 × incidents_per_1000_yearly × days_in_range / 365)
 ```
 
-The default `CALLS_PER_1000_POPULATION_YEARLY` is 2,500 (NFPA/NAEM data for US
-PSAPs). This constant is defined in `constants.py` and can be overridden by editing
-the source.
-
-When `population` is not set (the default), the legacy behaviour is preserved:
+`total_emergency_fraction` is the sum of the per-number received fractions, so
+the *expected* 911 draw equals the population-implied 911 volume; non-emergency
+and outbound lines follow from the same base via their fractions. When
+`population` is not set, the legacy behaviour is preserved:
 `base_hourly_volume = rows / total_hours`.
 
-### Non-Eergency Floor
+Per-center calibration files in `config/calibrations/` (see its README) pin
+measured rates for Kansas City, New York, DC, Norfolk, King County, and rural
+Vermont — copy the closest one instead of tuning tiers by hand.
 
-To guarantee that non-emergency calls always exceed emergency calls — the
-real-world norm for every PSAP — a floor constraint is applied after the
-independent Poisson draws:
+### Non-Emergency Floor
+
+To keep the emergency/non-emergency mix realistic, a floor constraint is applied
+after the independent Poisson draws:
 
 ```
-non_emergency_received ≥ ceil(total_emergency_received × NON_EMERGENCY_FLOOR_RATIO)
+non_emergency_received ≥ ceil(total_emergency_received × non_emergency_floor_ratio)
 ```
 
-The default `NON_EMERGENCY_FLOOR_RATIO` is 1.2 (non-emergency must be at least
-20% higher than emergency). This constant is defined in `constants.py`.
+The default `non_emergency_floor_ratio` is 1.2 (national pattern: non-emergency
+exceeds emergency). Urban centers with a 911 share above ~45% cannot satisfy a
+1.2 floor (it caps 911 share at ~45.5%), so they override it — Kansas City
+(51.5% 911 share) uses 0.9. The key is optional in `phone_metrics` and falls
+back to the `NON_EMERGENCY_FLOOR_RATIO` constant (1.2) when absent.
 
 ### Answer Time Percentages
 
@@ -666,26 +826,41 @@ sequential-binomial draw from the lognormal answer-time distribution, and each
 answered calls than were received and not abandoned, and reach exactly 100% on
 fast, low-abandonment hours.
 
-The lognormal `mu` is first adjusted by the hour's load (`busy_factor`) via
-`answer_time_load_sensitivity`, then given per-hour random noise scaled by
-`answer_time_mu_noise_sd`. The noise keeps percentages from being identical
-every hour while the load term keeps busy hours slower. Defaults produce
-approximately these average answer rates:
+The answer-time `mean` (seconds) is first converted to lognormal log-scale
+location `mu = ln(mean) − σ²/2`, then `mu` is adjusted by the hour's load
+(`busy_factor`) via `answer_time_load_sensitivity`, then given per-hour random
+noise scaled by `answer_time_mu_noise_sd`. The noise keeps percentages from
+being identical every hour while the load term keeps busy hours slower.
+Defaults produce approximately these average answer rates:
 
 | Threshold | Default 9-1-1 % | Default Non-Emergency % |
 |-----------|-----------------|-------------------------|
-| 10 s | ~70% | ~74% |
-| 15 s | ~85% | ~85% |
-| 20 s | ~91% | ~90% |
-| 40 s | ~96% | ~94% |
+| 10 s | ~75% | ~39% |
+| 15 s | ~87% | ~56% |
+| 20 s | ~92% | ~67% |
+| 40 s | ~97% | ~85% |
 
-These defaults target ≥85% of 9-1-1 calls answered within 15 seconds and ≥74%
-of non-emergency calls answered within 10 seconds. National standards
-recommend ≥90% of 9-1-1 calls answered within 15 seconds and ≥95% within
-20 seconds; the 9-1-1 default is slightly below the 15-second standard but
-exceeds it at 20 seconds. Adjust `nine_one_one_answer_time_mu`/`sigma` to
-match your center's performance. Non-emergency standards are in development;
-the defaults model a faster answer profile than previous versions.
+The 9-1-1 pair is the exact NENA 020.1-2020 lognormal fit at the no-load level
+(μ = ln(mean) − σ²/2 gives 90% within 15 s and 95% within 20 s). The table above
+shows the *realized* hourly average, which the load-sensitivity and per-hour μ
+noise terms pull down to ≈87% within 15 s and ≈92% within 20 s on a typical mix
+of busy and quiet hours. Non-emergency lines are modeled as answered markedly
+more slowly because they are not staffed to the emergency standard. National
+guidance recommends ≥90% of 9-1-1 calls answered within 15 s and ≥95% within
+20 s; nudge `nine_one_one_answer_time_mean`/`sigma` down to meet a stricter
+target, or raise it to model a slower center. The `mean` is in **seconds** (the
+population mean answer time), matching the phone-duration keys.
+
+ To derive `mean`/`sigma` from a center's own published percentile compliance
+ (e.g. "90% within 15 s, 95% within 20 s") or from raw per-call answer times,
+ use `SynthCCD calibrate-answer-time` (see the User Guide's *Calibrating Answer
+ Times from Real Data* section). It fits the same lognormal and emits the exact
+ `nine_one_one_answer_time_mean` / `nine_one_one_answer_time_sigma` /
+ `non_emergency_answer_time_mean` / `non_emergency_answer_time_sigma` keys.
+ Record those points under an `answer_time_targets` section and run
+ `SynthCCD validate-config --strict` to keep the config honest against the
+ published standard (it reports the implied % answered within each threshold and
+ fails when any point misses by more than `--calibration-tolerance`, default 2pp).
 
 ### Mean Phone Duration
 
@@ -1117,6 +1292,7 @@ Before deploying a custom config:
 - [ ] `seasonal_multipliers` entries have exactly 4 values
 - [ ] `name_locales` uses valid Faker locales with positive weights and uppercase ISO country keys
 - [ ] `shift_config` validates (unique names, 24hr coverage)
+- [ ] `dispatcher_disciplines` uses a valid mode (auto/combined/two_way/three_way) and `min_dispatchers_for_split` >= 1
 - [ ] Test generation completes without errors
 - [ ] Output statistics match real data within tolerances
 - [ ] Config committed to version control

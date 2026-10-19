@@ -286,5 +286,6 @@ explicitly; or add explicit DST/holiday features; or use 24-hour periods plus a 
 - [[Forecast Combination]] — "just combine it" instead of champion/challenger
 - [[Count Distributions and Kolassa Evaluation]] §3 — rPIT and WIS monitoring
 - [[Model Validation Strategies]] §6 — marginal vs conditional coverage
+- [[Feature Importance and Explainability]] — after drift, the importance ranking is stale too: re-check which features the retrained model actually uses
 - [[Feature Engineering for Time Series]] §3.4 — covariate availability and freshness
 - [[Time Series Foundation Models]] §5 — where the empty section header was

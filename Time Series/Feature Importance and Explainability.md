@@ -239,8 +239,9 @@ https://proceedings.neurips.cc/paper/2020/hash/47a3893cc405396a5c30d91320572d6d-
 > of their actual values**."*
 
 They propose **Temporal Saliency Rescaling (TSR)** as the fix. **This matters for the vault because
-[[Time Series Foundation Models]] §4 discusses attention-based TSFMs without ever noting that
-attention maps on time series are known to be misleading.**
+[[Time Series Foundation Models]] §2 is dominated by attention-based architectures (PatchTST,
+TiRex, Chronos-2) and none of them promises usable saliency — its §6 open-questions table now
+carries the explicit caveat.**
 
 > **⚠️ The often-cited "Turricani et al., Saliency Maps for Time Series Forecasting, ICML 2019" does
 > not appear to exist** — no arXiv, Crossref or discoverable record, and the author list circulated
@@ -444,3 +445,6 @@ possible first step.
   point one
 - [[Time Series Foundation Models]] §4 — attention-based TSFMs, and why §3.3's warning applies
 - [[Time Series EDA and Data Quality]] — VIF is a data-quality diagnostic too
+- [[time-series-forecasting-models]] — §9's "interpretability" row; §3's GBDT block on which this note reads back
+- [[Forecasting MLOps]] — after drift and retraining, the importance ranking is stale; importance re-checks are a monitoring activity
+- [[Forecasting Non-Stationary Data]] — attributions rank what a model used on one reference set; on a drifting or collinear matrix those ranks do not generalise

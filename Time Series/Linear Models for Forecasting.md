@@ -318,4 +318,5 @@ class RLinear(nn.Module):
 - [[Model Validation Strategies]]
 - [[168-Point Forecast Comparison - Discrete vs Continuous]]
 - [[Practice 02 — Linear Models and the Baseline Question]]
+- [[Forecasting Non-Stationary Data]] §5 — NLinear minus last value *is* d=1 differencing; why linear models are the non-stationarity-native family
 - [[resources]]

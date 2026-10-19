@@ -53,6 +53,7 @@ Entry point for the forecasting side of the vault. Created 2026-10-14.
 | [[TimeCopilot]] | Dedicated page | New |
 | [[Nixtlaverse]] | Dedicated page — the seven libraries | New |
 | [[ThymeBoost]] | Dedicated page — gradient boosting over a decomposition | New |
+| [[Forecasting Non-Stationary Data]] | Stationarity tests (ADF/KPSS/PP), differencing, unit root vs structural break, what non-stationarity costs an ML pipeline | New |
 
 ### Pre-existing
 
@@ -113,7 +114,7 @@ Weighted toward hourly counts and univariate series, per the 9-1-1 / PSAP contex
 - The above, plus [[Time Series Foundation Models]] §1–3, [[Distribution Shift and Normalization]] §1–4, and [[Model Validation Strategies]] §1 and §6
 
 **If you have a week**
-- All of the above, plus [[Generative and Probabilistic Forecasting]], [[Intermittent and Sparse Demand]], [[Time Series Anomaly Detection]], [[Nixtlaverse]], [[TimeCopilot]], [[Time Series Decomposition]], [[Gradient Boosting for Time Series]], and the five Practice notes end to end
+- All of the above, plus [[Generative and Probabilistic Forecasting]], [[Intermittent and Sparse Demand]], [[Time Series Anomaly Detection]], [[Nixtlaverse]], [[TimeCopilot]], [[Time Series Decomposition]], [[Gradient Boosting for Time Series]], [[Forecasting Non-Stationary Data]], and the five Practice notes end to end
 
 ---
 

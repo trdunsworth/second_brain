@@ -14,7 +14,7 @@ TUI-first scaffold for generating synthetic 9-1-1 CAD incidents and hourly phone
 - Export routing for CSV, Parquet, JSON, YAML, pandas, polars, GeoJSON, Shapefile,
   and direct database targets (PostgreSQL, SQL Server, MariaDB, DuckDB, SQLite)
 - OpenStreetMap-backed address provider abstraction with local caching
-- Typer CLI and Textual TUI entry points
+- Typer CLI and Textual TUI entrypoints
 - Pytest coverage for defaults, generation flow, and export behavior
 
 ## Environment
@@ -71,10 +71,11 @@ On networks behind a TLS-inspecting proxy, prefix the audit with
 
 ## Documentation
 
-- [[USERSGUIDE]] — quick start, CLI reference, params files, output formats, schema, examples, Python API
-- [[REALISMGUIDE]] — realism YAML configuration reference, validation rules, and default distributions
+- `GENAGENT.md` — AI assistant guide for helping users generate synthetic data
+- `USERSGUIDE.md` — quick start, CLI reference, params files, output formats, schema, examples, Python API
+- `REALISMGUIDE.md` — realism YAML configuration reference, validation rules, and default distributions
 - `docs/adr/` — architecture decision records explaining the significant design decisions
-- [[CHANGELOG.md]] — release history
+- `CHANGELOG.md` — release history
 - HTML API reference (Sphinx): `uv run python scripts/build_docs.py`, then open `output/docs/index.html`
 
 The API reference is generated with Sphinx from the package docstrings

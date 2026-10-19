@@ -2,7 +2,7 @@
 
 Thanks for contributing. This guide covers the development setup, code style,
 testing expectations, and the pull-request process. It is a companion to
-[[SynthCCD/AGENTS|AGENTS]] — when the two disagree, `AGENTS.md` wins.
+[`AGENTS.md`](DMA_theme/AGENTS.md) — when the two disagree, `AGENTS.md` wins.
 
 ## Development setup
 

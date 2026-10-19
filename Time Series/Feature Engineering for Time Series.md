@@ -265,7 +265,9 @@ of a count series**. Never use it on raw hourly counts.
       `.shift(1)` and confirm the unshifted version scores better in-sample and worse on
       rolling-origin. That gap is the leak, made visible
 - [ ] Ablate `lag_24` against `lag_168`. Quantify what the weekly lag is worth — this is the single
-      most informative feature experiment available
+      most informative feature experiment available. Note that importance attribution will
+      *understate* this: see [[Feature Importance and Explainability]] §5 — grouped permutation is
+      the honest version of this experiment, and ablation is its ground truth
 - [ ] Test `lag_168` alone vs `rolling(168).mean()` alone vs both. Confirm they are a different
       hypothesis class
 - [ ] Check which covariates are actually available at `h=168`. If weather is not, either use a
@@ -318,3 +320,5 @@ of a count series**. Never use it on raw hourly counts.
 - [[Forecast Combination]] §2.4 — FFORMA, the main consumer of series characteristics
 - [[Hierarchical and Mixed-Effects Models for Forecasting]] — the alternative that removes the burden
 - [[Linear Models for Forecasting]] — seasonal differences as a feature, not just a plot
+- [[Forecasting Non-Stationary Data]] §2 — the stationarity tests behind §2.5's `unitroot_kpss`/`unitroot_pp` features; §3 on why differenced features generalise
+- [[Feature Importance and Explainability]] — the read-back side of this note: which of the constructed features earned their place, and the collinearity trap that makes naive rankings lie
