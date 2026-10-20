@@ -102,6 +102,7 @@ A comprehensive collection of papers, libraries, and resources for time series f
 - **Overview**: Additive regression model: y(t) = g(t) + s(t) + h(t) + ε. Handles trends, multiple seasonalities, holidays, and missing data.
 - **Best for**: Business forecasting, retail sales, web traffic, data with holiday effects, non-expert users.
 - **When to use**: Multiple seasonalities, known events/holidays, missing data, need for interpretable decomposition.
+- **Dedicated note**: [[Prophet and NeuralProphet]] — the model as a system, the miscalibrated uncertainty bands, prophet-laplace's calibrated-density repair, and the NeuralProphet successor.
 
 > **Decomposition as a family — full treatment in [[Time Series Decomposition]].** Classical
 > decomposition, STL, X-13ARIMA-SEATS, MSTL, Theta and Prophet are all covered there, together
@@ -317,6 +318,8 @@ Conformal prediction (CP) wraps any point forecaster to produce prediction inter
 | Time Series Analysis and Modeling to Forecast: A Survey | — | 2021 | [arXiv:2104.00164](https://arxiv.org/abs/2104.00164) |
 | 25 Years of Time Series Forecasting | Hyndman | 2006 | [PDF](https://robjhyndman.com/papers/25years_forecasting.pdf) |
 | Foundation Models for Time Series Analysis: A Tutorial and Survey | Liang et al. | 2024 | Listed in [arXiv:2411.05793](https://arxiv.org/abs/2411.05793) |
+| A Review of Open Source Software Tools for Time Series Analysis | Faniband, Ishak & Sait | 2022 | Preprint — broadest software landscape survey; catalogued in [[Forecasting Libraries and Frameworks]] §5 |
+| A Systematic Review of Packages for Time Series Analysis | Siebert, Groß & Schroth | 2021 | 🔗 https://doi.org/10.3390/engproc2021005022 |
 
 ---
 
@@ -369,6 +372,13 @@ Conformal prediction (CP) wraps any point forecaster to produce prediction inter
 | [crepes](https://github.com/tommartinsson/crepes)                                    | Conformal prediction via predictive intervals             | Python   |
 | [Awesome Time Series](https://github.com/lmmentel/awesome-time-series)               | List of resources                                         | Agnostic |
 
+> **Now treated in full: [[Forecasting Libraries and Frameworks]]** (2026-10-20, from the
+> `TSLibraries` paper collection). That note covers the libraries this table only lists —
+> **Darts, sktime** and the framework papers for **GluonTS, Merlion, AutoGluon-TimeSeries,
+> Greykite, Orbit, ForeTiS, Tsururu, NeuralProphet** — plus the AutoML layer (auto-sktime,
+> AutoForecast), the adjacent toolkits (tsflex, TSFEL, PyPOTS, pyts, seglearn, cesium) and the
+> evaluation frameworks (**ModelRadar**, tsMorph).
+
 ---
 
 ## 8. Benchmarks & Competitions
@@ -405,6 +415,7 @@ Conformal prediction (CP) wraps any point forecaster to produce prediction inter
 | **Forecasting Using Exponential Smoothing: The State Space Approach** | Hyndman, Koehler, Ord & Snyder | 2008 | State-space formulation of exponential smoothing, ETS models | [Free PDF](https://robjhyndman.com/forecpapers/books/STATE-SPACE-BOOK.pdf). Rigorous statistical foundation for ETS. |
 | **Principles of Forecasting** | Armstrong (ed.) | 2001 | Judgmental forecasting, organizational processes, model selection, combining | [Online](https://forecastingprinciples.com/). Multi-author reference; strong on non-statistical aspects. |
 | **Business Forecasting (10th ed.)** | Hanke & Wichern | 2013 | Applied business forecasting, exponential smoothing, ARIMA, regression | Textbook focused on practical business applications. |
+| **Hands-On Time Series Analysis with R** | Packt | 2019 | Practical R workflows for time series | **In the collection**: ISBN 9781788629157, 438 pp. Part of the vault's open **R-material gap** (see hub → Known gaps) |
 
 ### 9.3 Machine Learning & Deep Learning
 
@@ -414,6 +425,10 @@ Conformal prediction (CP) wraps any point forecaster to produce prediction inter
 | **Deep Learning for Time Series Forecasting (Jason Brownlee)** | Brownlee | 2018 | Practical DL for time series: LSTM, CNN, encoder-decoder, transformers | [machinelearningmastery.com](https://machinelearningmastery.com/deep-learning-for-time-series-forecasting/). Tutorial-style, Python code. |
 | **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow (3rd ed.)** | Géron | 2022 | End-to-end ML including time series chapters (RNNs, CNNs, Transformers) | O'Reilly. Excellent practical guide with modern tools. |
 | **Machine Learning for Time Series Forecasting with Python** | Zafari & Muras | 2020 | Feature engineering, ML models, deep learning, evaluation for time series | Wiley. Practical Python recipes. |
+| **Modern Time Series Forecasting with Python** | Packt | 2023 & 2025 | End-to-end: statistical, ML and deep models in Python | **Two editions in the collection**: ISBN 9781803246802 (552 pp) and 9781835883181 (661 pp) |
+| **Time Series Analysis with Python Cookbook** | Packt | 2022 | Recipe-style Python across the analysis pipeline | In the collection: ISBN 9781801075541 |
+| **Python Feature Engineering Cookbook** | Packt | — | Feature engineering patterns | In the collection: ISBN 9781835883587. Pairs with [[Feature Engineering for Time Series]] |
+| **Time Series Forecasting Using Foundation Models** | Manning (MEAP) | 2026 | First TSFM-focused book; pre-release | In the collection as MEAP (288 pp). Cite as in-progress |
 
 ### 9.4 Specialized Topics
 
@@ -436,6 +451,7 @@ Conformal prediction (CP) wraps any point forecaster to produce prediction inter
 |-------|---------|-------|
 | **Forecasting at Scale** (Prophet paper) | Taylor & Letham | Additive decomposition, holidays, changepoints |
 | **Practical Time Series Analysis** | Nielsen | [O'Reilly](https://www.oreilly.com/library/view/practical-time-series/9781492041641). End-to-end: data wrangling, features, Prophet, anomaly detection, classification |
+| **Forecasting Time Series Data with Facebook Prophet** | Packt | Prophet-focused walkthroughs. **Two editions in the collection**: ISBN 9781800568532 (270 pp) and 9781837630417 (282 pp) |
 
 #### Model Evaluation & Selection
 | Title | Authors | Focus |

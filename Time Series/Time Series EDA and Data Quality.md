@@ -389,6 +389,7 @@ feature combinations. For a single series this has nothing to work on. See
 - [[Count Distributions and Kolassa Evaluation]] — value validity for counts specifically
 - [[Time Series Similarity, Clustering and Motif Discovery]] — characterisation and PCA
 - [[Forecasting Non-Stationary Data]] §6 — the pre-test look: diagnostics first, ADF/KPSS second
+- [[Forecasting Libraries and Frameworks]] §4 — PyPOTS for the missing-data path; ggtime (2025 preprint) for the R-side plotting grammar
 - `julia-eda-lab/eda.jl` — the reusable columnar profiler in this vault, whose `missingness_table` and
   `flag_outliers` pair with §3's index checks. This note's §3 does not duplicate it; it supplies the
   time-series layer it lacks

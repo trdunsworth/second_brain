@@ -271,3 +271,4 @@ mechanism shows up in three places:
 - [[Hierarchical and Mixed-Effects Models for Forecasting]] — partial pooling as a
   level-drift absorber across series
 - [[Time Series Reading and Practice Hub]] — the entry point for the folder
+- [[Prophet and NeuralProphet]] §3 — the Rosenblatt z-transform: a normal-score transform that stationarises before Prophet fits

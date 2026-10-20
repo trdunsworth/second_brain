@@ -54,6 +54,8 @@ Entry point for the forecasting side of the vault. Created 2026-10-14.
 | [[Nixtlaverse]] | Dedicated page — the seven libraries | New |
 | [[ThymeBoost]] | Dedicated page — gradient boosting over a decomposition | New |
 | [[Forecasting Non-Stationary Data]] | Stationarity tests (ADF/KPSS/PP), differencing, unit root vs structural break, what non-stationarity costs an ML pipeline | New |
+| [[Forecasting Libraries and Frameworks]] | The library landscape beyond Nixtla — Darts, sktime, GluonTS, Merlion, AutoGluon-TS, Greykite, Orbit; AutoML layer; ModelRadar and the surveys | New |
+| [[Prophet and NeuralProphet]] | Prophet as a system — the miscalibrated bands, prophet-laplace's calibrated densities, NeuralProphet's PyTorch successor | New |
 
 ### Pre-existing
 

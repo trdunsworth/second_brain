@@ -152,6 +152,22 @@ Its stated critique, verbatim, is the one that applies to your study:
 
 ---
 
+### 4.1 Other benchmark papers (added 2026-10-20, from the TSLibraries collection)
+
+| Benchmark | What it is |
+|---|---|
+| **TFB** (Qiu et al.) | "Towards Comprehensive and Fair Benchmarking of Time Series Forecasting Methods" — ECNU / Huawei Cloud / Aalborg |
+| **TSFM-Bench** (Li et al., ECNU) | Unified benchmark specifically for foundation models |
+| **BasicTS** (Shao et al., LNCS 2023) | Open, fair *multivariate* prediction benchmark. 🔗 10.1007/978-3-031-31180-2_6 |
+| **Zero/few/full-shot benchmarking** (Montet, Pasquier & Wolf, 2025) | Evaluates foundation models across three training regimes. 🔗 10.20944/preprints202507.0279.v1 *(preprint)* |
+
+> None of these displaces GIFT-Eval or fev-bench as primary evidence. Their value is as a
+> **check**: does the contamination analysis (§5) and the aggregator-rigour critique (§4)
+> hold outside a single lab's leaderboard? Landscape context in
+> [[Forecasting Libraries and Frameworks]] §5.
+
+---
+
 ## 5. Contamination
 
 This is well covered elsewhere — [[Time Series Foundation Models]] §3 documents TiRex's measured

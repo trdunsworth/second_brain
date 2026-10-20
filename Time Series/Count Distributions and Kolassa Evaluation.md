@@ -320,3 +320,4 @@ assumption yielded competitive density forecasts**."*
 - [[Time Series Forecasting Baselines]] §3.2 — the MASE denominator argument
 - [[Forecast Combination]] — how to combine 169 quantile sets into one calibrated distribution
 - [[Change-Point Detection]] — dispersion and autocorrelation breaks on count data
+- [[Prophet and NeuralProphet]] — `prophet`'s Gaussian-only row: prophet-laplace repairs calibration, not distributional family

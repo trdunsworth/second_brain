@@ -227,6 +227,8 @@ of a count series**. Never use it on raw hourly counts.
 | `tsfresh` | 9,473★, MIT, active (pushed 2026-07) | Automated extraction. **Christ, Braun, Neuffer & Kempa-Liehr (2018), *Neurocomputing* 307, 72–77** 🔗 [10.1016/j.neucom.2018.03.067](https://doi.org/10.1016/j.neucom.2018.03.067) |
 | `sktime` | 10,068★, very active | Feature transformers; `.tsf` format used by Monash |
 | `feature_engine` | 2,290★, active | Generic feature engineering with leakage-aware transformers |
+| `tsflex` | *SoftwareX* 17 (2022) 100971 | Flexible chunked processing and multi-set feature extraction — Van Der Donckt et al. |
+| `TSFEL` | *SoftwareX* 11 (2020) 100456 | Standalone feature-extraction library — Barandas et al. |
 | `feasts` (R) | 0.5.0 | FPP3's ~50 series characteristics |
 | `tsfeatures` (R) | 1.1.1 | Superseded by `feasts` |
 
@@ -321,4 +323,5 @@ of a count series**. Never use it on raw hourly counts.
 - [[Hierarchical and Mixed-Effects Models for Forecasting]] — the alternative that removes the burden
 - [[Linear Models for Forecasting]] — seasonal differences as a feature, not just a plot
 - [[Forecasting Non-Stationary Data]] §2 — the stationarity tests behind §2.5's `unitroot_kpss`/`unitroot_pp` features; §3 on why differenced features generalise
+- [[Forecasting Libraries and Frameworks]] §4 — tsflex and TSFEL, the other two extraction libraries in the tooling table
 - [[Feature Importance and Explainability]] — the read-back side of this note: which of the constructed features earned their place, and the collinearity trap that makes naive rankings lie

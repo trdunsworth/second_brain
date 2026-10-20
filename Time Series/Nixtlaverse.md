@@ -511,6 +511,7 @@ evaluate(pd.concat([cv_sf, cv_mf, cv_nf]), metrics=[mase, rmse], groupby=["uniqu
 - [[forecast-reconciliation]]
 - [[Time Series Foundation Models]]
 - [[time-series-forecasting-models]]
+- [[Forecasting Libraries and Frameworks]] — the rest of the landscape this note is one corner of: estimator-interface (Darts, sktime, Merlion) and AutoML (AutoGluon) neighbours, and where they sit on the design axes
 - [[Practice 01 — Rolling-Origin Harness and Baseline Panel]]
 - [[Practice 04 — Conformal Prediction on Hourly Counts]]
 - [[resources]]

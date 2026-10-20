@@ -336,6 +336,7 @@ Detection is step one. **Step two — attributing it — is where the vault is c
 ## Cross-links
 
 - [[Time Series Decomposition]] §6 — Prophet's prior; §8 on absorbing real signal
+- [[Prophet and NeuralProphet]] §1 — Prophet's model and knobs; §4.1 where NeuralProphet changes the changepoint story
 - [[ThymeBoost]] §2.3 — binary segmentation as boosting, and the continuity constraint
 - [[Model Validation Strategies]] §1 — the same "don't report one setting unexamined" principle
 - [[Count Distributions and Kolassa Evaluation]] — why Gaussian cost on counts is wrong

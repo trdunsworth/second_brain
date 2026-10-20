@@ -138,7 +138,9 @@ over-modelling if fitted to level data.
 > residual trends, which assume future trend variance is proportional to historical trend
 > variance. On a series with an event-driven spike, that assumption is badly wrong. If you
 > need calibrated intervals, wrap it in a conformal method ([[Model Validation Strategies]] §6)
-> rather than trusting them.
+> rather than trusting them. A density-level repair now exists as well —
+> [[Prophet and NeuralProphet]] §3 (prophet-laplace), which makes the band a central 68.27%
+> band of a PIT-testable predictive instead of a simulated-trend band.
 
 > **The shared failure mode across this whole family: the seasonal period and shape are inputs,
 > not learned.** Classical decomposition, STL, MSTL, Theta and Prophet all require you to state
@@ -435,4 +437,6 @@ Each is now a dedicated note:
 - [[forecast-reconciliation]]
 - [[Forecasting Non-Stationary Data]] — §1's ARIMA stationarity caveat now has a full treatment; ADF/KPSS protocol in §2
 - [[Feature Importance and Explainability]] — the §9 "interpretability" row, and the collinearity caveats on GBM importances
+- [[Forecasting Libraries and Frameworks]] — the frameworks that ship these families: Darts, sktime, GluonTS, Merlion, Greykite, Orbit; §3's AutoML layer as the counterargument to §9
+- [[Prophet and NeuralProphet]] — Prophet's own note: the model's knobs, the band problem §2 quotes, and the two repairs (NeuralProphet, prophet-laplace)
 - [[resources]]

@@ -240,14 +240,15 @@ The changepoint prior is the genuinely novel part: a spike-and-slab L1 penalty o
 changes, with a tunable prior scale. Many potential changepoints, most shrunk to zero.
 
 **Strengths** — the closest thing to a decomposition that *learns where the structure changes*.
-Fully Bayesian in the Stan implementation, so the uncertainty bands are posterior draws.
+Fitted by MAP in Stan — the bands are simulated trend paths under that fit, not posterior predictive draws, which is exactly the weakness below.
 
 **Weaknesses — and the big one:**
 - **The uncertainty bands are known to be badly calibrated.** They come from simulated residual
   trends, which assume future trend variance is proportional to historical trend variance. On a
   series with event-driven spikes — i.e. all 9-1-1 data — that assumption is badly wrong. If you
   need intervals, wrap the point forecast in conformal ([[Model Validation Strategies]] §6)
-  rather than trusting `yhat_lower`/`yhat_upper`.
+  rather than trusting `yhat_lower`/`yhat_upper`. A third option, added 2026-10-20: repair the
+  density around Prophet itself — prophet-laplace ([[Prophet and NeuralProphet]] §3).
 - The "flexible trend" will happily **absorb real signal** — a changepoint with a big enough prior
   scale can eat a genuine regime.
 - Frequentist; slow; no multi-seasonality support beyond what the Fourier terms can carry.
@@ -390,3 +391,4 @@ penalty can be silently understated (see [[ThymeBoost]] §2.4).
 - [[Time Series Forecasting Baselines]] — the $m=168$ argument
 - [[Time Series Anomaly Detection]] — residual thresholds on a decomposition
 - [[forecast-reconciliation]] — decomposing a hierarchy instead of a series
+- [[Prophet and NeuralProphet]] — Prophet as a system: the model, its bands, and both repairs (NeuralProphet, prophet-laplace)

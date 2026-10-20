@@ -61,6 +61,13 @@ Supporting evidence:
 - Bergmeir, C. & Benítez, J.M. (2012). On the use of cross-validation for evaluating time series predictor evaluation. *CSDA* 56(3), 929–944. 🔗 https://doi.org/10.1016/j.csda.2011.11.003
 - Bergmeir, C., Hyndman, R.J. & Koo, B. (2018). A note on the validity of cross-validation for evaluating autoregressive time series prediction. *CSDA* 120, 70–83. 🔗 https://doi.org/10.1016/j.csda.2017.11.003 — **k-fold can be valid for AR processes** under specific conditions (large sample, low noise-to-signal, block length rules). So the honest statement is "random k-fold is wrong", not "k-fold is always wrong".
 - Cerqueira, V., Torgo, L. & Mozetič, M. (2020). Evaluating time series forecasting models: an empirical study on performance estimation methods. *Machine Learning* 109, 1997–2028. 🔗 https://arxiv.org/abs/2003.13867 — rolling-origin is the most reliable across horizons
+
+> **Follow-up, 2025: ModelRadar** (Cerqueira, Roque & Soares, *Machine Learning* 114:229, 🔗
+> 10.1007/s10994-025-06877-z) extends the same group's argument: aggregate scores **average
+> away condition-dependent behaviour** — evaluate across aspects (stationarity, anomalies,
+> horizon) instead. Their 24-method comparison found PatchTST best overall *but* ahead only
+> under some conditions. This is §6.4's marginal-vs-conditional point applied to point
+> metrics. Full entry in [[Forecasting Libraries and Frameworks]] §5.
 - Hyndman, R.J. & Koehler, A.B. (2006), for the 2015 correction adding rolling-origin backtesting to the `forecast` package. 🔗 https://robjhyndman.com/papers/mase.pdf
 
 > **Practical default:** rolling-origin, expanding window, origins spaced by one period, every model refitted at every origin. State the number of origins and the total forecast origin span — both are load-bearing and both are usually omitted.
@@ -337,3 +344,5 @@ For a comparative forecasting study of the type in [[168-Point Forecast Comparis
 - [[Staffing_Forecasting_Experiment]] — §6.4 maps to hypothesis H4
 - [[resources]] — §3.7 conformal prediction, §4.4 probabilistic metrics
 - [[Feature Importance and Explainability]] — importance must be measured on a held-out set, and ablations must be validated out-of-sample: attribution and validation share their failure modes
+- [[Forecasting Libraries and Frameworks]] §5 — ModelRadar, the aspect-based evaluation follow-up to Cerqueira 2020 above
+- [[Prophet and NeuralProphet]] §3 — prophet-laplace's `cdf()` returns exactly the PIT values §6.3's coverage testing asks for
