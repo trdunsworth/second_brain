@@ -53,20 +53,20 @@ and sktime's Nixtla adapters ([[Nixtlaverse]] §3) show the frameworks composing
 
 ## 2. The general-purpose frameworks
 
-| Library | Origin | Paper in collection | The pitch |
-|---|---|---|---|
-| **Darts** | Unit8 SA | Herzen et al., *JMLR* 23 (2022), 1–6 | ARIMA → deep nets behind one `fit()`/`predict()`; multidimensional series, fit on multiple series, ensembling, rich probabilistic support |
-| **sktime** | Alan Turing Institute et al. | Löning et al., 🔗 arXiv:1909.07872 (2019) | The original scikit-learn-compatible unified interface; forecasting, classification, regression, clustering |
-| **GluonTS** | Amazon Web Services | Alexandrov et al. (2022) | Deep-learning modelling toolkit: components to *build* probabilistic models, run experiments, evaluate — global-model-first |
-| **Merlion** | Salesforce AI Research | Bhatnagar et al. | Unified interface for **forecasting *and* anomaly detection**, plus AutoML, ensembling, and a unique evaluation framework that *simulates live deployment and retraining* |
-| **AutoGluon-TimeSeries** | AWS | Shchur et al. | AutoML: point + quantile forecasts "in 3 lines of Python"; ensembles statistical, ML and deep models; strong on 29 benchmark datasets |
-| **Greykite** | LinkedIn | Hosseini et al. | Flagship **Silverkite**: interpretable univariate forecasts with time-varying growth/seasonality, holidays, regressors. Sub-hourly to quarterly, 20+ production use cases at LinkedIn |
-| **Orbit** | Uber | Ng et al. | Bayesian exponential smoothing refined via **Stan and Pyro** — global trend options, multiplicative transforms, prior choice. The state-space/Bayesian corner |
-| **ForeTiS** | TUM Straubing | Eiglsperger et al., *MLWA* 12 (2023) 100467 | "Comprehensive time series forecasting framework in Python" |
-| **Tsururu** | Sber AI Lab | Kostromina et al. | The **strategy layer**: flexible combinations of global/multivariate approaches and multi-step-ahead strategies, model-agnostic. 🔗 github.com/sb-ai-lab/tsururu |
-| **NeuralProphet** | Stanford/Monash | Triebe et al. | Prophet's successor: neural components + explainability, bridging Prophet's regressor model and deep forecasting ([[Prophet and NeuralProphet]] §4) |
-| **DSIPTS** | Fondazione Bruno Kessler | Gobbi et al., *SoftwareX* | High-productivity environment for forecasting models |
-| **pyFAST / pyWATTS / KnowIt** | various | papers in collection | Niche frameworks: sparse/multi-source PyTorch modelling; workflow automation (KIT); deep-model interpretation toolkit |
+| Library                       | Origin                       | Paper in collection                         | The pitch                                                                                                                                                                             |
+| ----------------------------- | ---------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Darts**                     | Unit8 SA                     | Herzen et al., *JMLR* 23 (2022), 1–6        | ARIMA → deep nets behind one `fit()`/`predict()`; multidimensional series, fit on multiple series, ensembling, rich probabilistic support                                             |
+| **sktime**                    | Alan Turing Institute et al. | Löning et al., 🔗 arXiv:1909.07872 (2019)   | The original scikit-learn-compatible unified interface; forecasting, classification, regression, clustering                                                                           |
+| **GluonTS**                   | Amazon Web Services          | Alexandrov et al. (2022)                    | Deep-learning modelling toolkit: components to *build* probabilistic models, run experiments, evaluate — global-model-first                                                           |
+| **Merlion**                   | Salesforce AI Research       | Bhatnagar et al.                            | Unified interface for **forecasting *and* anomaly detection**, plus AutoML, ensembling, and a unique evaluation framework that *simulates live deployment and retraining*             |
+| **AutoGluon-TimeSeries**      | AWS                          | Shchur et al.                               | AutoML: point + quantile forecasts "in 3 lines of Python"; ensembles statistical, ML and deep models; strong on 29 benchmark datasets                                                 |
+| **Greykite**                  | LinkedIn                     | Hosseini et al.                             | Flagship **Silverkite**: interpretable univariate forecasts with time-varying growth/seasonality, holidays, regressors. Sub-hourly to quarterly, 20+ production use cases at LinkedIn |
+| **Orbit**                     | Uber                         | Ng et al.                                   | Bayesian exponential smoothing refined via **Stan and Pyro** — global trend options, multiplicative transforms, prior choice. The state-space/Bayesian corner                         |
+| **ForeTiS**                   | TUM Straubing                | Eiglsperger et al., *MLWA* 12 (2023) 100467 | "Comprehensive time series forecasting framework in Python"                                                                                                                           |
+| **Tsururu**                   | Sber AI Lab                  | Kostromina et al.                           | The **strategy layer**: flexible combinations of global/multivariate approaches and multi-step-ahead strategies, model-agnostic. 🔗 github.com/sb-ai-lab/tsururu                      |
+| **NeuralProphet**             | Stanford/Monash              | Triebe et al.                               | Prophet's successor: neural components + explainability, bridging Prophet's regressor model and deep forecasting ([[Prophet and NeuralProphet]] §4)                                   |
+| **DSIPTS**                    | Fondazione Bruno Kessler     | Gobbi et al., *SoftwareX*                   | High-productivity environment for forecasting models                                                                                                                                  |
+| **pyFAST / pyWATTS / KnowIt** | various                      | papers in collection                        | Niche frameworks: sparse/multi-source PyTorch modelling; workflow automation (KIT); deep-model interpretation toolkit                                                                 |
 
 > **The two entries that matter most for this vault.** **Merlion** is the only library here
 > whose evaluation framework explicitly models *production retraining* — the exact concern of
