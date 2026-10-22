@@ -13,12 +13,12 @@ This document provides an overview of the Attitude Adjustment documentation syst
 3. **research_tracker.md** - Progress tracking for research interest areas
 4. **wisdom_sources_tracker.md** - Progress tracking for wisdom sources with templates
 5. **personal_measurements_template.md** - Personal measurement criteria templates
-6. **annual_progress_review_template.md** - Annual review and comprehensive assessment templates
+6. **annual_progress_review_template_attitude.md** - Annual review and comprehensive assessment templates
 
 ### Reflection Templates
 
 1. **daily_reflection_template.md** - Daily reflection template optimized for Obsidian
-2. **weekly_reflection_template.md** - Weekly reflection template with progress tracking
+2. **weekly_reflection_template_attitude.md** - Weekly reflection template with progress tracking
 
 ## File Structure
 
@@ -28,8 +28,8 @@ This document provides an overview of the Attitude Adjustment documentation syst
 - **Progress Tracking**: goals_checklist.md, research_tracker.md
 - **Wisdom Sources**: wisdom_sources_tracker.md
 - **Personal Assessment**: personal_measurements_template.md
-- **Regular Reflections**: daily_reflection_template.md, weekly_reflection_template.md
-- **Comprehensive Reviews**: annual_progress_review_template.md
+- **Regular Reflections**: daily_reflection_template.md, weekly_reflection_template_attitude.md
+- **Comprehensive Reviews**: annual_progress_review_template_attitude.md
 
 ## Obsidian Integration Features
 
@@ -47,8 +47,8 @@ All reflection and template documents use YAML frontmatter for:
 The following templates can be saved to your Obsidian's template folder:
 
 - daily_reflection_template.md - Use for daily reflections
-- weekly_reflection_template.md - Use for weekly reviews
-- annual_progress_review_template.md - Use for annual assessments
+- weekly_reflection_template_attitude.md - Use for weekly reviews
+- annual_progress_review_template_attitude.md - Use for annual assessments
 
 ### Progress Tracking
 
@@ -69,7 +69,7 @@ The system tracks progress across multiple dimensions:
 
 ### Weekly
 
-1. Complete weekly reflection using weekly_reflection_template.md
+1. Complete weekly reflection using weekly_reflection_template_attitude.md
 2. Review research_tracker.md progress
 3. Note any changes needed for wisdom_sources_tracker.md
 
@@ -77,11 +77,11 @@ The system tracks progress across multiple dimensions:
 
 1. Review personal_measurements_template.md metrics
 2. Update progress in goals_checklist.md and research_tracker.md
-3. Begin notes for next annual review in annual_progress_review_template.md
+3. Begin notes for next annual review in annual_progress_review_template_attitude.md
 
 ### Quarterly (December)
 
-1. Complete comprehensive annual review using annual_progress_review_template.md
+1. Complete comprehensive annual review using annual_progress_review_template_attitude.md
 2. Identify key learnings and insights
 3. Set next year's priorities
 

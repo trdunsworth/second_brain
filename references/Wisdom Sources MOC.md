@@ -9,6 +9,9 @@ tags:
   - philosophy
   - psychology
   - spirituality
+aliases:
+  - Wisdom MOC
+  - Wisdom Sources MOC
 ---
 
 # Wisdom Sources Map of Content

@@ -7,6 +7,9 @@ tags:
   - dashboard
   - dataview
   - journal
+aliases:
+  - Journal Dashboard
+  - Journal Dash
 ---
 
 # Journal Dashboard

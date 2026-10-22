@@ -14,3 +14,14 @@
 .DS_Store
 # Scratch output from Frankie/verify_book_snippets.py
 /Frankie/verify-snippets/
+
+# Build / lab artifacts
+.quarto/
+**/.quarto/
+**/__pycache__/
+**/*.pyc
+**/.venv/
+**/node_modules/
+duckdb-lab/reports/
+julia-eda-lab/*.jl.cov
+*.tmp

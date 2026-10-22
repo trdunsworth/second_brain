@@ -7,6 +7,9 @@ tags:
   - moc
   - dma
   - projects
+aliases:
+  - DMA Projects MOC
+  - DMA Projects
 ---
 
 # DMA Projects Map of Content

@@ -13,6 +13,11 @@ tags:
 
 # <% moment(tp.date.now("YYYY-MM-DD"),'YYYY-MM-DD').format("dddd, MMMM DD, YYYY") %>
 
+<%*
+const __ro = await tp.system.suggester(["All", "None", "Choose"], ["All", "None", "Choose"], false, "Run optional daily sections?");
+globalThis.__runOptional = __ro || "Choose";
+-%>
+
 ## Starting Notes
 
 <%* tp.file.cursor() %>
@@ -66,7 +71,7 @@ if (prevFile && typeof prevFile.extension === "string") {
 ## Daily Mood Log
 
 <%*
-const includeMoodLog = await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include Daily Mood Log?");
+const includeMoodLog = globalThis.__runOptional === "All" ? "Yes" : (globalThis.__runOptional === "None" ? "No" : await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include Daily Mood Log?"));
 if (includeMoodLog === "Yes") {
   tR += "\n" + await tp.file.include("Templates/scripts/daily_mood_log_template_templater.md");
 }
@@ -83,7 +88,7 @@ if (includeMoodLog === "Yes") {
 ## Habit Tracker
 
 <%*
-const includeHabitTracker = await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include Habit Tracker?");
+const includeHabitTracker = globalThis.__runOptional === "All" ? "Yes" : (globalThis.__runOptional === "None" ? "No" : await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include Habit Tracker?"));
 if (includeHabitTracker === "Yes") {
   tR += "\n" + await tp.file.include("Templates/scripts/habit_tracker_template_templater.md");
 }
@@ -92,7 +97,7 @@ if (includeHabitTracker === "Yes") {
 ## Daily Reflection
 
 <%*
-const includeReflection = await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include Daily Reflection?");
+const includeReflection = globalThis.__runOptional === "All" ? "Yes" : (globalThis.__runOptional === "None" ? "No" : await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include Daily Reflection?"));
 if (includeReflection === "Yes") {
   tR += "\n" + await tp.file.include("Templates/scripts/daily_reflection_template_templater.md");
 }
@@ -101,7 +106,7 @@ if (includeReflection === "Yes") {
 ## Daily Tarot Reading - <% tp.date.now("dddd, MMMM DD, YYYY") %>
 
 <%*
-const includeTarot = await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include full Tarot reading template?");
+const includeTarot = globalThis.__runOptional === "All" ? "Yes" : (globalThis.__runOptional === "None" ? "No" : await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include full Tarot reading template?"));
 if (includeTarot === "Yes") {
   tR += "\n" + await tp.file.include("Templates/scripts/daily_tarot_reading_template_templater.md");
 }
@@ -110,7 +115,7 @@ if (includeTarot === "Yes") {
 ## Blog Post Ideas
 
 <%*
-const includeBlog = await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include Blog Idea Capture template?");
+const includeBlog = globalThis.__runOptional === "All" ? "Yes" : (globalThis.__runOptional === "None" ? "No" : await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include Blog Idea Capture template?"));
 if (includeBlog === "Yes") {
   tR += "\n" + await tp.file.include("Templates/scripts/blog_idea_capture_template_templater.md");
 }
@@ -119,7 +124,7 @@ if (includeBlog === "Yes") {
 ## Personal Measurements
 
 <%*
-const includeMeasurements = await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include Personal Measurements?");
+const includeMeasurements = globalThis.__runOptional === "All" ? "Yes" : (globalThis.__runOptional === "None" ? "No" : await tp.system.suggester(["Yes", "No"], ["Yes", "No"], false, "Include Personal Measurements?"));
 if (includeMeasurements === "Yes") {
   tR += "\n" + await tp.file.include("Templates/scripts/personal_measurements_template_templater.md");
 }

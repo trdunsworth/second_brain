@@ -1,0 +1,4 @@
+# Visualizations
+
+> Scope: Visualization notes.
+

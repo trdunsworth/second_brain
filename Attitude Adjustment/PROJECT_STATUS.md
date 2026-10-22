@@ -100,7 +100,7 @@
 
 - ✅ Personal_measurements_template.md enhanced with research-based metrics
 - ✅ daily_reflection_template.md enhanced with research-based reflection prompts
-- ✅ annual_progress_review_template.md updated with research impact assessments
+- ✅ annual_progress_review_template_attitude.md updated with research impact assessments
 - ✅ Enhanced documentation_structure.md with research integration guidelines
 
 ### Quality Assurance
@@ -330,7 +330,7 @@
 
 - ✅ Personal_measurements_template.md enhanced with research-based metrics
 - ✅ daily_reflection_template.md enhanced with research-based reflection prompts
-- ✅ annual_progress_review_template.md updated with research impact assessments
+- ✅ annual_progress_review_template_attitude.md updated with research impact assessments
 - ✅ Enhanced documentation_structure.md with research integration guidelines
 
 ### Quality Assurance

@@ -83,7 +83,7 @@ My choices can be explained below:
 
 There should be at least two datasets for any week. The first will come from the CAD and will be used to evaluate service call generation and how well the PSAP operates. The second will come from the phone handling system and will be used for volume forecasting and for standards complience with [NENA STA-020](https://cdn.ymaws.com/www.nena.org/resource/resmgr/standards/nena-sta-020.1-2020_911_call.pdf).
 
-SQLAlchemy may be invoked to attach to a database instance and execute a pre-defined query such as [[assets/eda_project/week_report_raw.sql]] to get the raw data. It should then deposit that csv file in the raw folder for the ingestion and cleaning process to begin.
+SQLAlchemy may be invoked to attach to a database instance and execute a pre-defined query such as `assets/eda_project/week_report_raw.sql` to get the raw data. It should then deposit that csv file in the raw folder for the ingestion and cleaning process to begin.
 
 After the cleaning steps outlined here, the analytical datasets should be moved to the clean folder. Any other output such as outliers or other call lists can be output to the output_files folder for follow up.
 

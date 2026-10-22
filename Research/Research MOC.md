@@ -7,6 +7,9 @@ status: active
 tags:
   - moc
   - research
+aliases:
+  - Research MOC
+  - Research Map of Content
 ---
 
 # Research Map of Content

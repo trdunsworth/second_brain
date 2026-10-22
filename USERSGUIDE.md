@@ -9,13 +9,13 @@ tags:
 **
 # Second Brain User Guide
 
-Your vault is organized around four pillars: **Daily Notes**, **Research**, **Projects**, and **Books**. Everything connects.
+Your vault is organized around four pillars: **Daily Notes**, **Research**, **Projects**, and **Books**. Everything connects. Over time it has also grown project, code, and reference folders (see **Vault Structure** below).
 
 ---
 
 ## Vault Structure
 
-```
+```text
 second_brain/
 ├── journal/              → Daily notes (core plugin) + Journal Dashboard
 ├── Books/                → Book reviews
@@ -31,24 +31,47 @@ second_brain/
 │   └── DMA Projects MOC.md → Map of Content for DMA projects
 ├── ALX_Notes/            → City of Alexandria work notes
 ├── Toastmasters/         → Toastmasters content
-├── Templates/            → All templates live here
+├── Inbox/                → Lightweight capture area + weekly triage
 │   └── scripts/          → Templater templates with hotkeys
 ├── references/           → Wisdom sources & philosophical research
 │   └── Wisdom Sources MOC.md → Map of Content for wisdom traditions
 ├── SynthCCD/             → Synthetic CAD data generator project
 ├── Frankie/              → Frankie programming language, its book, and the .fk tree-sitter grammar
-├── attitude_adjustment/  → Personal development project (git submodule; contains Kairos agent)
-├── Agents/                → LLM agent development guides (Python, R, guardrails, personality)
+├── Attitude Adjustment/  → Personal development project (goals, master plan, system analysis)
+├── Agents/               → LLM agent development guides (Python, R, guardrails, personality)
 ├── Reporting Engine/     → Reporting engine development notes
 ├── Cheatsheets/          → R/Python reference materials
 ├── Archive/              → Legacy content (foam_artefacts, etc.)
-└── scripts/              → Templater user scripts
+├── Scripts/              → Templater user scripts, export helpers, Ollama utilities
+├── Data_Sources/         → Data format notes (JSON, YAML, TOML, dbt, Databricks)
+├── DnD/                  → D&D 5e reference, worldbuilding templates, SRD migration
+├── Linux/                → Linux+ study notes
+├── Lisp/                 → Lisp notes
+├── Rust/                 → Rust notes
+├── terminal_stuff/       → Terminal/shell reference
+├── Typography/           → Publishing/typography pipeline notes
+├── blog/                 → Blog posts
+├── Readings/             → Reading notes
+├── Reflections/          → Reflection notes
+├── Politics/             → Politics notes
+├── Visualizations/       → Visualization notes
+├── StatLang/             → Statistical language notes
+├── New_CAD_Project/      → New CAD project notes
+├── DECC Reporting Project/→ DECC reporting project notes
+├── duckdb-lab/           → DuckDB lab (SQL, reports, visuals)
+├── julia-eda-lab/        → Julia EDA lab
+├── quarto-lab/           → Quarto lab
+├── computer_links/       → Computer/link reference notes
+├── copilot/              → Copilot skills and notes
+├── DMA_theme/            → DMA theme assets
+└── .agents/, .claude/, .copilot/, .opencode/ → Agent/tooling configuration (not vault content)
 ```
 
-> **Folders with their own `README.md` index:** `Staffing/`, `SynthCCD/`, `Synthetic_Data/`,
-> `Frankie/`, `Reporting Engine/`, `attitude_adjustment/`, plus the code-adjacent `Rust/`,
-> `Linux/`, `Lisp` and `terminal_stuff/`. A folder README states that folder's **scope** — read
-> one before filing a new note into an unfamiliar folder.
+> **Folders with their own `README.md` index:** every top-level folder now has a `README.md`
+> stating its scope (added 2026-10-22). Read one before filing a new note into an unfamiliar
+> folder. Folders that already had richer indexes (`Agents/`, `DMA_theme/`, `Frankie/`,
+> `Linux/`, `Lisp/`, `Reporting Engine/`, `Rust/`, `Staffing/`, `SynthCCD/`,
+> `Synthetic_Data/`, `terminal_stuff/`) keep their original content.
 
 > ### Linking rules
 >
@@ -62,27 +85,42 @@ second_brain/
 
 ## Templates
 
-Access with `Ctrl/Cmd + T` or via Command Palette → "Insert Template". Templater templates use hotkeys for quick access.
+Access with `Ctrl/Cmd + T` or via Command Palette → "Insert Template". Templater templates use hotkeys for quick access. Hotkeys below come from [[HOTKEYS]].
 
-| Template                          | When to Use                            | Hotkey                      |
-| --------------------------------- | -------------------------------------- | --------------------------- |
-| **daily_journal_template**        | Daily note with mood, habits, projects | Auto-triggered for journal/ |
-| **daily_mood_log**                | CBT mood tracking                      | `Alt+M`                     |
-| **daily_reflection**              | Evening reflection                     | `Alt+R`                     |
-| **daily_tarot_reading**           | Daily card pull                        | Via command palette         |
-| **habit_tracker**                 | Track daily habits                     | `Alt+H`                     |
-| **personal_measurements**         | Body measurements, metrics             | `Alt+P`                     |
-| **Book Review**                   | Finished a book                        | Via command palette         |
-| **Research Note**                 | Read a paper/article                   | Via command palette         |
-| **Research Project**              | New research project                   | Via command palette         |
-| **Project Status**                | DMA project update                     | Via command palette         |
-| **Meeting Note**                  | Any meeting                            | Via command palette         |
-| **blog_post_template**            | Blog post with Quarto                  | `Alt+B`                     |
-| **blog_idea_capture**             | Quick blog idea                        | `Shift+Alt+B`               |
-| **toastmasters_meeting_template** | Toastmasters meetings                  | Via command palette         |
-| **toastmasters_speech_template**  | Speech preparation                     | Via command palette         |
-| **weekly_reflection**             | Weekly review                          | Via command palette         |
-| **annual_progress_review**        | Yearly review                          | Via command palette         |
+| Template                          | When to Use                            | Hotkey / Access |
+| --------------------------------- | -------------------------------------- | --------------- |
+| **daily_journal_template**        | Daily note with mood, habits, projects | Auto-triggered for `journal/` |
+| **daily_log_template** (templater) | Full daily driver (comprehensive)      | `Alt+T` |
+| **daily_mood_log**                | CBT mood tracking                      | `Alt+M` |
+| **daily_reflection**              | Evening reflection                     | `Alt+Shift+R` |
+| **daily_tarot_reading**           | Daily card pull                        | Via command palette |
+| **one_card_tarot_reading**         | Single-card pull                       | Via command palette |
+| **habit_tracker**                 | Track daily habits                     | `Alt+H` |
+| **personal_measurements**         | Body measurements, metrics             | `Alt+P` |
+| **personal_measurements (quick)** | Numeric-only quick capture             | `Alt+Shift+P` |
+| **Book Review**                   | Finished a book                        | Via command palette |
+| **Research Note**                 | Read a paper/article                   | Via command palette |
+| **Research Project**              | New research project                   | Via command palette |
+| **Project Status**                | DMA project update                     | Via command palette |
+| **Meeting Note**                  | Any meeting                            | Via command palette |
+| **blog_post_template**            | Blog post with Quarto                  | `Alt+B` (core syntax — see note) |
+| **blog_post_nocode_template**     | Blog post without code                 | Via command palette |
+| **blog_idea_capture**             | Quick blog idea                        | `Shift+Alt+B` (templater) / `Mod+Shift+B` (core) |
+| **toastmasters_meeting_template** | Toastmasters meetings                  | Via command palette |
+| **toastmasters_speech_template**  | Speech preparation                     | Via command palette |
+| **toastmasters_training_attendance_report_template** | Training attendance report | Via command palette |
+| **weekly_reflection**             | Weekly review                          | Via command palette |
+| **annual_progress_review**        | Yearly review                          | Via command palette |
+| **ad_hoc_query_template**         | Ad-hoc query capture                   | Via command palette |
+| **anti_procrastination_sheet**    | Anti-procrastination worksheet          | Via command palette |
+| **pleasure_predicting_sheet**     | Pleasure prediction worksheet          | Via command palette |
+| **relapse_prevention_toolbox**    | Relapse prevention toolbox             | Via command palette |
+| **attitude_adjustment_goals**     | Attitude Adjustment goal list          | Via command palette |
+
+> **Hotkey status (updated 2026-10-22):** the three previously-broken bindings
+> (`Alt+Mod+N`, `Alt+B`, `Mod+Shift+B`) have been rebound to their `*_templater.md` twins.
+> Legacy core `{{ }}` files are no longer bound. If you add a new binding, point it at a
+> `*_templater.md` file.
 
 ### Creating New Notes from Templates
 
@@ -117,6 +155,115 @@ file instead. See [[HOTKEYS]].
 > over and defaults it to **false**, so after any Templater version bump the folder trigger can
 > die silently — new daily notes are created empty and nothing is reported. Check this box
 > first whenever a new note fails to populate.
+
+---
+
+## Daily Journal Template — Sections and Prompts
+
+The daily journal template (`Templates/scripts/daily_journal_template.md`) is Templater-driven and
+auto-triggers for new notes in `journal/`. It asks a short set of questions up front, then
+optionally embeds other templates (each with its own prompts). Unchecked `- [ ]` items under
+`## TODO` carry forward from the previous day's note automatically.
+
+### Top-level sections
+
+| Section | Notes |
+|---|---|
+| Frontmatter | `creation date`, `modification date`, `author`, `title`, `workday` (default false), `tags` |
+| Tag prompt | `Select primary tag for today:` → work, personal, research, dma, toastmasters, reflection, wins, challenges |
+| `# <date>` | Heading with full weekday/date |
+| `## Starting Notes` | Cursor placed here for free writing |
+| `## ALX Work` | **Weekdays only** (Mon–Fri). Its absence on a weekend is correct. |
+| `## DMA Work` | Empty — fill in |
+| `## TI Work` | Empty — fill in |
+| `## NENA Work` | Empty — fill in |
+| `## TODO` | Carried-forward unchecked items + one blank `- [ ]` |
+| `## Daily Mood Log` | Optional embed (prompt: `Include Daily Mood Log?` Yes/No) |
+| `## Project Updates` | Empty — fill in |
+| `## Research Projects` | Empty — fill in |
+| `## Habit Tracker` | Optional embed (prompt: `Include Habit Tracker?` Yes/No) |
+| `## Daily Reflection` | Optional embed (prompt: `Include Daily Reflection?` Yes/No) |
+| `## Daily Tarot Reading - <date>` | Optional embed (prompt: `Include full Tarot reading template?` Yes/No) |
+| `## Blog Post Ideas` | Optional embed (prompt: `Include Blog Idea Capture template?` Yes/No) |
+| `## Personal Measurements` | Optional embed (prompt: `Include Personal Measurements?` Yes/No) |
+| `### Interesting Links.` | Empty — fill in |
+
+### Optional embed prompts
+
+**Daily Mood Log** (`daily_mood_log_template_templater.md`) — TEAM-CBT (Burns). Prompts:
+- `Number of entries (1-3):` (suggester)
+- Per entry (×1–3):
+  - `Entry N Time (HH:MM):`
+  - `Entry N Situation:`
+  - `Entry N Sad/Anxious/Angry/Guilty/Hopeless/Ashamed/Other Emotion (0-100%):`
+  - `Entry N Automatic Thoughts (one per line):`
+  - `Entry N Select distortions (multiple):` (11 distortions)
+  - `Entry N Positive Reframe:`
+  - `Entry N Evidence For:` / `Evidence Against:` / `Balanced Alternative:`
+  - `Entry N Re-rated Sad/… (0-100%):`
+- Daily Summary: `Total Entries:`, `Avg Pre-Mood (%):`, `Avg Post-Mood (%):`, `Avg Improvement (%):`, `Most Frequent Distortion:` (suggester), `Most Helpful Technique:`, `Values Touched Today:`
+- Resistance Check: `Resistance Exploration:`
+- Tomorrow's Intention: `Tomorrow's Behavioral Experiment:`, `Predicted Difficulty (0-100%):`, `Predicted Satisfaction (0-100%):`
+
+**Habit Tracker** (`habit_tracker_template_templater.md`) — prompts:
+- `Core Habits (one per line with status):`
+- `Personal Growth Habits (one per line with status):`
+- `Wellness Habits (one per line with status):`
+- `Professional Habits (one per line with status):`
+- `Daily Goals Table Rows (format: | Habit Name | [ ] | Notes | 5 |):`
+- `Detailed Habit Notes:`
+- `Today's Focus:`
+- `Challenges:` / `Wins:`
+- `Energy Level:` (suggester) / `Mood:` (suggester) / `Energy & Mood Notes:`
+- `Priority 1:` / `Priority 2:` / `Priority 3:`
+- `Gratitude Notes:`
+- `Tomorrow's Habits:`
+
+**Daily Reflection** (`daily_reflection_template_templater.md`) — prompts:
+- `Select Goal:` (from `Templates/scripts/attitude_adjustment_goals.md`)
+- `Progress Level:` (Low/Medium/High/Complete)
+- `Daily Tasks (one per line):`
+- `This Week's Focus:`
+- `Weekly Actions (one per line):`
+- `Challenges:` / `Wins:`
+- `Future Notes:`
+- `Related Goals & Sources:`
+
+**Daily Tarot Reading** (`daily_tarot_reading_template_templater.md`) — prompts:
+- `Today's Core Question:`
+- `Theme Card:` / `Theme Meaning:` / `Select relevant goals (multiple):`
+- `Guidance Card:` / `Guidance Meaning:` / `Action Required:`
+- `Challenge Card:` / `Challenge Meaning:` / `Prevention Strategy:`
+- `Opportunity Card:` / `Opportunity Meaning:` / `How to Capture:`
+- `Immediate Insights:` / `Action Steps:` / `Meditation Integration:`
+- `Tomorrow's Focus 1:` / `Tomorrow's Focus 2:`
+- `Journal Entry:`
+
+**Blog Idea Capture** (`blog_idea_capture_template_templater.md`) — prompts:
+- `Blog Post Title:` (used in frontmatter + heading)
+- `Additional Tags (comma-separated):`
+- `Hook / Opening Angle:`
+- `Core Idea:`
+- `Urgency Rationale:`
+- `Section 1 - Hook:` … `Section 8 - Next Steps:`
+- `Immediate Next Actions:`
+- `Target Publish Date (YYYY-MM-DD):`
+- `Estimated Word Count:`
+- `Series (if any):`
+
+**Personal Measurements** (`personal_measurements_template_templater.md`) — prompts by domain:
+- Husband: `Husband - Emotional Connection Weekly Target:`, `Husband - Communication Improvements:`, `Husband - Quality Time Current/Goal (hours/week):`, `Husband - Quality Time Activities:`, `Husband - Balance Assessment Method:`
+- Patience: `Patience Stressors:`, `Patience Response Techniques:`
+- Focus: `Focus Capacity Current/Goal (minutes):`, `Focus Daily Average:`, `Focus Distraction Management:`
+- Meditation: `Meditation Current/Goal (minutes/day):`, `Meditation Methods:`, `Meditation Progress Indicators:`
+- Mood: `Mood Triggers:`, `Mood Boosters:`
+- Empathy: `Empathy Practices:`
+- Leadership: `Leadership Skills to Develop:`, `Leadership Delegation:`, `Speaking Opportunities:`, `Feedback Approaches:`
+- Technical: `Technical Skills to Master:`, `Industry Knowledge Sources:`, `Networking Activities:`
+- Learning: `Learning Capacity Current/Goal (hours/week):`, `Learning Methods:`, `Research Areas of Focus:`, `Application Examples:`
+
+> Tip: you can re-run any single template later with its hotkey or via Command Palette → "Insert Template"
+> without re-running the whole daily journal.
 
 ---
 
@@ -222,6 +369,15 @@ Styled callout boxes. Use native Obsidian syntax:
 > Steps go here.
 ```
 
+### Other installed plugins
+
+`calendar`, `templater-obsidian`, `github-sync`, `markdown-blogger`, `open-vscode`,
+`obsidian-linter`, `obsidian-pandoc`, `obsidian-timestamper`, `code-styler`,
+`obsidian-advanced-codeblock`, `obsidian-booknote-plugin`, `epub-reader-highlighter`,
+`obsidian-enhancing-export`, `harper`, `awesome-format-bar`, `carve`,
+`obsidian-style-settings`. See each plugin's settings for configuration; most need no
+vault-level documentation.
+
 ---
 
 ## Workflows
@@ -230,9 +386,10 @@ Styled callout boxes. Use native Obsidian syntax:
 
 1. Click "Open today's daily note" (calendar icon in ribbon)
 2. Daily template auto-triggers with mood, habits, projects sections
-3. Write freely — tasks, thoughts, notes
-4. Link to other notes with `[[note name]]`
-5. Review [[Journal Dashboard]] for patterns
+3. Complete the optional Yes/No prompts (mood log, habit tracker, reflection, tarot, blog ideas, measurements)
+4. Write freely — tasks, thoughts, notes
+5. Link to other notes with `[[note name]]`
+6. Review [[Journal Dashboard]] for patterns
 
 Unchecked `- [ ]` items under `## TODO` carry forward to the next day's note automatically.
 Everything else starts empty. If the note opens blank, or full of literal `<% %>` / `{{ }}`
@@ -272,6 +429,18 @@ correct behaviour, not a failed template.
 2. Read or re-read reference documents in `references/`
 3. Connect insights to daily practice via journal templates
 4. Link to Attitude Adjustment Project if applicable
+
+### Capture & Triage
+
+1. Drop quick notes/clippings into `Inbox/` (use **ad_hoc_query_template** for structured captures)
+2. Once a week, open `Inbox/Weekly Triage.md`
+3. File, promote, or delete each item; add frontmatter before filing
+
+---
+
+1. After any bulk folder move or rename, re-run the audit described in [[Link Audit]]
+2. Keep `[[wikilink]]` targets inside the vault; use markdown links for sibling repos/external files
+3. Confirm ambiguous filename matches by hand before acting on audit output
 
 ---
 
@@ -390,9 +559,24 @@ WHERE type = "research-project" AND status = "active"
 SORT start_date DESC
 ```
 
-Note the `FROM ""` — searching the **whole vault** rather than one folder. The old
-dashboard scoped to `"Research"` and therefore never saw `Staffing/`, `Synthetic_Data/`, or
-anything else that mattered.
+### Finding legacy / non-conforming notes
+
+```dataview
+TABLE file.link AS "Note", type, status
+FROM ""
+WHERE !type OR !status OR !topic OR !created
+SORT file.mtime DESC
+```
+
+And for notes still carrying the old schemas:
+
+```dataview
+TABLE file.link AS "Note", title, date, date_created
+FROM ""
+WHERE title OR date OR date_created
+SORT file.mtime DESC
+```
+
 
 ---
 
@@ -406,6 +590,14 @@ anything else that mattered.
 | Insert template | `Ctrl/Cmd + T` |
 | Open daily note | Set in Daily Notes settings |
 | Command palette | `Ctrl/Cmd + P` |
+| Insert Habit Tracker | `Alt+H` |
+| Insert Daily Mood Log | `Alt+M` |
+| Insert Personal Measurements | `Alt+P` |
+| Insert Daily Reflection | `Alt+Shift+R` |
+| Insert Full Daily Log | `Alt+T` |
+| Insert Blog Idea Capture | `Shift+Alt+B` (templater) |
+
+See [[HOTKEYS]] for the full hotkey table and known misbindings.
 
 ---
 
@@ -422,6 +614,7 @@ Use tags in frontmatter for filtering:
 - `#journal` `#daily` `#reflection` — journal entries
 - `#cbt` `#mood` `#habits` — mental health tracking
 - `#wisdom` `#philosophy` `#psychology` `#spirituality` — wisdom sources
+- `#agents` — LLM agent notes
 
 ---
 
@@ -432,6 +625,7 @@ Use tags in frontmatter for filtering:
 3. **One idea per note.** Easier to link, easier to find.
 4. **Review weekly.** Open Dataview queries, check what's stale, update status.
 5. **Don't over-organize.** Tags and links beat deep folder hierarchies.
+6. **Check the Templater trigger flag** after any Templater upgrade (see Troubleshooting).
 
 ---
 
@@ -443,7 +637,10 @@ Use tags in frontmatter for filtering:
 | Template not appearing | Check `Templates/` folder in settings |
 | Plugin not loading | Settings → Community Plugins → enable it |
 | Notes not syncing | Check `github-sync` plugin config |
+| New daily note comes out empty | Settings → Templater → enable **Trigger Templater on new file creation** (per-device; not synced) |
+| Raw `<% %>` or `{{ }}` in a new note | Wrong engine ran it — see **Which engine runs which template** |
+| A hotkey inserts raw `{{ }}` | It is bound to a core-syntax file; rebind to the `*_templater.md` twin (see [[HOTKEYS]]) |
 
 ---
 
-*Last updated: 2026-09-02*
+*Last updated: 2026-10-22*

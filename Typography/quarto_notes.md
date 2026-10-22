@@ -14,7 +14,7 @@ tags:
 
 > Goal: turn analysis into **auditable weekly reports (Word + PDF), one per audience**, from a single parameterized source.
 > This is the last mile of the Reporting Engine: [[Reporting Engine/TODO|TODO.md]] lists *"Quarto weekly PDF report per audience"* under Later, and every language spec (`PYTHON.md` §9, `R.md` §9, `JULIA.md` §9, `SQL.md` §9) names the static Quarto report as the auditable artifact that dashboards orbit around. Nothing in the vault teaches the pipeline itself — this note fills that gap.
-> Related: [[julia_notes|julia_notes]] (compute), [[duckdb_notes|duckdb_notes]] (data), [[ggsql_notes|ggsql_notes]] (visuals), [[Templates/pdf_export_wrapper.qmd|pdf_export_wrapper.qmd]] (thin Typst wrapper), [[DMA_theme/README|DMA Theme]] (brand + palettes)
+> Related: [[julia_notes|julia_notes]] (compute), [[duckdb_notes|duckdb_notes]] (data), [[ggsql_notes|ggsql_notes]] (visuals), [pdf_export_wrapper.qmd](../Templates/pdf_export_wrapper.qmd) (thin Typst wrapper), [[DMA_theme/README|DMA Theme]] (brand + palettes)
 
 ## How to use this note
 
@@ -405,7 +405,7 @@ Convention: source (`.qmd`, partials, params) is committed; outputs (`_out/`) ar
 
 - Quarto docs: [Parameters](https://quarto.org/docs/computations/parameters.html) (per-engine dialects + `-P`/`--execute-params`), [Typst basics](https://quarto.org/docs/output-formats/typst.html) (bundled PDF engine), [Parameterized reports in Python](https://quarto.org/docs/blog/posts/2025-07-24-parameterized-reports-python/index.html) (Papermill pattern + batch script).
 - Tables: `great_tables` ([PyPI](https://pypi.org/project/great-tables/)) for Python, `gt`/`flextable` for R.
-- In-vault: [[Templates/pdf_export_wrapper.qmd|pdf_export_wrapper.qmd]] (minimal Typst front matter), [[Reporting Engine/TODO|TODO.md]] Later section (the deliverables this unlocks), `Reporting Engine/palettes/` (DMA colors for tables/figures).
+- In-vault: [pdf_export_wrapper.qmd](../Templates/pdf_export_wrapper.qmd) (minimal Typst front matter), [[Reporting Engine/TODO|TODO.md]] Later section (the deliverables this unlocks), `Reporting Engine/palettes/` (DMA colors for tables/figures).
 
 ---
 

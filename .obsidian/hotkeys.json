@@ -1,46 +1,4 @@
 {
-  "file-explorer:new-file": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "N"
-    }
-  ],
-  "templater-obsidian:create-Templates/scripts/daily_log_template.md": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "N"
-    }
-  ],
-  "templater-obsidian:Templates/scripts/blog_idea_capture_template.md": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "B"
-    }
-  ],
-  "templater-obsidian:Templates/scripts/blog_post_template.md": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "B"
-    }
-  ],
-  "templater-obsidian:Templates/scripts/daily_mood_log_template_templater.md": [
-    {
-      "modifiers": [
-        "Alt"
-      ],
-      "key": "M"
-    }
-  ],
   "templater-obsidian:Templates/scripts/daily_reflection_template_templater.md": [
     {
       "modifiers": [
@@ -58,29 +16,39 @@
       "key": "H"
     }
   ],
-  "templater-obsidian:Templates/scripts/personal_measurements_template_templater.md": [
+  "obsidian-excalidraw-plugin:save": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "S"
+    }
+  ],
+  "templater-obsidian:Templates/scripts/daily_mood_log_template_templater.md": [
     {
       "modifiers": [
         "Alt"
       ],
-      "key": "P"
+      "key": "M"
     }
   ],
-  "templater-obsidian:Templates/scripts/daily_log_template_templater.md": [
+  "obsidian-timestamper:obsidian-fast-timestamp": [
     {
       "modifiers": [
-        "Alt"
+        "Mod",
+        "Shift"
+      ],
+      "key": "D"
+    }
+  ],
+  "templater-obsidian:create-Templates/scripts/daily_tarot_reading_template_templater.md": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
       ],
       "key": "T"
-    }
-  ],
-  "templater-obsidian:Templates/scripts/blog_idea_capture_template_templater.md": [
-    {
-      "modifiers": [
-        "Shift",
-        "Alt"
-      ],
-      "key": "B"
     }
   ],
   "obsidian-timestamper:obsidian-custom-timestamp": [
@@ -100,33 +68,6 @@
       "key": "D"
     }
   ],
-  "obsidian-timestamper:obsidian-fast-timestamp": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "D"
-    }
-  ],
-  "obsidian-excalidraw-plugin:save": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "S"
-    }
-  ],
-  "templater-obsidian:create-Templates/scripts/daily_tarot_reading_template_templater.md": [
-    {
-      "modifiers": [
-        "Alt",
-        "Shift"
-      ],
-      "key": "T"
-    }
-  ],
   "templater-obsidian:create-Templates/scripts/one_card_tarot_reading_template_templater.md": [
     {
       "modifiers": [
@@ -134,6 +75,70 @@
         "Shift"
       ],
       "key": "Q"
+    }
+  ],
+  "templater-obsidian:Templates/scripts/daily_log_template_templater.md": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "T"
+    },
+    {
+      "key": "N",
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ]
+    }
+  ],
+  "templater-obsidian:Templates/scripts/blog_post_template_templater.md": [
+    {
+      "key": "B",
+      "modifiers": [
+        "Alt"
+      ]
+    }
+  ],
+  "templater-obsidian:Templates/scripts/personal_measurements_quick_template_templater.md": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "P"
+    }
+  ],
+  "file-explorer:new-file": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "N"
+    }
+  ],
+  "templater-obsidian:Templates/scripts/blog_idea_capture_template_templater.md": [
+    {
+      "modifiers": [
+        "Shift",
+        "Alt"
+      ],
+      "key": "B"
+    },
+    {
+      "key": "B",
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ]
+    }
+  ],
+  "templater-obsidian:Templates/scripts/personal_measurements_template_templater.md": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "P"
     }
   ]
 }

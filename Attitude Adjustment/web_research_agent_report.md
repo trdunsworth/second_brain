@@ -77,7 +77,7 @@ This document provides a comprehensive status report on the web research agent's
 1. **wisdom_sources_tracker.md** - Updated with detailed content and structure
 2. **personal_measurements_template.md** - Enhanced with research-based metrics
 3. **daily_reflection_template.md** - Added research-based reflection prompts
-4. **annual_progress_review_template.md** - Updated with research impact assessments
+4. **annual_progress_review_template_attitude.md** - Updated with research impact assessments
 5. **daily_tarot_reading_template.md** - Incorporated as new wisdom source
 
 ### 🔄 In Progress (1-2 weeks)

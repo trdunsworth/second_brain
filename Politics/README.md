@@ -1,0 +1,4 @@
+# Politics
+
+> Scope: Politics notes.
+
