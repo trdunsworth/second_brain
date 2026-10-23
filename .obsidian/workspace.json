@@ -13,12 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-10-21.md",
+                "file": "journal/2026-10-23.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-21"
+              "title": "2026-10-23"
+            }
+          },
+          {
+            "id": "f613df41f9a484eb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "USERSGUIDE.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "USERSGUIDE"
             }
           },
           {
@@ -38,34 +52,21 @@
             }
           },
           {
-            "id": "e46d178e751ae291",
+            "id": "3024ba1578219b8d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Toastmasters/From Dungeons to Staffing - Leadership via Storytelling.md",
+                "file": "Books/Build Applications with Local AI Models on a Mac.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "From Dungeons to Staffing - Leadership via Storytelling"
-            }
-          },
-          {
-            "id": "50cc50b95c8ba3cf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Toastmasters/It was a bad day in the summer.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "It was a bad day in the summer"
+              "title": "Build Applications with Local AI Models on a Mac"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -245,44 +246,44 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "d3430096317c711b",
+  "active": "3024ba1578219b8d",
   "lastOpenFiles": [
+    "ALX_Notes/Ad Hoc Statistics/Outbound Phone Minutes.md",
+    "National University Credentials.md",
+    "journal/2026-10-23.md",
+    "Books/Build Applications with Local AI Models on a Mac.md",
+    "duckdb-lab/data/tmp_hourly_export.csv",
+    "duckdb-lab/data/tmp_eda_numeric_export.csv",
+    "duckdb-lab/data/combined.parquet",
+    "duckdb-lab/sql/join_csvs.sql",
+    "duckdb-lab/join_two_csvs.md",
+    "duckdb-lab/data/demo_units.csv",
+    "duckdb-lab/data/demo_calls.csv",
     "Toastmasters/From Dungeons to Staffing - Leadership via Storytelling.md",
-    "journal/2026-10-21.md",
+    "Time Series/Literature/A_Universal_Foundation_Model_for_Zero-Shot_Time_Series_Forecasting_With_Exogenous_Variables.pdf",
+    "Time Series/Literature",
+    "journal/2026-10-22.md",
     "Toastmasters/It was a bad day in the summer.md",
-    "Toastmasters/Toastmasters Signature for Email.md",
-    "journal/2026-10-20.md",
-    "Agents/OpenCode API Key.md",
+    "USERSGUIDE.md",
     "ALX_Notes/Survey Info.md",
-    "HOTKEYS.md",
-    "Time Series/Time Series Reading and Practice Hub.md",
-    "Time Series/Forecasting Libraries and Frameworks.md",
-    "Time Series/Prophet and NeuralProphet.md",
-    "journal/2026-10-19.md",
-    "Time Series/Forecasting Non-Stationary Data.md",
-    "SynthCCD/REVIEW.md",
-    "SynthCCD/GENAGENT.md",
-    "SynthCCD/EIDO.md",
-    "Agents/Testing and Evaluation Strategies for Agents.md",
-    "Agents/Secure Agent Guardrails.md",
-    "Agents/README.md",
-    "Agents/RAG Systems — Retrieval-Augmented Generation.md",
-    "Agents/MCP — Model Context Protocol Guide.md",
-    "Agents/End-to-End Agent — MCP + RAG Practice.md",
-    "Agents/Building LLM Agents — R Guide.md",
-    "Agents/Building LLM Agents — Python Guide.md",
-    "Agents/Agent Personality Development.md",
-    "Agents/Agent Architecture Patterns.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
+    "Frankie/Frankie Dashboard.md",
+    "Staffing/Staffing Dashboard.md",
+    "Agents/Agents Dashboard.md",
+    "Inbox/Weekly Triage.md",
+    "Inbox/README.md",
+    "Inbox",
+    "Templates/scripts/personal_measurements_quick_template_templater.md",
+    "DnD/DnD Migration MOC.md",
+    "DnD/character-sheet.md",
+    "DnD/converting-to-srd-5.2.1.md",
+    "DnD/SRD_CC_v5.2.1.md",
+    "Visualizations/README.md",
+    "Typography/README.md",
+    "Toastmasters/README.md",
+    "Time Series/README.md",
+    "Templates/README.md",
     "ALX_Notes/VT AI Project/Design Document_20260921.pdf",
-    "ALX_Notes/VT AI Project",
-    "Frankie/The Frankie Programming Language.pdf",
-    "Frankie/verify-snippets/results.json",
-    "Frankie/verify-snippets/a0204.fk",
-    "Frankie/verify-snippets/a0203.fk",
-    "Frankie/verify-snippets/a0202.fk",
-    "Frankie/verify-snippets/a0201.fk",
-    "Frankie/verify-snippets/a0200.fk",
-    "Frankie/verify-snippets/a0199.fk",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",

@@ -1,5 +1,5 @@
 {
-  "ignoredLints": "{\"context_hashes\":[14727592626367643573]}",
+  "ignoredLints": "{\"context_hashes\":[12775583821961218711,14727592626367643573]}",
   "useWebWorker": true,
   "lintSettings": {
     "ACoupleMore": null,
@@ -922,8 +922,10 @@
     "centre",
     "centre's",
     "ectopic",
+    "plussed",
     "realised",
-    "telecommunicators"
+    "telecommunicators",
+    "theatre"
   ],
   "dialect": 0,
   "delay": -1,

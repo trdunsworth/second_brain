@@ -4,8 +4,10 @@ Usage (from duckdb-lab/):
     python run_lab.py
 What it does:
     1. Executes sql/ files in dependency order against :memory: DuckDB
-       (seed -> preamble -> eda -> outliers -> standards -> audiences
+       (seed -> preamble -> join_csvs -> eda -> outliers -> standards -> audiences
        -> timeseries -> exports), each step cumulative so ordering is validated.
+       join_csvs.sql additionally asserts join grain + measure reconciliation
+       against data/demo_*.csv, so a fan-out regression fails the run.
     2. Lints visuals/*.sql for required ggsql clauses (VISUALISE + DRAW + LABEL).
        Full rendering needs R ggsql (see ggsql_notes.md §2); the linter only
        checks structural conventions + pins.txt presence.
@@ -25,6 +27,7 @@ CLI = shutil.which("duckdb")
 SQL_ORDER = [
     "seed_demo.sql",
     "00_preamble.sql",
+    "join_csvs.sql",
     "eda.sql",
     "outliers.sql",
     "standards.sql",

@@ -16,7 +16,7 @@ tags:
 
 > Goal: get productive in ggsql for **EDA visuals → composed reporting charts → time-series displays**, without leaving SQL.
 > Companion project spec: [[Reporting Engine/SQL|Reporting Engine SQL.md]] §5 + §4.7 — that file is 9-1-1-project specific. This file is your general-purpose ggsql learning system.
-> Related: [[duckdb_notes|duckdb_notes]] (the data layer), [[julia_notes|julia_notes]] (the compute layer), [[Time Series/Time Series Notes|Time Series Notes]]
+> Related: [[duckdb_notes|duckdb_notes]] (the data layer), [[join_two_csvs|join_two_csvs]] (prepping the combined dataset), [[julia_notes|julia_notes]] (the compute layer), [[Time Series/Time Series Notes|Time Series Notes]]
 > Upstream docs: [ggsql syntax](https://ggsql.org/syntax/) (v0.3.0-alpha) · [Grammar intro](https://ggsql.org/get_started/grammar.html) · [Posit alpha announcement](https://opensource.posit.co/blog/2026-04-20_ggsql_alpha_release) · [R package](https://r.ggsql.org/)
 
 ## How to use this note
