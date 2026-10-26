@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f613df41f9a484eb",
+            "id": "4961107960ca38a6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-10-24.md",
+                "file": "journal/2026-10-25.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-24"
+              "title": "2026-10-25"
             }
           },
           {
@@ -51,8 +51,7 @@
               "title": "Build Applications with Local AI Models on a Mac"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -189,8 +188,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "icon": "lucide-ghost",
+              "title": "calendar"
             }
           },
           {
@@ -232,11 +231,13 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "3024ba1578219b8d",
+  "active": "4961107960ca38a6",
   "lastOpenFiles": [
-    "duckdb-lab/README.md",
     "Books/Build Applications with Local AI Models on a Mac.md",
+    "journal/2026-10-25.md",
     "journal/2026-10-24.md",
+    "HOTKEYS.md",
+    "duckdb-lab/README.md",
     "duckdb-lab/duckdb-docs 1.txt",
     "duckdb-lab/duckdb-docs.txt",
     "journal/2026-10-23.md",
@@ -268,7 +269,6 @@
     "DnD/character-sheet.md",
     "DnD/converting-to-srd-5.2.1.md",
     "DnD/SRD_CC_v5.2.1.md",
-    "Visualizations/README.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",

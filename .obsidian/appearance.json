@@ -1,6 +1,6 @@
 {
-  "textFontFamily": "CommitMonoTonyD,CommitMonoDrDMac,CommitMonoDrD,CommitMonoDrDLinux,Inter,system-ui,sans-serif",
-  "monospaceFontFamily": "CommitMonoTonyD,CommitMonoDrDMac",
+  "textFontFamily": "CommitMonoTonyD,CommitMonoDrDMac,CommitMonoDrD,CommitMonoDrDLinux,Adwaita Mono,Inter,system-ui,sans-serif",
+  "monospaceFontFamily": "CommitMonoTonyD,CommitMonoDrDMac,Adwaita Mono",
   "baseFontSize": 13,
   "cssTheme": "DMA Theme",
   "theme": "moonstone",
@@ -9,5 +9,5 @@
   "enabledCssSnippets": [
     "fix-text-font"
   ],
-  "interfaceFontFamily": "CommitMonoTonyD,CommitMonoDrDMac,CommitMonoDrDLinux"
+  "interfaceFontFamily": "CommitMonoTonyD,CommitMonoDrDMac,Adwaita Sans,CommitMonoDrDLinux"
 }
