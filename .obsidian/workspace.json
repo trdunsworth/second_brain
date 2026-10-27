@@ -13,24 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-10-26.md",
+                "file": "journal/2026-10-27.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-26"
-            }
-          },
-          {
-            "id": "758233bad9e7ec13",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.14.5"
-              },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.14.5"
+              "title": "2026-10-27"
             }
           },
           {
@@ -63,7 +51,8 @@
               "title": "Build Applications with Local AI Models on a Mac"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -243,10 +232,15 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "4961107960ca38a6",
+  "active": "62112e7700d11e7c",
   "lastOpenFiles": [
-    "journal/2026-10-25.md",
+    "ALX_Notes/Ad Hoc Statistics/Additional Q3 CAD and Phone Stats.md",
+    "journal/2026-10-27.md",
+    "ALX_Notes/Ad Hoc Statistics/Call Metrics for FY23 through FY26.md",
+    "ALX_Notes/Ad Hoc Statistics/Nonemergency Call Volumes.md",
+    "ALX_Notes/Ad Hoc Statistics/Call Volumes 2026.md",
     "journal/2026-10-26.md",
+    "journal/2026-10-25.md",
     "Books/Build Applications with Local AI Models on a Mac.md",
     "journal/2026-10-24.md",
     "HOTKEYS.md",
@@ -276,11 +270,6 @@
     "Staffing/Staffing Dashboard.md",
     "Agents/Agents Dashboard.md",
     "Inbox/Weekly Triage.md",
-    "Inbox/README.md",
-    "Templates/scripts/personal_measurements_quick_template_templater.md",
-    "DnD/DnD Migration MOC.md",
-    "DnD/character-sheet.md",
-    "DnD/converting-to-srd-5.2.1.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
