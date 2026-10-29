@@ -1,5 +1,5 @@
 {
-  "ignoredLints": "{\"context_hashes\":[12775583821961218711,14727592626367643573]}",
+  "ignoredLints": "{\"context_hashes\":[14727592626367643573,12775583821961218711]}",
   "useWebWorker": true,
   "lintSettings": {
     "ACoupleMore": null,
@@ -904,6 +904,7 @@
     "Frontmatter",
     "GovWorx",
     "Hadley",
+    "Hundley's",
     "LaTex",
     "Lazyman",
     "Moodle",
