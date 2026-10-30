@@ -103,6 +103,7 @@ quarto publish gh doc.qmd
 - **[Quarto Blog](https://quarto.org/blog)** - Updates and tutorials
 - **[Quarto School](https://quarto.school)** - Video courses
 - **[Quarto VS Code Extension](https://marketplace.visualstudio.com/items?search=quarto)** - Editor support
+- **[Posit Academy](https://academy.posit.co/page/all-courses)** Posit's training and tutorials
 
 ## Quarto vs Jupyter vs RMarkdown
 
