@@ -15,6 +15,7 @@ frequently — re-verify before relying on any figure below.
 |---|---|
 | [[Posit Ecosystem MOC]] | Index and orientation for this folder |
 | [[Posit Company and Platform]] | posit.co — mission, enterprise products, solutions, partners |
+| [[Posit AI]] | posit.ai — the AI product family: Posit Assistant, Next Edit Suggestions, Posit AI Pass |
 | [[Posit Academy]] | academy.posit.co — free learning platform + mentor-led apprenticeships |
 | [[Posit Open Source]] | opensource.posit.co — open-source program, people, resources |
 | [[Posit Open Source Software Catalog]] | opensource.posit.co/software — the ~387-project catalog and how to search it |

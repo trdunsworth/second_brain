@@ -22,6 +22,7 @@ committed to open source, freedom of choice, and long-term partnership — "no v
 | Note | Source URL | What it holds |
 |---|---|---|
 | [[Posit Company and Platform]] | <https://posit.co> | Mission, enterprise products (Workbench, Connect, Package Manager, Cloud), Posit AI, solutions by team and industry, partners |
+| [[Posit AI]] | <https://posit.ai> | Posit AI product family: Posit Assistant, Next Edit Suggestions, Posit AI Pass |
 | [[Posit Academy]] | <https://academy.posit.co> | Free learning platform; Academy Apprenticeships — courses, format, weekly structure |
 | [[Posit Open Source]] | <https://opensource.posit.co> | Open-source program: people, R/Python/AI work, blog, cheatsheets, events |
 | [[Posit Open Source Software Catalog]] | <https://opensource.posit.co/software> | ~387 open-source projects, search syntax, topic/language taxonomy, flagship projects |
@@ -50,6 +51,7 @@ committed to open source, freedom of choice, and long-term partnership — "no v
    gt / Great Tables / gt    Posit Cloud
    plotnine / polars tooling shinyapps.io
    ellmer / chatlas          Posit AI Pass / Positron Pro
+   btw / querychat           Positron Pro
 ```
 
 Three things make Posit unusual, and they explain most product decisions:
@@ -88,5 +90,7 @@ All notes in this folder were captured on **2026-10-30** from:
 - <https://opensource.posit.co>, `/software/`
 - <https://quarto.org>, `/license.html`
 - <https://positron.posit.co>
+
+> **2026-11-01 additions:** the notes created in the second pass — [[Posit AI]], [[Posit Open Source Software Catalog]], [[Quarto]], [[Positron]], and [[RStudio IDE]] — were captured from their primary sources on 2026-11-01.
 
 Everything external to the vault is a markdown link, per the linking rules in [[USERSGUIDE]].

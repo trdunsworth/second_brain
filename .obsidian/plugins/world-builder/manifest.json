@@ -1,0 +1,11 @@
+{
+  "id": "world-builder",
+  "name": "World Builder",
+  "version": "1.0.1",
+  "minAppVersion": "1.4.0",
+  "description": "A fiction world-building toolkit: characters, locations, factions, lore entries, and timeline events.",
+  "author": "wesswart77",
+  "authorUrl": "https://github.com/wesswart77",
+  "fundingUrl": "https://www.buymeacoffee.com/wesswart77",
+  "isDesktopOnly": false
+}

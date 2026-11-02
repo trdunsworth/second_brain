@@ -1,2 +1,2 @@
 
-Good evening fellow Toastmasters. As a data scientist, 
+Good evening fellow Toastmasters. As a data scientist, I'm called upon by  

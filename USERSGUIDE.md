@@ -54,6 +54,7 @@ second_brain/
 ├── Readings/             → Reading notes
 ├── Reflections/          → Reflection notes
 ├── Politics/             → Politics notes
+├── Posit/                → Posit Software, PBC — Posit ecosystem notes (MOC, Company and Platform, Academy, Open Source, Software Catalog, Quarto, Positron, RStudio IDE, Posit AI)
 ├── Visualizations/       → Visualization notes
 ├── StatLang/             → Statistical language notes
 ├── New_CAD_Project/      → New CAD project notes

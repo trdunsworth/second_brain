@@ -1,0 +1,115 @@
+/* World Builder */
+
+.wb-sidebar { padding: 16px; }
+
+.wb-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 12px;
+}
+.wb-header h2 { margin: 0; font-size: 1.1em; }
+
+.wb-tabs {
+	display: flex;
+	gap: 2px;
+	margin-bottom: 14px;
+	border-bottom: 1px solid var(--background-modifier-border);
+	flex-wrap: wrap;
+}
+
+.wb-tab {
+	padding: 6px 10px;
+	font-size: 0.82em;
+	cursor: pointer;
+	color: var(--text-muted);
+	border-bottom: 2px solid transparent;
+	background: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	white-space: nowrap;
+}
+.wb-tab.active {
+	color: var(--text-accent);
+	border-bottom-color: var(--interactive-accent);
+}
+.wb-tab:hover { color: var(--text-normal); }
+
+.wb-tab-content { display: none; }
+.wb-tab-content.active { display: block; }
+
+.wb-section-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+.wb-section-header span {
+	font-size: 0.8em;
+	color: var(--text-muted);
+}
+
+.wb-list {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.wb-card {
+	padding: 10px 12px;
+	border-radius: 6px;
+	background: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	cursor: pointer;
+}
+.wb-card:hover { border-color: var(--interactive-accent); }
+
+.wb-card-title {
+	font-weight: 600;
+	color: var(--text-accent);
+	margin-bottom: 3px;
+	font-size: 0.95em;
+}
+.wb-card-meta {
+	font-size: 0.8em;
+	color: var(--text-muted);
+}
+
+.wb-badge {
+	display: inline-block;
+	padding: 1px 7px;
+	border-radius: 10px;
+	font-size: 0.75em;
+	background: var(--tag-background);
+	color: var(--tag-color);
+	margin-left: 4px;
+}
+.wb-badge-protagonist { background: #2d6a4f33; color: #52b788; }
+.wb-badge-antagonist  { background: #6d2d2d33; color: #e07070; }
+.wb-badge-supporting  { background: #2d3d6a33; color: #70a0e0; }
+.wb-badge-minor       { background: #4a4a4a33; color: #aaa; }
+.wb-badge-lawful      { background: #2d5a8e33; color: #5b9bd5; }
+.wb-badge-neutral     { background: #5a5a2d33; color: #c9a84c; }
+.wb-badge-chaotic     { background: #8e2d2d33; color: #e07070; }
+
+.wb-empty {
+	color: var(--text-muted);
+	font-style: italic;
+	font-size: 0.9em;
+	padding: 8px 0;
+}
+
+.wb-btn-primary {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border: none;
+	border-radius: 4px;
+	padding: 4px 10px;
+	font-size: 0.85em;
+	cursor: pointer;
+}
+.wb-btn-primary:hover { background: var(--interactive-accent-hover); }
+
+.wb-modal .setting-item { border-top: none; }
+.wb-textarea { width: 100%; resize: vertical; min-height: 70px; }

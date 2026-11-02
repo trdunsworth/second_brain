@@ -42,7 +42,7 @@ Posit organizes products by job to be done rather than by tier.
 |---|---|
 | **Posit Workbench** | Centrally managed environment for data scientists using Positron, RStudio, VS Code, or Jupyter. Scalable compute; IT keeps control of security and infrastructure. |
 | **Positron Pro** | A secure, governed, scalable data science editor delivered *through* Workbench (not a separate desktop license). |
-| **Posit AI Pass** | Subscription powering Posit Assistant in RStudio, Positron, and the terminal. |
+| **Posit AI Pass** | Subscription powering Posit Assistant in RStudio, Positron, and the terminal. Product detail: [[Posit AI]]. |
 | **Posit Cloud** | Hosted environment to code in RStudio or Jupyter notebooks and share. |
 | **Posit Team Suite** | Workbench + Connect + Package Manager as one platform. |
 
@@ -63,15 +63,12 @@ Posit organizes products by job to be done rather than by tier.
 
 ## Posit AI
 
-A shipped product family, not a roadmap item:
+A shipped product family, not a roadmap item — the product detail lives in [[Posit AI]].
 
-- **Posit Assistant** — an AI agent embedded in RStudio and Positron that reads the live session
-  (loaded packages, variables, data frames) and answers from real data rather than generic
-  assumptions. **Zero data retention:** code and data are never stored or used for training.
-- **Next Edit Suggestions** — background code completions for joins, parameter updates, and
-  patterns. Unlimited with a Posit AI subscription.
-- **Pricing:** $20/month add-on to any edition, free trial, no credit card required, cancel
-  anytime. Also sold as the Posit AI Pass.
+In platform terms, AI is the paid layer that runs on top of the free open-source stack, sold as the
+**Posit AI Pass**: the **Posit Assistant** is the agent that reads the live session in the IDE, and
+the **Posit AI Pass** is the subscription that powers it (plus Next Edit Suggestions), at $20/month per
+edition, with a free trial and no credit card required.
 
 ## Solutions and industries
 
