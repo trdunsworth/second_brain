@@ -34,17 +34,28 @@ List of Call Types by the role allowed to see them
 
 ## What Was Accessed
 
-| System | Database | Table(s) | Notes |
-|--------|----------|----------|-------|
-| | | | |
-| | | | |
+| System | Database         | Table(s) | Notes |
+| ------ | ---------------- | -------- | ----- |
+| CAD    | Reporting_System | Problem  |       |
+|        |                  |          |       |
 
 ---
 
 ## SQL Statement
 
 ```sql
--- Paste or build your SQL statement here
+USE Reporting_System;
+GO
+
+SELECT Description AS [Problem Nature],
+	CASE WHEN Agency_TypeID = 1 THEN 'DECC'
+		WHEN Agency_TypeID = 2 THEN 'LAW'
+		WHEN Agency_TypeID = 3 THEN 'FIRE'
+		ELSE 'UNKNOWN'
+	END AS [Agency]
+FROM Problem
+WHERE IsActive = 1
+ORDER BY [Agency], Description;
 
 ```
 
@@ -59,7 +70,7 @@ List of Call Types by the role allowed to see them
 | | | |
 | | | |
 
-**Outcome Summary:**  
+**Outcome Summary:** This 
 
 ---
 

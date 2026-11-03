@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-11-02.md",
+                "file": "journal/2026-11-03.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-11-02"
+              "title": "2026-11-03"
             }
           },
           {
@@ -36,23 +36,9 @@
               "icon": "lucide-file",
               "title": "HOTKEYS"
             }
-          },
-          {
-            "id": "cd0643d1188c44ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Call Type by Accessor.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Call Type by Accessor"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -233,44 +219,44 @@
       "world-builder:World Builder": false
     }
   },
-  "active": "cd0643d1188c44ea",
+  "active": "62112e7700d11e7c",
   "lastOpenFiles": [
-    "Data Science/Statistics/Bayesian Statistics.md",
-    "HOTKEYS.md",
-    "Data Science/Statistics/Learning Path.md",
-    "journal/2026-11-02.md",
-    "Data Science/Machine Learning/Supervised/Classification/Decision Trees & Random Forests.md",
-    "Data Science/Machine Learning/Supervised/Classification/Gradient Boosting Machines (XGBoost, LightGBM, CatBoost).md",
-    "Data Science/Machine Learning/Supervised/Classification/Support Vector Machines (SVM).md",
-    "Data Science/Machine Learning/Supervised/Classification/Logistic Regression.md",
-    "Data Science/Machine Learning/Supervised/Classification/k-Nearest Neighbors (k-NN).md",
-    "Toastmasters/From Dungeons to Staffing - Leadership via Storytelling.md",
-    "Data Science/Machine Learning/Supervised/Regression/Random Forest Regression.md",
-    "Data Science/Machine Learning/Supervised/Regression/Ridge & Lasso Regression (Regularization).md",
-    "Data Science/Machine Learning/Supervised/Regression/Polynomial Regression.md",
-    "Data Science/Machine Learning/Supervised/Regression/Linear Regression.md",
-    "Data Science/Machine Learning/Learning Path.md",
-    "Data Science/Machine Learning/Neural Networks",
-    "Data Science/Machine Learning/Unsupervised/Dimensionality Reduction",
-    "Data Science/Machine Learning/Unsupervised/Clustering",
-    "Data Science/Machine Learning/Supervised/Classification",
-    "Data Science/Machine Learning/Supervised/Regression",
-    "Data Science/Machine Learning/Unsupervised",
-    "Data Science/Machine Learning/Supervised",
-    "Data Science/Machine Learning",
-    "Data Science/Math/Information Theory.md",
-    "Data Science/Math/Stochastic Calculus.md",
-    "Data Science/Math/Advanced Linear Algebra.md",
-    "Data Science/Math/Optimization basics.md",
-    "Data Science/Math/Matrix Decomposition (SVD, PCA).md",
-    "Data Science/Math/Multivariable Calculus (Partial Derivatives, Gradients).md",
-    "Data Science/Math/Discrete Math Basics.md",
-    "Data Science/Math/Linear Algebra Foundations.md",
-    "Data Science/Math/Basic Calculus.md",
-    "Data Science/Statistics/Tests and Analyses/Non-Parametric/Chi-Square Test.md",
-    "Data Science/Statistics/Tests and Analyses/Non-Parametric/Spearman's Rank Correlation.md",
-    "Data Science/Statistics/Tests and Analyses/Parametric",
-    "Data Science/Statistics/Tests and Analyses/Non-Parametric",
+    "ALX_Notes/Ad Hoc Statistics/Collected Volumes for 2025.md",
+    "ALX_Notes/Ad Hoc Statistics/Call Volumes 2026.md",
+    "Linux/LinuxPlus_1_System_Management.md",
+    "R Programming/00_Index.md",
+    "R Programming/ggplot2/01_ggplot2_Tutorial.md",
+    "R Programming/tidymodels/01_tidymodels_Overview.md",
+    "R Programming/tidyverse/01_tidyverse_Overview.md",
+    "R Programming/Best Practices/01_Best_Practices.md",
+    "R Programming/ggplot2",
+    "R Programming/tidymodels",
+    "R Programming/tidyverse",
+    "R Programming/Best Practices",
+    "Data Science/Advanced Specializations/MLOps at Scale/Cost Optimization/01 Cost Optimization.md",
+    "Data Science/Advanced Specializations/MLOps at Scale/Cost Optimization",
+    "Data Science/Advanced Specializations/MLOps at Scale/Governance/01 Governance Compliance.md",
+    "Data Science/Advanced Specializations/MLOps at Scale/Pipeline Orchestration/01 Pipeline Orchestration.md",
+    "Data Science/Advanced Specializations/MLOps at Scale/Model Monitoring/01 Model Monitoring.md",
+    "Data Science/Advanced Specializations/MLOps at Scale/A/B Testing/01 A-B Testing Platform.md",
+    "ALX_Notes/Ad Hoc Statistics/CS 02605538 Supported LogEntry Table Query.md",
+    "ALX_Notes/Ad Hoc Statistics/Call Type by Accessor.md",
+    "Data Science/Advanced Specializations/MLOps at Scale/Real-time Serving/01 Real-time Serving.md",
+    "Data Science/Advanced Specializations/MLOps at Scale/Feature Platforms/01 Feature Platforms.md",
+    "Data Science/Advanced Specializations/MLOps at Scale/Governance",
+    "Data Science/Advanced Specializations/MLOps at Scale/Pipeline Orchestration",
+    "Data Science/Advanced Specializations/MLOps at Scale/Model Monitoring",
+    "Data Science/Advanced Specializations/MLOps at Scale/A/B Testing",
+    "Data Science/Advanced Specializations/MLOps at Scale/A",
+    "Data Science/Advanced Specializations/Generative AI/Multimodal/01 Multimodal Models.md",
+    "Data Science/Advanced Specializations/Generative AI/3D Generation/01 3D Generation Models.md",
+    "Data Science/Advanced Specializations/Generative AI/Audio Music/01 Audio Generation Models.md",
+    "Data Science/Advanced Specializations/Generative AI/Video Generation/01 Video Generation Models.md",
+    "Data Science/Advanced Specializations/Generative AI/Latent Diffusion/01 Stable Diffusion.md",
+    "Data Science/Advanced Specializations/Generative AI/Diffusion Models/02 Flow Matching Rectified Flow.md",
+    "Data Science/Advanced Specializations/Generative AI/Diffusion Models/01 DDPM DDIM Score Matching.md",
+    "Data Science/Advanced Specializations/Causal ML/07 Quasi Experiments.md",
+    "Data Science/Advanced Specializations/Causal ML/06 EconML DoWhy Tools.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
