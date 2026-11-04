@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-11-03.md",
+                "file": "journal/2026-11-04.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-11-03"
+              "title": "2026-11-04"
             }
           },
           {
@@ -36,9 +36,23 @@
               "icon": "lucide-file",
               "title": "HOTKEYS"
             }
+          },
+          {
+            "id": "c2c6ba2a10b37204",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Visualizations/04_ggplot2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "04_ggplot2"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -219,44 +233,44 @@
       "world-builder:World Builder": false
     }
   },
-  "active": "62112e7700d11e7c",
+  "active": "29de818a13b78983",
   "lastOpenFiles": [
-    "ALX_Notes/Ad Hoc Statistics/Collected Volumes for 2025.md",
-    "ALX_Notes/Ad Hoc Statistics/Call Volumes 2026.md",
-    "Linux/LinuxPlus_1_System_Management.md",
-    "R Programming/00_Index.md",
-    "R Programming/ggplot2/01_ggplot2_Tutorial.md",
-    "R Programming/tidymodels/01_tidymodels_Overview.md",
-    "R Programming/tidyverse/01_tidyverse_Overview.md",
-    "R Programming/Best Practices/01_Best_Practices.md",
+    "Python Programming/SUMMARY.md",
+    "Python Programming/ML/03_ML_Cheatsheet.md",
+    "Python Programming/Resources/01_Additional_Resources.md",
+    "Python Programming/MLOps/01_MLOps_Cheatsheet.md",
+    "Python Programming/Advanced_Stats/01_Advanced_Stats_Cheatsheet.md",
+    "Python Programming/Time_Series/01_Time_Series_Cheatsheet.md",
+    "Python Programming/EDA/01_EDA_Cheatsheet.md",
+    "Python Programming/Visualization/02_plotnine_Cheatsheet.md",
+    "Python Programming/Visualization/01_plotnine_Tutorial.md",
+    "Python Programming/Core_Libraries/03_Tidyverse_Equivalent.md",
+    "Python Programming/Core_Libraries/02_Core_Libraries_Cheatsheet.md",
+    "Python Programming/Core_Libraries/01_Core_Libraries_Overview.md",
+    "Python Programming/Best_Practices/01_Best_Practices.md",
+    "Python Programming/00_Index.md",
+    "Python Programming/Resources",
+    "Python Programming/MLOps",
+    "Python Programming/Advanced_Stats",
+    "Python Programming/EDA",
+    "Python Programming/Time_Series",
+    "Python Programming/ML",
+    "Python Programming/Visualization",
+    "Python Programming/Core_Libraries",
+    "Python Programming/Best_Practices",
+    "R Programming/08_Additional_Resources.md",
+    "R Programming/07_Data_Engineering_Cheatsheet.md",
+    "R Programming/06_Statistical_Tests_Reference.md",
+    "R Programming/05_Cross_References.md",
+    "R Programming/tidymodels/02_tidymodels_Cheatsheet.md",
+    "R Programming/tidyverse/02_tidyverse_Cheatsheet.md",
+    "R Programming/ggplot2/02_ggplot2_Cheatsheet.md",
+    "R Programming/04_Advanced_Statistics_Cheatsheet.md",
+    "R Programming/03_Machine_Learning_Cheatsheet.md",
+    "R Programming/02_Time_Series_Cheatsheet.md",
+    "R Programming/01_EDA_Cheatsheet.md",
+    "HOTKEYS.md",
     "R Programming/ggplot2",
-    "R Programming/tidymodels",
-    "R Programming/tidyverse",
-    "R Programming/Best Practices",
-    "Data Science/Advanced Specializations/MLOps at Scale/Cost Optimization/01 Cost Optimization.md",
-    "Data Science/Advanced Specializations/MLOps at Scale/Cost Optimization",
-    "Data Science/Advanced Specializations/MLOps at Scale/Governance/01 Governance Compliance.md",
-    "Data Science/Advanced Specializations/MLOps at Scale/Pipeline Orchestration/01 Pipeline Orchestration.md",
-    "Data Science/Advanced Specializations/MLOps at Scale/Model Monitoring/01 Model Monitoring.md",
-    "Data Science/Advanced Specializations/MLOps at Scale/A/B Testing/01 A-B Testing Platform.md",
-    "ALX_Notes/Ad Hoc Statistics/CS 02605538 Supported LogEntry Table Query.md",
-    "ALX_Notes/Ad Hoc Statistics/Call Type by Accessor.md",
-    "Data Science/Advanced Specializations/MLOps at Scale/Real-time Serving/01 Real-time Serving.md",
-    "Data Science/Advanced Specializations/MLOps at Scale/Feature Platforms/01 Feature Platforms.md",
-    "Data Science/Advanced Specializations/MLOps at Scale/Governance",
-    "Data Science/Advanced Specializations/MLOps at Scale/Pipeline Orchestration",
-    "Data Science/Advanced Specializations/MLOps at Scale/Model Monitoring",
-    "Data Science/Advanced Specializations/MLOps at Scale/A/B Testing",
-    "Data Science/Advanced Specializations/MLOps at Scale/A",
-    "Data Science/Advanced Specializations/Generative AI/Multimodal/01 Multimodal Models.md",
-    "Data Science/Advanced Specializations/Generative AI/3D Generation/01 3D Generation Models.md",
-    "Data Science/Advanced Specializations/Generative AI/Audio Music/01 Audio Generation Models.md",
-    "Data Science/Advanced Specializations/Generative AI/Video Generation/01 Video Generation Models.md",
-    "Data Science/Advanced Specializations/Generative AI/Latent Diffusion/01 Stable Diffusion.md",
-    "Data Science/Advanced Specializations/Generative AI/Diffusion Models/02 Flow Matching Rectified Flow.md",
-    "Data Science/Advanced Specializations/Generative AI/Diffusion Models/01 DDPM DDIM Score Matching.md",
-    "Data Science/Advanced Specializations/Causal ML/07 Quasi Experiments.md",
-    "Data Science/Advanced Specializations/Causal ML/06 EconML DoWhy Tools.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
