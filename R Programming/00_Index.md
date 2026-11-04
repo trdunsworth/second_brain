@@ -13,13 +13,43 @@ A comprehensive R programming reference for data science, from fundamentals to a
 
 ---
 
-## 🎯 Quick Start Guide
+## 🚀 Quick Start - **Use `uvr` for R Project Setup**
 
-### New to R?
-1. Start with **[Best Practices](Best Practices/01_Best_Practices.md)** - Set up your environment with renv, learn modern R syntax
-2. Move to **[Tidyverse Overview](tidyverse/01_tidyverse_Overview.md)** - Master the core data manipulation tools
-3. Learn **[Tidymodels](tidymodels/01_tidymodels_Overview.md)** for machine learning
-4. Master visualization with **[ggplot2 Tutorial](ggplot2/01_ggplot2_Tutorial.md)**
+**`uvr` is the recommended way to set up R projects** - it's an extremely fast R package installer and resolver, written in Rust.
+
+**Official URL:** https://nbafrank.github.io/uvr/
+
+```bash
+# 1. Install uvr (once per machine)
+# Linux/macOS:
+curl -LsSf https://nbafrank.github.io/uvr/install.sh | sh
+# Windows:
+powershell -c "irm https://nbafrank.github.io/uvr/install.ps1 | iex"
+
+# 2. Create project with uvr (recommended)
+uvr init my_project
+cd my_project
+
+# 3. Create renv environment & install packages (fast!)
+uvr renv init
+uvr renv install renv renv::install
+
+# Or use uvr for everything (renv + install in one)
+uvr renv init && uvr renv install renv renv::install
+
+# 5. Start coding!
+R -e "library(tidyverse); library(tidymodels); print('Ready!')"
+
+# Alternative: Use uvr run for one-off commands without activating renv
+uvr run Rscript script.R
+```
+
+**Why uvr?**
+- 🚀 **Fast** - Written in Rust, parallel downloads, caching
+- 🔒 **Reproducible** - Lockfile (`renv.lock`) for reproducible builds
+- 📦 **Unified tool** - renv + pak + pak's dependency resolution
+- 🔒 **Secure** - Verifies hashes, supports lockfile
+- 📦 **Cache** - Global package cache, no re-downloads
 
 ### Quick Reference
 

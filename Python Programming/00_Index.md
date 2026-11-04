@@ -162,23 +162,43 @@ python -c "import pandas as pd; import polars as pl; print('Ready!')"
 
 ---
 
-## 🎯 Quick Start
+## 🚀 Quick Start - **Use `uv` for Project Setup**
+
+**`uv` is the recommended way to set up Python projects** - it's an extremely fast Python package installer and resolver, written in Rust by Astral.
+
+**Official URL:** https://github.com/astral-sh/uv
 
 ```bash
-# 1. Create project
-mkdir my_project && cd my_project
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+# 1. Install uv (once per machine)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# Or on Windows: powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+# Or via pip: pip install uv
 
-# 2. Install core packages
-pip install uv
+# 2. Create project with uv (recommended)
+uv init my_project
+cd my_project
+
+# 3. Create virtual environment & install packages (fast!)
+uv venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 uv pip install numpy pandas polars duckdb plotnine scikit-learn xgboost lightgbm
 
-# 3. Start coding!
+# 4. Or use uv for everything (venv + install in one)
+uv venv && uv pip install numpy pandas polars duckdb plotnine scikit-learn xgboost lightgbm
+
+# 5. Start coding!
 python -c "import pandas as pd; import polars as pl; import plotnine as p9; print('Ready!')"
+
+# Alternative: Use uv run for one-off commands without activating venv
+uv run python script.py
 ```
 
----
+**Why uv?**
+- 🚀 **10-100x faster** than pip/pip-tools
+- 🔒 **Reproducible** - generates `uv.lock` for reproducible builds
+- 📦 **Unified tool** - replaces pip, pip-tools, pipx, poetry, virtualenv, pipenv
+- 🔒 **Secure** - verifies hashes, supports PEP 740
+- 🐍 **Python version management** - `uv python install 3.11`
 
 *Last updated: 2024-11-04*
 *Part of: Python Programming Knowledge Base*
