@@ -37,8 +37,7 @@
               "title": "HOTKEYS"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -219,8 +218,9 @@
       "world-builder:World Builder": false
     }
   },
-  "active": "62112e7700d11e7c",
+  "active": "4961107960ca38a6",
   "lastOpenFiles": [
+    "HOTKEYS.md",
     "Python Programming/00_Index.md",
     "journal/2026-11-04.md",
     "Visualizations/04_ggplot2.md",
@@ -255,7 +255,6 @@
     "R Programming/ggplot2/02_ggplot2_Cheatsheet.md",
     "R Programming/04_Advanced_Statistics_Cheatsheet.md",
     "R Programming/03_Machine_Learning_Cheatsheet.md",
-    "R Programming/02_Time_Series_Cheatsheet.md",
     "R Programming/ggplot2",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
