@@ -152,6 +152,44 @@ This path bridges the gap between the mathematical foundations and practical AI 
 
 ---
 
+### 6.7 Python Programming
+*Building a comprehensive Python programming reference for data science, from fundamentals to advanced applications.*
+
+#### Python Fundamentals
+*Building a solid foundation in modern Python development.*
+
+- [x] **Best Practices**: Project structure, uv/poetry, code style, testing, documentation
+- [x] **Modern Python Syntax**: Native pipe (|>), match-case (3.10+), pattern matching, structural pattern matching
+
+#### Core Libraries
+- [x] **Core Libraries**: NumPy, Pandas, Polars, DuckDB, PyArrow
+- [x] **Core Libraries Cheatsheet**: Quick reference for daily use
+- [x] **Tidyverse Equivalent**: pandas/polars vs R tidyverse mapping
+
+#### Visualization
+- [x] **plotnine**: Complete tutorial with Cedric Scherer's beautiful plotting guide (ggplot2 equivalent)
+- [x] **plotnine Cheatsheet**: Quick reference for plotnine
+- [x] **Tidyverse Equivalent**: pandas/polars vs R tidyverse mapping
+
+#### Machine Learning
+- [x] **ML Overview**: scikit-learn, XGBoost, LightGBM, CatBoost
+- [x] **ML Cheatsheet**: Quick ML reference
+- [x] **Advanced ML Cheatsheet**: Advanced ML techniques
+
+#### Time Series
+- [x] **Time Series**: ARIMA, Prophet, NeuralForecast, DeepAR, statsforecast
+
+#### EDA
+- [x] **EDA Cheatsheet**: Comprehensive EDA reference
+
+#### Advanced Statistics
+- [x] **Advanced Stats**: Bayesian, causal inference, SEM, meta-analysis, survival analysis
+
+#### MLOps
+- [x] **MLOps**: Deployment, monitoring, pipelines, governance
+
+---
+
 **Foundational Prerequisites**: 
 - [[Linear Algebra Foundations]]
 - [[Multivariable Calculus (Partial Derivatives, Gradients)]]
