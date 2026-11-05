@@ -899,7 +899,71 @@ jobs:
 
 ---
 
-## 22. Resources
+## 23. plotnine Extensions
+
+While plotnine implements the core Grammar of Graphics, the ecosystem of extensions is growing. Many ggplot2 extensions have Python equivalents or work directly with plotnine.
+
+### 23.1 plotnine Extensions
+
+| Package | Description | Key Features |
+|---------|-------------|--------------|
+| **plotnine** | Core implementation | Core Grammar of Graphics |
+| **plotnine-extras** | Additional geoms & stats | Additional geoms, stats, scales |
+| **plotnine-ggrepel** | Repel overlapping labels | `geom_text_repel()`, `geom_label_repel()` |
+| **plotnine-ggforce** | Additional geoms & stats | `geom_circle()`, `geom_arc()`, `geom_link()`, `geom_bezier()` |
+| **plotnine-ggforce** | Additional geoms | `geom_circle()`, `geom_arc()`, `geom_link()`, `geom_bezier()` |
+| **plotnine-ggforce** | Additional stats | `stat_circle()`, `stat_arc()`, `stat_link()` |
+| **plotnine-ggdist** | Distributional visualizations | `stat_slabinterval()`, `stat_halfeye()`, `stat_dots()` |
+| **plotnine-ggridges** | Ridgeline plots | `geom_density_ridges()`, `stat_density_ridges()` |
+| **plotnine-ggbeeswarm** | Beeswarm plots | `geom_beeswarm()`, `geom_quasirandom()` |
+| **plotnine-ggtext** | Rich text (Markdown/HTML) | `element_markdown()`, `geom_richtext()`, `geom_textbox()` |
+| **plotnine-ggrepel** | Repel overlapping labels | `geom_text_repel()`, `geom_label_repel()` |
+| **plotnine-gghighlight** | Highlight specific groups | `gghighlight()`, `gghighlight_line()` |
+| **plotnine-ggnewscale** | Multiple color/fill scales | `new_scale_color()`, `new_scale_fill()` |
+| **plotnine-ggpattern** | Pattern fills | `geom_col_pattern()`, `geom_bar_pattern()` |
+| **plotnine-ggpubr** | Publication-ready plots | `ggboxplot()`, `ggbarplot()`, `ggline()`, `ggscatter()` |
+| **plotnine-ggpmisc** | Annotations & statistics | `stat_poly_eq()`, `stat_fit_glance()`, `stat_centroid()` |
+| **plotnine-ggvenn** | Venn diagrams | `ggvenn()` |
+| **plotnine-ggwordcloud** | Word clouds | `geom_text_wordcloud()`, `geom_text_cloud()` |
+| **plotnine-geomtextpath** | Text along paths | `geom_textpath()`, `geom_labelpath()` |
+| **plotnine-ggbreak** | Broken axes | `scale_x_break()`, `scale_y_break()` |
+| **plotnine-ggh4x** | Extended facets & axes | `facet_grid2()`, `facet_nested()`, `force_panelsizes()` |
+| **plotnine-ggblanket** | Simplified ggplot2 wrapper | `ggplot()` with simplified API |
+| **patchwork** | Plot composition | `+`, `/`, `|`, `plot_layout()` |
+
+### Specialized Domains
+
+| Domain | Packages |
+|--------|----------|
+| **Maps/Spatial** | `sf`, `ggspatial`, `ggmap`, `tmap`, `rnaturalearth` |
+| **Phylogenetics** | `ggtree`, `ggtreeExtra`, `ggtreeDendro` |
+| **Networks** | `ggnetwork`, `ggraph`, `tidygraph` |
+| **Time Series** | `ggseas`, `forecast`, `fable` |
+| **Survival** | `ggsurvfit`, `survminer` |
+| **Bayesian** | `bayesplot`, `ggdist` |
+| **Text/NLP** | `ggwordcloud`, `tidytext` |
+
+### Installation
+
+```bash
+# Install from pip
+pip install plotnine ggrepel gghighlight ggforce ggdist ggridges ggbeeswarm ggtext ggrepel gghighlight ggnewscale ggpattern ggpubr ggpmisc ggpattern ggtext ggbreak ggh4x ggblanket patchwork
+
+# Or install from GitHub (dev versions)
+# pip install git+https://github.com/thomasp85/ggh4x
+# pip install git+https://github.com/wilkelab/ggdist
+# pip install git+https://github.com/slowkow/ggrepel
+```
+
+### Quick Links
+- **Official Extensions Gallery**: https://exts.ggplot2.tidyverse.org/
+- **GitHub Topics**: https://github.com/topics/ggplot2-extension
+- **plotnine GitHub**: https://github.com/has2k1/plotnine
+- **plotnine Extensions**: https://github.com/has2k1/plotnine/tree/master/plotnine
+
+---
+
+## 23. Resources
 
 ### Official Documentation
 - [plotnine Reference](https://plotnine.org/)

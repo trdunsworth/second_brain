@@ -906,23 +906,69 @@ g$data
 
 ---
 
-## 20. Resources
+## 20. ggplot2 Extensions
 
-### Official Documentation
-- [ggplot2 Reference](https://ggplot2.tidyverse.org/reference/)
-- [R for Data Science - Visualization](https://r4ds.hadley.nz/data-visualisation.html)
-- [ggplot2 Extensions](https://exts.ggplot2.tidyverse.org/)
+The ggplot2 ecosystem has a rich ecosystem of extension packages that add new geoms, stats, scales, coordinates, themes, and more. The official extensions gallery is at: https://exts.ggplot2.tidyverse.org/
 
-### Tutorials & Inspiration
-- [Cedric Scherer's Tutorial](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
-- [R Graph Gallery](https://r-graph-gallery.com/)
-- [Data to Viz](https://www.data-to-viz.com/)
-- [ggplot2 Extensions Gallery](https://exts.ggplot2.tidyverse.org/)
+### Popular Extension Packages
 
-### Books
-- [R for Data Science](https://r4ds.hadley.nz/) - Hadley Wickham
-- [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) - Hadley Wickham
-- [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) - Claus Wilke
+| Package | Description | Key Functions |
+|---------|-------------|---------------|
+| **ggrepel** | Repel overlapping text labels | `geom_text_repel()`, `geom_label_repel()` |
+| **gghighlight** | Highlight specific data points | `gghighlight()`, `gghighlight_line()` |
+| **ggh4x** | Extended facets, axes, guides | `facet_grid2()`, `facet_nested()`, `force_panelsizes()` |
+| **ggforce** | Additional geoms & stats | `geom_circle()`, `geom_arc()`, `geom_link()`, `geom_bezier()` |
+| **ggdist** | Distributional visualizations | `stat_slabinterval()`, `stat_halfeye()`, `stat_dots()` |
+| **ggridges** | Ridgeline plots | `geom_density_ridges()`, `stat_density_ridges()` |
+| **ggbeeswarm** | Beeswarm plots | `geom_beeswarm()`, `geom_quasirandom()` |
+| **ggtext** | Rich text (Markdown/HTML) | `element_markdown()`, `geom_richtext()`, `geom_textbox()` |
+| **ggrepel** | Repel overlapping text | `geom_text_repel()`, `geom_label_repel()` |
+| **gghighlight** | Highlight specific groups | `gghighlight()`, `gghighlight_line()` |
+| **ggnewscale** | Multiple color/fill scales | `new_scale_color()`, `new_scale_fill()` |
+| **ggpattern** | Pattern fills | `geom_col_pattern()`, `geom_bar_pattern()` |
+| **ggpubr** | Publication-ready plots | `ggboxplot()`, `ggbarplot()`, `ggline()`, `ggscatter()` |
+| **ggpmisc** | Annotations & statistics | `stat_poly_eq()`, `stat_fit_glance()`, `stat_centroid()` |
+| **ggvenn** | Venn diagrams | `ggvenn()` |
+| **ggwordcloud** | Word clouds | `geom_text_wordcloud()`, `geom_text_cloud()` |
+| **geomtextpath** | Text along paths | `geom_textpath()`, `geom_labelpath()` |
+| **ggbreak** | Broken axes | `scale_x_break()`, `scale_y_break()` |
+| **ggh4x** | Extended facets & axes | `facet_grid2()`, `facet_nested()`, `force_panelsizes()` |
+| **ggblanket** | Simplified ggplot2 wrapper | `ggplot()` with simplified API |
+| **patchwork** | Combine plots | `+`, `/`, `|`, `plot_layout()` |
+| **patchwork** | Plot composition | `+`, `/`, `|`, `plot_layout()`, `plot_annotation()` |
+
+### Specialized Domains
+
+| Domain | Packages |
+|--------|----------|
+| **Maps/Spatial** | `sf`, `ggspatial`, `ggmap`, `tmap`, `rnaturalearth` |
+| **Phylogenetics** | `ggtree`, `ggtreeExtra`, `ggtreeDendro` |
+| **Networks** | `ggnetwork`, `ggraph`, `tidygraph` |
+| **Time Series** | `ggseas`, `forecast`, `fable` |
+| **Survival** | `ggsurvfit`, `survminer` |
+| **Bayesian** | `bayesplot`, `ggdist` |
+| **Text/NLP** | `ggwordcloud`, `tidytext` |
+
+### Installation
+
+```r
+# Install from CRAN
+install.packages(c("ggrepel", "gghighlight", "ggforce", "ggdist", "ggridges", 
+                   "ggbeeswarm", "ggtext", "ggnewscale", "ggpattern", 
+                   "ggpubr", "ggpmisc", "ggpattern", "ggtext", "ggbreak", "ggbreak"))
+
+# Or install from GitHub (dev versions)
+# remotes::install_github("thomasp85/ggh4x")
+# remotes::install_github("wilkelab/ggdist")
+# remotes::install_github("slowkow/ggrepel")
+```
+
+### Quick Links
+- **Official Extensions Gallery**: https://exts.ggplot2.tidyverse.org/
+- **GitHub Topics**: https://github.com/topics/ggplot2-extension
+- **CRAN Task View**: https://cran.r-project.org/web/views/Graphics.html
+
+---
 
 ---
 
