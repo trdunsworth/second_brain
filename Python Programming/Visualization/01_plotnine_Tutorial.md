@@ -759,7 +759,147 @@ ggplot(df, aes(x, y, color=z)) +
 
 ---
 
-## 20. Resources
+## 21. Interactive Web Visualizations with ninejs
+
+### 22.1 What is ninejs?
+
+**ninejs** is a JavaScript library that renders **plotnine/ggplot2 specifications as interactive web visualizations** directly in the browser. It parses the plotnine/ggplot2 specification (in JSON format) and renders it using D3.js, enabling interactive, web-based visualizations without a Python/R runtime.
+
+**Official URL:** https://y-sunflower.github.io/ninejs/
+
+### 22.1 Why Use ninejs with plotnine?
+
+| Benefit | Description |
+|---------|-------------|
+| **Zero Python/R at runtime** | Pure JavaScript/D3.js rendering in browser |
+| **Portable** | Share visualizations as standalone HTML files |
+| **Interactive** | Hover, zoom, pan, tooltips out of the box |
+| **Lightweight** | No Python/R runtime needed for viewing |
+| **Portable** | Embed in notebooks, websites, dashboards, emails |
+| **GitHub Pages ready** | Deploy static visualizations to GitHub Pages |
+
+### 22.2 Exporting plotnine to ninejs
+
+```python
+from plotnine import *
+import json
+
+# Create your plotnine plot
+p = (
+    ggplot(data=df, mapping=aes(x='date', y='temp', color='season')) +
+    geom_point(alpha=0.6) +
+    geom_smooth(method='lm', se=False, color='red') +
+    labs(title="Temperature Trends", x="Date", y="Temperature (°F)") +
+    theme_minimal()
+)
+
+# Option 1: Export plot spec as JSON for ninejs
+from plotnine import ggplot
+import json
+
+# Get the plot specification as a dict
+plot_spec = p._build()  # Returns the plot specification dict
+
+# Save as JSON for ninejs
+with open('plot_spec.json', 'w') as f:
+    json.dump(plot_spec, f, indent=2, default=str)
+```
+
+### 22.2 Using ninejs in Web Pages
+
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Plotnine Plot</title>
+    <script src="https://cdn.jsdelivr.net/npm/ninejs@latest/dist/ninejs.min.js"></script>
+    <style>
+        #plot-container { width: 100%; height: 500px; }
+    </style>
+</head>
+<body>
+    <div id="plot-container"></div>
+    <script>
+        // Load plot spec from JSON file
+        fetch('plot_spec.json')
+            .then(response => response.json())
+            .then(spec => {
+                // Render with ninejs
+                ninejs.render('#plot-container', spec);
+            })
+            .catch(console.error);
+    </script>
+</body>
+</html>
+```
+
+### 22.3 Embedding in Jupyter Notebooks
+
+```python
+from IPython.display import HTML, display
+import json
+
+# Load plot spec
+with open('plot_spec.json', 'r') as f:
+    spec = json.load(f)
+
+# Generate HTML with embedded ninejs
+html_content = f"""
+<div id="plotnine-viz"></div>
+<script src="https://cdn.jsdelivr.net/npm/ninejs@latest/dist/ninejs.min.js"></script>
+<script>
+    ninejs.render('#plotnine-viz', {json.dumps(plot_spec)});
+</script>
+"""
+
+display(HTML(html_content))
+```
+
+### 22.4 ninejs with Plotly Alternative
+
+For more interactivity, combine with plotly:
+
+```python
+import plotly.io as pio
+from plotnine import *
+
+# Create plotnine plot
+p = ggplot(df, aes(x='x', y='y')) + geom_point()
+
+# Convert to plotly for extra interactivity
+import plotly.io as pio
+fig = pio.from_json(json.dumps(p.to_dict()))
+pio.show(pio.from_json(pio.to_json(p.to_dict())))
+```
+
+### 22.5 ninejs + GitHub Pages Deployment
+
+```yaml
+# .github/workflows/deploy-viz.yml
+name: Deploy ninejs Visualization
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate plot spec
+        run: python generate_plot_spec.py
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./viz_output
+```
+
+---
+
+## 22. Resources
 
 ### Official Documentation
 - [plotnine Reference](https://plotnine.org/)
@@ -771,6 +911,12 @@ ggplot(df, aes(x, y, color=z)) +
 - [R Graph Gallery](https://r-graph-gallery.com/)
 - [Data to Viz](https://www.data-to-viz.com/)
 - [plotnine Extensions](https://exts.ggplot2.tidyverse.org/)
+
+### ninejs Resources
+- **ninejs Website**: https://y-sunflower.github.io/ninejs/
+- **ninejs GitHub**: https://github.com/y-sunflower/ninejs
+- **ninejs Demo**: https://y-sunflower.github.io/ninejs/demo/
+- **ninejs npm**: `npm install ninejs`
 
 ### Books
 - [R for Data Science](https://r4ds.hadley.nz/) - Free online book
