@@ -37,7 +37,8 @@
               "title": "HOTKEYS"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -218,8 +219,19 @@
       "world-builder:World Builder": false
     }
   },
-  "active": "4961107960ca38a6",
+  "active": "62112e7700d11e7c",
   "lastOpenFiles": [
+    "R Programming/09_Free_R_Books.md",
+    "R Programming/AI/04_Local_LLMs_and_Agents.md",
+    "R Programming/AI/03_ellmer_Cheatsheet.md",
+    "R Programming/AI/02_ellmer_Tutorial.md",
+    "R Programming/AI/01_AI_with_R_Overview.md",
+    "R Programming/AI",
+    "Toastmasters/DTM Project.md",
+    "R Programming/reticulate/02_reticulate_Cheatsheet.md",
+    "R Programming/reticulate/01_reticulate_Tutorial.md",
+    "R Programming/reticulate",
+    "journal/2026-11-05.md",
     "Data Governance/06_Data_Ownership.md",
     "Data Governance/05_Data_Sovereignty.md",
     "Data Governance/04_Data_Security.md",
@@ -228,7 +240,6 @@
     "Data Governance/01_Data_Literacy.md",
     "Data Governance",
     "journal/2026-11-04.md",
-    "journal/2026-11-05.md",
     "DMA_Notes/Meeting - Roxanne VanGundy Lyon County, KS.md",
     "HOTKEYS.md",
     "Python Programming/00_Index.md",
@@ -239,13 +250,6 @@
     "Python Programming/MLOps/01_MLOps_Cheatsheet.md",
     "Python Programming/Advanced_Stats/01_Advanced_Stats_Cheatsheet.md",
     "Python Programming/Time_Series/01_Time_Series_Cheatsheet.md",
-    "Python Programming/EDA/01_EDA_Cheatsheet.md",
-    "Python Programming/Visualization/02_plotnine_Cheatsheet.md",
-    "Python Programming/Visualization/01_plotnine_Tutorial.md",
-    "Python Programming/Core_Libraries/03_Tidyverse_Equivalent.md",
-    "Python Programming/Core_Libraries/02_Core_Libraries_Cheatsheet.md",
-    "Python Programming/Core_Libraries/01_Core_Libraries_Overview.md",
-    "Python Programming/Best_Practices/01_Best_Practices.md",
     "Python Programming/Resources",
     "Python Programming/MLOps",
     "Python Programming/Advanced_Stats",
@@ -253,9 +257,6 @@
     "Python Programming/Time_Series",
     "Python Programming/ML",
     "Python Programming/Visualization",
-    "Python Programming/Core_Libraries",
-    "Python Programming/Best_Practices",
-    "R Programming/08_Additional_Resources.md",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",

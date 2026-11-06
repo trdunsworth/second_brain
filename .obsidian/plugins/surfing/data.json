@@ -1,0 +1,68 @@
+{
+  "defaultSearchEngine": "duckduckgo",
+  "customSearchEngine": [
+    {
+      "name": "duckduckgo",
+      "url": "https://duckduckgo.com/?q="
+    }
+  ],
+  "hoverPopover": true,
+  "ignoreList": [
+    "notion",
+    "craft"
+  ],
+  "alwaysShowCustomSearch": false,
+  "showOtherSearchEngines": false,
+  "showSearchBarInPage": false,
+  "markdownPath": "/",
+  "customHighlightFormat": false,
+  "highlightFormat": "[{CONTENT}]({URL})",
+  "highlightInSameTab": false,
+  "openInSameTab": false,
+  "showRefreshButton": false,
+  "openInObsidianWeb": false,
+  "useCustomIcons": false,
+  "useWebview": false,
+  "useIconList": true,
+  "darkMode": false,
+  "randomBackground": false,
+  "lastOpenedFiles": false,
+  "bookmarkManager": {
+    "openBookMark": false,
+    "saveBookMark": false,
+    "sendToReadWise": false,
+    "bookmarkFolder": "surfing-bookmarks",
+    "defaultCategory": "ROOT",
+    "bookmarksMigrated": false
+  },
+  "treeData": [],
+  "enableHtmlPreview": true,
+  "supportLivePreviewInlineUrl": false,
+  "enableTreeView": false,
+  "focusSearchBarViaKeyboard": true,
+  "mcp": {
+    "enabled": false,
+    "port": 27125,
+    "token": "",
+    "siteAccess": "ask",
+    "approvedSites": [],
+    "blockedSites": [],
+    "allowScripts": false
+  },
+  "sessionIsolation": false,
+  "adBlock": {
+    "enabled": false,
+    "filterLists": []
+  },
+  "elementHiding": {
+    "enabled": true
+  },
+  "chromeExtensions": {
+    "extensions": [],
+    "autoUpdate": false,
+    "compatibilityEnabled": true,
+    "pinned": null,
+    "autoReloadPages": false,
+    "debug": false
+  }
+}
