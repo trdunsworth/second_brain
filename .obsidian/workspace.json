@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-11-05.md",
+                "file": "journal/2026-11-06.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-11-05"
+              "title": "2026-11-06"
             }
           },
           {
@@ -37,8 +37,7 @@
               "title": "HOTKEYS"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -219,44 +218,44 @@
       "world-builder:World Builder": false
     }
   },
-  "active": "62112e7700d11e7c",
+  "active": "4961107960ca38a6",
   "lastOpenFiles": [
+    "HOTKEYS.md",
+    "Rust/tutorials/Rust_Tutorial.md",
+    "Synthetic_Data/12_Advanced_Topics.md",
+    "Synthetic_Data/08_Evaluation.md",
+    "Synthetic_Data/03_Tabular_Data.md",
+    "Synthetic_Data/12_Best_Practices.md",
+    "Synthetic_Data/11_Tools_Platforms.md",
+    "Synthetic_Data/10_Applications.md",
+    "Synthetic_Data/Tools - Software Packages and Websites.md",
+    "Rust Programming",
+    "Synthetic_Data/09_Privacy.md",
+    "Synthetic_Data/08_Audio_Speech.md",
+    "Synthetic_Data/08_Geo_Graph.md",
+    "Synthetic_Data/07_Images_Video.md",
+    "Synthetic_Data/06_Text_NLP.md",
+    "Synthetic_Data/05_Time_Series.md",
+    "Synthetic_Data/03_Faker_Deep_Dive.md",
+    "Synthetic_Data/02_Python_Libraries.md",
+    "Synthetic_Data/01_Fundamentals.md",
+    "Synthetic_Data/00_Index.md",
+    "journal/2026-11-06.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
+    "journal/2026-11-05.md",
     "R Programming/09_Free_R_Books.md",
     "R Programming/AI/04_Local_LLMs_and_Agents.md",
     "R Programming/AI/03_ellmer_Cheatsheet.md",
     "R Programming/AI/02_ellmer_Tutorial.md",
-    "R Programming/AI/01_AI_with_R_Overview.md",
     "R Programming/AI",
-    "Toastmasters/DTM Project.md",
-    "R Programming/reticulate/02_reticulate_Cheatsheet.md",
-    "R Programming/reticulate/01_reticulate_Tutorial.md",
     "R Programming/reticulate",
-    "journal/2026-11-05.md",
-    "Data Governance/06_Data_Ownership.md",
-    "Data Governance/05_Data_Sovereignty.md",
-    "Data Governance/04_Data_Security.md",
-    "Data Governance/03_Data_Management.md",
-    "Data Governance/02_Data_Governance.md",
-    "Data Governance/01_Data_Literacy.md",
     "Data Governance",
-    "journal/2026-11-04.md",
-    "DMA_Notes/Meeting - Roxanne VanGundy Lyon County, KS.md",
-    "HOTKEYS.md",
-    "Python Programming/00_Index.md",
-    "Visualizations/04_ggplot2.md",
-    "Python Programming/SUMMARY.md",
-    "Python Programming/ML/03_ML_Cheatsheet.md",
-    "Python Programming/Resources/01_Additional_Resources.md",
-    "Python Programming/MLOps/01_MLOps_Cheatsheet.md",
-    "Python Programming/Advanced_Stats/01_Advanced_Stats_Cheatsheet.md",
-    "Python Programming/Time_Series/01_Time_Series_Cheatsheet.md",
     "Python Programming/Resources",
     "Python Programming/MLOps",
     "Python Programming/Advanced_Stats",
     "Python Programming/EDA",
     "Python Programming/Time_Series",
     "Python Programming/ML",
-    "Python Programming/Visualization",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
