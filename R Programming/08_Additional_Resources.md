@@ -39,6 +39,39 @@ A curated collection of external resources, tutorials, and references for R prog
 | **R Graph Gallery** | https://r-graph-gallery.com/ | Example gallery |
 | **Data to Viz** | https://www.data-to-viz.com/ | Chart selection guide |
 
+### Python Interop (reticulate)
+| Resource | URL | Description |
+|----------|-----|-------------|
+| **reticulate Docs** | https://rstudio.github.io/reticulate/ | Main documentation |
+| **Calling Python from R** | https://rstudio.github.io/reticulate/articles/calling_python.html | Core usage guide |
+| **Python Version Configuration** | https://rstudio.github.io/reticulate/articles/versions.html | Environment discovery |
+| **R Markdown Python Engine** | https://rstudio.github.io/reticulate/articles/r_markdown.html | Mixed R/Python documents |
+| **uv** | https://docs.astral.sh/uv/ | Resolver used by `py_require()` |
+| **Internal Tutorial** | `reticulate/01_reticulate_Tutorial.md` | Full walkthrough |
+| **Internal Cheatsheet** | `reticulate/02_reticulate_Cheatsheet.md` | Command reference |
+
+### AI & LLMs
+
+| Resource | URL | Description |
+|----------|-----|-------------|
+| **ellmer** | https://ellmer.tidyverse.org/ | LLM chat, tools, structured data |
+| **ellmer 0.5.0 release** | https://opensource.posit.co/blog/2026-09-14_ellmer-0-5-0/ | Current release notes |
+| **tidyllm** | https://edubruell.github.io/tidyllm/ | Pipeline-style LLM verbs, batch, embeddings |
+| **ragnar** | https://ragnar.tidyverse.org/ | Retrieval-augmented generation |
+| **vitals** | https://vitals.tidyverse.org/ | LLM evaluation framework |
+| **shinychat** | https://posit-dev.github.io/shinychat/r/ | Chat UI for Shiny |
+| **mcptools** | https://posit-dev.github.io/mcptools/ | MCP client and server in R |
+| **btw** | https://posit-dev.github.io/btw/ | R tools and context for agents |
+| **chatlas** | https://posit-dev.github.io/chatlas/ | Python analogue of ellmer |
+| **Ollama** | https://ollama.com/ | Run local models |
+| **Ollama R (ollamar)** | https://hauselin.github.io/ollama-r/ | Ollama client and model management |
+| **rollama** | https://jbgruber.github.io/rollama/ | Tidy Ollama API client |
+| **Prompt design** | https://ellmer.tidyverse.org/articles/prompt-design.html | ellmer's prompting guide |
+| **Internal Overview** | `AI/01_AI_with_R_Overview.md` | Package landscape, cost, privacy |
+| **Internal Tutorial** | `AI/02_ellmer_Tutorial.md` | Full ellmer walkthrough |
+| **Internal Cheatsheet** | `AI/03_ellmer_Cheatsheet.md` | Command reference |
+| **Internal Local/Agents** | `AI/04_Local_LLMs_and_Agents.md` | Ollama, RAG, MCP, guardrails |
+
 ---
 
 ## 📖 Books & Learning Resources
@@ -65,6 +98,8 @@ A curated collection of external resources, tutorials, and references for R prog
 | **Text Mining** | Tidy Text Mining | https://www.tidytextmining.com/ |
 | **Shiny** | Mastering Shiny | https://mastering-shiny.org/ |
 | **Package Dev** | R Packages (2e) | https://r-pkgs.org/ |
+
+> See **[Free R Books](09_Free_R_Books.md)** for a curated list of 165 free R books (HTML-first) with synopses.
 
 ---
 
@@ -250,6 +285,9 @@ install.packages(c(
 install.packages(c(
   "tidyverse", "tidymodels", "ggplot2",
   "data.table", "dtplyr", "arrow", "duckdb",
+  "reticulate",
+  "ellmer", "tidyllm", "ragnar", "vitals",
+  "shinychat", "mcptools",
   "renv", "styler", "lintr", "testthat",
   "usethis", "devtools", "roxygen2", "pkgdown",
   "targets", "tarchetypes", "crew",
@@ -285,11 +323,15 @@ renv::init()
 | **Tidyverse** | [Website](https://www.tidyverse.org/) • [Style Guide](https://style.tidyverse.org/) |
 | **Tidymodels** | [Website](https://www.tidymodels.org/) • [Book](https://www.tmwr.org/) |
 | **ggplot2** | [Ref](https://ggplot2.tidyverse.org/reference/) • [Book](https://ggplot2-book.org/) |
+| **Python** | [reticulate](https://rstudio.github.io/reticulate/) • [Tutorial](reticulate/01_reticulate_Tutorial.md) • [Cheatsheet](reticulate/02_reticulate_Cheatsheet.md) |
+| **AI / LLMs** | [ellmer](https://ellmer.tidyverse.org/) • [Overview](AI/01_AI_with_R_Overview.md) • [Tutorial](AI/02_ellmer_Tutorial.md) • [Cheatsheet](AI/03_ellmer_Cheatsheet.md) |
+| **Local / Agents** | [Ollama](https://ollama.com/) • [ragnar](https://ragnar.tidyverse.org/) • [mcptools](https://posit-dev.github.io/mcptools/) • [Local LLMs](AI/04_Local_LLMs_and_Agents.md) |
+| **Books** | [Free R Books](09_Free_R_Books.md) |
 | **Shiny** | [Tutorial](https://shiny.rstudio.com/tutorial/) • [Gallery](https://shiny.rstudio.com/gallery/) |
 | **Packages** | [CRAN](https://cran.r-project.org/) • [Task Views](https://cran.r-project.org/web/views/) |
 | **Community** | [RStudio Community](https://community.rstudio.com/) • [Stack Overflow](https://stackoverflow.com/questions/tagged/r) • [R Weekly](https://rweekly.org/) |
 
 ---
 
-*Last updated: 2024-11-04*
+*Last updated: 2026-11-05*
 *Part of: R Programming Knowledge Base*

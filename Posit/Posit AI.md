@@ -50,6 +50,13 @@ for training.
   tidyverse) is what runs without AI; Posit AI is the paid layer on top — see
   [[Posit Company and Platform]] for the enterprise framing.
 
+## Related vault notes
+
+- [[01_AI_with_R_Overview|AI with R — Overview]] — the open-source AI-with-R landscape, including `chat_posit()`
+- [[02_ellmer_Tutorial|ellmer Tutorial]] — using Posit AI and other providers through ellmer
+- [[04_Local_LLMs_and_Agents|Local LLMs and Agents]] — local and agentic alternatives
+- [[Posit Open Source Software Catalog]] — ellmer, ragnar, vitals, shinychat
+
 ## Sources
 
 - <https://posit.ai/>
