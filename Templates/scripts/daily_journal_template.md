@@ -43,23 +43,34 @@ if (isWeekday) {
 ## TODO
 
 <%*
-// Carry forward unchecked TODOs from previous day
+// Carry forward unchecked TODOs from previous day, sorted by due date then priority
 const prevDate = tp.date.now("YYYY-MM-DD", -1);
 const folder = tp.file.folder(true);
 const prevPath = folder ? `${folder}/${prevDate}.md` : `${prevDate}.md`;
 const prevFile = app.vault.getAbstractFileByPath(prevPath);
-// TFile always has `extension`; TFolder does not. Templater does not expose
-// the TFile class, so discriminate structurally rather than via instanceof.
+const PRIORITY_ORDER = { "⏫": 0, "🔼": 1, "🔽": 2 };
 if (prevFile && typeof prevFile.extension === "string") {
   const prevContent = await tp.file.include(prevFile);
   const todoSection = prevContent.split(/^##[ \t]+TODO[ \t]*$/m)[1];
   if (todoSection) {
-    // Cut at the next H2 so checkboxes from later sections aren't swept up.
-    // ### is deliberately not a boundary.
     const lines = todoSection.split(/^##[ \t]+/m)[0].split("\n");
     const unchecked = lines.filter((line) => line.trim().startsWith("- [ ]"));
     if (unchecked.length > 0) {
-      tR += unchecked.join("\n") + "\n";
+      const parsed = unchecked.map((line) => {
+        const dueMatch = line.match(/📅\s*(\d{4}-\d{2}-\d{2})/);
+        const dueDate = dueMatch ? dueMatch[1] : null;
+        let prio = 3;
+        for (const [emoji, order] of Object.entries(PRIORITY_ORDER)) {
+          if (line.includes(emoji)) { prio = order; break; }
+        }
+        return { line, hasDue: !!dueDate, dueDate, prio };
+      });
+      parsed.sort((a, b) => {
+        if (a.hasDue !== b.hasDue) return a.hasDue ? -1 : 1;
+        if (a.hasDue && b.hasDue && a.dueDate !== b.dueDate) return a.dueDate < b.dueDate ? -1 : 1;
+        return a.prio - b.prio;
+      });
+      tR += parsed.map((p) => p.line).join("\n") + "\n";
     }
   }
 }
