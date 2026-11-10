@@ -5,7 +5,7 @@
   const { webFrame } = require('electron');
   const run = function Bl(r){const n="data-obsidian-bridge-relay";let e;try{e=JSON.parse(String(r))}catch{return!1}if(typeof(e==null?void 0:e.code)!="string")return!1;const t=(o,a,c)=>{var l;for(let d=0;d<o.frames.length;d++)try{const p=o.frames[d].document;if(((l=p==null?void 0:p.documentElement)==null?void 0:l.getAttribute(n))===a)return p;const u=c<4?t(o.frames[d],a,c+1):null;if(u)return u}catch{}return null},s=typeof e.frame=="string"&&t(window,e.frame,0)||document,i=s.createElement("script");return i.textContent=e.code,(s.head||s.documentElement).appendChild(i),i.remove(),!0};
   const warn = e => console.warn('[Chrome Bridge] page exec:', e);
-  document.addEventListener("__obsidian_bridge_exec_613dba7e02063d00634b05e6d0c355b1", event => {
+  document.addEventListener("__obsidian_bridge_exec_b3e9885e57ab77f1ab97d99a2872dd31", event => {
     if (typeof event.detail !== 'string') return;
     let message;
     try { message = JSON.parse(event.detail); } catch { return; }
