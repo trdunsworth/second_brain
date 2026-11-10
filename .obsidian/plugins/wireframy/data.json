@@ -1,0 +1,15 @@
+{
+  "skin": "sketch",
+  "mastersFolder": "Wireframes/Masters",
+  "defaultScreen": "desktop",
+  "nodePadding": 24,
+  "showFrameLabels": true,
+  "lastSeenVersion": "1.6.0",
+  "helpUrl": "https://discord.gg/wZgjp2B987",
+  "ai": {
+    "enabled": false,
+    "provider": "anthropic",
+    "apiKey": "",
+    "model": ""
+  }
+}

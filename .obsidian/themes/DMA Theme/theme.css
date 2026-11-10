@@ -279,7 +279,7 @@ body {
 }
 
 .theme-light .cm-s-obsidian .tok-heading {
-  color: #00687a;
+  color: #005a9e;
   font-weight: 700;
 }
 
@@ -390,7 +390,7 @@ body {
 }
 
 .theme-dark .cm-s-obsidian .tok-heading {
-  color: #4de5e5;
+  color: #4da8ee;
   font-weight: 700;
 }
 
@@ -425,22 +425,22 @@ body {
 
 .theme-light .HyperMD-header-1 {
   font-size: 1.8em;
-  color: #007f7f;
+  color: #004c91;
 }
 
 .theme-light .HyperMD-header-2 {
   font-size: 1.5em;
-  color: #009999;
+  color: #006fbf;
 }
 
 .theme-light .HyperMD-header-3 {
   font-size: 1.3em;
-  color: #00a1a1;
+  color: #0077cc;
 }
 
 .theme-light .HyperMD-header-4 {
   font-size: 1.15em;
-  color: #0077cc;
+  color: #008be0;
 }
 
 .theme-light .HyperMD-header-5 {
@@ -525,32 +525,32 @@ body {
 
 .theme-dark .HyperMD-header-1 {
   font-size: 1.8em;
-  color: #4de5e5;
+  color: #4da8ee;
 }
 
 .theme-dark .HyperMD-header-2 {
   font-size: 1.5em;
-  color: #4ddddd;
+  color: #6fb7f1;
 }
 
 .theme-dark .HyperMD-header-3 {
   font-size: 1.3em;
-  color: #94e2d5;
+  color: #8fc3f5;
 }
 
 .theme-dark .HyperMD-header-4 {
   font-size: 1.15em;
-  color: #4da8ee;
+  color: #1a91e6;
 }
 
 .theme-dark .HyperMD-header-5 {
   font-size: 1.05em;
-  color: #8fc3f5;
+  color: #008be0;
 }
 
 .theme-dark .HyperMD-header-6 {
   font-size: 1em;
-  color: #93a8bd;
+  color: #0077cc;
 }
 
 .theme-dark .HyperMD-strong {
@@ -681,19 +681,19 @@ body {
   line-height: 1.3;
 }
 
-.theme-light .markdown-preview-view h1 { color: #007f7f; }
-.theme-light .markdown-preview-view h2 { color: #009999; }
-.theme-light .markdown-preview-view h3 { color: #00a1a1; }
-.theme-light .markdown-preview-view h4 { color: #0077cc; }
+.theme-light .markdown-preview-view h1 { color: #004c91; }
+.theme-light .markdown-preview-view h2 { color: #006fbf; }
+.theme-light .markdown-preview-view h3 { color: #0077cc; }
+.theme-light .markdown-preview-view h4 { color: #008be0; }
 .theme-light .markdown-preview-view h5 { color: #1a91e6; }
 .theme-light .markdown-preview-view h6 { color: #4da8ee; }
 
-.theme-dark .markdown-preview-view h1 { color: #4de5e5; }
-.theme-dark .markdown-preview-view h2 { color: #4ddddd; }
-.theme-dark .markdown-preview-view h3 { color: #94e2d5; }
-.theme-dark .markdown-preview-view h4 { color: #4da8ee; }
-.theme-dark .markdown-preview-view h5 { color: #8fc3f5; }
-.theme-dark .markdown-preview-view h6 { color: #93a8bd; }
+.theme-dark .markdown-preview-view h1 { color: #4da8ee; }
+.theme-dark .markdown-preview-view h2 { color: #6fb7f1; }
+.theme-dark .markdown-preview-view h3 { color: #8fc3f5; }
+.theme-dark .markdown-preview-view h4 { color: #1a91e6; }
+.theme-dark .markdown-preview-view h5 { color: #008be0; }
+.theme-dark .markdown-preview-view h6 { color: #0077cc; }
 
 .markdown-preview-view a {
   color: var(--text-accent);
