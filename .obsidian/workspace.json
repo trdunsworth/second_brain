@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-11-10.md",
+                "file": "journal/2026-11-11.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-11-10"
+              "title": "2026-11-11"
             }
           },
           {
@@ -231,12 +231,14 @@
   },
   "active": "8cb2c50e077a4122",
   "lastOpenFiles": [
-    "ALX_Notes/Ad Hoc Statistics/APD P1 and P2 Call List.md",
+    "HOTKEYS.md",
+    "journal/2026-11-04.md",
+    "journal/2026-11-11.md",
     "journal/2026-11-10.md",
+    "ALX_Notes/Ad Hoc Statistics/APD P1 and P2 Call List.md",
     "Wireframes/TLI Registration.wire",
     "Wireframes",
     "journal/2026-11-09.md",
-    "HOTKEYS.md",
     "The Need For Data Literacy in 9-1-1.md",
     "journal/2026-11-06.md",
     "Rust/tutorials/Rust_Tutorial.md",
@@ -258,7 +260,6 @@
     "Synthetic_Data/02_Python_Libraries.md",
     "Synthetic_Data/01_Fundamentals.md",
     "Synthetic_Data/00_Index.md",
-    "Toastmasters/Toastmasters Signature for Email.md",
     "R Programming/AI",
     "R Programming/reticulate",
     "Data Governance",
