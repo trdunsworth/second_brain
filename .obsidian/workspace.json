@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-11-12.md",
+                "file": "journal/2026-11-13.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-11-12"
+              "title": "2026-11-13"
             }
           },
           {
@@ -37,7 +37,8 @@
               "title": "HOTKEYS"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -229,12 +230,13 @@
       "wireframy:New wireframe": false
     }
   },
-  "active": "8cb2c50e077a4122",
+  "active": "62112e7700d11e7c",
   "lastOpenFiles": [
+    "journal/2026-11-13.md",
+    "journal/2026-11-12.md",
     "HOTKEYS.md",
     "Typography/Publishing_Markdown_Engines.md",
     "Typography/01_markdown.md",
-    "journal/2026-11-12.md",
     "Time Series/AutoGluon-TimeSeries.md",
     "Time Series/Time Series Foundation Models.md",
     "Time Series/Time Series Notes.md",
@@ -259,7 +261,6 @@
     "Synthetic_Data/09_Privacy.md",
     "Synthetic_Data/08_Audio_Speech.md",
     "Synthetic_Data/08_Geo_Graph.md",
-    "Synthetic_Data/07_Images_Video.md",
     "R Programming/AI",
     "R Programming/reticulate",
     "Data Governance",

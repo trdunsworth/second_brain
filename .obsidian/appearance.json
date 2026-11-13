@@ -9,5 +9,6 @@
   "enabledCssSnippets": [
     "fix-text-font"
   ],
-  "interfaceFontFamily": "CommitMonoTonyD,CommitMonoDrDMac,CommitMonoDrDLinux,Adwaita Sans"
+  "interfaceFontFamily": "CommitMonoTonyD,CommitMonoDrDMac,CommitMonoDrDLinux,Adwaita Sans",
+  "showRibbon": true
 }
