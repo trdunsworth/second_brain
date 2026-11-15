@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-11-13.md",
+                "file": "journal/2026-11-14.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-11-13"
+              "title": "2026-11-14"
             }
           },
           {
@@ -37,8 +37,7 @@
               "title": "HOTKEYS"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -230,11 +229,15 @@
       "wireframy:New wireframe": false
     }
   },
-  "active": "62112e7700d11e7c",
+  "active": "8cb2c50e077a4122",
   "lastOpenFiles": [
+    "HOTKEYS.md",
+    "Toastmasters/Toastmasters Signature for Email.md",
+    "Toastmasters/TLI Data Project.md",
+    "journal/2026-11-14.md",
+    "Wireframes/TLI Registration.wire",
     "journal/2026-11-13.md",
     "journal/2026-11-12.md",
-    "HOTKEYS.md",
     "Typography/Publishing_Markdown_Engines.md",
     "Typography/01_markdown.md",
     "Time Series/AutoGluon-TimeSeries.md",
@@ -244,7 +247,6 @@
     "journal/2026-11-11.md",
     "journal/2026-11-10.md",
     "ALX_Notes/Ad Hoc Statistics/APD P1 and P2 Call List.md",
-    "Wireframes/TLI Registration.wire",
     "Wireframes",
     "journal/2026-11-09.md",
     "The Need For Data Literacy in 9-1-1.md",
@@ -256,18 +258,13 @@
     "Synthetic_Data/12_Best_Practices.md",
     "Synthetic_Data/11_Tools_Platforms.md",
     "Synthetic_Data/10_Applications.md",
-    "Synthetic_Data/Tools - Software Packages and Websites.md",
     "Rust Programming",
-    "Synthetic_Data/09_Privacy.md",
-    "Synthetic_Data/08_Audio_Speech.md",
-    "Synthetic_Data/08_Geo_Graph.md",
     "R Programming/AI",
     "R Programming/reticulate",
     "Data Governance",
     "Python Programming/Resources",
     "Python Programming/MLOps",
     "Python Programming/Advanced_Stats",
-    "Python Programming/EDA",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
