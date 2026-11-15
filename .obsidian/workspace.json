@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-11-14.md",
+                "file": "journal/2026-11-15.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-11-14"
+              "title": "2026-11-15"
             }
           },
           {
@@ -231,10 +231,11 @@
   },
   "active": "8cb2c50e077a4122",
   "lastOpenFiles": [
+    "journal/2026-11-14.md",
+    "journal/2026-11-15.md",
     "HOTKEYS.md",
     "Toastmasters/Toastmasters Signature for Email.md",
     "Toastmasters/TLI Data Project.md",
-    "journal/2026-11-14.md",
     "Wireframes/TLI Registration.wire",
     "journal/2026-11-13.md",
     "journal/2026-11-12.md",
