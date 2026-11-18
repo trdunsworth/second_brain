@@ -94,4 +94,4 @@ described above.
 - [[Research MOC]] — where this project is tracked
 - [[Nixtlaverse]] §4 — `synforecast`, the time-series-adjacent tool
 - [[Conformal Prediction]] §12 — synthetic data as a ground-truth instrument
-- [[SynthCCD/README]] — the public-safety grounding
+- [[Synthetic_Data/SynthCCD/README]] — the public-safety grounding

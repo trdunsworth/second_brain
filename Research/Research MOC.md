@@ -45,7 +45,7 @@ This MOC connects all research projects, papers, and analytical work in the vaul
 **Methods:** Literature review, methodological assessment
 **Folder:** [[Synthetic_Data/README]] — scope covers synthetic-data methods *and* qualifying
 applications (e.g. TabFM, a FM pretrained purely on synthetic SCM tables)
-**Related:** [[SynthCCD/USERSGUIDE]] · [[Conformal Prediction]] §12 · [[Nixtlaverse]] §4
+**Related:** [[Synthetic_Data/SynthCCD/USERSGUIDE]] · [[Conformal Prediction]] §12 · [[Nixtlaverse]] §4
 
 ### [[ARIMA vs Prophet]]
 
@@ -127,8 +127,8 @@ A five-step feasibility sequence, all built on SynthCCD data. Read in order.
 
 ### Synthetic data
 
-- [[SynthCCD/USERSGUIDE]] — the generator
-- [[SynthCCD/REALISMGUIDE]] — realism constraints
+- [[Synthetic_Data/SynthCCD/USERSGUIDE]] — the generator
+- [[REALISMGUIDE]] — realism constraints
 - [[Synthetic Data/Synthetic Data Book Research Plan]]
 
 ### Queueing theory

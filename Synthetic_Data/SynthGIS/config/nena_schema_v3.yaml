@@ -1,0 +1,434 @@
+# NENA-STA-006.3-2026 Flatfile Schema (Simplified YAML Representation)
+# Source: NENA-REF-006.3-2026 / github.com/NENA911/NG911GISDataModel/flatfile_templates/schema/flatfile_schema_v3.yaml
+
+layers:
+  RoadCenterLine:
+    table_name: ng911_road_centerlines
+    geometry_type: LineString
+    fields:
+      - name: NGUID
+        type: string
+        required: true
+        description: "NENA Globally Unique ID (urn:emergency:uid:gid:{domain}:{id})"
+      - name: St_PreMod
+        type: string
+        length: 50
+        required: false
+        description: "Street Name Pre Modifier"
+      - name: St_PreDir
+        type: string
+        length: 10
+        required: false
+        domain: [N, S, E, W, NE, NW, SE, SW]
+        description: "Street Name Pre Directional"
+      - name: St_PreTyp
+        type: string
+        length: 50
+        required: false
+        description: "Street Name Pre Type"
+      - name: St_PreTypSep
+        type: string
+        length: 10
+        required: false
+        description: "Street Name Pre Type Separator"
+      - name: St_Name
+        type: string
+        length: 100
+        required: true
+        description: "Street Name"
+      - name: St_PosTyp
+        type: string
+        length: 50
+        required: false
+        domain: [St, Ave, Blvd, Dr, Rd, Ln, Ct, Pl, Way, Trl, Cir, Loop, Byp, Pkwy, Expy, Fwy, Hwy, Tpke, Ter, Row, Walk, Path, Pass, Crossing, Xing]
+        description: "Street Name Post Type"
+      - name: St_PosDir
+        type: string
+        length: 10
+        required: false
+        domain: [N, S, E, W, NE, NW, SE, SW]
+        description: "Street Name Post Directional"
+      - name: St_PosMod
+        type: string
+        length: 50
+        required: false
+        description: "Street Name Post Modifier"
+      - name: FromAddr_L
+        type: integer
+        required: false
+        description: "Left From Address"
+      - name: ToAddr_L
+        type: integer
+        required: false
+        description: "Left To Address"
+      - name: FromAddr_R
+        type: integer
+        required: false
+        description: "Right From Address"
+      - name: ToAddr_R
+        type: integer
+        required: false
+        description: "Right To Address"
+      - name: Parity_L
+        type: string
+        length: 1
+        required: false
+        domain: [E, O, B, Z]
+        description: "Left Parity (Even, Odd, Both, Zero)"
+      - name: Parity_R
+        type: string
+        length: 1
+        required: false
+        domain: [E, O, B, Z]
+        description: "Right Parity"
+      - name: State
+        type: string
+        length: 2
+        required: true
+        description: "USPS State Abbreviation"
+      - name: County
+        type: string
+        length: 100
+        required: true
+        description: "County Name"
+      - name: Inc_Muni
+        type: string
+        length: 100
+        required: false
+        description: "Incorporated Municipality"
+      - name: Uninc_Comm
+        type: string
+        length: 100
+        required: false
+        description: "Unincorporated Community"
+      - name: PostCode
+        type: string
+        length: 10
+        required: false
+        description: "Postal Code (ZIP/ZIP+4)"
+      - name: ESN_L
+        type: string
+        length: 5
+        required: false
+        description: "Left Emergency Service Number"
+      - name: ESN_R
+        type: string
+        length: 5
+        required: false
+        description: "Right Emergency Service Number"
+      - name: MSAGComm_L
+        type: string
+        length: 100
+        required: false
+        description: "Left MSAG Community"
+      - name: MSAGComm_R
+        type: string
+        length: 100
+        required: false
+        description: "Right MSAG Community"
+      - name: OneWay
+        type: string
+        length: 2
+        required: false
+        domain: [B, FT, TF]
+        description: "One Way (Both, From-To, To-From)"
+      - name: SpeedLimit
+        type: integer
+        required: false
+        description: "Speed Limit (mph)"
+      - name: RoadClass
+        type: string
+        length: 2
+        required: false
+        domain: [I, US, SH, CO, LO, PV, RA]
+        description: "Road Class (Interstate, US Hwy, State Hwy, County, Local, Private, Ramp)"
+      - name: Lanes
+        type: integer
+        required: false
+        description: "Number of Through Lanes"
+      - name: Divided
+        type: boolean
+        required: false
+        description: "Median Divided"
+      - name: DateUpdate
+        type: datetime
+        required: true
+        description: "Last Update Timestamp"
+      - name: Effective
+        type: datetime
+        required: false
+        description: "Effective Date"
+      - name: Expire
+        type: datetime
+        required: false
+        description: "Expiration Date"
+
+  SiteStructureAddressPoint:
+    table_name: ng911_address_points
+    geometry_type: Point
+    fields:
+      - name: NGUID
+        type: string
+        required: true
+      - name: AddNum
+        type: integer
+        required: true
+        description: "Address Number"
+      - name: AddNumSuf
+        type: string
+        length: 10
+        required: false
+        description: "Address Number Suffix"
+      - name: St_PreDir
+        type: string
+        length: 10
+        required: false
+        domain: [N, S, E, W, NE, NW, SE, SW]
+      - name: St_PreTyp
+        type: string
+        length: 50
+        required: false
+      - name: St_Name
+        type: string
+        length: 100
+        required: true
+      - name: St_PosTyp
+        type: string
+        length: 50
+        required: false
+        domain: [St, Ave, Blvd, Dr, Rd, Ln, Ct, Pl, Way, Trl, Cir, Loop, Byp, Pkwy, Expy, Fwy, Hwy, Tpke, Ter, Row, Walk, Path, Pass, Crossing, Xing]
+      - name: St_PosDir
+        type: string
+        length: 10
+        required: false
+        domain: [N, S, E, W, NE, NW, SE, SW]
+      - name: SiteName
+        type: string
+        length: 100
+        required: false
+        description: "Site/Complex Name"
+      - name: Building
+        type: string
+        length: 50
+        required: false
+        description: "Building Identifier"
+      - name: Floor
+        type: string
+        length: 30
+        required: false
+        description: "Floor Level"
+      - name: Unit
+        type: string
+        length: 30
+        required: false
+        description: "Unit/Suite/Apartment"
+      - name: Room
+        type: string
+        length: 30
+        required: false
+        description: "Room"
+      - name: Seat
+        type: string
+        length: 30
+        required: false
+        description: "Seat/Workstation"
+      - name: PlaceType
+        type: string
+        length: 2
+        required: false
+        domain: [S, ST, B, U]
+        description: "Place Type (Site, Structure, Building, Unit)"
+      - name: Placement
+        type: string
+        length: 3
+        required: false
+        domain: [CEN, ENT, STR, PAR]
+        description: "Placement (Centroid, Entrance, Structure, Parcel)"
+      - name: State
+        type: string
+        length: 2
+        required: true
+      - name: County
+        type: string
+        length: 100
+        required: true
+      - name: Inc_Muni
+        type: string
+        length: 100
+        required: false
+      - name: Uninc_Comm
+        type: string
+        length: 100
+        required: false
+      - name: PostCode
+        type: string
+        length: 10
+        required: false
+      - name: ESN
+        type: string
+        length: 5
+        required: false
+      - name: MSAGComm
+        type: string
+        length: 100
+        required: false
+      - name: DateUpdate
+        type: datetime
+        required: true
+
+  PsapPolygon:
+    table_name: ng911_psap_polygon
+    geometry_type: Polygon
+    fields:
+      - name: NGUID
+        type: string
+        required: true
+      - name: Name
+        type: string
+        length: 100
+        required: true
+        description: "Display Name (appears in CHE/CPE)"
+      - name: ServiceURN
+        type: string
+        length: 100
+        required: true
+        domain: ["urn:emergency:service:sos.psap"]
+      - name: ServiceNum
+        type: string
+        length: 20
+        required: false
+      - name: State
+        type: string
+        length: 2
+        required: true
+      - name: County
+        type: string
+        length: 100
+        required: true
+      - name: DateUpdate
+        type: datetime
+        required: true
+
+  FirePolygon:
+    table_name: ng911_fire_polygon
+    geometry_type: Polygon
+    fields:
+      - name: NGUID
+        type: string
+        required: true
+      - name: Name
+        type: string
+        length: 100
+        required: true
+      - name: ServiceURN
+        type: string
+        length: 100
+        required: true
+        domain: ["urn:emergency:service:sos.fire"]
+      - name: ServiceNum
+        type: string
+        length: 20
+        required: false
+      - name: State
+        type: string
+        length: 2
+        required: true
+      - name: County
+        type: string
+        length: 100
+        required: true
+      - name: DateUpdate
+        type: datetime
+        required: true
+
+  PolicePolygon:
+    table_name: ng911_police_polygon
+    geometry_type: Polygon
+    fields:
+      - name: NGUID
+        type: string
+        required: true
+      - name: Name
+        type: string
+        length: 100
+        required: true
+      - name: ServiceURN
+        type: string
+        length: 100
+        required: true
+        domain: ["urn:emergency:service:sos.police"]
+      - name: ServiceNum
+        type: string
+        length: 20
+        required: false
+      - name: State
+        type: string
+        length: 2
+        required: true
+      - name: County
+        type: string
+        length: 100
+        required: true
+      - name: DateUpdate
+        type: datetime
+        required: true
+
+  EmsPolygon:
+    table_name: ng911_ems_polygon
+    geometry_type: Polygon
+    fields:
+      - name: NGUID
+        type: string
+        required: true
+      - name: Name
+        type: string
+        length: 100
+        required: true
+      - name: ServiceURN
+        type: string
+        length: 100
+        required: true
+        domain: ["urn:emergency:service:sos.ems"]
+      - name: ServiceNum
+        type: string
+        length: 20
+        required: false
+      - name: State
+        type: string
+        length: 2
+        required: true
+      - name: County
+        type: string
+        length: 100
+        required: true
+      - name: DateUpdate
+        type: datetime
+        required: true
+
+  ProvisioningPolygon:
+    table_name: ng911_provisioning_polygon
+    geometry_type: Polygon
+    fields:
+      - name: NGUID
+        type: string
+        required: true
+      - name: Name
+        type: string
+        length: 100
+        required: true
+      - name: ServiceURN
+        type: string
+        length: 100
+        required: true
+        domain: ["urn:emergency:service:sos.provisioning"]
+      - name: State
+        type: string
+        length: 2
+        required: true
+      - name: County
+        type: string
+        length: 100
+        required: true
+      - name: DateUpdate
+        type: datetime
+        required: true

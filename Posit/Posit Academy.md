@@ -80,6 +80,6 @@ generating the motivation needed"), MMC Research Institute (would repeat for fut
 - The **Foundations of the Tidyverse → Programming in R → Intro to Shiny** ladder is a sensible
   onboarding path for a PSAP analytics team already using RStudio.
 - The curriculum is R-first. Our reporting work leans on R + Quarto + Shiny, so the R track fits;
-  the Python track would matter more for [[Agents]]-adjacent work and is not yet available.
+  the Python track would matter more for [[Synthetic_Data/SynthCCD/AGENTS]]-adjacent work and is not yet available.
 - Tier 1 material (Quarto reporting, tidyverse) is free on academy.posit.co; the paid tier buys
   mentorship and project structure, not content access.

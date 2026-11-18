@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "synthgis"
+version = "0.1.0"
+description = "Synthetic city GIS generator for NG9-1-1 compliance"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Tony Dunsworth", email = "tony.dunsworth@example.com"}
+]
+keywords = ["gis", "ng911", "nena", "synthetic-data", "geopandas", "postgis"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: GIS",
+]
+dependencies = [
+    "geopandas>=1.0",
+    "shapely>=2.0",
+    "networkx>=3.2",
+    "momepy>=0.11",
+    "pyproj>=3.6",
+    "pyogrio>=0.8",
+    "numpy>=1.26",
+    "pysgn>=0.2",
+    "pydantic>=2.0",
+    "pydantic-yaml>=0.1",
+    "typer>=0.9",
+    "sqlalchemy>=2.0",
+    "geoalchemy2>=0.14",
+    "pyyaml>=6.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.3",
+    "mypy>=1.8",
+    "jupyter>=1.0",
+    "matplotlib>=3.8",
+    "contextily>=1.6",
+    "osmnx>=2.0",
+    "pandana>=0.3",
+    "igraph>=0.11",
+]
+postgis = ["psycopg2-binary>=2.9"]
+
+[project.scripts]
+synthgis = "synthgis.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["synthgis*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+lint.select = ["E", "F", "I", "W", "UP", "B", "C4", "PTH", "T20", "ARG", "SIM", "RET", "TRY"]
+lint.ignore = ["S101", "PTH118", "PTH123"]
+format.quote-style = "double"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+strict = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=synthgis --cov-report=term-missing"

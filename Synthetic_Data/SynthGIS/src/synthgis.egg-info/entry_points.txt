@@ -1,0 +1,2 @@
+[console_scripts]
+synthgis = synthgis.cli:app

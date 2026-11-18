@@ -117,6 +117,6 @@ that runs inside a governed environment and can **see the live data session**, p
   that.
 - `duckplyr` and `duckdb` are directly relevant to [[duckdb-lab]] — dplyr syntax against DuckDB.
 - `ellmer` / `vitals` / `ragnar` / `mcptools` are the R-side counterpart to the agent work in
-  [[Agents]]; Posit maintains an MCP package for R.
+  [[Synthetic_Data/SynthCCD/AGENTS]]; Posit maintains an MCP package for R.
 - The cheat sheet library is the fastest onboarding material we have for new analysts — print, do
   not link.

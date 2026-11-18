@@ -144,7 +144,7 @@ SynthCCD volume series (911 + non-emg + abandoned, hourly)
 
 ## Cross-links
 
-- [[SynthCCD/README|SynthCCD]] — the demand generator both studies depend on
+- [[Synthetic_Data/SynthCCD/README|SynthCCD]] — the demand generator both studies depend on
 - `SynthCCD/REALISMGUIDE.md` — `shift_config`, `dispatch_mean`, answer-time lognormal, abandonment rates
 - [[LinuxPlus_Resources]] — unrelated but the same discipline: build the environment before theorising
 
