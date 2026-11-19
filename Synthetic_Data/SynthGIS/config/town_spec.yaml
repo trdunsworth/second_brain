@@ -102,7 +102,32 @@ operational:
   hospitals: 1
   response_zones_per_service: 4
 
+# 3D Buildings (NENA-REQ-003.1)
+buildings_3d:
+  enabled: false
+  floor_height_m: 3.0
+  roof_type_by_zone:
+    residential: "gabled"
+    commercial: "flat"
+    industrial: "flat"
+    civic: "hipped"
+  roof_pitch_deg: 30.0
+  eaves_overhang_m: 0.5
+  include_interior: false
+
+# Service APIs
+services:
+  routing:
+    enabled: false
+    host: "0.0.0.0"
+    port: 8000
+  lost:
+    enabled: false
+    host: "0.0.0.0"
+    port: 8001
+
 output:
   geopackage: "output/synthetic_town.gpkg"
   postgis_dump: "output/synthetic_town.sql"
   include_metadata_layer: true
+  routing_graph_pickle: "output/routing_graph.pkl"

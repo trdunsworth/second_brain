@@ -20,25 +20,64 @@ SynthGIS generates a complete, fictional city as a **GeoPackage** (`.gpkg`) or *
 
 ```bash
 # Install dependencies (recommended: uv or conda)
-uv pip install -e ".[dev]"      # or: pip install -e ".[dev]"
+uv pip install -e ".[dev,services]"      # or: pip install -e ".[dev,services]"
 
-# Generate a synthetic town
+# Generate a synthetic town (2D)
 synthgis generate --config config/town_spec.yaml --output output/synthetic_town.gpkg
 
-# Validate with PostGIS (optional)
-synthgis generate --config config/town_spec.yaml --output output/synthetic_town.gpkg \
-    --postgis postgresql://user:pass@localhost/synthgis --qc
+# Generate with 3D buildings (NENA-REQ-003.1)
+synthgis generate --config config/town_spec.yaml --output output/synthetic_town.gpkg --3d
+
+# Generate with routing graph export for service startup
+synthgis generate --config config/town_spec.yaml --output output/synthetic_town.gpkg --export-graph output/routing_graph.pkl
+
+# Validate (offline topology + schema)
+synthgis validate output/synthetic_town.gpkg --config config/town_spec.yaml
+
+# Start routing API (FastAPI) on port 8000
+synthgis serve-routing output/synthetic_town.gpkg --graph-pickle output/routing_graph.pkl
+
+# Start LoST service (RFC 5222) on port 8001
+synthgis serve-lost output/synthetic_town.gpkg
 
 # View in QGIS
 qgis output/synthetic_town.gpkg
 ```
 
+## Planned: Persistence & Expansion (Future)
+
+```bash
+# Version management
+synthgis version list town.gpkg
+synthgis version show town.gpkg --version 1.2.0
+synthgis version diff town_v1.gpkg town_v2.gpkg --output diff.gpkg
+synthgis version bump town.gpkg --type minor --message "Added northern corridor"
+
+# Incremental expansion
+synthgis expand town.gpkg --mode radial --rings 2 --output town_v2.gpkg
+synthgis expand town.gpkg --mode corridor --corridor highway.geojson --width 2000 --output town_v2.gpkg
+synthgis expand town.gpkg --mode infill --density 2.0 --output town_v2.gpkg
+synthgis expand town.gpkg --mode satellite --center 100000,200000 --radius 2000 --output town_v2.gpkg
+
+# Regional assembly
+synthgis assemble-region region_spec.yaml --output metro.gpkg
+synthgis connect-towns town_a.gpkg town_b.gpkg --type highway --output connected.gpkg
+synthgis export-synthccd town.gpkg --version 1.2.0 --output town_for_synthccd.gpkg
+```
+
+*See [Persistence and Expansion](docs/Persistence_and_Expansion.md) for full design.*
+
 ## Installation
 
 ### Using uv (recommended)
 ```bash
-uv sync                    # Install all dependencies
-uv pip install -e .        # Install SynthGIS in editable mode
+# Core + dev dependencies
+uv sync --extra dev
+uv pip install -e .
+
+# With services (FastAPI, LoST)
+uv sync --extra dev --extra services
+uv pip install -e .
 ```
 
 ### Using conda/mamba
@@ -46,12 +85,12 @@ uv pip install -e .        # Install SynthGIS in editable mode
 conda create -n synthgis python=3.11
 conda activate synthgis
 conda install -c conda-forge geopandas shapely networkx momepy pyproj pyogrio numpy pysgn pydantic pydantic-yaml typer rich sqlalchemy geoalchemy2
-pip install -e .
+pip install -e ".[services]"  # For FastAPI/LoST
 ```
 
 ### Using pip
 ```bash
-pip install -e ".[dev]"
+pip install -e ".[dev,services]"
 ```
 
 ## Project Structure
@@ -59,7 +98,12 @@ pip install -e ".[dev]"
 ```
 SynthGIS/
 ├── config/
-│   └── town_spec.yaml          # Town specification (customize this)
+│   ├── town_spec.yaml          # Town specification (customize this)
+│   └── nena_schema_v3.yaml     # NENA flatfile schema reference
+├── docs/
+│   ├── NENA_NG911_GIS_Standards_Reference.md
+│   ├── Synthetic_Geodata_Research_Summary.md
+│   └── SynthGIS_Architecture_Design.md
 ├── src/synthgis/
 │   ├── config.py               # Pydantic config models
 │   ├── seeding.py              # Deterministic RNG management
@@ -73,12 +117,18 @@ SynthGIS/
 │   │   ├── tessellation.py     # momepy morphological tessellation
 │   │   ├── subdivision.py      # Recursive splitting with setbacks
 │   │   └── zoning.py           # Land use assignment
-│   ├── buildings/              # Building footprints + sub-addresses
+│   ├── buildings/              # Building footprints + sub-addresses + 3D
+│   │   ├── footprints.py       # 2D footprint placement
+│   │   ├── subaddress.py       # Building/Floor/Unit/Room/Seat
+│   │   └── building_3d.py      # 3D extrusion (NENA-REQ-003.1)
 │   ├── address_points.py       # SSAP generation
 │   ├── operational.py          # Stations, zones, run cards
 │   ├── routing.py              # NetworkX graph + pgRouting export
-│   ├── validation/             # QC checks
-│   └── export/                 # GeoPackage/PostGIS output
+│   ├── validation/             # QC checks (topology, schema, SQL)
+│   ├── export/                 # GeoPackage/PostGIS output
+│   └── services/               # REST APIs
+│       ├── routing_api.py      # FastAPI routing service
+│       └── lost_service.py     # LoST protocol (RFC 5222)
 ├── scripts/                    # Utility scripts
 ├── notebooks/                  # Exploration notebooks
 └── output/                     # Generated artifacts
@@ -127,6 +177,7 @@ zoning:
 | `PolicePolygon` | **Required** | Law enforcement boundaries |
 | `EmsPolygon` | **Required** | EMS boundaries |
 | `ProvisioningPolygon` | **Required** | Data authority extent |
+| `Building3D` | **3D (NENA-REQ-003.1)** | Z-enabled building footprints with elevation |
 | `*ZonePolygon` | **Strongly Rec.** | Response zones per service |
 | `*StationPoint` | **Operational** | Fire/Police/EMS/Hospital stations |
 | `*RunCard` | **Operational** | Zone→apparatus dispatch rules |
@@ -158,9 +209,55 @@ Checks include:
 - Required field completeness
 - CLDXF domain compliance
 
-## Integration with SynthCCD
+## Services & APIs
 
-SynthGIS outputs a GeoPackage that SynthCCD reads directly:
+### Routing API (FastAPI)
+
+```bash
+# Start service
+synthgis serve-routing output/synthetic_town.gpkg --graph-pickle output/routing_graph.pkl
+
+# Endpoints
+# POST /route          - Point-to-point routing
+# POST /isochrone      - Drive-time polygons
+# POST /nearest        - Nearest fire/police/ems/hospital
+# GET  /stats          - Network topology stats
+# GET  /health         - Service health
+```
+
+**Example Requests:**
+```bash
+# Route from A to B
+curl -X POST http://localhost:8000/route \
+  -H "Content-Type: application/json" \
+  -d '{"origin": {"x": 950000, "y": 200000}, "destination": {"x": 1000000, "y": 250000}}'
+
+# 5-minute drive-time isochrone
+curl -X POST http://localhost:8000/isochrone \
+  -H "Content-Type: application/json" \
+  -d '{"origin": {"x": 950000, "y": 200000}, "max_time_seconds": 300}'
+
+# Nearest fire station
+curl -X POST http://localhost:8000/nearest \
+  -H "Content-Type: application/json" \
+  -d '{"origin": {"x": 950000, "y": 200000}, "facility_type": "fire", "max_results": 3}'
+```
+
+### LoST Service (RFC 5222)
+
+```bash
+# Start service
+synthgis serve-lost output/synthetic_town.gpkg
+
+# Find PSAP for a location (XML)
+curl -X POST http://localhost:8001/lost/findService \
+  -H "Content-Type: application/xml" \
+  -d '<findService xmlns="urn:ietf:params:xml:ns:lost1"><serviceBoundary>urn:emergency:service:sos.psap</serviceBoundary><location><gml:Point xmlns:gml="http://www.opengis.net/gml"><gml:pos>40.7128 -74.0060</gml:pos></gml:Point></location></findService>'
+```
+
+---
+
+## Integration with SynthCCD
 
 ```python
 # In SynthCCD
@@ -199,9 +296,12 @@ class SynthGISLoader:
 - [`docs/NENA_NG911_GIS_Standards_Reference.md`](docs/NENA_NG911_GIS_Standards_Reference.md) — Complete NENA schema distillation
 - [`docs/Synthetic_Geodata_Research_Summary.md`](docs/Synthetic_Geodata_Research_Summary.md) — Contemporary research survey
 - [`docs/SynthGIS_Architecture_Design.md`](docs/SynthGIS_Architecture_Design.md) — Technical architecture & module specs
+- [`docs/Persistence_and_Expansion.md`](docs/Persistence_and_Expansion.md) — Town persistence, versioning, incremental expansion, regional assembly
+- [`docs/QGIS_Training_Guide.md`](docs/QGIS_Training_Guide.md) — QGIS workflow for SynthGIS data
 
 ## Dependencies
 
+### Core GIS
 | Package | Version | Purpose |
 |---------|---------|---------|
 | `geopandas` | ≥1.0 | Spatial DataFrames, I/O |
@@ -213,6 +313,13 @@ class SynthGISLoader:
 | `pysgn` | ≥0.2 | Synthetic geospatial networks |
 | `numpy` | ≥1.26 | Seeded RNG (`default_rng`) |
 | `sqlalchemy` + `geoalchemy2` | ≥2.0 | PostGIS ORM |
+
+### Services (optional, `--extra services`)
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `fastapi` | ≥0.110 | REST API framework |
+| `uvicorn` | ≥0.29 | ASGI server |
+| `lxml` | ≥4.9 | XML processing for LoST |
 
 ## License
 

@@ -7,6 +7,7 @@ Main entry point for generating, validating, and exporting synthetic town data.
 from __future__ import annotations
 
 import json
+import pickle
 from datetime import datetime
 from pathlib import Path
 
@@ -14,6 +15,7 @@ import typer
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.table import Table
+import geopandas as gpd
 
 from .config import TownSpec, load_town_spec
 from .seeding import SeedState
@@ -22,7 +24,7 @@ from .streets.generator import StreetNetworkGenerator
 from .parcels.tessellation import blocks_from_streets
 from .parcels.subdivision import subdivide_blocks
 from .parcels.zoning import assign_zoning
-from .buildings.footprints import generate_building_footprints
+from .buildings import generate_building_footprints, generate_buildings_3d
 from .address_points import generate_address_points
 from .operational import generate_all_operational
 from .routing import build_routing_graph, export_pgrouting_sql
@@ -31,6 +33,7 @@ from .validation.schema import validate_schema_compliance
 from .validation.qc_sql import run_qc_checks, generate_qc_report
 from .export.geopackage import export_geopackage
 from .export.postgis import load_to_postgis
+from .services import create_routing_app, RoutingService, serve_lost
 
 app = typer.Typer(
     name="synthgis",
@@ -49,6 +52,8 @@ def generate(
     validate: bool = typer.Option(True, "--validate/--no-validate", help="Run topology/schema validation"),
     qc: bool = typer.Option(False, "--qc", help="Run NENA QC checks (requires PostGIS)"),
     seed: int | None = typer.Option(None, "--seed", help="Override master seed"),
+    buildings_3d: bool = typer.Option(False, "--3d/--2d", help="Generate 3D buildings (Z-enabled)"),
+    export_graph: Path | None = typer.Option(None, "--export-graph", help="Export routing graph as pickle"),
 ):
     """Generate a synthetic town from configuration."""
     console.print("[bold blue]SynthGIS[/bold blue] - Generating synthetic town...")
@@ -96,6 +101,12 @@ def generate(
         task = progress.add_task("Generating buildings...", total=None)
         buildings = generate_building_footprints(parcels, spec, seed_state)
         progress.update(task, completed=True)
+
+        # 6b. 3D Buildings (optional)
+        if buildings_3d:
+            task = progress.add_task("Generating 3D buildings...", total=None)
+            buildings = generate_buildings_3d(buildings, spec, seed_state)
+            progress.update(task, completed=True)
 
         # 7. Address points
         task = progress.add_task("Generating address points...", total=None)
@@ -165,6 +176,23 @@ def generate(
         console.print(f"[bold]Exporting pgRouting SQL: {pgrouting}[/bold]")
         export_pgrouting_sql(routing_graph, spec, pgrouting)
         console.print("[green]pgRouting export complete![/green]")
+
+    # Export routing graph as pickle for fast service startup
+    if export_graph:
+        console.print(f"[bold]Exporting routing graph: {export_graph}[/bold]")
+        export_graph.parent.mkdir(parents=True, exist_ok=True)
+        with open(export_graph, "wb") as f:
+            pickle.dump({
+                "graph": routing_graph,
+                "stations": {
+                    "fire": layers.get("FireStationPoint", gpd.GeoDataFrame()),
+                    "police": layers.get("PoliceStationPoint", gpd.GeoDataFrame()),
+                    "ems": layers.get("EmsStationPoint", gpd.GeoDataFrame()),
+                    "hospital": layers.get("HospitalPoint", gpd.GeoDataFrame()),
+                },
+                "crs": str(layers["RoadCenterLine"].crs) if "RoadCenterLine" in layers else None,
+            }, f)
+        console.print("[green]Routing graph export complete![/green]")
 
     # Load to PostGIS
     if postgis:
@@ -239,6 +267,92 @@ def version():
     """Show version information."""
     from . import __version__
     console.print(f"SynthGIS v{__version__}")
+
+
+@app.command()
+def serve_routing(
+    gpkg: Path = typer.Argument(..., help="GeoPackage file with street network"),
+    host: str = typer.Option("0.0.0.0", "--host", help="Host to bind to"),
+    port: int = typer.Option(8000, "--port", "-p", help="Port to bind to"),
+    graph_pickle: Path | None = typer.Option(None, "--graph-pickle", help="Pre-exported routing graph pickle"),
+):
+    """Start the FastAPI routing service."""
+    import uvicorn
+    from .services.routing_api import app as routing_app, routing_service
+    
+    console.print(f"[bold]Loading routing data from {gpkg}...[/bold]")
+    
+    if graph_pickle and graph_pickle.exists():
+        routing_service.load_from_pickle(graph_pickle)
+        console.print(f"[green]Loaded graph from pickle: {len(routing_service.graph)} nodes[/green]")
+    else:
+        routing_service.load_from_geopackage(gpkg)
+        console.print(f"[green]Built graph from GeoPackage: {len(routing_service.graph)} nodes[/green]")
+    
+    console.print(f"[bold]Starting routing service on {host}:{port}[/bold]")
+    uvicorn.run(routing_app, host=host, port=port)
+
+
+@app.command()
+def serve_lost(
+    gpkg: Path = typer.Argument(..., help="GeoPackage file with service boundaries"),
+    host: str = typer.Option("0.0.0.0", "--host", help="Host to bind to"),
+    port: int = typer.Option(8001, "--port", "-p", help="Port to bind to"),
+):
+    """Start the LoST (Location-to-Service Translation) service."""
+    import uvicorn
+    from .services import create_lost_app
+    
+    console.print(f"[bold]Loading LoST boundaries from {gpkg}...[/bold]")
+    app = create_lost_app(gpkg)
+    console.print(f"[bold]Starting LoST service on {host}:{port}[/bold]")
+    uvicorn.run(app, host=host, port=port)
+
+
+@app.command()
+def export_graph(
+    gpkg: Path = typer.Argument(..., help="Input GeoPackage"),
+    output: Path = typer.Option(..., "--output", "-o", help="Output pickle file"),
+):
+    """Export routing graph from GeoPackage as pickle for fast service startup."""
+    from .services.routing_api import RoutingService
+    
+    console.print(f"[bold]Building routing graph from {gpkg}...[/bold]")
+    service = RoutingService()
+    service.load_from_geopackage(gpkg)
+    service.save_pickle(output)
+    console.print(f"[green]Saved graph to {output} ({len(service.graph)} nodes, {service.graph.number_of_edges()} edges)[/green]")
+
+
+@app.command()
+def buildings_3d(
+    input: Path = typer.Argument(..., help="Input GeoPackage with 2D buildings"),
+    output: Path = typer.Option(..., "--output", "-o", help="Output GeoPackage with 3D buildings"),
+    dem: Path | None = typer.Option(None, "--dem", help="DEM raster for ground elevation"),
+):
+    """Convert 2D buildings to 3D (Z-enabled) in a GeoPackage."""
+    from .buildings import generate_buildings_3d, add_ground_elevation_to_parcels
+    
+    console.print(f"[bold]Loading buildings from {input}...[/bold]")
+    buildings = gpd.read_file(input, layer="BuildingFootprint")
+    parcels = gpd.read_file(input, layer="Parcel")
+    
+    if dem:
+        console.print(f"[bold]Adding ground elevation from DEM...[/bold]")
+        parcels = add_ground_elevation_to_parcels(parcels, dem)
+    
+    console.print(f"[bold]Generating 3D buildings...[/bold]")
+    from .config import load_town_spec
+    spec = load_town_spec("config/town_spec.yaml")  # TODO: read from metadata layer
+    from .seeding import SeedState
+    seed_state = SeedState.from_master(42)
+    
+    buildings_3d = generate_buildings_3d(buildings, spec, seed_state)
+    
+    # Export
+    import pyogrio
+    pyogrio.write_dataframe(buildings_3d, output, layer="Building3D", driver="GPKG")
+    console.print(f"[green]3D buildings written to {output}[/green]")
 
 
 if __name__ == "__main__":

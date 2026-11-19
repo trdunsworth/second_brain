@@ -12,6 +12,7 @@ __license__ = "MIT"
 
 from .config import TownSpec, CRSConfig, StreetHierarchyConfig, ZoningConfig
 from .seeding import SeedState
+from .services import create_routing_app, RoutingService, create_lost_app, LoSTService
 
 __all__ = [
     "TownSpec",
@@ -19,4 +20,8 @@ __all__ = [
     "StreetHierarchyConfig",
     "ZoningConfig",
     "SeedState",
+    "create_routing_app",
+    "RoutingService",
+    "create_lost_app",
+    "LoSTService",
 ]

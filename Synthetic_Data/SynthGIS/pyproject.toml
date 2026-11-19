@@ -38,6 +38,10 @@ dependencies = [
     "geoalchemy2>=0.14",
     "pyyaml>=6.0",
     "rich>=13.0",
+    # Services
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "lxml>=4.9",
 ]
 
 [project.optional-dependencies]
@@ -54,6 +58,7 @@ dev = [
     "igraph>=0.11",
 ]
 postgis = ["psycopg2-binary>=2.9"]
+services = ["fastapi>=0.110", "uvicorn>=0.29", "lxml>=4.9"]
 
 [project.scripts]
 synthgis = "synthgis.cli:app"

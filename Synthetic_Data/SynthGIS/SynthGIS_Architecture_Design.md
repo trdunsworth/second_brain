@@ -796,8 +796,30 @@ class SynthGISLoader:
 | **M10** | Documentation + example notebooks + CI/CD | Week 10 |
 
 ---
-
-## 9. References
+ 
+## 9. Future Extensions (Post-M10)
+ 
+See **[Persistence and Expansion](docs/Persistence_and_Expansion.md)** for detailed design on:
+ 
+- **Persistence & Versioning** — GeoPackage metadata layer, PostGIS versioning tables, semantic versioning, changelogs
+- **Incremental Expansion** — Radial growth, corridor development, infill, satellite towns
+- **Regional Assembly** — Merging towns into metropolitan regions, connector infrastructure, service boundary harmonization
+- **Advanced Growth Simulation** — Cellular automata, agent-based growth, scenario branching, time-travel queries
+- **Advanced Export** — CityJSON, 3D Tiles, Cesium, time-enabled GeoPackage
+ 
+New CLI commands planned:
+```bash
+synthgis version list|show|diff|tag town.gpkg
+synthgis expand town.gpkg --mode radial|corridor|infill|satellite --output v2.gpkg
+synthgis assemble-region region_spec.yaml --output metro.gpkg
+synthgis connect-towns town_a.gpkg town_b.gpkg --type highway
+```
+ 
+Planned milestones: **M11-M14** (see [TODO.md](TODO.md))
+ 
+---
+ 
+## 10. References
 
 - **NENA-STA-006.3-2026** — NG9-1-1 GIS Data Model (ANSI)
 - **NENA-REF-006.3-2026** — GIS Data Model Templates (GeoPackage, FileGDB, Relational)

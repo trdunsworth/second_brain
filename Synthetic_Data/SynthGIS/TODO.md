@@ -1,6 +1,6 @@
 # SynthGIS — Installation & Development TODO
 
-## ✅ Project Status: Code Complete
+## ✅ Project Status: Code Complete (Core + 3D + Services Scaffolding)
 
 All source code, configuration, documentation, and CLI are implemented. Only environment setup remains.
 
@@ -47,11 +47,44 @@ uv run synthgis --help
 
 ### 4. Generate First Synthetic Town
 ```bash
-# Generate with default config
+# Generate with default config (2D)
 uv run synthgis generate --config config/town_spec.yaml --output output/synthetic_town.gpkg
+
+# Generate with 3D buildings (NENA-REQ-003.1)
+uv run synthgis generate --config config/town_spec.yaml --output output/synthetic_town.gpkg --3d
+
+# Generate with routing graph export for service startup
+uv run synthgis generate --config config/town_spec.yaml --output output/synthetic_town.gpkg --export-graph output/routing_graph.pkl
+
+# Full monty: 3D + graph export
+uv run synthgis generate --config config/town_spec.yaml --output output/synthetic_town.gpkg --3d --export-graph output/routing_graph.pkl
 
 # Validate (offline topology + schema)
 uv run synthgis validate output/synthetic_town.gpkg --config config/town_spec.yaml
+```
+
+### 5. Run Services
+```bash
+# Start routing API (FastAPI) on port 8000
+uv run synthgis serve-routing output/synthetic_town.gpkg --graph-pickle output/routing_graph.pkl
+
+# Start LoST service on port 8001
+uv run synthgis serve-lost output/synthetic_town.gpkg
+
+# Test routing API
+curl -X POST http://localhost:8000/route \
+  -H "Content-Type: application/json" \
+  -d '{"origin": {"x": 950000, "y": 200000}, "destination": {"x": 1000000, "y": 250000}}'
+
+# Test isochrone
+curl -X POST http://localhost:8000/isochrone \
+  -H "Content-Type: application/json" \
+  -d '{"origin": {"x": 950000, "y": 200000}, "max_time_seconds": 300}'
+
+# Test LoST (XML)
+curl -X POST http://localhost:8001/lost/findService \
+  -H "Content-Type: application/xml" \
+  -d '<findService xmlns="urn:ietf:params:xml:ns:lost1"><serviceBoundary>urn:emergency:service:sos.psap</serviceBoundary><location><gml:Point xmlns:gml="http://www.opengis.net/gml"><gml:pos>40.7128 -74.0060</gml:pos></gml:Point></location></findService>'
 ```
 
 ---
@@ -82,7 +115,7 @@ pip install -e .
 ## 📋 Development Commands
 
 ### Run Tests
-```powershell
+```bash
 # Run all tests
 uv run pytest
 
@@ -94,7 +127,7 @@ uv run pytest tests/test_topology.py -v
 ```
 
 ### Code Quality
-```powershell
+```bash
 # Lint with ruff
 uv run ruff check src/
 
@@ -109,7 +142,7 @@ uv run mypy src/
 ```
 
 ### Generate Documentation
-```powershell
+```bash
 # NENA schema report (Excel) - not yet implemented
 uv run synthgis nena-report --schema config/nena_schema_v3.yaml --output docs/nena_schema_report.xlsx
 ```
@@ -130,8 +163,12 @@ uv run synthgis nena-report --schema config/nena_schema_v3.yaml --output docs/ne
 | **M8** | PostGIS Validation + QC SQL Suite | ✅ Done |
 | **M9** | GeoPackage Export + Metadata + SynthCCD Integration | ✅ Done |
 | **M10** | Documentation + Notebooks + CI/CD | 🔄 In Progress |
+| **M11** | **3D Buildings (NENA-REQ-003.1)** | 🟡 Scaffolding Done |
+| **M12** | **Routing API (FastAPI)** | 🟡 Scaffolding Done |
+| **M13** | **LoST Protocol (RFC 5222)** | 🟡 Scaffolding Done |
+| **M14** | **SynthCCD Integration** | 🟡 Exploration Done |
 
-### Remaining Tasks (M10)
+### Remaining Tasks (M10-M14)
 - [ ] Create example notebooks in `notebooks/`
   - [ ] `01_explore_morphology.ipynb` — Analyze real city morphology for parameter calibration
   - [ ] `02_design_town.ipynb` — Interactive town design with config
@@ -140,6 +177,56 @@ uv run synthgis nena-report --schema config/nena_schema_v3.yaml --output docs/ne
 - [ ] Add pre-commit hooks (`.pre-commit-config.yaml`)
 - [ ] Publish to PyPI (optional)
 - [ ] Create Dockerfile for reproducible containerized runs
+- [ ] **3D Buildings**: Complete gabled/hipped roof geometry, CityJSON export, DEM integration
+- [ ] **Routing API**: Add turn restrictions, multimodal (pedestrian/bike), traffic simulation
+- [ ] **LoST Service**: Full RFC 5222 compliance, recursive queries, SOAP bindings
+- [ ] **SynthCCD Integration**: 
+  - [ ] Create `SynthGISAddressProvider` in SynthCCD
+  - [ ] Add `--synthgis-town` / `--synthgis-graph` CLI flags to SynthCCD
+  - [ ] Implement routing-based travel times
+  - [ ] Implement service boundary dispatch
+  - [ ] Implement population surface weighting
+  - [ ] End-to-end integration test
+  - [ ] Update both USERSGUIDE.md files
+
+### New Milestones: Persistence & Expansion (M15-M18)
+
+| Milestone | Task | Status |
+|-----------|------|--------|
+| **M15** | **Core Persistence & Versioning** | 🟡 Planned |
+| **M16** | **Incremental Expansion Engine** | 🟡 Planned |
+| **M17** | **Regional Assembly & Merging** | 🟡 Planned |
+| **M18** | **Advanced Growth Simulation** | 🟡 Planned |
+
+### Remaining Tasks (M15-M18)
+- [ ] **M15 - Core Persistence & Versioning**
+  - [ ] Metadata layer with semantic versioning in GeoPackage
+  - [ ] PostGIS versioning table + migration scripts
+  - [ ] `synthgis version` CLI (list, show, diff, tag)
+  - [ ] Changelog schema in metadata
+  - [ ] QGIS diff layer generation
+  
+- [ ] **M16 - Incremental Expansion Engine**
+  - [ ] `TownExpander` class (radial, corridor, infill, satellite)
+  - [ ] Topology-preserving layer merge logic
+  - [ ] `synthgis expand` CLI with all modes
+  - [ ] Expansion profiles config (suburban, urban, rural, corridor)
+  - [ ] Density gradient and growth trigger configs
+  
+- [ ] **M17 - Regional Assembly & Merging**
+  - [ ] `RegionAssembler` class
+  - [ ] Connector infrastructure (highway, rail, arterial)
+  - [ ] Service boundary harmonization (regional PSAP, mutual aid)
+  - [ ] `synthgis assemble-region` CLI
+  - [ ] Regional routing graph generation
+  
+- [ ] **M18 - Advanced Growth Simulation**
+  - [ ] Time-travel queries (town at version X)
+  - [ ] Scenario branching (what-if analysis)
+  - [ ] Cellular automata / agent-based growth simulation
+  - [ ] Automated calibration from OSM (inverse problem)
+  - [ ] Export to CityJSON / 3D Tiles / Cesium
+  - [ ] SynthCCD integration at specific versions
 
 ---
 
