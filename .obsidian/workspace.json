@@ -93,8 +93,7 @@
               "title": "TODO"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -286,10 +285,10 @@
       "wireframy:New wireframe": false
     }
   },
-  "active": "64792ba47a2bb5b6",
+  "active": "8cb2c50e077a4122",
   "lastOpenFiles": [
-    "Synthetic_Data/PSAP Research/README.md",
     "Synthetic_Data/SynthGIS/README.md",
+    "Synthetic_Data/PSAP Research/README.md",
     "journal/2026-11-20.md",
     "Synthetic_Data/SynthGIS/TODO.md",
     "Synthetic_Data/SynthGIS/SynthGIS_Architecture_Design.md",
