@@ -14,6 +14,9 @@ erDiagram
 	MEMBER ||--o{ CLUB : in
     MEMBER ||--|{ ATTENDANCE : attends
     SESSION ||--|{ ATTENDANCE : has
+    MEMBER ||--|| TEST_RESULT : has
+    CLUB ||--|{ TEST_RESULT : tracks
+    ATTENDANCE ||--|{ TEST_RESULT : generates
 	
 	OFFICER {
 		int id PK "NOT NULL"
@@ -51,7 +54,6 @@ erDiagram
         int id PK "NOT NULL"
         datetime training_date "NOT NULL"
         varchar(MAX) location
-        bit in_person "NOT NULL"
         float duration
     }
 
@@ -65,6 +67,14 @@ erDiagram
         bit recording
         bit exit
         varchar(1) trained
+    }
+    
+    TEST_RESULT {
+	    int id PK "NOT NULL"
+	    datetime training_date "NOT NULL"
+	    int member_no FK "NOT NULL"
+	    int club_no FK "NOT NULL"
+	    float score
     }
 ```
 
@@ -106,3 +116,11 @@ erDiagram
 ## Additional Notes
 
 I would recommend and can design a different page to update trained status which would then update the Attendance table with confirmation of attendance to each section of training and completion of training.
+
+## Meeting 19 November 2026
+
+We should go with a blend of Jacquie's and Davin's forms. Davin should be able to learn enough Javascript and see what ORMs are available. We really need to know what kind of JS that Wix supports. That will enable us to determine what is available. 
+
+Back end, I will design the tables and outline the queries. I also need to reach out for the space.
+
+[TLI Registraion Page](https://www.d218toastmasters.org/TLI-Registration) 
