@@ -3,7 +3,7 @@
   "monospaceFontFamily": "CommitMonoTonyD,CommitMonoDrDMac,CommitMonoDrDLinux,Adwaita Mono",
   "baseFontSize": 13,
   "cssTheme": "DMA Theme",
-  "theme": "obsidian",
+  "theme": "moonstone",
   "accentColor": "#0077CC",
   "baseFontSizeAction": true,
   "enabledCssSnippets": [
