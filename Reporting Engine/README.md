@@ -1,252 +1,308 @@
-# DMA Reporting Engine
+# Reporting Engine — 9-1-1 Dispatch Data Analysis
 
-Multi-language 9-1-1 dispatch analytics platform for generating performance reports, compliance analysis, and operational dashboards.
+**Complete analysis framework for 9-1-1 computer-aided dispatch (CAD) and phone system data**
 
-## Overview
+## Project Overview
 
-This project analyzes synthetic CAD (Computer-Assisted Dispatch) and phone data from a 9-1-1 center, producing reports for four target audiences:
+This project provides a comprehensive analytical framework for 9-1-1 dispatch data, implementing all 12 analysis types from Dawn Choo's LinkedIn post ("12 types of data analysis everyone should know") with both frequentist and Bayesian methods, specifically tailored to emergency communications standards (NENA, APCO, NFPA).
 
-| Audience | Focus |
-|----------|-------|
-| Executive Staff | High-level trends, KPIs, strategic insights |
-| Operational Management | Compliance standards, performance metrics, resource allocation |
-| Shift Supervisors | Personnel performance, shift-specific trends |
-| QA/QI Managers | Quality assurance, call handling protocols, disposition analysis |
-| Analysts & Researchers | Advanced statistics, spatial analysis, forecasting, research insights |
+### Data Sources
+- **`oz_test_incidents.csv`** — 1,000+ individual incident records with timestamps, agencies (LAW/EMS/FIRE), priorities (1-5), response time components
+- **`oz_test_hourly_call_counts.csv`** — 168 hourly rows (7 days × 24 hours) of 9-1-1 and non-emergency call volumes, answer rates, abandonment
 
-## AI Agents
+### Target Audiences
+| Audience | Focus | Key Outputs |
+|----------|-------|-------------|
+| **Executive Staff** | High-level trends, compliance status | KPI scorecards, weekly summaries, trend forecasts |
+| **Operational Management** | Standards compliance, process capability | NFPA/NENA compliance, Cp/Cpk, control charts |
+| **Shift Supervisors** | Personnel performance, shift patterns | Outlier detection, learning curves, shift comparisons |
+| **Analysts/Researchers** | Deep statistical analysis, modeling | Bayesian posteriors, causal inference, clustering |
 
-This project includes AI agents specialized for different audiences that can analyze the dispatch data using multiple programming languages:
+---
 
-| Agent | Audience | Focus |
-|-------|----------|-------|
-| [Executive Staff Agent](agents/executive_staff_agent.md) | Upper management | Strategic insights, trend identification |
-| [Operational Management Agent](agents/operational_management_agent.md) | Middle management | Compliance, performance optimization |
-| [Shift Supervisor Agent](agents/shift_supervisor_agent.md) | Team supervisors | Personnel performance, shift trends |
-| [Analyst & Researcher Agent](agents/analyst_researcher_agent.md) | Data scientists | Advanced statistics, predictive modeling |
+## 12 Analysis Types Implemented
 
-**Agent Capabilities:**
-- Use Python, R, Julia, or SQL for analyses
-- Generate reports and visualizations
-- Answer questions about the dataset
-- Provide actionable insights based on industry standards
-- Show their work and methodology
+### 1. Descriptive Analysis
+**Summarizing data — median response times, compliance rates, volume totals**
+- Executive KPI scorecards with NENA/NFPA/APCO standards comparison
+- Process capability (Cp/Cpk) for dispatch queue, turnout, travel times
+- Personnel scorecards with outlier detection (IQR consensus)
+- Full distribution diagnostics (skew, kurtosis, quantiles, normality tests)
+- **Bayesian**: Posterior distributions for key metrics, Beta-Binomial compliance estimation
 
-For detailed information, see the [agents/README.md](agents/README.md) file.
+### 2. Exploratory Data Analysis (EDA)
+**Spotting patterns and outliers — circadian rhythms, shift handoffs, data quality**
+- Multi-method outlier consensus (IQR, MAD, Z-score, Isolation Forest, LOF)
+- Temporal structure: ACF/PACF, STL decomposition, seasonal subseries
+- Missingness mechanism analysis (MCAR/MAR testing)
+- Grammar-of-graphics visualizations (plotnine): circadian curves, heatmaps, Pareto charts
+- **Bayesian**: Probabilistic PCA for outlier detection, Dirichlet Process mixtures
 
-## Data
+### 3. Correlation Analysis
+**Measuring how variables move together — response time components, volume-compliance links**
+- Pearson, Spearman, Kendall, Distance correlation with p-values
+- Cramér's V for categorical associations (agency × disposition, shift × priority)
+- Partial correlations controlling for confounders (priority, agency)
+- Group-wise correlations (by agency, shift, priority) with Fisher r-to-z comparisons
+- **Bayesian**: LKJ prior correlation matrix with full posterior HDIs
 
-| File | Description | Rows × Cols |
-|------|-------------|-------------|
-| `IndyMo_incidents.csv` | Individual incident records (2026-08-10 → 2026-08-16) | 1,082 × 48 |
-| `IndyMo_hourly_call_counts.csv` | Hourly call volume aggregation | 168 × 22 |
+### 4. Regression Analysis
+**Predicting outcomes — response times, compliance rates, volume forecasts**
+- Gamma GLM (log link) for skewed response times
+- Quantile regression (0.1, 0.5, 0.9, 0.95, 0.99) for tail behavior
+- Mixed effects models: random intercepts for shift, calltaker
+- Negative Binomial for count data, Beta regression for compliance proportions
+- **Bayesian**: Bambi GLMs (brms equivalent), Bayesian mixed effects with ICC
 
-## Performance Standards
+### 5. Hypothesis Testing
+**Checking statistical significance — standards compliance, group differences, trends**
+- NENA/APCO/NFPA binomial tests (one-sample, exact)
+- Kruskal-Wallis + Dunn post-hoc for group comparisons
+- Cliff's delta effect sizes for non-parametric data
+- Mann-Kendall trend tests with Sen's slope
+- Equivalence testing (TOST) for shift comparisons
+- **Bayesian**: ROPE-based compliance decisions, BEST group comparison, posterior probabilities
 
-| Standard | Metric | Target |
-|----------|--------|--------|
-| NENA | Answer time | 90% ≤ 15s, 95% ≤ 20s |
-| APCO | Answer time | 90% ≤ 20s, 75% ≤ 10s |
-| NFPA 1710 | Alarm processing | 64s (90th), 106s (95th) |
-| NFPA 1710 | Turnout time | 60s (90th), 80s (95th) |
-| NFPA 1710 | Travel time | 240s (90th) |
+### 6. Time Series Analysis
+**Spotting trends and seasonality — circadian patterns, forecasting, change points**
+- STL decomposition (trend, seasonal, residual)
+- SARIMA, Holt-Winters, Prophet forecasting
+- Change point detection (ruptures, Bayesian online CPD)
+- Bayesian Structural Time Series (BSTS) with local linear trend + Fourier seasonality
+- Forecast evaluation (MAE, RMSE, MAPE) with prediction intervals
+
+### 7. Cohort Analysis
+**Comparing groups over time — calltaker learning curves, agency retention, shift cohorts**
+- Calltaker experience cohorts (weeks since first shift) with learning curves
+- Agency volume retention (week-over-week)
+- Shift cohort performance trajectories
+- Hierarchical Bayesian cohort models with partial pooling
+
+### 8. Funnel Analysis
+**Finding drop-off points — dispatch pipeline, time allocation, compliance stages**
+- Incident processing funnel (Received → Picked Up → Interview → Dispatched → Enroute → Arrived → Closed)
+- Time funnel (median/P90 at each stage with cumulative totals)
+- Compliance funnel (NENA/NFPA standards at each stage with PASS/FAIL)
+- Priority/agency/shift segmented funnels
+- **Bayesian**: Beta-Binomial conversion rates with posterior stage uncertainty
+
+### 9. Cluster Analysis
+**Discovering groups — incident archetypes, hour templates, calltaker profiles**
+- Incident archetypes (K-means, GMM, Hierarchical, DBSCAN on time components)
+- Hourly pattern clusters for shift scheduling templates
+- Calltaker performance clusters (Gaussian Mixture with soft assignments)
+- **Bayesian**: Dirichlet Process GMM for infinite mixture clustering
+
+### 10. Principal Component Analysis (PCA)
+**Condensing variables — Response Time Index, Compliance PC, Volume PCs**
+- Full PCA with loadings interpretation, biplots, variance decomposition
+- Sparse PCA for interpretable components
+- Principal Component Regression (PCR) with Ridge regularization
+- **Bayesian**: Probabilistic PCA (PPCA) with ARD for component relevance
+
+### 11. Causal Inference
+**Estimating effects of changes — protocol changes, staffing, priority assignments**
+- Difference-in-Differences (DiD) with parallel trends check
+- Interrupted Time Series (ITS) for policy interventions
+- Propensity Score Matching (PSM) for priority effects
+- Regression Discontinuity Design (RDD) for staffing thresholds
+- **Bayesian**: Full posterior for DiD/ITS/PSM with credible intervals
+
+### 12. Text Analysis
+**Pulling themes from text — problem nature categorization, disposition quality, location analysis**
+- Problem nature n-gram analysis (bigrams, trigrams)
+- Semantic categorization (Medical/Fire/Law Enforcement/Other)
+- Call disposition quality audit (UNDEFINED rates by shift/calltaker/agency)
+- Street/address extraction for hotspot identification
+- **Bayesian**: LDA topic modeling template (for narrative text)
+
+---
 
 ## Project Structure
 
 ```
-DMA_reporting_engine_1/
-├── data/                          # Source data (read-only)
-│   ├── IndyMo_incidents.csv
-│   └── IndyMo_hourly_call_counts.csv
-├── agents/                        # AI agent definitions
-│   ├── README.md                  # Agent overview and usage
-│   ├── executive_staff_agent.md   # Executive audience agent
-│   ├── operational_management_agent.md  # Middle management agent
-│   ├── shift_supervisor_agent.md  # Shift supervisor agent
-│   └── analyst_researcher_agent.md # Data scientist agent
-├── palettes/                      # Visualization brand colors
-│   ├── common/
-│   │   └── palette.json           # Single source of truth
-│   ├── python/dma_palette/
-│   ├── r/
-│   ├── julia/
-│   └── sql/
-├── python/                        # Python analysis code
-├── R/                             # R analysis code
-├── julia/                         # Julia analysis code
-├── docs/                          # Documentation
-├── base.ipynb                     # Scaffold notebook (EDA)
-├── PYTHON.md                      # Python analysis specification
-├── R.md                           # R analysis specification
-├── JULIA.md                       # Julia analysis specification
-├── SQL.md                         # SQL/duckdb/ggsql specification
-├── TODO.md                        # Task tracking
-├── CHANGELOG.md                   # Version history
-├── pyproject.toml                 # Python dependencies
-└── README.md                      # This file
+Reporting Engine/
+├── README.md                                    # This file
+├── 12_Analysis_Types_From_LinkedIn_Post.md      # Initial analysis mapping
+├── 12_Analysis_Types_Deep_Dive_Bayesian.md      # Comprehensive deep dive (this doc)
+├── AGENTS.md                                    # Agent definitions for 4 audiences
+├── Statistical Tests and Comparative Analyses.md # Reference for tests
+├── PYTHON.md                                    # Python library specifications
+├── Analyses Performed.md                        # Log of completed analyses
+├── TODO.md                                      # Task tracking
+├── oz_test_incidents.csv                        # Incident data (1000+ rows)
+├── oz_test_hourly_call_counts.csv               # Hourly call data (168 rows)
+├── agents/
+│   ├── README.md
+│   ├── executive_staff_agent.md
+│   ├── operational_management_agent.md
+│   ├── shift_supervisor_agent.md
+│   └── analyst_researcher_agent.md
+└── notebooks/
+    ├── 00_master_analysis_pipeline.ipynb        # Complete end-to-end pipeline
+    ├── 01_descriptive_eda_bayesian.ipynb        # Descriptive + EDA + Bayesian
+    ├── 02_correlation_regression_bayesian.ipynb # Correlation + Regression + Bayesian
+    ├── 03_timeseries_hypothesis_causal.ipynb    # Time Series + Hypothesis + Causal
+    └── 04_clustering_pca_text.ipynb             # Clustering + PCA + Text
 ```
+
+---
 
 ## Quick Start
 
-### Python
-
+### Prerequisites
 ```bash
-# Install dependencies
-uv sync
-
-# Run EDA notebook
-jupyter lab base.ipynb
+# Core
+pip install pandas numpy scipy statsmodels pingouin scikit-posthocs
+# Visualization
+pip install plotnine matplotlib seaborn missingno
+# ML/Clustering
+pip install scikit-learn
+# Bayesian
+pip install pymc arviz bambi
+# Time Series
+pip install prophet statsforecast  # optional
 ```
 
-```python
-import pandas as pd
-import plotnine as p9
-import sys
-sys.path.insert(0, 'palettes/python')
-import dma_palette as dma
-
-# Load data
-incidents = pd.read_csv('data/IndyMo_incidents.csv', parse_dates=['call_received_datetime'])
-
-# Demand curve (grammar of graphics)
-(p9.ggplot(incidents, p9.aes(x='call_received_datetime'))
- + p9.geom_histogram(bins=168, fill=dma.DMA_BLUE)
- + p9labs(title='Weekly Demand Curve', x='Time', y='Incidents')
- + dma.theme_dma())
+### Run Master Pipeline
+```bash
+cd Reporting Engine/notebooks
+jupyter notebook 00_master_analysis_pipeline.ipynb
 ```
 
-### R
+### Run Individual Notebooks
+```bash
+# Descriptive stats, EDA, Bayesian compliance
+jupyter notebook 01_descriptive_eda_bayesian.ipynb
 
-```r
-source("palettes/r/dma_palette.R")
-source("R/ingest.R")
-source("R/standards.R")
+# Correlation matrices, GLMs, Bayesian mixed models
+jupyter notebook 02_correlation_regression_bayesian.ipynb
 
-library(ggplot2)
-library(dplyr)
+# STL, forecasting, BSTS, hypothesis tests, DiD/ITS/PSM/RDD
+jupyter notebook 03_timeseries_hypothesis_causal.ipynb
 
-incidents <- ingest_incidents("data/IndyMo_incidents.csv")
-
-ggplot(incidents, aes(x = call_received_datetime)) +
-  geom_histogram(bins = 168, fill = dma_qualitative(1)[1]) +
-  labs(title = "Weekly Demand Curve", x = "Time", y = "Incidents") +
-  theme_minimal()
+# Clustering, PCA, text analysis
+jupyter notebook 04_clustering_pca_text.ipynb
 ```
 
-### Julia
+---
 
-```julia
-include("julia/ingest.jl")
-include("julia/standards.jl")
-include("palettes/julia/DMA_Palettes.jl")
+## Standards Reference
 
-using .DMA_Palettes, DataFrames, AlgebraOfGraphics, CairoMakie
+| Standard | Metric | Target | Data Column |
+|----------|--------|--------|-------------|
+| **NENA-STA-020.1** | 9-1-1 Answered ≤10s | 90% | `nine_one_one_answered_10s_pct` |
+| **NENA-STA-020.1** | 9-1-1 Answered ≤15s | 95% | `nine_one_one_answered_15s_pct` |
+| **NENA-STA-020.1** | 9-1-1 Answered ≤20s | 95% | `nine_one_one_answered_20s_pct` |
+| **APCO ANS 3.101** | 9-1-1 Answered ≤10s | 75% | `nine_one_one_answered_10s_pct` |
+| **NFPA 1710** | Dispatch Queue ≤64s | 90% | `dispatch_queue_seconds` |
+| **NFPA 1710** | Dispatch Queue ≤106s | 95% | `dispatch_queue_seconds` |
+| **NFPA 1710** | EMS Turnout ≤60s | 90% | `turnout_seconds` (EMS) |
+| **NFPA 1710** | Fire Turnout ≤80s | 90% | `turnout_seconds` (FIRE) |
+| **NFPA 1710** | Travel ≤240s | 90% | `travel_seconds` |
 
-incidents = ingest_incidents("data/IndyMo_incidents.csv")
+---
+
+## Key Bayesian Innovations
+
+1. **ROPE-based Compliance Decisions** — Instead of binary pass/fail, compute `P(rate > target)` with Region of Practical Equivalence
+2. **BEST Group Comparison** — Robust t-distribution for heavy-tailed response times, effect size posteriors
+3. **BSTS Forecasting** — Structural decomposition with full prediction intervals
+4. **Dirichlet Process Clustering** — Infinite mixture models for incident archetypes
+5. **Bayesian Causal Inference** — Full posteriors for DiD, ITS, PSM, RDD estimates
+6. **Probabilistic PCA** — Automatic relevance determination for component selection
+
+---
+
+## Output Examples
+
+### Executive Summary (Auto-generated)
+```
+WEEKLY 9-1-1 EXECUTIVE SUMMARY
+==============================
+Total 9-1-1 Calls: 1,247
+Total Incidents: 1,082
+NENA 15s Compliance: 90.4% (Target: 90%) ✅
+NENA 20s Compliance: 94.2% (Target: 95%) ❌
+NFPA Dispatch Queue P90: 71s (Target: ≤64s) ❌
+NFPA EMS Turnout P90: 58s (Target: ≤60s) ✅
+NFPA Fire Turnout P90: 83s (Target: ≤80s) ❌
+NFPA Travel P90: 234s (Target: ≤240s) ✅
 ```
 
-### SQL (duckdb + ggsql)
-
-```sql
-INSTALL json; LOAD json;
-READ 'palettes/sql/dma_palette.sql';
-
--- Query with brand colors
-SELECT
-    DATE_TRUNC('hour', call_received_datetime) AS hour,
-    COUNT(*) AS incident_count,
-    CASE
-        WHEN COUNT(*) > 25 THEN '#C40000'  -- error
-        WHEN COUNT(*) > 15 THEN '#E88800'  -- warning
-        ELSE '#009933'                      -- success
-    END AS bar_color
-FROM read_csv_auto('data/IndyMo_incidents.csv')
-GROUP BY 1
-ORDER BY 1;
+### Operational Alert (Failed Standards)
+```
+OPERATIONAL: FAILED STANDARDS
+==================================================
+  NENA 20s Compliance: 94.2% (Target: 95%) - GAP: -0.8%
+  NFPA Dispatch Queue P90: 71s (Target: ≤64s) - GAP: +7s
+  NFPA Fire Turnout P90: 83s (Target: ≤80s) - GAP: +3s
 ```
 
-## Analysis Specifications
+### Shift Supervisor Personnel Alerts
+```
+SHIFT SUPERVISOR: PERSONNEL ALERTS
+==================================================
+Calltaker Outliers:
+  calltaker    n  median_pickup  median_interview  median_total  pct_undef
+  Smith,J         23            8               145           892       12.5
+  Jones,R         18           15               210          1105       18.3
 
-Each language has a detailed specification document:
-
-| Document | Sections | Description |
-|----------|----------|-------------|
-| `PYTHON.md` | 14 | Python stack, plotnine GoG, statsmodels, scikit-learn |
-| `R.md` | 14 | Tidyverse/ggplot2, broom, caret, survival |
-| `JULIA.md` | 14 | DataFrames.jl, AlgebraOfGraphics, Survival.jl |
-| `SQL.md` | 14 | duckdb analytics, ggsql visualization |
-
-### Key Analyses
-
-**Exploratory Data Analysis (EDA)**
-- Demand curve (hourly histogram)
-- Day-of-week patterns
-- Shift performance comparison
-- Call type distribution
-- Response time distributions
-- Geographic heatmap
-
-**Advanced Analytics**
-- NENA/NFPA 1710 compliance testing
-- Survival analysis (time-to-event)
-- Queueing theory (M/M/c models)
-- Mixed-effects modeling (shift random effects)
-- STL decomposition + ARIMA/ETS forecasting
-- Process capability (Cp, Cpk)
-- Control charts (X-bar, R)
-- Spatial hotspot analysis (Getis-Ord Gi*)
-- Pareto analysis (80/20 rule)
-- Outlier detection (IQR, DBSCAN)
-
-## Palettes
-
-All visualization colors are managed through `palettes/common/palette.json`:
-
-```python
-# Python
-dma.get_palette("qualitative", n=8)
-dma.get_palette("Blues", n=9)
-
-# R
-dma_qualitative(8)
-dma_sequential("Blues", 9)
-
-# Julia
-qualitative(8)
-sequential("Blues", 9)
+Dispatcher Outliers:
+  dispatcher    n  median_queue  median_turnout  median_travel
+  Brown,K         31           245              120           345
 ```
 
-**Brand Colors:**
-| Color | Hex | Use |
-|-------|-----|-----|
-| Blue | `#0077CC` | Primary brand |
-| Teal | `#00B3B3` | Secondary accent |
-| Error | `#FF1A1A` | Errors, critical |
-| Warning | `#FF9F00` | Warnings, caution |
-| Success | `#00B33B` | Success, positive |
+### Analyst Key Findings
+```
+ANALYST: KEY FINDINGS
+==================================================
+1. Dispatch Queue ↔ Travel: ρ = 0.342 (Spearman)
+2. All time components HIGHLY SKEWED (skew 2.1-4.8) — use Gamma/LogN
+3. Incident Clusters: K=4 archetypes (Fast Medical, Slow Fire, Complex Multi-Agency, Routine Law)
+4. Response Time Index (PC1): 67.3% variance — single KPI for dashboards
+5. Bayesian DiD (simulated protocol): estimate=-0.023, p=0.12 (no significant effect)
+```
 
-## Dependencies
+---
 
-### Python
-- duckdb, plotnine, pandas, numpy, scipy
-- statsmodels, scikit-learn, hierarchicalforecast
-- matplotlib, seaborn, pydantic
+## Extending the Framework
 
-### R
-- tidyverse, ggplot2, broom, lubridate
-- pointblank (data validation)
+### Adding New Analyses
+1. Create new notebook in `notebooks/` following the pattern
+2. Add frequentist + Bayesian implementations
+3. Include audience-specific outputs
+4. Document in `Analyses Performed.md`
 
-### Julia
-- DataFrames.jl, CSV.jl, Statistics
-- AlgebraOfGraphics.jl, CairoMakie.jl
+### Adding New Data Sources
+- Follow the feature engineering pattern in notebooks
+- Maintain column naming conventions
+- Update standards mapping if needed
 
-### SQL
-- duckdb, json extension
+### Adding New Audiences
+- Create new agent definition in `agents/`
+- Define specific output formats
+- Add audience column to analysis summary tables
 
-## TODO
+---
 
-See [TODO.md](Reporting%20Engine/TODO.md) for the full task list.
+## Contributing
 
-## License
+1. All analyses must include both frequentist and Bayesian versions
+2. Code must be runnable with the provided data
+3. Outputs must be mapped to at least one target audience
+4. Standards compliance checks required for operational metrics
+5. Document assumptions and limitations in each notebook
 
-Dunsworth, Mann, and Associates, LLC
+---
+
+## License & Attribution
+
+**Data**: Synthetic 9-1-1 dispatch data for demonstration purposes  
+**Analysis Types**: Based on Dawn Choo's LinkedIn post "12 types of data analysis everyone should know"  
+**Standards**: NENA-STA-020.1, APCO ANS 3.101, NFPA 1710 (referenced for compliance targets)
+
+---
+
+*Last updated: November 2026*  
+*Framework version: 1.0*

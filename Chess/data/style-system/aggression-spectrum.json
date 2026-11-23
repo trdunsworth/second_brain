@@ -1,0 +1,271 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "Aggression spectrum system for style selection and switching"
+  },
+  "spectrum": [
+    {
+      "level": 0,
+      "name": "Ultra-Solid",
+      "alias": "Petrosian/Karpov",
+      "description": "Prophylaxis, restriction, zero risk, squeeze wins from nothing",
+      "corePhilosophy": "Don't lose. Opponent will make a mistake. Squeeze.",
+      "openingChoice": "Most solid lines only (London, Caro-Kann, Slav, Berlin)",
+      "middlegameApproach": [
+        "Prevent opponent's plans before they exist",
+        "Accumulate microscopic advantages",
+        "Trade into winning endgames",
+        "Never create weaknesses",
+        "King safety paramount"
+      ],
+      "endgameApproach": [
+        "Technique over tricks",
+        "Known theoretical wins only",
+        "Convert methodically",
+        "Drawish endings = success if worse"
+      ],
+      "riskTolerance": 0,
+      "timeUsage": "Conservative, save time for endgame",
+      "psychological": "Frustrates tactical players, induces errors",
+      "bestAgainst": ["Tactical players", "Higher rated", "Must-not-lose situations"],
+      "worstAgainst": ["Solid players", "Time trouble (yours)", "Need-win situations"],
+      "keySkills": ["Prophylaxis", "Endgame technique", "Structure evaluation", "Patience"],
+      "trainingFocus": ["Petrosian games", "Karpov games", "Theoretical endgames", "Prophylaxis drills"]
+    },
+    {
+      "level": 15,
+      "name": "Solid",
+      "alias": "Kramnik/Ding",
+      "description": "Principled, flexible, minimal risk, classical technique",
+      "corePhilosophy": "Play sound chess. Small edges become wins.",
+      "openingChoice": "Solid main lines (London, Italian Giuoco Piano, Caro-Kann, Slav, QGD)",
+      "middlegameApproach": [
+        "Classical development, harmonious pieces",
+        "Create and exploit weaknesses systematically",
+        "Prophylactic measures standard",
+        "Transition to favorable endings",
+        "King safety first"
+      ],
+      "endgameApproach": [
+        "Excellent technique",
+        "Favorable simplifications",
+        "Practical winning chances"
+      ],
+      "riskTolerance": 10,
+      "timeUsage": "Balanced",
+      "psychological": "Reliable, hard to crack, consistent",
+      "bestAgainst": ["Most opponents", "Tournament play", "Classical time controls"],
+      "worstAgainst": ["Super-prepared book opponents", "Wild positions"],
+      "keySkills": ["Classical technique", "Structure play", "Endgames", "Opening prep"],
+      "trainingFocus": ["Kramnik games", "Ding Liren games", "Classical middlegames", "Opening repertoire"]
+    },
+    {
+      "level": 35,
+      "name": "Classical",
+      "alias": "Capablanca/Anand/Carlsen",
+      "description": "Principled, flexible, best practical chances, universal",
+      "corePhilosophy": "Best move in position. Style adapts to position.",
+      "openingChoice": "Main lines (Italian, Ruy Lopez, QGD, Nimzo, 1...e5)",
+      "middlegameApproach": [
+        "Follow position's demands",
+        "Seize initiative when offered",
+        "Solid defense when needed",
+        "Flexible piece play",
+        "King safety balanced with activity"
+      ],
+      "endgameApproach": [
+        "World-class technique",
+        "Convert any advantage",
+        "Defend difficult positions"
+      ],
+      "riskTolerance": 30,
+      "timeUsage": "Adaptive",
+      "psychological": "No weaknesses, unpredictable, high practical score",
+      "bestAgainst": ["Everyone", "All time controls", "Match play"],
+      "worstAgainst": ["Specialists in your lines (if predictable)"],
+      "keySkills": ["Universal", "Calculation", "Intuition", "Endgames", "All openings"],
+      "trainingFocus": ["Capablanca", "Carlsen", "Anand", "Model games all styles", "Calculation"]
+    },
+    {
+      "level": 55,
+      "name": "Active",
+      "alias": "Kasparov/Fischer/Nakamura",
+      "description": "Seize initiative, create problems, dynamic compensation",
+      "corePhilosophy": "Make opponent solve problems. Activity > material.",
+      "openingChoice": "Active lines (Scotch, Sicilian, KID, Grünfeld, Benoni)",
+      "middlegameApproach": [
+        "Create threats every move",
+        "Sacrifice pawns for initiative",
+        "Piece activity paramount",
+        "Prophylaxis secondary to forcing play",
+        "King safety: attack is best defense"
+      ],
+      "endgameApproach": [
+        "Avoid trades, keep tension",
+        "Rook on 7th > pawn",
+        "Dynamic compensation",
+        "King walks"
+      ],
+      "riskTolerance": 60,
+      "timeUsage": "Invest early for initiative",
+      "psychological": "Puts maximum pressure, forces errors, exciting",
+      "bestAgainst": ["Passive players", "Lower rated", "Time trouble (theirs)", "Must-win"],
+      "worstAgainst": ["Solid defenders", "Booked-up opponents", "Classical time (yours low)"],
+      "keySkills": ["Calculation", "Initiative", "Dynamic play", "Sacrifices", "Time management"],
+      "trainingFocus": ["Kasparov", "Fischer", "Nakamura", "Tactics", "Gambits", "Initiative drills"]
+    },
+    {
+      "level": 75,
+      "name": "Aggressive",
+      "alias": "Tal/Shirov/Topalov",
+      "description": "Sacrificial, complications, psychological pressure, practical",
+      "corePhilosophy": "Chaos favors the prepared. Sacrifice for attack.",
+      "openingChoice": "Sharp lines (Evans, King's Gambit, Winawer, Benko, Benoni, Dutch)",
+      "middlegameApproach": [
+        "Speculative sacrifices",
+        "Opposite-side castling races",
+        "King hunts",
+        "Intuition over calculation",
+        "Time pressure weapon"
+      ],
+      "endgameApproach": [
+        "No endgames! Mate or perpetual",
+        "King as attacking piece",
+        "Desperate tricks"
+      ],
+      "riskTolerance": 85,
+      "timeUsage": "Burn time creating problems",
+      "psychological": "Intimidating, exhausting for defender, high variance",
+      "bestAgainst": ["Unprepared", "Weak defenders", "Psychologically fragile", "Blitz/rapid", "Must-win"],
+      "worstAgainst": ["Calm defenders", "Theoretical experts", "Classical time", "Tournament leaders"],
+      "keySkills": ["Tactical vision", "Intuition", "Sacrifices", "Psychology", "Blitz skills"],
+      "trainingFocus": ["Tal", "Shirov", "Topalov", "Tactics", "Attacking games", "Intuition training"]
+    },
+    {
+      "level": 95,
+      "name": "Wild/Sharp",
+      "alias": "Morphy/Online Blitz/Neiksans",
+      "description": "Maximum chaos, offbeat, surprise, entertainment",
+      "corePhilosophy": "Take them out of book. Chaos = opportunity.",
+      "openingChoice": "Offbeat/Offbeat (From's, Borg, Grob, St. George, Englund, Danish)",
+      "middlegameApproach": [
+        "Computer lines, tactical melee",
+        "Psychological disruption",
+        "No principles, only calculation",
+        "Flagging tactics"
+      ],
+      "endgameApproach": "N/A - game decided earlier",
+      "riskTolerance": 100,
+      "timeUsage": "All-in early",
+      "psychological": "Maximum surprise, opponent confused, high entertainment",
+      "bestAgainst": ["Blitz/bullet", "Unprepared", "Psychological disruption", "Streaming/fun"],
+      "worstAgainst": ["Serious classical", "Prepared opponents", "GMs"],
+      "keySkills": ["Tactics", "Offbeat knowledge", "Psychology", "Speed"],
+      "trainingFocus": ["Blitz/bullet", "Offbeat openings", "Tactics", "Fun"]
+    }
+  ],
+  "styleSelector": {
+    "preGame": {
+      "questions": [
+        "What's the tournament situation? (must-win, must-not-lose, normal)",
+        "Opponent style? (tactical, positional, solid, unknown)",
+        "Opponent rating relative to me? (higher, similar, lower)",
+        "Time control? (classical, rapid, blitz)",
+        "My current form? (sharp, tired, confident, rusty)",
+        "Opening preparation? (deep, shallow, none)",
+        "Psychological state? (calm, anxious, aggressive, defensive)"
+      ],
+      "scoring": {
+        "tournamentMustWin": +20,
+        "tournamentMustNotLose": -20,
+        "opponentTactical": -10,
+        "opponentPositional": +10,
+        "opponentSolid": -5,
+        "opponentUnknown": 0,
+        "opponentHigherRated": -15,
+        "opponentLowerRated": +15,
+        "classicalTime": -10,
+        "rapidTime": 0,
+        "blitzTime": +15,
+        "formSharp": +10,
+        "formTired": -15,
+        "formConfident": +10,
+        "formRusty": -10,
+        "prepDeep": +10,
+        "prepShallow": 0,
+        "prepNone": -10,
+        "psychCalm": 0,
+        "psychAnxious": -10,
+        "psychAggressive": +15,
+        "psychDefensive": -15
+      },
+      "baseline": 35,
+      "finalRange": "clamp(baseline + sum(scores), 0, 100)"
+    },
+    "inGame": {
+      "triggers": [
+        {
+          "situation": "Opening went well, advantage",
+          "adjustment": -10,
+          "reason": "Convert solidly"
+        },
+        {
+          "situation": "Opening went poorly, worse position",
+          "adjustment": +15,
+          "reason": "Complicate, create chances"
+        },
+        {
+          "situation": "Opponent playing passively",
+          "adjustment": +10,
+          "reason": "Seize initiative"
+        },
+        {
+          "situation": "Opponent playing sharply",
+          "adjustment": -10,
+          "reason": "Solidify, don't walk into prep"
+        },
+        {
+          "situation": "Time trouble (mine low)",
+          "adjustment": -15,
+          "reason": "Simplify, avoid calculation"
+        },
+        {
+          "situation": "Time trouble (opponent low)",
+          "adjustment": +15,
+          "reason": "Complicate, create decisions"
+        },
+        {
+          "situation": "Must-win situation late tournament",
+          "adjustment": +20,
+          "reason": "All-out"
+        },
+        {
+          "situation": "Comfortable draw secures prize",
+          "adjustment": -20,
+          "reason": "Solid draw"
+        }
+      ]
+    }
+  },
+  "repertoireMapping": {
+    "white": {
+      "0-20": ["white-solid", "white-solid-1c4"],
+      "21-40": ["white-classical-1e4", "white-solid", "white-solid-1c4"],
+      "41-60": ["white-active-1e4", "white-classical-1e4", "white-solid-1c4"],
+      "61-80": ["white-aggressive-1e4", "white-active-1e4", "white-classical-1e4"],
+      "81-100": ["white-wild-1e4", "white-aggressive-1e4"]
+    },
+    "black": {
+      "0-20": ["black-solid-1e4", "black-solid-1d4"],
+      "21-40": ["black-classical-1e4", "black-solid-1e4", "black-solid-1d4"],
+      "41-60": ["black-active-1e4", "black-active-1d4", "black-classical-1e4"],
+      "61-80": ["black-aggressive-1e4", "black-aggressive-1d4", "black-active-1e4"],
+      "81-100": ["black-wild", "black-aggressive-1e4", "black-aggressive-1d4"]
+    }
+  },
+  "transitionGuidance": {
+    "openingToMiddlegame": "Assess position type -> select theme from themes.json aggressionThemeMap",
+    "middlegameToEndgame": "Use practical.json transition-decisions with aggressionMod",
+    "styleShiftMidGame": "Only shift 1-2 levels per phase. Drastic shifts = inconsistency."
+  }
+}

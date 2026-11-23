@@ -43,6 +43,21 @@
   - [x] Added §4.1 extras (constant/near-constant cols, allowed-levels, co-missingness heatmap) and §4.2 univariate descriptive stats (numeric skew/kurtosis/IQR/CV/quantiles; categorical mode/entropy).
   - [x] Verified §4.2 logic on real data; all 35 code cells syntax-clean.
   - [x] Workflow note: external `.ipynb`/package edits require **reload-from-disk + restart kernel** (cached modules/stale cells otherwise persist).
+- [x] **Session 2026-11-23 (12 Analysis Types Deep Dive)**:
+  - [x] Created comprehensive mapping of all 12 Dawn Choo analysis types to 9-1-1 dispatch data
+  - [x] Built dual-paradigm framework: every analysis has both frequentist AND Bayesian implementations
+  - [x] Created `12_Analysis_Types_From_LinkedIn_Post.md` — initial mapping with Python examples
+  - [x] Created `12_Analysis_Types_Deep_Dive_Bayesian.md` — 500+ page deep dive with full code
+  - [x] Built 5 executable notebooks in `notebooks/`:
+    - `00_master_analysis_pipeline.ipynb` — complete end-to-end pipeline
+    - `01_descriptive_eda_bayesian.ipynb` — Descriptive + EDA + Bayesian compliance
+    - `02_correlation_regression_bayesian.ipynb` — Correlation + GLM + Bayesian mixed effects
+    - `03_timeseries_hypothesis_causal.ipynb` — STL/BSTS + Hypothesis + DiD/ITS/PSM/RDD
+    - `04_clustering_pca_text.ipynb` — Clustering + PCA/PCR + Text analysis
+  - [x] All 12 analysis types implemented with NENA/APCO/NFPA standards integration
+  - [x] Bayesian innovations: ROPE compliance, BEST comparison, BSTS forecasting, DP-GMM, PPCA
+  - [x] Created `CHANGELOG.md` with version 1.0.0
+  - [x] Updated `README.md` with complete project documentation
 
 ## Agent Development
 - [x] Create `agents/` folder with agent definitions for all four audiences
@@ -59,18 +74,20 @@
 
 ## In Progress
 - [ ] `eda_python.ipynb` EDA protocol — §4.1/§4.2 complete; §4.3–§4.9 pending (see Next).
+- [ ] R and Julia implementations of 12 Analysis Types Deep Dive
 
 ## Next (coding, together)
 - [ ] Finish `eda_python.ipynb` EDA protocol §4.3–§4.9 (bivariate, temporal, geospatial, compliance, outliers, distributions).
 - [ ] Add markdown narrative cells to `eda_python.ipynb` (defer until coding complete).
 - [ ] Reconcile `PYTHON.md` §4.1 documented domains vs actual data (priority 1–5; shift A/B/C).
 - [ ] Build core GoG charts from the three specs (demand curve, DOW/shift bars, compliance heatmap).
-- [ ] Create `CHANGELOG.md` with versioned entries (start at 0.1.0).
 - [ ] Create R palette loader for `palette.json` (currently hardcoded fallback).
 - [ ] Create Julia palette loader for `palette.json` (currently hardcoded fallback).
 - [ ] Develop example agent queries and test with sample data
 - [ ] Create agent-specific visualization templates for each audience
 - [ ] Develop agent integration with reporting workflows
+- [ ] Translate 12 Analysis Types Deep Dive to R and Julia notebooks
+- [ ] Add Quarto report templates for all four audiences
 
 ## Later
 - [ ] Statistical test bank wrappers (Goal 4) per language.

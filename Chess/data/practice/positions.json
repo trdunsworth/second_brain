@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "Curated practice positions for each theme and aggression level"
+  },
+  "positionSets": [
+    {
+      "id": "set-center-control",
+      "theme": "center-control",
+      "name": "Center Control & Pawn Structures",
+      "positions": [
+        {
+          "fen": "r1bq1rk1/pp2ppbp/2np1np1/3P4/2P1P3/2N2N2/PP3PPP/R1BQ1RK1 w - - 0 1",
+          "description": "IQP position - White has isolated d-pawn, Black blockades",
+          "task": "Find White's best plan. Should White play for e4 break or maneuver?",
+          "aggressionMap": {
+            "0-20": "Solidify, avoid trades, prepare e4 carefully",
+            "21-40": "Classical: Nf3, Be2, 0-0, prepare e4",
+            "41-60": "Active: immediate e4, piece play",
+            "61-80": "Sacrifice on e4 or d5 for attack",
+            "81-100": "Wild piece sacrifice"
+          },
+          "solution": "e4! with idea of e5, Ne5, piece activity. Solid: prepare with Re1, Bf3 first.",
+          "modelGame": "Karpov vs Unzicker, 1974"
+        },
+        {
+          "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/2PPP3/2N2N2/PP3PPP/R1BQ1RK1 w - - 0 1",
+          "description": "Hanging pawns (c4/d4) - dynamic but vulnerable",
+          "task": "White to play. How to handle hanging pawns?",
+          "aggressionMap": {
+            "0-20": "Consolidate: Nf3, Be2, 0-0, avoid breaks",
+            "21-40": "Classical: develop, wait for Black's commitment",
+            "41-60": "Active: c5 or d5 break when ready",
+            "61-80": "Push pawns! c5/d5 for attack",
+            "81-100": "Sacrifice pawn for open lines"
+          },
+          "solution": "Development first. Break timing critical. c5 vs d5 depends on Black's setup.",
+          "modelGame": "Kasparov vs Karpov, 1985 (Game 16)"
+        },
+        {
+          "fen": "rnbq1rk1/pp2ppbp/3p1np1/2pP4/2P1P3/2N2N2/PP3PPP/R1BQ1RK1 w - - 0 1",
+          "description": "Fixed center (French-like) - White space, Black ...c5/...f6 breaks",
+          "task": "White to play. Space advantage - how to use it?",
+          "aggressionMap": {
+            "0-20": "Squeeze: Nf3, Be2, 0-0, Qd2, prevent breaks",
+            "21-40": "Classical: develop, control breaks, maneuver",
+            "41-60": "Active: prepare f4/f5 or queenside play",
+            "61-80": "Kingside attack: f4, g4, h4",
+            "81-100": "Sacrifice on f5/f6"
+          },
+          "solution": "Prevent ...c5 and ...f6. Maneuver knights to e5/f4. Space = time.",
+          "modelGame": "Petrosian vs Spassky, 1966"
+        }
+      ]
+    },
+    {
+      "id": "set-piece-activity",
+      "theme": "piece-activity",
+      "name": "Piece Activity & Coordination",
+      "positions": [
+        {
+          "fen": "2r3k1/1b2qppp/p2p1n2/4p3/3P4/1BQ1PN2/PP3PPP/3R1RK1 w - - 0 1",
+          "description": "Bad bishop vs good knight - White's light bishop blocked",
+          "task": "White to play. Improve worst piece (Bc1).",
+          "aggressionMap": {
+            "0-20": "Trade bishop: Bxf6 or Bd2-e1-g3",
+            "21-40": "Maneuver: Bd2, Re1, Bf1, Bg2",
+            "41-60": "Active: sacrifice pawn to free bishop",
+            "61-80": "Ignore bishop, attack with pieces",
+            "81-100": "Sacrifice bishop for attack"
+          },
+          "solution": "Bd2! preparing Bf1-g2 or trade on f6. Don't leave bad bishop.",
+          "modelGame": "Karpov vs various"
+        },
+        {
+          "fen": "3r1rk1/1b2qppp/p2pbn2/4p3/3P4/2N1PN2/PPQ1BPPP/3R1RK1 w - - 0 1",
+          "description": "Outpost on d5 - White knight vs Black bishop",
+          "task": "White to play. Establish knight on d5.",
+          "aggressionMap": {
+            "0-20": "Solid: Nf3-d4, prepare c3, overprotect",
+            "21-40": "Classical: Nf3-d4, c3, Bc2, overprotect",
+            "41-60": "Active: immediate Nd4, sacrifice pawn for outpost",
+            "61-80": "Sacrifice to create outpost",
+            "81-100": "Wild piece play"
+          },
+          "solution": "Nf3-d4! with c3 support. Knight on d5 dominates.",
+          "modelGame": "Petrosian vs Bronstein, 1956"
+        }
+      ]
+    },
+    {
+      "id": "set-king-attack",
+      "theme": "king-safety-attack",
+      "name": "King Safety & Attacking",
+      "positions": [
+        {
+          "fen": "r2q1rk1/pp2bppp/2np1n2/3Pp3/2P1P3/2N1BN2/PP1Q1PPP/R4RK1 w - - 0 1",
+          "description": "Greek Gift sacrifice - Bxh7+ possible?",
+          "task": "White to play. Does Bxh7+ work? Calculate.",
+          "aggressionMap": {
+            "0-20": "Don't sacrifice. Solid play.",
+            "21-40": "Calculate deeply. Only if forced win.",
+            "41-60": "Bxh7+! if calculation confirms.",
+            "61-80": "Bxh7+! Practical chances.",
+            "81-100": "Bxh7+!! Intuition."
+          },
+          "solution": "Bxh7+! Kxh7 Ng5+ Kg6 Qg4+ Kh7 Qf4+ Kg7 Qg4+ perpetual or win. Calculate!",
+          "modelGame": "Multiple classics"
+        },
+        {
+          "fen": "r3r1k1/ppq1bppp/2np1n2/3Pp1B1/2P1P3/2N2N2/PP1Q1PPP/R4RK1 w - - 0 1",
+          "description": "h-file attack - Rook lift to h3",
+          "task": "White to play. Launch h-file attack.",
+          "aggressionMap": {
+            "0-20": "Don't attack. Consolidate.",
+            "21-40": "Prepare: Qd2, Rh3, Nh4",
+            "41-60": "Rh3! immediate, follow Nh4",
+            "61-80": "Rh3! sacrifice on h7 if needed",
+            "81-100": "Sacrifice on h7/g6"
+          },
+          "solution": "Rh3! threatening Nh4, Qh6. Classic h-file attack.",
+          "modelGame": "Botvinnik vs Capablanca, 1938"
+        }
+      ]
+    },
+    {
+      "id": "set-endgame-conversion",
+      "theme": "transition-endgame",
+      "name": "Endgame Conversion",
+      "positions": [
+        {
+          "fen": "8/5k2/3p4/3P4/3K4/8/8/8 w - - 0 1",
+          "description": "King and pawn - basic opposition",
+          "task": "White to play. Win with opposition.",
+          "solution": "Kd4! (opposition). Then Ke5, Kd6, promote.",
+          "aggressionMap": "Universal - technique only"
+        },
+        {
+          "fen": "8/8/8/3k4/3P4/3K4/8/8 w - - 0 1",
+          "description": "Distant opposition - win",
+          "task": "White to play. Gain opposition.",
+          "solution": "Kd4! (distant opposition). Then Ke4, Kf5, etc.",
+          "aggressionMap": "Universal"
+        },
+        {
+          "fen": "8/5k2/8/8/3P4/3K4/8/8 w - - 0 1",
+          "description": "Reti maneuver - king catches passed pawn",
+          "task": "White to play. Draw by catching pawn.",
+          "solution": "Kg7! Diagonal approach. h7 Kf6 Kf7 draw.",
+          "aggressionMap": "Universal"
+        }
+      ]
+    },
+    {
+      "id": "set-style-decisions",
+      "theme": "style-decisions",
+      "name": "Style-Based Decision Making",
+      "positions": [
+        {
+          "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/2PPP3/2N2N2/PP3PPP/R1BQ1RK1 w - - 0 1",
+          "description": "Hanging pawns - style decision point",
+          "task": "Choose aggression level and find move",
+          "decisions": {
+            "solid": "Nf3, Be2, 0-0 - consolidate",
+            "classical": "Nf3, Be2, 0-0 - develop harmoniously",
+            "active": "c5! or d5! - seize initiative",
+            "aggressive": "c5! dxc5 d5! - sacrifice for attack",
+            "wild": "Nxe5!? dxe5 d5!! - chaos"
+          }
+        },
+        {
+          "fen": "rnbq1rk1/pp2ppbp/3p1np1/2pP4/2P1P3/2N2N2/PP3PPP/R1BQ1RK1 w - - 0 1",
+          "description": "Fixed center - break decision",
+          "task": "Choose break based on style",
+          "decisions": {
+            "solid": "Prevent ...c5/...f6. Maneuver.",
+            "classical": "Prepare f4 or queenside break.",
+            "active": "f4! when ready - seize space",
+            "aggressive": "g4! h4! - kingside attack",
+            "wild": "Sacrifice on f5/f6"
+          }
+        }
+      ]
+    }
+  ],
+  "usage": {
+    "daily": "1-2 positions from current theme",
+    "weekly": "Full set for theme of week",
+    "method": "Set up on board, set timer (5-10 min), find move/plan, verify with engine, annotate",
+    "tracking": "Log: position ID, time, move found, engine eval, lessons learned"
+  }
+}

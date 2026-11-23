@@ -1,0 +1,353 @@
+{
+  "meta": {
+    "version": "1.0",
+    "targetRating": "800-1500",
+    "lastUpdated": "2026-11-23",
+    "description": "White opening repertoires across aggression spectrum"
+  },
+  "repertoires": [
+    {
+      "id": "white-solid",
+      "name": "Solid London System",
+      "aggression": 10,
+      "style": "Solid/Positional",
+      "eco": "A45-A48",
+      "moves": "1.d4 d5 2.Bf4",
+      "description": "System-based, minimal theory, solid structure, easy to learn",
+      "bestAgainst": ["All responses", "Higher rated", "Tactical players"],
+      "avoidAgainst": ["Prepared book opponents"],
+      "keyIdeas": [
+        "Bf4 outside pawn chain",
+        "e3, c3, Bd3, Nf3, Nbd2, 0-0",
+        "Ne5 maneuver",
+        "Minority attack on queenside",
+        "Central control without pawn tension"
+      ],
+      "mainLines": [
+        {
+          "name": "Main Line",
+          "moves": "1.d4 d5 2.Bf4 Nf6 3.e3 e6 4.Nf3 Bd6 5.Bxd6 Qxd6 6.Nbd2 0-0 7.Bd3 c5 8.c3 Nc6 9.Ne5",
+          "eval": "=",
+          "notes": "Classic London, equal but pleasant"
+        },
+        {
+          "name": "Jobava London",
+          "moves": "1.d4 d5 2.Nc3 Nf6 3.Bf4",
+          "aggression": 25,
+          "eval": "=",
+          "notes": "More active, avoids some anti-London prep"
+        }
+      ],
+      "transpositions": ["1.Nf3 d5 2.d4 Nf6 3.Bf4", "1.c4 e6 2.Nf3 d5 3.d4 Nf6 4.Bf4"],
+      "studyPriority": 1,
+      "estimatedHours": 8,
+      "modelGames": [
+        "Carlsen vs Giri, 2019",
+        "Kramnik vs Topalov, 2004",
+        "Vachier-Lagrave vs Nakamura, 2021"
+      ],
+      "tags": ["system", "low-theory", "solid", "beginner-friendly"]
+    },
+    {
+      "id": "white-classical-1e4",
+      "name": "Classical 1.e4 - Italian Game",
+      "aggression": 35,
+      "style": "Classical",
+      "eco": "C50-C59",
+      "moves": "1.e4 e5 2.Nf3 Nc6 3.Bc4",
+      "description": "Principled, open play, rich middlegames, teaches fundamentals",
+      "bestAgainst": ["1...e5 players", "Those avoiding theory"],
+      "avoidAgainst": ["Berlin Defense experts", "Super-solid Petrov players"],
+      "keyIdeas": [
+        "Control center, develop quickly",
+        "c3-d4 pawn center",
+        "Slow maneuvering (Italian) vs sharp (Evans Gambit)",
+        "Attack f7 weakness",
+        "Knight maneuvers: Nd2-f1-g3/e3"
+      ],
+      "mainLines": [
+        {
+          "name": "Giuoco Piano (Main Line)",
+          "moves": "1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d3 d6 6.0-0 0-0 7.Nbd2 a5 8.a4",
+          "aggression": 30,
+          "eval": "=",
+          "notes": "Solid, positional, maneuvering"
+        },
+        {
+          "name": "Giuoco Pianissimo",
+          "moves": "1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.d3",
+          "aggression": 20,
+          "eval": "=",
+          "notes": "Ultra-solid, avoids theory completely"
+        },
+        {
+          "name": "Evans Gambit",
+          "moves": "1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.b4",
+          "aggression": 70,
+          "eval": "~",
+          "notes": "Sharp, sacrificial, practical chances"
+        },
+        {
+          "name": "Against Two Knights",
+          "moves": "1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Ng5 d5 5.exd5 Na5 6.Bb5+ c6 7.dxc6 bxc6 8.Be2",
+          "aggression": 50,
+          "eval": "=",
+          "notes": "Main line, complex but principled"
+        }
+      ],
+      "transpositions": ["1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d4 (Scotch transposition)"],
+      "studyPriority": 2,
+      "estimatedHours": 15,
+      "modelGames": [
+        "Carlsen vs Caruana, 2018 (Game 6)",
+        "Fischer vs various",
+        "Anand vs Topalov, 2010"
+      ],
+      "tags": ["open-game", "fundamentals", "classical", "rich-middlegames"]
+    },
+    {
+      "id": "white-active-1e4",
+      "name": "Active 1.e4 - Scotch Game",
+      "aggression": 55,
+      "style": "Active",
+      "eco": "C45-C47",
+      "moves": "1.e4 e5 2.Nf3 Nc6 3.d4",
+      "description": "Immediate center challenge, open lines, active piece play",
+      "bestAgainst": ["Solid 1...e5 players", "Those fearing Ruy Lopez theory"],
+      "avoidAgainst": ["Well-prepared Scotch specialists"],
+      "keyIdeas": [
+        "Immediate d4 strike",
+        "Open center, rapid development",
+        "Mieses Variation (4.Nxd4 Bc5 5.Nb3) - solid",
+        "Scotch Gambit (4.Bc4) - aggressive",
+        "Classical (4.Nxd4 Nxd4 5.Qxd4) - main line"
+      ],
+      "mainLines": [
+        {
+          "name": "Classical Main Line",
+          "moves": "1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Nxd4 Nxd4 5.Qxd4 Qf6 6.Nc3 Bb4 7.Bd2 Qg6 8.Qe3",
+          "aggression": 50,
+          "eval": "=",
+          "notes": "Theoretical main line, equal"
+        },
+        {
+          "name": "Mieses Variation",
+          "moves": "1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Nxd4 Bc5 5.Nb3 Bb6 6.Nxc6 Qf6 7.Qxd4 Qxd4 8.Nxd4",
+          "aggression": 45,
+          "eval": "=",
+          "notes": "Avoids main theory, solid"
+        },
+        {
+          "name": "Scotch Gambit",
+          "moves": "1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Bc4",
+          "aggression": 65,
+          "eval": "~",
+          "notes": "Sacrifices pawn for initiative"
+        }
+      ],
+      "studyPriority": 3,
+      "estimatedHours": 10,
+      "modelGames": [
+        "Kasparov vs Short, 1992",
+        "Carlsen vs Anand, 2014",
+        "Nakamura vs various"
+      ],
+      "tags": ["open-center", "active", "less-theory-than-ruy", "good-practical-chances"]
+    },
+    {
+      "id": "white-aggressive-1e4",
+      "name": "Aggressive 1.e4 - King's Gambit / Vienna",
+      "aggression": 75,
+      "style": "Aggressive",
+      "eco": "C30-C39, C25-C29",
+      "moves": "1.e4 e5 2.f4 (King's Gambit) / 2.Nc3 (Vienna)",
+      "description": "Sacrificial, attacking, psychological pressure, practical",
+      "bestAgainst": ["Unprepared opponents", "Weaker defenders", "Must-win situations"],
+      "avoidAgainst": ["Booked-up opponents", "Solid defenders", "Tournament leaders"],
+      "keyIdeas": [
+        "King's Gambit: f4, sacrifice pawn for attack",
+        "Vienna: Nc3, prepare f4, flexible",
+        "Attack f7, open f-file",
+        "Rapid development, king safety secondary",
+        "Psychological: opponent must defend accurately"
+      ],
+      "mainLines": [
+        {
+          "name": "King's Gambit Accepted",
+          "moves": "1.e4 e5 2.f4 exf4 3.Nf3 g5 4.h4 g4 5.Ng5 (Kieseritzky) / 5.Bc4 (Muzio)",
+          "aggression": 85,
+          "eval": "~",
+          "notes": "Wild, tactical, computer-check required"
+        },
+        {
+          "name": "King's Gambit Declined",
+          "moves": "1.e4 e5 2.f4 d5 3.exd5 e4 4.Nc3 (Falkbeer Countergambit)",
+          "aggression": 70,
+          "eval": "=",
+          "notes": "Black declines, still sharp"
+        },
+        {
+          "name": "Vienna Game",
+          "moves": "1.e4 e5 2.Nc3 Nf6 3.f4 (Vienna Gambit) / 3.Bc4 (Quiet)",
+          "aggression": 65,
+          "eval": "=",
+          "notes": "Flexible, can transpose to King's Gambit"
+        }
+      ],
+      "studyPriority": 5,
+      "estimatedHours": 20,
+      "modelGames": [
+        "Spassky vs Bronstein, 1960",
+        "Short vs various",
+        "Online blitz specialists"
+      ],
+      "tags": ["gambit", "sacrificial", "attacking", "psychological", "high-risk-high-reward"]
+    },
+    {
+      "id": "white-wild-1e4",
+      "name": "Wild 1.e4 - Danish / Center Game / Elephant",
+      "aggression": 90,
+      "style": "Wild/Sharp",
+      "eco": "C21, C22, B00",
+      "moves": "1.e4 e5 2.d4 (Danish) / 2.d4 exd4 3.Qxd4 (Center) / 1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.b4 (Evans) / 1.e4 d5 (Elephant)",
+      "description": "Maximum chaos, offbeat, opponent unlikely prepared",
+      "bestAgainst": ["Must-win", "Unprepared", "Psychological disruption"],
+      "avoidAgainst": ["Theoretical experts", "Solid GMs"],
+      "keyIdeas": [
+        "Danish: 2.d4 exd4 3.c3 - sacrifice pawn for development",
+        "Center Game: 2.d4 exd4 3.Qxd4 - early queen, tricky",
+        "Elephant Gambit: 1.e4 d5!? - reverse psychology",
+        "Computer lines, tactical melee"
+      ],
+      "mainLines": [
+        {
+          "name": "Danish Gambit",
+          "moves": "1.e4 e5 2.d4 exd4 3.c3 dxc3 4.Bc4 cxb2 5.Bxb2",
+          "aggression": 90,
+          "eval": "~",
+          "notes": "Two pawns for massive development lead"
+        },
+        {
+          "name": "Center Game",
+          "moves": "1.e4 e5 2.d4 exd4 3.Qxd4 Nc6 4.Qe3",
+          "aggression": 85,
+          "eval": "=",
+          "notes": "Early queen, but tricky for Black"
+        }
+      ],
+      "studyPriority": 6,
+      "estimatedHours": 15,
+      "modelGames": [
+        "Morphy vs various",
+        "Online blitz/bullet games",
+        "Correspondence chess novelties"
+      ],
+      "tags": ["offbeat", "gambit", "maximum-chaos", "surprise-weapon"]
+    },
+    {
+      "id": "white-solid-1c4",
+      "name": "Solid 1.c4 - English Opening",
+      "aggression": 15,
+      "style": "Solid/Positional",
+      "eco": "A10-A39",
+      "moves": "1.c4",
+      "description": "Flank opening, flexible, transposes to many systems, low theory",
+      "bestAgainst": ["1...e5 specialists", "1...c5 Sicilian players", "Higher rated"],
+      "avoidAgainst": ["English experts", "Those wanting sharp play"],
+      "keyIdeas": [
+        "Control d5, flexible pawn structure",
+        "Botvinnik System: c4, Nc3, g3, Bg2, e4, Nge2, 0-0, d3",
+        "Symmetrical English: 1.c4 c5 - maneuvering",
+        "Reversed Sicilian: 1.c4 e5 - extra tempo",
+        "Transposes to Queen's Gambit, Catalan, etc."
+      ],
+      "mainLines": [
+        {
+          "name": "Botvinnik System",
+          "moves": "1.c4 e5 2.Nc3 Nc6 3.g3 g6 4.Bg2 Bg7 5.e3 Nf6 6.Nge2 0-0 7.0-0 d6 8.d3",
+          "aggression": 10,
+          "eval": "=",
+          "notes": "Ultra-solid, thematic plans"
+        },
+        {
+          "name": "Reversed Sicilian",
+          "moves": "1.c4 e5 2.Nc3 Nf6 3.Nf3 Nc6 4.g3",
+          "aggression": 25,
+          "eval": "=",
+          "notes": "Sicilian with extra tempo"
+        },
+        {
+          "name": "Symmetrical English",
+          "moves": "1.c4 c5 2.Nc3 Nc6 3.g3 g6 4.Bg2 Bg7 5.e3 e6 6.Nge2 Nge7 7.0-0 0-0",
+          "aggression": 15,
+          "eval": "=",
+          "notes": "Maneuvering, pawn breaks decide"
+        }
+      ],
+      "studyPriority": 4,
+      "estimatedHours": 12,
+      "modelGames": [
+        "Karpov vs various",
+        "Carlsen vs Aronian, 2012",
+        "Botvinnik classics"
+      ],
+      "tags": ["flank", "flexible", "transpositions", "low-theory", "positional"]
+    },
+    {
+      "id": "white-active-1c4",
+      "name": "Active 1.c4 - English Four Knights / Aggressive Lines",
+      "aggression": 50,
+      "style": "Active",
+      "eco": "A25-A29",
+      "moves": "1.c4 e5 2.Nc3 Nf6 3.Nf3 Nc6 4.d4 / 1.c4 c5 2.Nf3 Nc6 3.d4",
+      "description": "Early central tension, open play, active pieces",
+      "bestAgainst": ["Symmetrical English players", "Passive opponents"],
+      "avoidAgainst": ["Well-prepared Four Knights specialists"],
+      "keyIdeas": [
+        "Four Knights: early d4 strike",
+        "Aggressive against ...c5: 3.d4!",
+        "Kingside attack themes",
+        "Central control, piece activity"
+      ],
+      "mainLines": [
+        {
+          "name": "Four Knights Main",
+          "moves": "1.c4 e5 2.Nc3 Nf6 3.Nf3 Nc6 4.d4 exd4 5.Nxd4 Bb4 6.Nxc6 dxc6 7.e3",
+          "aggression": 50,
+          "eval": "=",
+          "notes": "Open play, bishop pair vs pawn structure"
+        },
+        {
+          "name": "Aggressive vs Symmetrical",
+          "moves": "1.c4 c5 2.Nf3 Nc6 3.d4 cxd4 4.Nxd4 e6 5.Nc3 Nf6 6.g3",
+          "aggression": 55,
+          "eval": "=",
+          "notes": "Early tension, Maroczy Bind ideas"
+        }
+      ],
+      "studyPriority": 4,
+      "estimatedHours": 8,
+      "modelGames": [
+        "Kasparov English games",
+        "Adams vs various"
+      ],
+      "tags": ["english", "four-knights", "active", "central-tension"]
+    }
+  ],
+  "recommendations": {
+    "beginner": {
+      "primary": ["white-solid", "white-classical-1e4"],
+      "secondary": ["white-solid-1c4"],
+      "avoid": ["white-aggressive-1e4", "white-wild-1e4"]
+    },
+    "club": {
+      "primary": ["white-classical-1e4", "white-active-1e4"],
+      "secondary": ["white-solid", "white-solid-1c4"],
+      "situational": ["white-aggressive-1e4"]
+    },
+    "expert": {
+      "all": true,
+      "styleBased": true
+    }
+  }
+}

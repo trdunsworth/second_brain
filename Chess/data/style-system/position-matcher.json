@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "Position classification and style matching system"
+  },
+  "positionTypes": [
+    {
+      "id": "closed-center",
+      "name": "Closed Center",
+      "description": "Pawns block center (d4/e4 vs d5/e5), play on wings",
+      "indicators": ["Center pawns fixed", "No central breaks available immediately", "Play on wings"],
+      "typicalOpenings": ["King's Indian", "French", "Closed Sicilian", "English", "Ruy Lopez Closed", "Queen's Gambit Declined"],
+      "bestStyles": [0, 15, 35],
+      "worstStyles": [75, 95],
+      "keyThemes": ["Maneuvering", "Pawn breaks timing", "Outposts", "Space advantage"],
+      "aggressionAdvice": "Low aggression: maneuver, prepare breaks. High aggression: premature breaks backfire."
+    },
+    {
+      "id": "open-center",
+      "name": "Open Center",
+      "description": "Central pawns exchanged, open files/diagonals, piece activity key",
+      "indicators": ["Central pawns traded", "Open e/d files", "Bishops active", "Knights need outposts"],
+      "typicalOpenings": ["Open Sicilian", "Ruy Lopez Open", "Italian", "Scotch", "1.e4 e5 main lines"],
+      "bestStyles": [35, 55, 75],
+      "worstStyles": [0, 15],
+      "keyThemes": ["Piece activity", "Initiative", "King safety", "Tactics", "Open files"],
+      "aggressionAdvice": "High aggression thrives. Low aggression: solidify, trade into ending."
+    },
+    {
+      "id": "fixed-pawn-structure",
+      "name": "Fixed Pawn Structure",
+      "description": "Pawn chain defines space, clear plans for both sides",
+      "indicators": ["Pawn chain (e.g. d4/e5 or e4/d5)", "Clear good/bad bishops", "Defined breaks"],
+      "typicalOpenings": ["French Advance", "King's Indian", "Caro-Kann Advance", "Slav", "Queen's Gambit"],
+      "bestStyles": [0, 15, 35, 55],
+      "worstStyles": [95],
+      "keyThemes": ["Pawn breaks", "Good vs bad bishop", "Outposts", "Space", "Minority attack"],
+      "aggressionAdvice": "Match aggression to break timing. Prepared break = active. Unprepared = solid."
+    },
+    {
+      "id": "fluid-pawn-structure",
+      "name": "Fluid Pawn Structure",
+      "description": "Multiple breaks possible, structure not defined, dynamic",
+      "indicators": ["Many pawn moves possible", "Center not fixed", "Pieces not fully developed"],
+      "typicalOpenings": ["Early middlegame", "English Symmetrical", "Reti", "Various anti-Sicilians"],
+      "bestStyles": [35, 55],
+      "worstStyles": [0, 95],
+      "keyThemes": ["Flexibility", "Initiative", "Development lead", "Central control"],
+      "aggressionAdvice": "Active play rewards initiative. Solid play must define structure first."
+    },
+    {
+      "id": "opposite-side-castling",
+      "name": "Opposite-Side Castling",
+      "description": "Kings on opposite wings, pawn storms, race positions",
+      "indicators": ["White 0-0, Black 0-0-0 or vice versa", "Pawn storms on opposite wings", "Open files toward kings"],
+      "typicalOpenings": ["Sicilian Najdorf/Scheveningen", "King's Indian", "Ruy Lopez", "French Winawer", "Benoni"],
+      "bestStyles": [55, 75, 95],
+      "worstStyles": [0, 15],
+      "keyThemes": ["Pawn storm speed", "Piece sacrifices", "King safety", "Race calculation", "Counterattack"],
+      "aggressionAdvice": "MUST play aggressively. Slow play loses. Even solid players must attack."
+    },
+    {
+      "id": "same-side-castling",
+      "name": "Same-Side Castling",
+      "description": "Both kings same side, positional maneuvering, central play",
+      "indicators": ["Both 0-0 or both 0-0-0", "Central play", "Piece maneuvering"],
+      "typicalOpenings": ["Most closed openings", "London", "Caro-Kann", "Slav", "QGD", "English"],
+      "bestStyles": [0, 15, 35, 55],
+      "worstStyles": [95],
+      "keyThemes": ["Central control", "Weaknesses", "Prophylaxis", "King safety", "Endgame transition"],
+      "aggressionAdvice": "Full spectrum viable. Match to position structure."
+    },
+    {
+      "id": "isolated-queen-pawn",
+      "name": "Isolated Queen's Pawn (IQP)",
+      "description": "Isolated d-pawn, dynamic piece play vs structural weakness",
+      "indicators": ["Isolated d4 or d5 pawn", "Open c/e files", "Piece activity for IQP side"],
+      "typicalOpenings": ["Queen's Gambit Accepted", "Tarrasch", "Nimzo-Indian", "Caro-Kann", "Sicilian"],
+      "bestStyles": [35, 55],
+      "worstStyles": [0, 95],
+      "keyThemes": ["IQP side: piece activity, avoid trades, attack", "Anti-IQP: blockade, trade pieces, endgame"],
+      "aggressionAdvice": "IQP side: must be active (55+). Anti-IQP: solid blockade (0-35)."
+    },
+    {
+      "id": "hanging-pawns",
+      "name": "Hanging Pawns (c4/d4 or c5/d5)",
+      "description": "Two pawns on adjacent files, dynamic but vulnerable",
+      "indicators": ["Pawns on c/d files", "Can advance or be attacked", "Control center"],
+      "typicalOpenings": ["Queen's Gambit", "Nimzo-Indian", "Sicilian", "English"],
+      "bestStyles": [35, 55],
+      "worstStyles": [0, 95],
+      "keyThemes": ["Dynamic play vs blockade", "Advance timing", "Piece activity", "Endgame weakness"],
+      "aggressionAdvice": "Hanging pawns side: active (55). Against: blockade and attack (15-35)."
+    },
+    {
+      "id": "backward-pawn",
+      "name": "Backward Pawn on Semi-Open File",
+      "description": "Pawn cannot be protected by pawns, target on open file",
+      "indicators": ["Pawn on semi-open file", "No pawn behind", "Rook pressure"],
+      "typicalOpenings": ["Sicilian (d6)", "Caro-Kann (c6)", "French (e6)", "King's Indian (d6)"],
+      "bestStyles": [15, 35, 55],
+      "worstStyles": [95],
+      "keyThemes": ["Blockade", "Rook pressure", "Piece defense", "Break to free", "Endgame liability"],
+      "aggressionAdvice": "Defender: solid (15-35). Attacker: active pressure (55)."
+    },
+    {
+      "id": "bishop-pair",
+      "name": "Bishop Pair Advantage",
+      "description": "Two bishops vs bishop+knight or two knights, open position favored",
+      "indicators": ["Two bishops vs mixed/none", "Open diagonals", "Pawns not blocking"],
+      "typicalOpenings": ["Many openings", "Exchange sacrifices", "Positional gains"],
+      "bestStyles": [15, 35, 55],
+      "worstStyles": [0, 95],
+      "keyThemes": ["Open position", "Avoid trades", "Control both colors", "Endgame dominance"],
+      "aggressionAdvice": "Keep position open, avoid trades. Active play (35-55) maximizes value."
+    },
+    {
+      "id": "opposite-color-bishops",
+      "name": "Opposite-Color Bishops (Middlegame)",
+      "description": "Attacking potential, drawing tendency in endgame",
+      "indicators": ["One light, one dark bishop", "Attack on weak color complex", "Endgame drawish"],
+      "typicalOpenings": ["Ruy Lopez", "Nimzo-Indian", "Sicilian", "French", "Many"],
+      "bestStyles": [55, 75],
+      "worstStyles": [0, 15],
+      "keyThemes": ["Middlegame: attack weak color", "Endgame: often drawn", "Don't trade queens if attacking"],
+      "aggressionAdvice": "Middlegame: aggressive attack (55+). Endgame: solid (0-20) - it's likely drawn."
+    },
+    {
+      "id": "development-lead",
+      "name": "Lead in Development",
+      "description": "More pieces developed, open position, time factor critical",
+      "indicators": ["Opponent behind in development", "Center open or opening", "Initiative"],
+      "typicalOpenings": ["Gambits", "Early middlegame", "After opponent passive moves"],
+      "bestStyles": [55, 75, 95],
+      "worstStyles": [0, 15],
+      "keyThemes": ["Open position!", "Sacrifice for attack", "Don't let opponent catch up", "Tactics"],
+      "aggressionAdvice": "MUST cash in aggressively. Every move counts. Solid play wastes advantage."
+    },
+    {
+      "id": "king-center",
+      "name": "King Stuck in Center",
+      "description": "Opponent king not castled, central files open, attacking target",
+      "indicators": ["King on e8/e1 or d8/d1", "Center open", "No castling rights"],
+      "typicalOpenings": ["Gambits", "Early opening", "After ...Ke7", "Center games"],
+      "bestStyles": [75, 95],
+      "worstStyles": [0, 15],
+      "keyThemes": ["Open center!", "Sacrifices", "Mate threats", "Don't let king escape"],
+      "aggressionAdvice": "ALL-OUT ATTACK. This is not a position for solid play."
+    },
+    {
+      "id": "weak-king-shelter",
+      "name": "Weak King Shelter",
+      "description": "Pawns damaged (g/h/f files), king exposed, attacking target",
+      "indicators": ["Missing pawns near king", "Open files toward king", "Weak squares (h6/g7/f7)"],
+      "typicalOpenings": ["Sicilian (g6/h6)", "French (f6)", "King's Indian (f5)", "Various attacks"],
+      "bestStyles": [55, 75, 95],
+      "worstStyles": [0, 15],
+      "keyThemes": ["Piece sacrifices", "Mating nets", "Open files", "Knight checks", "Queen infiltration"],
+      "aggressionAdvice": "Attack aggressively. Solid play lets opponent consolidate."
+    },
+    {
+      "id": "symmetric",
+      "name": "Symmetric Position",
+      "description": "Mirror position, small nuances decide, psychological",
+      "indicators": ["Pawns mirrored", "Pieces mirrored", "Equal chances"],
+      "typicalOpenings": ["Exchange QGD", "Exchange Slav", "Symmetrical English", "Berlin", "Petrov"],
+      "bestStyles": [0, 15, 35],
+      "worstStyles": [75, 95],
+      "keyThemes": ["Tempo", "Psychological", "Small advantages", "Endgame technique", "Provoking weaknesses"],
+      "aggressionAdvice": "Low aggression: outplay technically. High aggression: breaks symmetry poorly."
+    },
+    {
+      "id": "material-imbalance",
+      "name": "Material Imbalance",
+      "description": "Queen vs 2 rooks, rook vs 2 minors, etc. - specific knowledge needed",
+      "indicators": ["Non-standard material", "Specific imbalance", "Activity vs material"],
+      "typicalOpenings": ["Sacrificial lines", "Exchange sacrifices", "Complications"],
+      "bestStyles": [55, 75],
+      "worstStyles": [0, 15],
+      "keyThemes": ["Activity > material", "Specific knowledge", "King safety", "Coordination"],
+      "aggressionAdvice": "Side with activity: aggressive. Side with material: solidify and trade."
+    }
+  ],
+  "matcher": {
+    "input": "FEN or position description",
+    "output": {
+      "primaryType": "Most matching position type",
+      "secondaryTypes": "Other relevant types",
+      "recommendedAggression": "0-100 range",
+      "keyThemes": "Themes to focus on",
+      "avoidThemes": "Themes not relevant",
+      "styleWarning": "If current style mismatched"
+    },
+    "algorithm": [
+      "Parse position features (pawn structure, king safety, piece activity, material)",
+      "Match against positionTypes indicators",
+      "Score each type (0-100)",
+      "Select primary (highest score), secondary (>50)",
+      "Map to aggression range via bestStyles/worstStyles",
+      "Output recommendation"
+    ]
+  },
+  "quickReference": {
+    "closedCenter": "Low aggression. Maneuver, prepare breaks.",
+    "openCenter": "High aggression. Piece activity, tactics.",
+    "fixedStructure": "Match to break readiness.",
+    "fluidStructure": "Active, seize initiative.",
+    "oppositeCastling": "MUST attack. Race positions.",
+    "sameCastling": "Full spectrum. Match structure.",
+    "IQP": "IQP side: active. Anti-IQP: solid blockade.",
+    "hangingPawns": "Dynamic. Advance or blockade.",
+    "backwardPawn": "Defend solidly. Attack actively.",
+    "bishopPair": "Keep open, avoid trades.",
+    "oppositeBishops": "Middlegame attack. Endgame draw.",
+    "developmentLead": "CASH IN NOW. Open position!",
+    "kingCenter": "ATTACK! Sacrifice!",
+    "weakKing": "Attack aggressively.",
+    "symmetric": "Technical, low aggression.",
+    "materialImbalance": "Activity > material."
+  }
+}

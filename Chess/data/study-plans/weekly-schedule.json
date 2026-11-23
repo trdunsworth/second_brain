@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "version": "1.0",
+    "targetRating": "800-1500",
+    "hoursPerWeek": "2-3",
+    "description": "Optimized weekly study schedule for maximum improvement per hour"
+  },
+  "principles": [
+    "Consistency > intensity. 30 min daily > 3 hours once",
+    "Active recall > passive reading. Solve, don't just read",
+    "Spaced repetition: review at 1d, 3d, 1w, 1m, 3m",
+    "Interleave: mix openings, middlegame, endgame each week",
+    "Practice like you play: clock, notation, no takebacks",
+    "Analyze YOUR games: highest ROI activity"
+  ],
+  "weeklyTemplate": {
+    "monday": {
+      "focus": "Opening Repertoire (White)",
+      "duration": "45 min",
+      "activities": [
+        "Review 1 repertoire line (15 min)",
+        "Play 2 blitz games testing it (20 min)",
+        "Quick analysis of critical moments (10 min)"
+      ],
+      "rotation": "Week 1: Main line | Week 2: Anti-X | Week 3: Side line | Week 4: Review all",
+      "output": "Update repertoire notes with new ideas/problems"
+    },
+    "tuesday": {
+      "focus": "Middlegame Theme",
+      "duration": "45 min",
+      "activities": [
+        "Study 1 theme from themes.json (20 min)",
+        "Find 3 model games exemplifying it (15 min)",
+        "Play 1 training game from thematic position vs engine (10 min)"
+      ],
+      "rotation": "Follow studyOrder in themes.json",
+      "output": "Annotate 1 model game in notes"
+    },
+    "wednesday": {
+      "focus": "Opening Repertoire (Black vs 1.e4)",
+      "duration": "45 min",
+      "activities": [
+        "Review 1 Black line vs 1.e4 (15 min)",
+        "Play 2 blitz games as Black (20 min)",
+        "Quick analysis (10 min)"
+      ],
+      "rotation": "Same as Monday but for Black",
+      "output": "Update repertoire notes"
+    },
+    "thursday": {
+      "focus": "Endgame Technique",
+      "duration": "45 min",
+      "activities": [
+        "Theoretical position drill (15 min) - from drills.json",
+        "Conversion drill (15 min) - from drills.json",
+        "Defense drill (15 min) - from drills.json"
+      ],
+      "rotation": "Follow weeklySchedule in drills.json",
+      "output": "Log results in drills tracker"
+    },
+    "friday": {
+      "focus": "Opening Repertoire (Black vs 1.d4/Other)",
+      "duration": "45 min",
+      "activities": [
+        "Review 1 Black line vs 1.d4/Other (15 min)",
+        "Play 2 blitz games (20 min)",
+        "Quick analysis (10 min)"
+      ],
+      "rotation": "Same as Monday",
+      "output": "Update repertoire notes"
+    },
+    "saturday": {
+      "focus": "Game Analysis (YOUR games)",
+      "duration": "60 min",
+      "activities": [
+        "Select 1 recent game (loss or win with questions)",
+        "Analyze WITHOUT engine first (20 min)",
+        "Check with engine (20 min)",
+        "Identify 3 key lessons (10 min)",
+        "Update opening repertoire if needed (10 min)"
+      ],
+      "output": "Annotated game in notes/07-Game-Analysis"
+    },
+    "sunday": {
+      "focus": "Model Game Study + Review",
+      "duration": "60 min",
+      "activities": [
+        "Play through 1 model game from your style (30 min)",
+        "Predict moves, understand plans",
+        "Weekly review: check metrics, plan next week (15 min)",
+        "Spaced repetition review: due flashcards (15 min)"
+      ],
+      "output": "Model game notes, updated study plan"
+    }
+  },
+  "monthlyFocus": {
+    "month1": "Foundations: London + Caro-Kann + Slav, Center Control, K+P + Rook basics",
+    "month2": "Italian + Caro-Kann + Slav, Piece Activity, Rook endgames",
+    "month3": "Italian + Classical 1...e5 + QGD, Weaknesses, Minor piece endings",
+    "month4": "Scotch + Sicilian/KID, Pawn Breaks, Queen endings",
+    "month5": "Evans/King's Gambit situational, Prophylaxis, Complex conversions",
+    "month6": "Full repertoire integration, King Safety/Attack, Time pressure drills"
+  },
+  "spacedRepetition": {
+    "system": "Leitner box or Anki",
+    "cards": [
+      "Opening moves (critical branches only)",
+      "Theoretical endgame positions (FEN + solution)",
+      "Middlegame theme keywords -> key concept",
+      "Model game critical positions -> best move/plan",
+      "Your game errors -> correct move/lesson"
+    ],
+    "schedule": "Daily 10 min review. New cards from weekly study.",
+    "mastery": "Card graduates after 5 correct reviews at increasing intervals"
+  },
+  "progressTracking": {
+    "weekly": {
+      "metrics": [
+        "Hours studied (target 2.5-3)",
+        "Opening lines reviewed (target 3-4)",
+        "Middlegame themes studied (target 1)",
+        "Endgame drills completed (target 5)",
+        "Games analyzed (target 1)",
+        "Model games studied (target 1)",
+        "Blitz practice games (target 6-8)"
+      ],
+      "review": "Sunday: rate each 1-5, note blockers"
+    },
+    "monthly": {
+      "metrics": [
+        "Repertoire coverage (% lines at mastery >= 3)",
+        "Theoretical endgames mastered (% of 25)",
+        "Conversion rate from +1/+2 positions",
+        "Defense hold rate",
+        "Transition decision accuracy",
+        "Tournament/rating performance"
+      ],
+      "review": "Last Sunday: deep dive, adjust plan"
+    },
+    "quarterly": {
+      "assessment": "Play 5 classical games (OTB or online 30+ min)",
+      "analysis": "Full game analysis, identify patterns",
+      "adjustment": "Major plan revision, possibly repertoire changes"
+    }
+  },
+  "efficiencyTips": [
+    "Prepare positions beforehand (don't waste study time setting up)",
+    "Use same engine depth for consistency",
+    "Annotate digitally (Obsidian) for searchability",
+    "Voice notes during analysis -> transcribe later",
+    "Combine: listen to chess podcast while commuting",
+    "Physical board for deep analysis, screen for drills",
+    "Sleep on difficult positions - subconscious works",
+    "Teach concepts to imaginary student (Feynman technique)"
+  ],
+  "emergencyMode": {
+    "when": "Week with <1 hour available",
+    "minimum": [
+      "10 min: Theoretical endgame drill (1 position)",
+      "10 min: Review 1 opening line",
+      "10 min: Solve 5 tactics (middlegame themes)"
+    ],
+    "philosophy": "Consistency maintains neural pathways. Something > nothing."
+  }
+}

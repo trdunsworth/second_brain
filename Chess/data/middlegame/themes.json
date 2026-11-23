@@ -1,0 +1,395 @@
+{
+  "meta": {
+    "version": "1.0",
+    "targetRating": "800-1500",
+    "description": "Middlegame themes organized by aggression level and position type"
+  },
+  "themes": [
+    {
+      "id": "center-control",
+      "name": "Center Control & Pawn Structures",
+      "aggressionRange": [0, 100],
+      "phase": "middlegame",
+      "description": "Understanding pawn structures and center control is the foundation of all middlegame play",
+      "keyConcepts": [
+        "Pawn islands and weaknesses",
+        "Strong vs weak squares",
+        "Pawn breaks (lever moves)",
+        "Fixed vs fluid centers",
+        "Space advantage utilization"
+      ],
+      "patterns": [
+        "Isolated Queen's Pawn (IQP)",
+        "Hanging Pawns (c4/d4 or c5/d5)",
+        "Backward pawn on semi-open file",
+        "Pawn majority/minority",
+        "Closed center (French, King's Indian)",
+        "Open center (Open Sicilian, Ruy Lopez)",
+        "Mobile center (e4/d4 or e5/d5)"
+      ],
+      "studyMethod": [
+        "Identify structure in every game",
+        "Learn typical plans for each structure",
+        "Practice pawn break timing",
+        "Study model games per structure"
+      ],
+      "aggressionMapping": {
+        "0-20": "Solidify structure, prevent breaks, squeeze slowly",
+        "21-40": "Classical piece play around fixed structure",
+        "41-60": "Active piece placement, prepare breaks",
+        "61-80": "Sacrifice pawns for breaks, open lines",
+        "81-100": "Blow open center, tactical melee"
+      },
+      "priority": 1,
+      "estimatedHours": 15,
+      "modelGames": [
+        "Karpov vs Unzicker, 1974 (IQP)",
+        "Petrosian vs Spassky, 1966 (prophylaxis/structure)",
+        "Carlsen vs Nakamura, 2019 (space advantage)"
+      ],
+      "tags": ["fundamental", "structure", "pawns", "center", "universal"]
+    },
+    {
+      "id": "piece-activity",
+      "name": "Piece Activity & Coordination",
+      "aggressionRange": [0, 100],
+      "phase": "middlegame",
+      "description": "Maximizing piece potential through optimal squares, coordination, and maneuvering",
+      "keyConcepts": [
+        "Good vs bad pieces (bishop, knight, rook)",
+        "Outposts for knights",
+        "Bishop pair advantage",
+        "Rooks on open files/7th rank",
+        "Queen centralization vs safety",
+        "King safety vs activity",
+        "Piece coordination (battery, tandem)"
+      ],
+      "patterns": [
+        "Octopus knight (d6/e6/e5/d5)",
+        "Good knight vs bad bishop",
+        "Bishop pair in open positions",
+        "Rook lift (Rg1-g3-h3)",
+        "Queen + knight battery",
+        "Bishop pair domination",
+        "Opposite-color bishops (attacking)"
+      ],
+      "studyMethod": [
+        "Rate piece activity each move (1-10)",
+        "Identify worst piece, improve it",
+        "Practice maneuvering sequences",
+        "Study Petrosian/Karpov prophylaxis games"
+      ],
+      "aggressionMapping": {
+        "0-20": "Optimize all pieces, trade bad for good, prophylaxis",
+        "21-40": "Classical development, harmonious setup",
+        "41-60": "Create outposts, seize initiative",
+        "61-80": "Sacrifice for activity, open lines for rooks",
+        "81-100": "Desperate piece play, king walks, chaos"
+      },
+      "priority": 2,
+      "estimatedHours": 12,
+      "modelGames": [
+        "Petrosian vs Spassky, 1966 (prophylaxis)",
+        "Karpov vs Unzicker, 1974 (piece coordination)",
+        "Carlsen vs Anand, 2013 (gradual improvement)"
+      ],
+      "tags": ["fundamental", "pieces", "maneuvering", "prophylaxis", "coordination"]
+    },
+    {
+      "id": "king-safety-attack",
+      "name": "King Safety & Attacking the King",
+      "aggressionRange": [20, 100],
+      "phase": "middlegame",
+      "description": "Recognizing king vulnerability and launching/defending attacks",
+      "keyConcepts": [
+        "Pawn shelter integrity",
+        "Weak squares around king (f7/f2, g7/g2, h7/h2)",
+        "Open files/diagonals toward king",
+        "Piece count in attack zone",
+        "Typical sacrifices (Greek Gift, h7, f7, etc.)",
+        "Defense: creating luft, piece blockade, counterplay"
+      ],
+      "patterns": [
+        "Greek Gift (Bxh7+/Bxh2+)",
+        "h-file attack (Rook lift h3-h8)",
+        "f-file attack (after ...f5/f4)",
+        "Battery on long diagonal (Qd3/Bc2)",
+        "Knight on f5/g5/h6",
+        "Queen + knight mating net",
+        "Opposite-side castling races",
+        "Same-side castling pawn storms"
+      ],
+      "studyMethod": [
+        "Count attackers vs defenders (3:1 rule)",
+        "Identify key defensive pieces",
+        "Practice sacrificial patterns",
+        "Study Tal, Kasparov, Topalov attack games"
+      ],
+      "aggressionMapping": {
+        "0-20": "Only attack if opponent blunders; prioritize king safety",
+        "21-40": "Solid defense, counterplay if attacked",
+        "41-60": "Active defense, create counter-threats",
+        "61-80": "Initiate attacks, calculated sacrifices",
+        "81-100": "All-out attack, speculative sacrifices, king walks"
+      },
+      "priority": 3,
+      "estimatedHours": 15,
+      "modelGames": [
+        "Tal vs various (sacrificial attacks)",
+        "Kasparov vs Topalov, 1999 (Kasparov's Immortal)",
+        "Topalov vs Shirov, 1998 (Shirov's bishop sacrifice)",
+        "Morphy vs Duke of Brunswick (classic)"
+      ],
+      "tags": ["attack", "king-safety", "sacrifices", "tactical", "aggressive"]
+    },
+    {
+      "id": "weaknesses-exploitation",
+      "name": "Creating & Exploiting Weaknesses",
+      "aggressionRange": [0, 80],
+      "phase": "middlegame",
+      "description": "Identifying targets (weak pawns, squares, pieces) and methodically exploiting them",
+      "keyConcepts": [
+        "Weak pawns (isolated, backward, doubled)",
+        "Weak squares (outposts, holes)",
+        "Principle of two weaknesses",
+        "Fixing weaknesses before attacking",
+        "Prophylaxis: preventing opponent's plans",
+        "Minority attack",
+        "Blockade (Nimzowitsch)"
+      ],
+      "patterns": [
+        "Isolated Queen's Pawn blockade",
+        "Backward pawn on semi-open file",
+        "Hanging pawns target",
+        "Weak square complex (light/dark)",
+        "Minority attack on queenside",
+        "Bad bishop behind pawns",
+        "Rook on 7th rank creating weaknesses"
+      ],
+      "studyMethod": [
+        "Find 3 weaknesses in every position",
+        "Practice principle of two weaknesses",
+        "Study Capablanca, Karpov, Carlsen endgame technique",
+        "Drill: play out winning positions vs engine"
+      ],
+      "aggressionMapping": {
+        "0-20": "Primary method: accumulate small advantages, squeeze",
+        "21-40": "Classical: create weakness, fix, attack, win",
+        "41-60": "Active: provoke weaknesses, dynamic play",
+        "61-80": "Force concessions, tactical exploitation",
+        "81-100": "Less relevant (chaos over technique)"
+      },
+      "priority": 2,
+      "estimatedHours": 12,
+      "modelGames": [
+        "Capablanca vs Tartakower, 1924 (technique)",
+        "Karpov vs Unzicker, 1974 (squeeze)",
+        "Carlsen vs various (two weaknesses)",
+        "Botvinnik vs Capablanca, 1938 (minority attack)"
+      ],
+      "tags": ["technique", "positional", "weaknesses", "prophylaxis", "endgame-transition"]
+    },
+    {
+      "id": "pawn-breaks",
+      "name": "Pawn Breaks & Transformations",
+      "aggressionRange": [10, 100],
+      "phase": "middlegame",
+      "description": "The critical lever moves that change position character, open lines, or create weaknesses",
+      "keyConcepts": [
+        "Timing of breaks (preparation vs surprise)",
+        "Central breaks (e4, d4, e5, d5, c5, c4)",
+        "Flank breaks (a4, h4, b4, g4, f4, f5)",
+        "Break consequences: open files, weak squares, passed pawns",
+        "Prophylactic breaks (prevent opponent's break)",
+        "Sacrificial breaks"
+      ],
+      "patterns": [
+        "...c5 vs English/Queen's Gambit",
+        "...e5 in French/Caro-Kann/Closed Sicilian",
+        "...f5 in King's Indian/Dutch",
+        "...b5 in Benoni/Sicilian/Nimzo",
+        "e4/e5 in Ruy Lopez/Italian",
+        "d4/d5 in Queen's Gambit/Slav",
+        "f4/f5 in King's Indian Attack/Closed positions",
+        "g4/g5 in opposite-side castling",
+        "h4/h5 kingside attacks"
+      ],
+      "studyMethod": [
+        "Memorize key breaks for your openings",
+        "Analyze model games: when was break played?",
+        "Practice: set up position, find best break",
+        "Study break failures (premature vs late)"
+      ],
+      "aggressionMapping": {
+        "0-20": "Only break when fully prepared, solidify first",
+        "21-40": "Classical breaks at right moment",
+        "41-60": "Active preparation, seize initiative with break",
+        "61-80": "Early breaks, sacrifice pawns for open lines",
+        "81-100": "Desperate breaks, blow position open"
+      },
+      "priority": 3,
+      "estimatedHours": 10,
+      "modelGames": [
+        "Fischer vs various (timing of breaks)",
+        "Kasparov vs Karpov, 1985 (dynamic breaks)",
+        "Carlsen vs Anand, 2014 (patient preparation)"
+      ],
+      "tags": ["dynamics", "transformation", "initiative", "timing", "structure-change"]
+    },
+    {
+      "id": "prophylaxis",
+      "name": "Prophylaxis & Preventive Thinking",
+      "aggressionRange": [0, 60],
+      "phase": "middlegame",
+      "description": "Anticipating and preventing opponent's plans before they become threats",
+      "keyConcepts": [
+        "Ask: 'What does opponent want?' every move",
+        "Prevent opponent's ideal piece placement",
+        "Stop pawn breaks before they happen",
+        "Control key squares preemptively",
+        "Restrict opponent's piece activity",
+        "Prophylactic pawn moves (h3, a3, h6, a6)",
+        "Nimzowitsch's 'overprotection'"
+      ],
+      "patterns": [
+        "h3/a3 preventing Bg4/Bb4",
+        "h6/a6 preventing Bg5/Bb5",
+        "Controlling key outpost squares",
+        "Preventing ...f5/...e5 breaks",
+        "Stopping rook infiltration",
+        "Overprotecting key points"
+      ],
+      "studyMethod": [
+        "Before each move, write opponent's best plan",
+        "Play 'prevent opponent's plan' training games",
+        "Study Petrosian games (prophylaxis master)",
+        "Practice: find prophylactic move in complex positions"
+      ],
+      "aggressionMapping": {
+        "0-20": "Core philosophy: prevent, restrict, squeeze",
+        "21-40": "Standard prophylactic measures",
+        "41-60": "Active prophylaxis while building attack",
+        "61-80": "Less prophylaxis, more forcing play",
+        "81-100": "Minimal (chaos favors prepared)"
+      },
+      "priority": 3,
+      "estimatedHours": 8,
+      "modelGames": [
+        "Petrosian vs various (prophylaxis masterclass)",
+        "Karpov vs Unzicker, 1974",
+        "Carlsen vs Nakamura, 2019 (modern prophylaxis)"
+      ],
+      "tags": ["preventive", "positional", "petrosian", "restriction", "thinking-process"]
+    },
+    {
+      "id": "initiative-dynamics",
+      "name": "Initiative & Dynamic Play",
+      "aggressionRange": [40, 100],
+      "phase": "middlegame",
+      "description": "Seizing and maintaining the initiative, creating threats that force opponent to react",
+      "keyConcepts": [
+        "Initiative = making threats opponent must answer",
+        "Tempo: gain time, don't lose it",
+        "Dynamic compensation for material",
+        "Creating multiple threats (double attack)",
+        "Transition from initiative to attack",
+        "When to cash in vs maintain pressure",
+        "Psychological pressure"
+      ],
+      "patterns": [
+        "Lead in development -> open position",
+        "Sacrifice for development lead",
+        "Piece activity vs material",
+        "Pawn storms creating weaknesses",
+        "Tempo-gaining threats",
+        "Forcing sequences (checks, captures, threats)"
+      ],
+      "studyMethod": [
+        "Play gambits to learn initiative",
+        "Analyze: who has initiative each move?",
+        "Practice converting initiative to win",
+        "Study Tal, Kasparov, Nakamura, Alireza"
+      ],
+      "aggressionMapping": {
+        "0-20": "Avoid giving initiative; solidify",
+        "21-40": "Neutralize opponent's initiative",
+        "41-60": "Seize initiative when offered",
+        "61-80": "Actively create initiative, sacrifice for it",
+        "81-100": "Initiative at all costs, speculative"
+      },
+      "priority": 4,
+      "estimatedHours": 12,
+      "modelGames": [
+        "Tal vs Botvinnik, 1960 (initiative)",
+        "Kasparov vs various",
+        "Nakamura vs Carlsen, 2011 (blitz)",
+        "Firouzja vs various (modern dynamic)"
+      ],
+      "tags": ["dynamic", "initiative", "tempo", "compensation", "aggressive"]
+    },
+    {
+      "id": "transition-endgame",
+      "name": "Middlegame to Endgame Transition",
+      "aggressionRange": [0, 100],
+      "phase": "transition",
+      "description": "Recognizing when and how to transition favorably, converting advantages",
+      "keyConcepts": [
+        "When to trade pieces (winning vs drawing)",
+        "Keep pieces for attack, trade for technique",
+        "Identify winning endgame structures",
+        "Avoid trading into drawn endings",
+        "King activation timing",
+        "Passed pawn creation",
+        "Simplification technique"
+      ],
+      "patterns": [
+        "Trade queens when up material/structure",
+        "Keep queens for attack/initiative",
+        "Trade bad pieces, keep good ones",
+        "Enter king and pawn ending only if winning",
+        "Rook endings: activity > pawn count",
+        "Minor piece endings: bishop vs knight",
+        "Fortress recognition"
+      ],
+      "studyMethod": [
+        "Practice: from middlegame, decide trade or not",
+        "Study Capablanca, Smyslov, Carlsen transitions",
+        "Drill winning endgame positions",
+        "Learn key drawn positions to avoid"
+      ],
+      "aggressionMapping": {
+        "0-20": "Trade into winning endgames, technique",
+        "21-40": "Classical transition, favorable simplification",
+        "41-60": "Flexible: keep pieces if attack, trade if better endgame",
+        "61-80": "Avoid trades, keep tension, play for mate",
+        "81-100": "Never trade, mate > endgame"
+      },
+      "priority": 2,
+      "estimatedHours": 10,
+      "modelGames": [
+        "Capablanca vs various (transition master)",
+        "Smyslov vs Botvinnik, 1957",
+        "Carlsen vs Anand, 2013 (gradual transition)",
+        "Kramnik vs Topalov, 2006"
+      ],
+      "tags": ["transition", "endgame", "conversion", "technique", "simplification"]
+    }
+  ],
+  "studyOrder": [
+    "center-control",
+    "piece-activity",
+    "weaknesses-exploitation",
+    "prophylaxis",
+    "pawn-breaks",
+    "transition-endgame",
+    "king-safety-attack",
+    "initiative-dynamics"
+  ],
+  "aggressionThemeMap": {
+    "0-20": ["center-control", "piece-activity", "weaknesses-exploitation", "prophylaxis", "transition-endgame"],
+    "21-40": ["center-control", "piece-activity", "weaknesses-exploitation", "prophylaxis", "pawn-breaks", "transition-endgame"],
+    "41-60": ["center-control", "piece-activity", "pawn-breaks", "weaknesses-exploitation", "king-safety-attack", "initiative-dynamics", "transition-endgame"],
+    "61-80": ["king-safety-attack", "initiative-dynamics", "pawn-breaks", "piece-activity", "weaknesses-exploitation", "transition-endgame"],
+    "81-100": ["king-safety-attack", "initiative-dynamics", "pawn-breaks", "piece-activity"]
+  }
+}

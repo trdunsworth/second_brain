@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Style Selector</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .card { background: white; border-radius: 16px; padding: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #7f8c8d; margin-bottom: 30px; }
+        
+        .question { margin-bottom: 24px; padding: 20px; background: #f8f9fa; border-radius: 12px; border-left: 4px solid #3498db; }
+        .question-label { font-weight: 600; color: #2c3e50; margin-bottom: 12px; display: block; }
+        .question-options { display: flex; flex-wrap: wrap; gap: 10px; }
+        .option { flex: 1; min-width: 140px; padding: 12px 16px; background: white; border: 2px solid #e0e0e0; border-radius: 8px; cursor: pointer; transition: all 0.2s; text-align: center; }
+        .option:hover { border-color: #3498db; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(52,152,219,0.2); }
+        .option.selected { border-color: #3498db; background: #ebf5fb; }
+        .option-label { font-weight: 600; color: #2c3e50; display: block; margin-bottom: 4px; }
+        .option-score { font-size: 12px; color: #e74c3c; font-weight: bold; }
+        
+        .result-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 16px; padding: 30px; margin-top: 30px; text-align: center; }
+        .result-aggression { font-size: 72px; font-weight: bold; margin: 10px 0; text-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        .result-style { font-size: 24px; margin-bottom: 10px; opacity: 0.9; }
+        .result-description { opacity: 0.8; margin-bottom: 20px; line-height: 1.6; }
+        
+        .recommendations { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .rec-box { background: rgba(255,255,255,0.15); padding: 15px; border-radius: 10px; backdrop-filter: blur(10px); }
+        .rec-title { font-weight: bold; margin-bottom: 8px; font-size: 14px; }
+        .rec-list { font-size: 13px; opacity: 0.9; line-height: 1.8; }
+        
+        .triggers { margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 12px; }
+        .triggers h3 { color: #2c3e50; margin-bottom: 15px; }
+        .trigger { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+        .trigger:last-child { border-bottom: none; }
+        .trigger-situation { color: #555; }
+        .trigger-adjust { font-weight: bold; color: #e74c3c; }
+        
+        .baseline { text-align: center; padding: 15px; background: #f8f9fa; border-radius: 8px; margin-bottom: 20px; color: #7f8c8d; }
+        .baseline strong { color: #2c3e50; }
+        
+        @media (max-width: 600px) {
+            .card { padding: 20px; }
+            .result-aggression { font-size: 48px; }
+            .question-options { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>♟️ Chess Style Selector</h1>
+            <p class="subtitle">Answer 7 questions → Get your aggression level (0-100) + repertoire recommendations</p>
+            
+            <div class="baseline">
+                <strong>Baseline: 35 (Classical)</strong> — Adjust from here based on your answers
+            </div>
+            
+            <div class="question">
+                <span class="question-label">1. Tournament Situation</span>
+                <div class="question-options">
+                    <div class="option" data-q="tournament" data-score="20">
+                        <span class="option-label">Must Win</span>
+                        <span class="option-score">+20</span>
+                    </div>
+                    <div class="option" data-q="tournament" data-score="0">
+                        <span class="option-label">Normal</span>
+                        <span class="option-score">0</span>
+                    </div>
+                    <div class="option" data-q="tournament" data-score="-20">
+                        <span class="option-label">Must Not Lose</span>
+                        <span class="option-score">-20</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <span class="question-label">2. Opponent Style</span>
+                <div class="question-options">
+                    <div class="option" data-q="oppStyle" data-score="-10">
+                        <span class="option-label">Tactical</span>
+                        <span class="option-score">-10</span>
+                    </div>
+                    <div class="option" data-q="oppStyle" data-score="+10">
+                        <span class="option-label">Positional</span>
+                        <span class="option-score">+10</span>
+                    </div>
+                    <div class="option" data-q="oppStyle" data-score="-5">
+                        <span class="option-label">Solid</span>
+                        <span class="option-score">-5</span>
+                    </div>
+                    <div class="option" data-q="oppStyle" data-score="0">
+                        <span class="option-label">Unknown</span>
+                        <span class="option-score">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <span class="question-label">3. Rating Difference</span>
+                <div class="question-options">
+                    <div class="option" data-q="rating" data-score="-15">
+                        <span class="option-label">Higher Rated</span>
+                        <span class="option-score">-15</span>
+                    </div>
+                    <div class="option" data-q="rating" data-score="0">
+                        <span class="option-label">Similar</span>
+                        <span class="option-score">0</span>
+                    </div>
+                    <div class="option" data-q="rating" data-score="+15">
+                        <span class="option-label">Lower Rated</span>
+                        <span class="option-score">+15</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <span class="question-label">4. Time Control</span>
+                <div class="question-options">
+                    <div class="option" data-q="time" data-score="-10">
+                        <span class="option-label">Classical</span>
+                        <span class="option-score">-10</span>
+                    </div>
+                    <div class="option" data-q="time" data-score="0">
+                        <span class="option-label">Rapid</span>
+                        <span class="option-score">0</span>
+                    </div>
+                    <div class="option" data-q="time" data-score="+15">
+                        <span class="option-label">Blitz</span>
+                        <span class="option-score">+15</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <span class="question-label">5. Your Form Today</span>
+                <div class="question-options">
+                    <div class="option" data-q="form" data-score="+10">
+                        <span class="option-label">Sharp</span>
+                        <span class="option-score">+10</span>
+                    </div>
+                    <div class="option" data-q="form" data-score="-15">
+                        <span class="option-label">Tired</span>
+                        <span class="option-score">-15</span>
+                    </div>
+                    <div class="option" data-q="form" data-score="+10">
+                        <span class="option-label">Confident</span>
+                        <span class="option-score">+10</span>
+                    </div>
+                    <div class="option" data-q="form" data-score="-10">
+                        <span class="option-label">Rusty</span>
+                        <span class="option-score">-10</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <span class="question-label">6. Opening Preparation</span>
+                <div class="question-options">
+                    <div class="option" data-q="prep" data-score="+10">
+                        <span class="option-label">Deep</span>
+                        <span class="option-score">+10</span>
+                    </div>
+                    <div class="option" data-q="prep" data-score="0">
+                        <span class="option-label">Shallow</span>
+                        <span class="option-score">0</span>
+                    </div>
+                    <div class="option" data-q="prep" data-score="-10">
+                        <span class="option-label">None</span>
+                        <span class="option-score">-10</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <span class="question-label">7. Psychological State</span>
+                <div class="question-options">
+                    <div class="option" data-q="psych" data-score="0">
+                        <span class="option-label">Calm</span>
+                        <span class="option-score">0</span>
+                    </div>
+                    <div class="option" data-q="psych" data-score="-10">
+                        <span class="option-label">Anxious</span>
+                        <span class="option-score">-10</span>
+                    </div>
+                    <div class="option" data-q="psych" data-score="+15">
+                        <span class="option-label">Aggressive</span>
+                        <span class="option-score">+15</span>
+                    </div>
+                    <div class="option" data-q="psych" data-score="-15">
+                        <span class="option-label">Defensive</span>
+                        <span class="option-score">-15</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result-card" id="resultCard" style="display: none;">
+                <div class="result-style" id="resultStyle"></div>
+                <div class="result-aggression" id="resultAggression">35</div>
+                <div class="result-description" id="resultDesc"></div>
+                
+                <div class="recommendations">
+                    <div class="rec-box">
+                        <div class="rec-title">As White</div>
+                        <div class="rec-list" id="recWhite"></div>
+                    </div>
+                    <div class="rec-box">
+                        <div class="rec-title">As Black vs 1.e4</div>
+                        <div class="rec-list" id="recBlackE4"></div>
+                    </div>
+                    <div class="rec-box">
+                        <div class="rec-title">As Black vs 1.d4</div>
+                        <div class="rec-list" id="recBlackD4"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="triggers">
+                <h3>📋 In-Game Adjustment Triggers</h3>
+                <div class="trigger"><span class="trigger-situation">Opening went well, advantage</span><span class="trigger-adjust">-10 (convert solidly)</span></div>
+                <div class="trigger"><span class="trigger-situation">Opening went poorly</span><span class="trigger-adjust">+15 (complicate)</span></div>
+                <div class="trigger"><span class="trigger-situation">Opponent passive</span><span class="trigger-adjust">+10 (seize initiative)</span></div>
+                <div class="trigger"><span class="trigger-situation">Opponent sharp</span><span class="trigger-adjust">-10 (solidify)</span></div>
+                <div class="trigger"><span class="trigger-situation">Your time low</span><span class="trigger-adjust">-15 (simplify)</span></div>
+                <div class="trigger"><span class="trigger-situation">Opponent time low</span><span class="trigger-adjust">+15 (complicate)</span></div>
+                <div class="trigger"><span class="trigger-situation">Must-win late</span><span class="trigger-adjust">+20 (all-out)</span></div>
+                <div class="trigger"><span class="trigger-situation">Draw OK</span><span class="trigger-adjust">-20 (solid)</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const styleData = {
+            ranges: [
+                { min: 0, max: 20, name: 'Ultra-Solid', archetype: 'Petrosian/Karpov', desc: 'Prophylaxis, restriction, zero risk. Squeeze wins from nothing.' },
+                { min: 21, max: 40, name: 'Classical', archetype: 'Capablanca/Anand/Carlsen', desc: 'Principled, flexible, best practical chances. Universal style.' },
+                { min: 41, max: 60, name: 'Active', archetype: 'Kasparov/Fischer/Nakamura', desc: 'Seize initiative, create problems. Activity > material.' },
+                { min: 61, max: 80, name: 'Aggressive', archetype: 'Tal/Shirov/Topalov', desc: 'Sacrificial, complications, psychological pressure. Practical chances.' },
+                { min: 81, max: 100, name: 'Wild/Sharp', archetype: 'Morphy/Online Blitz', desc: 'Maximum chaos, offbeat, surprise. Entertainment.' }
+            ],
+            repertoire: {
+                white: {
+                    '0-20': ['London System', 'English Opening'],
+                    '21-40': ['Italian (Giuoco Piano)', 'London System', 'English Opening'],
+                    '41-60': ['Scotch Game', 'Italian Game', 'London System'],
+                    '61-80': ['Evans Gambit', 'King\'s Gambit', 'Scotch Game'],
+                    '81-100': ['Danish Gambit', 'Center Game', 'Wild lines']
+                },
+                blackE4: {
+                    '0-20': ['Caro-Kann'],
+                    '21-40': ['1...e5 (Berlin/Classical)', 'Caro-Kann'],
+                    '41-60': ['Sicilian (Scheveningen/Classical)', '1...e5', 'Caro-Kann'],
+                    '61-80': ['French (Winawer)', 'Scandinavian', 'Sicilian'],
+                    '81-100': ['From\'s Gambit', 'Borg Defense', 'French']
+                },
+                blackD4: {
+                    '0-20': ['Slav Defense'],
+                    '21-40': ['QGD', 'Slav Defense'],
+                    '41-60': ['King\'s Indian', 'Grünfeld', 'QGD'],
+                    '61-80': ['Benko Gambit', 'Benoni', 'Dutch'],
+                    '81-100': ['Englund Gambit', 'Wild lines', 'Benko']
+                }
+            }
+        };
+        
+        const questions = ['tournament', 'oppStyle', 'rating', 'time', 'form', 'prep', 'psych'];
+        const selections = {};
+        
+        document.querySelectorAll('.option').forEach(opt => {
+            opt.addEventListener('click', function() {
+                const q = this.dataset.q;
+                const score = parseInt(this.dataset.score);
+                
+                // Deselect siblings
+                document.querySelectorAll(`[data-q="${q}"]`).forEach(o => o.classList.remove('selected'));
+                
+                // Select this
+                this.classList.add('selected');
+                selections[q] = score;
+                
+                calculateResult();
+            });
+        });
+        
+        function calculateResult() {
+            const baseline = 35;
+            const total = Object.values(selections).reduce((a, b) => a + b, 0);
+            const final = Math.max(0, Math.min(100, baseline + total));
+            
+            // Find style
+            const style = styleData.ranges.find(r => final >= r.min && final <= r.max);
+            
+            // Get repertoire range key
+            let rangeKey;
+            if (final <= 20) rangeKey = '0-20';
+            else if (final <= 40) rangeKey = '21-40';
+            else if (final <= 60) rangeKey = '41-60';
+            else if (final <= 80) rangeKey = '61-80';
+            else rangeKey = '81-100';
+            
+            // Update UI
+            document.getElementById('resultCard').style.display = 'block';
+            document.getElementById('resultStyle').textContent = `${style.name} (${style.archetype})`;
+            document.getElementById('resultAggression').textContent = final;
+            document.getElementById('resultDesc').textContent = style.desc;
+            
+            document.getElementById('recWhite').innerHTML = styleData.repertoire.white[rangeKey].join('<br>');
+            document.getElementById('recBlackE4').innerHTML = styleData.repertoire.blackE4[rangeKey].join('<br>');
+            document.getElementById('recBlackD4').innerHTML = styleData.repertoire.blackD4[rangeKey].join('<br>');
+        }
+        
+        // Auto-select first option for each question on load (or leave unselected)
+        // Let's pre-select "Normal" for tournament, "Unknown" for opponent, etc.
+        const defaults = {
+            tournament: 0,
+            oppStyle: 0,
+            rating: 0,
+            time: 0,
+            form: 0,
+            prep: 0,
+            psych: 0
+        };
+        
+        // Actually, let's not pre-select - let user choose
+        // But calculate baseline immediately
+        calculateResult();
+    </script>
+</body>
+</html>

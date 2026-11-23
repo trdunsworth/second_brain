@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Position Matcher</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #7f8c8d; margin-bottom: 30px; }
+        
+        .input-card { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; font-weight: 600; color: #2c3e50; margin-bottom: 8px; }
+        .input-group textarea { width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-family: monospace; font-size: 14px; min-height: 100px; resize: vertical; }
+        .input-group textarea:focus { outline: none; border-color: #3498db; }
+        .btn { background: #3498db; color: white; padding: 15px 30px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: background 0.2s; }
+        .btn:hover { background: #2980b9; }
+        .btn:disabled { background: #bdc3c7; cursor: not-allowed; }
+        
+        .examples { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .example-btn { padding: 8px 16px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; font-size: 13px; transition: all 0.2s; }
+        .example-btn:hover { background: #3498db; color: white; border-color: #3498db; }
+        
+        .result-card { display: none; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; }
+        .result-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }
+        .result-aggression { font-size: 64px; font-weight: bold; margin: 10px 0; }
+        .result-type { font-size: 20px; opacity: 0.9; }
+        
+        .result-body { padding: 30px; }
+        .result-section { margin-bottom: 25px; }
+        .result-section h3 { color: #2c3e50; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid #3498db; font-size: 16px; }
+        .result-section ul { margin: 0; padding-left: 20px; }
+        .result-section li { margin: 8px 0; color: #555; line-height: 1.6; }
+        .tag { display: inline-block; background: #3498db; color: white; padding: 3px 10px; border-radius: 12px; font-size: 12px; margin: 2px 5px 2px 0; }
+        .tag.warning { background: #e74c3c; }
+        .tag.success { background: #27ae60; }
+        
+        .quick-ref { background: #f8f9fa; border-radius: 12px; padding: 20px; margin-top: 30px; }
+        .quick-ref h3 { color: #2c3e50; margin-bottom: 15px; }
+        .ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .ref-item { background: white; padding: 15px; border-radius: 8px; border-left: 3px solid #3498db; }
+        .ref-item.warning { border-left-color: #e74c3c; }
+        .ref-title { font-weight: bold; color: #2c3e50; margin-bottom: 5px; }
+        .ref-desc { font-size: 13px; color: #555; }
+        
+        @media (max-width: 600px) {
+            .container { padding: 10px; }
+            .input-card { padding: 20px; }
+            .result-aggression { font-size: 48px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>♟️ Position Matcher</h1>
+        <p class="subtitle">Paste a FEN or describe a position → Get style recommendation + key themes</p>
+        
+        <div class="input-card">
+            <div class="input-group">
+                <label>FEN or Position Description</label>
+                <textarea id="fenInput" placeholder="Enter FEN (e.g., rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1) or describe key features:
+- Pawn structure (closed/open/fixed/fluid)
+- King safety (castled/center/weak)
+- Piece activity
+- Material balance
+- Center control"></textarea>
+            </div>
+            <button class="btn" id="analyzeBtn" onclick="analyzePosition()">Analyze Position</button>
+            
+            <div class="examples">
+                <button class="example-btn" onclick="setExample('closed')">Closed Center (French/KID)</button>
+                <button class="example-btn" onclick="setExample('open')">Open Center (Sicilian)</button>
+                <button class="example-btn" onclick="setExample('opposite')">Opposite Castling</button>
+                <button class="example-btn" onclick="setExample('iqp')">IQP Position</button>
+                <button class="example-btn" onclick="setExample('kingcenter')">King in Center</button>
+                <button class="example-btn" onclick="setExample('development')">Development Lead</button>
+            </div>
+        </div>
+        
+        <div class="result-card" id="resultCard">
+            <div class="result-header">
+                <div class="result-type" id="resultType">Position Type</div>
+                <div class="result-aggression" id="resultAggression">0-100</div>
+            </div>
+            <div class="result-body">
+                <div class="result-section">
+                    <h3>🎯 Recommended Aggression</h3>
+                    <p id="aggressionAdvice"></p>
+                </div>
+                <div class="result-section">
+                    <h3>📚 Key Themes to Study</h3>
+                    <div id="keyThemes"></div>
+                </div>
+                <div class="result-section">
+                    <h3>⚠️ Avoid These Approaches</h3>
+                    <div id="avoidThemes"></div>
+                </div>
+                <div class="result-section">
+                    <h3>🎲 Style Warning</h3>
+                    <p id="styleWarning"></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quick-ref">
+            <h3>📋 Quick Reference: Position Type → Aggression</h3>
+            <div class="ref-grid">
+                <div class="ref-item warning"><div class="ref-title">Opposite Castling</div><div class="ref-desc">55+ — MUST attack. Race positions.</div></div>
+                <div class="ref-item warning"><div class="ref-title">King in Center</div><div class="ref-desc">75+ — ALL-OUT ATTACK. Sacrifice!</div></div>
+                <div class="ref-item warning"><div class="ref-title">Development Lead</div><div class="ref-desc">55+ — Cash in NOW. Open position!</div></div>
+                <div class="ref-item warning"><div class="ref-title">Weak King Shelter</div><div class="ref-desc">55+ — Attack aggressively.</div></div>
+                <div class="ref-item"><div class="ref-title">IQP (You Have)</div><div class="ref-desc">41+ — Active piece play.</div></div>
+                <div class="ref-item"><div class="ref-title">IQP (Opponent)</div><div class="ref-desc">0-35 — Blockade, trade pieces.</div></div>
+                <div class="ref-item"><div class="ref-title">Closed Center</div><div class="ref-desc">0-40 — Maneuver, prepare breaks.</div></div>
+                <div class="ref-item"><div class="ref-title">Open Center</div><div class="ref-desc">41+ — Piece activity, tactics.</div></div>
+                <div class="ref-item"><div class="ref-title">Opposite Bishops</div><div class="ref-desc">55+ (MG) / 0-20 (EG)</div></div>
+                <div class="ref-item"><div class="ref-title">Symmetric</div><div class="ref-desc">0-35 — Technique, provoke.</div></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const positionTypes = [
+            {
+                id: 'opposite-castling',
+                name: 'Opposite-Side Castling',
+                keywords: ['opposite', 'castling', '0-0-0', '0-0', 'race', 'pawn storm'],
+                aggression: [55, 100],
+                themes: ['Pawn storm speed', 'Piece sacrifices', 'King safety', 'Race calculation', 'Counterattack'],
+                avoid: ['Slow maneuvering', 'Prophylaxis', 'Endgame technique'],
+                advice: 'MUST play aggressively. This is a race - slow play loses. Even solid players must attack.',
+                warning: 'Position demands aggression 55+. Solid play will lose.'
+            },
+            {
+                id: 'king-center',
+                name: 'King Stuck in Center',
+                keywords: ['king center', 'e8', 'e1', 'd8', 'd1', 'uncastled', 'ke7', 'ke2', 'kd7', 'kd2'],
+                aggression: [75, 100],
+                themes: ['Open center', 'Sacrifices', 'Mate threats', "Don't let king escape"],
+                avoid: ['Solid play', 'Maneuvering', 'Prophylaxis'],
+                advice: 'ALL-OUT ATTACK. Open the center! Sacrifice pieces! This is not a position for solid play.',
+                warning: 'Position demands aggression 75+. Solid play lets opponent consolidate.'
+            },
+            {
+                id: 'development-lead',
+                name: 'Lead in Development',
+                keywords: ['development lead', 'undeveloped', 'behind development', 'pieces not out', 'initiative'],
+                aggression: [55, 100],
+                themes: ['Open position', 'Sacrifice for attack', "Don't let opponent catch up", 'Tactics'],
+                avoid: ['Waiting moves', 'Solidification', 'Prophylaxis'],
+                advice: 'MUST cash in aggressively. Every move counts. Open lines! Solid play wastes advantage.',
+                warning: 'Position demands aggression 55+. Development advantage evaporates quickly.'
+            },
+            {
+                id: 'weak-king',
+                name: 'Weak King Shelter',
+                keywords: ['weak king', 'g6', 'h6', 'f6', 'g3', 'h3', 'f3', 'exposed king', 'missing pawns'],
+                aggression: [55, 100],
+                themes: ['Piece sacrifices', 'Mating nets', 'Open files', 'Knight checks', 'Queen infiltration'],
+                avoid: ['Solid play', 'Endgame transition', 'Prophylaxis'],
+                advice: 'Attack aggressively. Solid play lets opponent consolidate.',
+                warning: 'Position favors aggression 55+. Target the weak king.'
+            },
+            {
+                id: 'closed-center',
+                name: 'Closed Center',
+                keywords: ['closed', 'fixed center', 'pawn chain', 'e4 d4', 'e5 d5', 'french', "king's indian", 'closed ruy', 'english'],
+                aggression: [0, 40],
+                themes: ['Maneuvering', 'Pawn breaks timing', 'Outposts', 'Space advantage', 'Prophylaxis'],
+                avoid: ['Premature breaks', 'Wild attacks', 'Sacrifices without preparation'],
+                advice: 'Low aggression: maneuver, prepare breaks. High aggression: premature breaks backfire.',
+                warning: 'Closed positions punish premature aggression. Patience wins.'
+            },
+            {
+                id: 'open-center',
+                name: 'Open Center',
+                keywords: ['open', 'open center', 'open sicilian', 'open ruy', 'italian', 'scotch', 'open files'],
+                aggression: [41, 100],
+                themes: ['Piece activity', 'Initiative', 'King safety', 'Tactics', 'Open files', 'Outposts'],
+                avoid: ['Passive defense', 'Waiting for opponent'],
+                advice: 'High aggression thrives. Low aggression: solidify, trade into ending.',
+                warning: 'Open positions reward piece activity and initiative.'
+            },
+            {
+                id: 'iqp-have',
+                name: 'IQP (You Have It)',
+                keywords: ['isolated', 'd4', 'd5', 'no c pawn', 'no e pawn', 'iqp'],
+                aggression: [41, 100],
+                themes: ['Piece activity', 'Avoid trades', 'Attack king', 'e4-e5 break', 'Dynamic play'],
+                avoid: ['Trading pieces', 'Passive defense', 'Endgame transition'],
+                advice: 'Must be active! Avoid trades, create threats, use dynamic potential.',
+                warning: 'IQP is a dynamic asset - use it actively or it becomes a weakness.'
+            },
+            {
+                id: 'iqp-opp',
+                name: 'IQP (Opponent Has It)',
+                keywords: ['opponent iqp', 'isolated d-pawn', 'blockade'],
+                aggression: [0, 35],
+                themes: ['Blockade (Nd5)', 'Trade pieces', 'Endgame technique', 'Fix weakness'],
+                avoid: ['Active complications', 'Sacrifices', 'Rushing'],
+                advice: 'Solid blockade, trade pieces, win the endgame. Patience.',
+                warning: 'Active play helps IQP side. Solid blockade wins.'
+            },
+            {
+                id: 'symmetric',
+                name: 'Symmetric Position',
+                keywords: ['symmetric', 'mirror', 'exchange qgd', 'exchange slav', 'berlin', 'petrov', 'symmetrical english'],
+                aggression: [0, 35],
+                themes: ['Tempo', 'Psychological', 'Small advantages', 'Endgame technique', 'Provoking weaknesses'],
+                avoid: ['Forcing play', 'Sacrifices', 'Breaking symmetry poorly'],
+                advice: 'Low aggression: outplay technically. High aggression: breaks symmetry poorly.',
+                warning: 'Symmetric positions reward patience and technique.'
+            },
+            {
+                id: 'opposite-bishops',
+                name: 'Opposite-Color Bishops',
+                keywords: ['opposite bishops', 'light bishop', 'dark bishop', 'different color bishops'],
+                aggression: [55, 100],
+                themes: ['Middlegame: attack weak color', 'Endgame: often drawn', "Don't trade queens if attacking"],
+                avoid: ['Trading queens (endgame)', 'Passive defense (middlegame)'],
+                advice: 'Middlegame: aggressive attack on weak color complex. Endgame: solid - likely drawn.',
+                warning: 'Split personality: Attack in middlegame, draw in endgame.'
+            }
+        ];
+        
+        const examples = {
+            closed: 'r1bq1rk1/pp2ppbp/2np1np1/2pP4/2P1P3/2N2N2/PP3PPP/R1BQ1RK1 w - - 0 1',
+            open: 'rnbq1rk1/pp2ppbp/3p1np1/8/2PP4/2N2N2/PP1BPPP/R1BQ1RK1 w - - 0 1',
+            opposite: 'r2q1rk1/pp2bppp/2np1n2/3Pp1B1/2P1P3/2N2N2/PP1Q1PPP/R4RK1 w - - 0 1',
+            iqp: 'r1bq1rk1/pp2bppp/2np1n2/3Pp3/2P1P3/2N2N2/PP1Q1PPP/R4RK1 w - - 0 1',
+            kingcenter: 'rnbqkb1r/pppp1ppp/5n2/4p3/2P5/5N2/PP1PPPPP/RNBQKB1R w KQkq - 0 1',
+            development: 'rnbqkbnr/pppp1ppp/8/4p3/2P5/5N2/PP1PPPPP/RNBQKB1R w KQkq - 0 1'
+        };
+        
+        function setExample(key) {
+            document.getElementById('fenInput').value = examples[key];
+        }
+        
+        function analyzePosition() {
+            const input = document.getElementById('fenInput').value.toLowerCase();
+            if (!input.trim()) {
+                alert('Please enter a FEN or position description');
+                return;
+            }
+            
+            // Score each position type
+            const scores = positionTypes.map(type => {
+                let score = 0;
+                type.keywords.forEach(kw => {
+                    if (input.includes(kw.toLowerCase())) score += 10;
+                });
+                // FEN-specific detection
+                if (input.includes('fen') || input.includes('/') || input.match(/[rnbqkpRNBQKP]{10,}/)) {
+                    score += detectFromFEN(input, type);
+                }
+                return { type, score };
+            });
+            
+            // Sort by score
+            scores.sort((a, b) => b.score - a.score);
+            
+            const best = scores[0];
+            if (best.score === 0) {
+                // No clear match - use general heuristics
+                showGenericResult(input);
+            } else {
+                showResult(best.type, scores.slice(1, 3).map(s => s.type.name));
+            }
+        }
+        
+        function detectFromFEN(fen, type) {
+            let score = 0;
+            const parts = fen.split(' ');
+            if (parts.length < 4) return 0;
+            const board = parts[0];
+            const castling = parts[2];
+            
+            // Opposite castling detection
+            if (type.id === 'opposite-castling') {
+                const whiteCastled = castling.includes('K') && !castling.includes('Q');
+                const blackCastled = castling.includes('k') && !castling.includes('q');
+                // Simplified - real detection needs move history
+                if (board.includes('k') && board.includes('K')) score += 5;
+            }
+            
+            // King in center
+            if (type.id === 'king-center') {
+                if (board.includes('ke') || board.includes('Ke') || board.includes('kd') || board.includes('Kd')) score += 20;
+            }
+            
+            // Closed center - pawn chains
+            if (type.id === 'closed-center') {
+                if (board.includes('PPPP') || board.includes('pppp')) score += 5;
+            }
+            
+            return score;
+        }
+        
+        function showResult(type, secondaryTypes) {
+            const card = document.getElementById('resultCard');
+            card.style.display = 'block';
+            
+            document.getElementById('resultType').textContent = type.name;
+            document.getElementById('resultAggression').textContent = `${type.aggression[0]}-${type.aggression[1]}`;
+            
+            // Color code aggression
+            const aggEl = document.getElementById('resultAggression');
+            aggEl.className = 'result-aggression';
+            if (type.aggression[0] >= 75) aggEl.style.color = '#e74c3c';
+            else if (type.aggression[0] >= 55) aggEl.style.color = '#e67e22';
+            else if (type.aggression[0] >= 41) aggEl.style.color = '#f39c12';
+            else aggEl.style.color = '#27ae60';
+            
+            document.getElementById('aggressionAdvice').innerHTML = `
+                <strong>Range: ${type.aggression[0]}-${type.aggression[1]}</strong><br>
+                ${type.advice}
+            `;
+            
+            document.getElementById('keyThemes').innerHTML = type.themes.map(t => `<span class="tag success">${t}</span>`).join('');
+            document.getElementById('avoidThemes').innerHTML = type.avoid.map(t => `<span class="tag warning">${t}</span>`).join('');
+            document.getElementById('styleWarning').innerHTML = type.warning ? `<span class="tag warning">${type.warning}</span>` : 'No specific warning.';
+        }
+        
+        function showGenericResult(input) {
+            const card = document.getElementById('resultCard');
+            card.style.display = 'block';
+            
+            document.getElementById('resultType').textContent = 'General Position';
+            document.getElementById('resultAggression').textContent = '35 (Classical)';
+            document.getElementById('aggressionAdvice').innerHTML = 'No specific position type detected. Default to <strong>Classical (35)</strong> - principled, flexible play.';
+            document.getElementById('keyThemes').innerHTML = ['Center control', 'Piece activity', 'King safety', 'Pawn structure'].map(t => `<span class="tag success">${t}</span>`).join('');
+            document.getElementById('avoidThemes').innerHTML = ['Dogmatic style adherence', 'Ignoring position demands'].map(t => `<span class="tag warning">${t}</span>`).join('');
+            document.getElementById('styleWarning').innerHTML = 'Match style to position, not preference. Use the quick reference below.';
+        }
+    </script>
+</body>
+</html>

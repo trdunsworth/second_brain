@@ -1,0 +1,532 @@
+{
+  "meta": {
+    "version": "1.0",
+    "targetRating": "800-1500",
+    "lastUpdated": "2026-11-23",
+    "description": "Black opening repertoires across aggression spectrum"
+  },
+  "repertoires": [
+    {
+      "id": "black-solid-1e4",
+      "name": "Solid vs 1.e4 - Caro-Kann",
+      "aggression": 10,
+      "style": "Solid/Positional",
+      "eco": "B10-B19",
+      "moves": "1.e4 c6",
+      "description": "Rock-solid, minimal theory, excellent structure, hard to crack",
+      "bestAgainst": ["1.e4 players", "Higher rated", "Aggressive attackers"],
+      "avoidAgainst": ["Caro-Kann specialists", "Those wanting sharp play"],
+      "keyIdeas": [
+        "c6 supports d5 without blocking c8-bishop",
+        "Solid pawn structure, no weaknesses",
+        "Classical: 3...dxe4 4.Nxe4 Bf5 - easy development",
+        "Advance: 3.e5 Bf5 - solid, space advantage for White but no weaknesses",
+        "Exchange: 3.exd5 cxd5 - symmetrical, drawish",
+        "Fantasy: 3.f3 - White weakens kingside"
+      ],
+      "mainLines": [
+        {
+          "name": "Classical Variation",
+          "moves": "1.e4 c6 2.d4 d5 3.Nc3 dxe4 4.Nxe4 Bf5 5.Ng3 Bg6 6.h4 h6 7.Nf3 Nd7 8.h5 Bh7 9.Bd3 Bxd3 10.Qxd3 e6",
+          "aggression": 10,
+          "eval": "=",
+          "notes": "Main line, solid equality, easy to play"
+        },
+        {
+          "name": "Advance Variation",
+          "moves": "1.e4 c6 2.d4 d5 3.e5 Bf5 4.Nc3 e6 5.g4 Bg6 6.Nge2 c5",
+          "aggression": 15,
+          "eval": "=",
+          "notes": "White gains space, Black undermines center"
+        },
+        {
+          "name": "Exchange Variation",
+          "moves": "1.e4 c6 2.d4 d5 3.exd5 cxd5 4.Bd3 Nc6 5.c3 Nf6 6.Bf4",
+          "aggression": 5,
+          "eval": "=",
+          "notes": "Symmetrical, very drawish, good for holding"
+        },
+        {
+          "name": "Two Knights",
+          "moves": "1.e4 c6 2.Nc3 d5 3.Nf3 Bg4 4.h3 Bh5",
+          "aggression": 20,
+          "eval": "=",
+          "notes": "Avoids main theory, solid"
+        }
+      ],
+      "studyPriority": 1,
+      "estimatedHours": 10,
+      "modelGames": [
+        "Carlsen vs Caruana, 2018 (multiple)",
+        "Karpov classics",
+        "Ding Liren vs various"
+      ],
+      "tags": ["solid", "low-theory", "no-weaknesses", "beginner-friendly", "world-champion-approved"]
+    },
+    {
+      "id": "black-solid-1d4",
+      "name": "Solid vs 1.d4 - Slav Defense",
+      "aggression": 15,
+      "style": "Solid/Positional",
+      "eco": "D10-D19",
+      "moves": "1.d4 d5 2.c4 c6",
+      "description": "Solid, flexible, supports d5, avoids Queen's Gambit Accepted issues",
+      "bestAgainst": ["1.d4 players", "Catalan/Queen's Gambit players", "Higher rated"],
+      "avoidAgainst": ["Slav specialists", "London System (transpose to Caro-Kann)"],
+      "keyIdeas": [
+        "c6 supports d5, keeps c8-bishop free",
+        "Main line: 3.Nf3 Nf6 4.Nc3 dxc4 - solid",
+        "Semi-Slav: 4...e6 - more active, complex",
+        "Exchange: 3.cxd5 cxd5 - symmetrical",
+        "Avoids ...dxc4 problems of QGA"
+      ],
+      "mainLines": [
+        {
+          "name": "Main Line",
+          "moves": "1.d4 d5 2.c4 c6 3.Nf3 Nf6 4.Nc3 dxc4 5.a4 Bf5 6.Ne5 Nbd7 7.Nxc4 Qc7 8.g3 e5 9.dxe5 Nxe5 10.Bf4",
+          "aggression": 15,
+          "eval": "=",
+          "notes": "Solid, well-tested at highest level"
+        },
+        {
+          "name": "Semi-Slav",
+          "moves": "1.d4 d5 2.c4 c6 3.Nf3 Nf6 4.Nc3 e6 5.e3 Nbd7 6.Bd3 dxc4 7.Bxc4 b5",
+          "aggression": 35,
+          "eval": "=",
+          "notes": "More active, complex middlegames"
+        },
+        {
+          "name": "Exchange Variation",
+          "moves": "1.d4 d5 2.c4 c6 3.cxd5 cxd5 4.Nc3 Nf6 5.Bf4 Nc6 6.e3 Bf5",
+          "aggression": 10,
+          "eval": "=",
+          "notes": "Symmetrical, solid draw"
+        }
+      ],
+      "studyPriority": 1,
+      "estimatedHours": 12,
+      "modelGames": [
+        "Kramnik vs various",
+        "Anand vs Kramnik, 2008",
+        "Carlsen vs Caruana, 2016"
+      ],
+      "tags": ["solid", "flexible", "world-champion-repertoire", "avoids-qga-issues"]
+    },
+    {
+      "id": "black-classical-1e4",
+      "name": "Classical vs 1.e4 - 1...e5 (Open Games)",
+      "aggression": 35,
+      "style": "Classical",
+      "eco": "C40-C99",
+      "moves": "1.e4 e5",
+      "description": "Principled, open play, teaches fundamentals, rich theory",
+      "bestAgainst": ["1.e4 players", "Italian/Ruy Lopez players", "Those avoiding theory"],
+      "avoidAgainst": ["Berlin Defense experts", "Scotch/King's Gambit specialists"],
+      "keyIdeas": [
+        "Symmetrical center, equal chances",
+        "Against Ruy Lopez: Berlin (solid), Breyer/Chigorin (active), Open (classical)",
+        "Against Italian: Two Knights (sharp), Giuoco Piano (solid), Hungarian (active)",
+        "Against Scotch: Classical, Mieses, Steinitz",
+        "Against King's Gambit: Declined (solid), Accepted (sharp)"
+      ],
+      "mainLines": [
+        {
+          "name": "Ruy Lopez - Berlin Defense",
+          "moves": "1.e4 e5 2.Nf3 Nc6 3.Bb5 Nf6 4.0-0 Nxe4 5.d4 Nd6 6.Bxc6 dxc6 7.dxe5 Nf5 8.Qxd8+ Kxd8",
+          "aggression": 15,
+          "eval": "=",
+          "notes": "Ultra-solid, 'Berlin Wall', endgameish"
+        },
+        {
+          "name": "Ruy Lopez - Breyer Variation",
+          "moves": "1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.0-0 Be7 6.Re1 b5 7.Bb3 0-0 8.c3 d5 9.exd5 Nxd5 10.Nxe5 Nxe5 11.Rxe5 c6",
+          "aggression": 40,
+          "eval": "=",
+          "notes": "Active, maneuvering, main line"
+        },
+        {
+          "name": "Italian - Two Knights",
+          "moves": "1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Ng5 d5 5.exd5 Na5 6.Bb5+ c6 7.dxc6 bxc6 8.Be2 h6",
+          "aggression": 55,
+          "eval": "=",
+          "notes": "Sharp, tactical, main line"
+        },
+        {
+          "name": "Against Scotch",
+          "moves": "1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Nxd4 Nxd4 5.Qxd4 Qf6",
+          "aggression": 30,
+          "eval": "=",
+          "notes": "Classical main line"
+        }
+      ],
+      "studyPriority": 2,
+      "estimatedHours": 25,
+      "modelGames": [
+        "Carlsen vs Anand, 2013-2014",
+        "Kramnik Berlin games",
+        "Fischer 1...e5 games"
+      ],
+      "tags": ["open-games", "fundamentals", "rich-theory", "classical", "world-champion-tested"]
+    },
+    {
+      "id": "black-classical-1d4",
+      "name": "Classical vs 1.d4 - Queen's Gambit Declined",
+      "aggression": 30,
+      "style": "Classical",
+      "eco": "D30-D69",
+      "moves": "1.d4 d5 2.c4 e6",
+      "description": "Classical, principled, solid but active, rich strategy",
+      "bestAgainst": ["1.d4/Queen's Gambit players", "Catalan players", "Positional players"],
+      "avoidAgainst": ["Exchange QGD specialists", "London/Colle (transpose)"],
+      "keyIdeas": [
+        "e6 supports d5, prepares ...Be7, ...0-0, ...Nbd7",
+        "Orthodox: 3.Nc3 Nf6 4.Bg5 Be7 - main line",
+        "Tarrasch: 3.Nc3 c5 - active, isolated pawn",
+        "Cambridge Springs: 3.Nc3 Nf6 4.Bg5 Nbd7 5.e3 Qa5 - sharp",
+        "Exchange: 3.cxd5 exd5 - symmetrical, Carlsen's choice",
+        "Against Catalan: 4...dxc4 (Open) or 4...Be7 (Closed)"
+      ],
+      "mainLines": [
+        {
+          "name": "Orthodox Main Line",
+          "moves": "1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Bg5 Be7 5.e3 0-0 6.Nf3 Nbd7 7.Rc1 c6 8.Bd3 dxc4 9.Bxc4 Nd5",
+          "aggression": 30,
+          "eval": "=",
+          "notes": "Classical main line, solid"
+        },
+        {
+          "name": "Tarrasch Defense",
+          "moves": "1.d4 d5 2.c4 e6 3.Nc3 c5 4.cxd5 exd5 5.Nf3 Nc6 6.g3 Nf6 7.Bg2 Be7 8.0-0 0-0",
+          "aggression": 45,
+          "eval": "=",
+          "notes": "Active, isolated pawn, dynamic play"
+        },
+        {
+          "name": "Exchange QGD",
+          "moves": "1.d4 d5 2.c4 e6 3.cxd5 exd5 4.Nc3 Nf6 5.Bg5 Be7 6.e3 0-0 7.Nf3 Nbd7 8.Bd3 c6",
+          "aggression": 15,
+          "eval": "=",
+          "notes": "Symmetrical, solid, Carlsen's pet"
+        },
+        {
+          "name": "vs Catalan - Open",
+          "moves": "1.d4 d5 2.c4 e6 3.Nf3 Nf6 4.g3 dxc4 5.Bg2 Nc6 6.0-0 Be7 7.Nc3 a6",
+          "aggression": 35,
+          "eval": "=",
+          "notes": "Active, hold pawn temporarily"
+        }
+      ],
+      "studyPriority": 2,
+      "estimatedHours": 20,
+      "modelGames": [
+        "Kasparov vs Karpov, 1984-1990",
+        "Carlsen Exchange QGD games",
+        "Anand Tarrasch games"
+      ],
+      "tags": ["classical", "qgd", "orthodox", "tarrasch", "catalan-ready"]
+    },
+    {
+      "id": "black-active-1e4",
+      "name": "Active vs 1.e4 - Sicilian Defense",
+      "aggression": 55,
+      "style": "Active",
+      "eco": "B20-B99",
+      "moves": "1.e4 c5",
+      "description": "Asymmetric, fighting, best winning chances, huge theory",
+      "bestAgainst": ["1.e4 players", "Must-win situations", "Lower rated"],
+      "avoidAgainst": ["Sicilian specialists", "Anti-Sicilian experts", "Limited study time"],
+      "keyIdeas": [
+        "Asymmetric pawn structure, winning chances",
+        "Najdorf: 5...a6 - main line, complex",
+        "Dragon: 5...g6 - sharp, Yugoslav Attack",
+        "Scheveningen: 5...e6 - solid but active",
+        "Classical: 5...Nc6 - principled",
+        "Sveshnikov: 5...Nc6 6.Ndb5 d6 7.Bg5 a6 8.Na3 b5 - dynamic",
+        "Anti-Sicilians: Closed (2.Nc3), Alapin (2.c3), Moscow (2.Nf3 d6 3.Bb5+), Rossolimo (2.Nf3 Nc6 3.Bb5)"
+      ],
+      "mainLines": [
+        {
+          "name": "Najdorf Main Line",
+          "moves": "1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3 e5 7.Nb3 Be6 8.f3 Be7 9.Qd2 0-0 9...0-0 10.0-0-0",
+          "aggression": 70,
+          "eval": "=",
+          "notes": "Main line, extremely complex, huge theory"
+        },
+        {
+          "name": "Scheveningen",
+          "moves": "1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 e6 6.Be3 a6 7.g4",
+          "aggression": 55,
+          "eval": "=",
+          "notes": "Solid structure, Keres Attack critical test"
+        },
+        {
+          "name": "Classical Sicilian",
+          "moves": "1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 Nc6 6.Bg5 e6 7.Qd2 a6 8.0-0-0 Bd7",
+          "aggression": 50,
+          "eval": "=",
+          "notes": "Principled, less theory than Najdorf"
+        },
+        {
+          "name": "vs Anti-Sicilians - Closed",
+          "moves": "1.e4 c5 2.Nc3 Nc6 3.g3 g6 4.Bg2 Bg7 5.d3",
+          "aggression": 30,
+          "eval": "=",
+          "notes": "Solid setup against 2.Nc3"
+        },
+        {
+          "name": "vs Alapin",
+          "moves": "1.e4 c5 2.c3 Nf6 3.e5 Nd5 4.d4 cxd4 5.Nf3 Nc6",
+          "aggression": 45,
+          "eval": "=",
+          "notes": "Active, challenge center"
+        }
+      ],
+      "studyPriority": 4,
+      "estimatedHours": 50,
+      "modelGames": [
+        "Fischer Sicilian games",
+        "Kasparov Najdorf games",
+        "Carlsen Scheveningen/Classical",
+        "Nakamura Sveshnikov"
+      ],
+      "tags": ["sicilian", "asymmetric", "fighting", "huge-theory", "best-winning-chances"]
+    },
+    {
+      "id": "black-active-1d4",
+      "name": "Active vs 1.d4 - King's Indian / Grünfeld",
+      "aggression": 60,
+      "style": "Active",
+      "eco": "E60-E99, D70-D99",
+      "moves": "1.d4 Nf6 2.c4 g6 (KID) / 2...d5 (Grünfeld)",
+      "description": "Dynamic, counterattacking, lets White build center then attacks it",
+      "bestAgainst": ["1.d4 positional players", "Must-win", "Lower rated"],
+      "avoidAgainst": ["KID/Grünfeld specialists", "Anti-KID experts (Bayonet, Sämisch)", "Those fearing theory"],
+      "keyIdeas": [
+        "KID: g6, Bg7, 0-0, d6, e5 - attack White's center",
+        "Main lines: Classical (5.Nf3 0-0 6.Be2 e5), Sämisch (5.f3), Bayonet (5.Nf3 0-0 6.Be2 e5 7.0-0 Nc6 8.d5 Ne7 9.Ne1 Nd7 10.Nd3 f5)",
+        "Grünfeld: d5, c6, Bg7, 0-0 - attack center with pieces",
+        "Exchange Grünfeld: 4.cxd5 Nxd5 5.e4 Nxc3 6.bxc3 Bg7 - open lines",
+        "Russian System: 4.Nf3 Bg7 5.Qb3 - critical test"
+      ],
+      "mainLines": [
+        {
+          "name": "KID - Classical Main Line",
+          "moves": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 0-0 6.Be2 e5 7.0-0 Nc6 8.d5 Ne7 9.Ne1 Nd7 10.Nd3 f5",
+          "aggression": 65,
+          "eval": "=",
+          "notes": "Main line, opposite-side attacks"
+        },
+        {
+          "name": "KID - Sämisch",
+          "moves": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.f3 0-0 6.Be3 e5 7.Nge2",
+          "aggression": 60,
+          "eval": "=",
+          "notes": "White delays development, Black attacks center"
+        },
+        {
+          "name": "Grünfeld - Exchange",
+          "moves": "1.d4 Nf6 2.c4 g6 3.Nc3 d5 4.cxd5 Nxd5 5.e4 Nxc3 6.bxc3 Bg7 7.Nf3 0-0 8.Rb1",
+          "aggression": 55,
+          "eval": "=",
+          "notes": "Open lines, piece play vs pawn structure"
+        },
+        {
+          "name": "Grünfeld - Russian",
+          "moves": "1.d4 Nf6 2.c4 g6 3.Nc3 d5 4.Nf3 Bg7 5.Qb3 dxc4 6.Qxc4 0-0 7.e4 Bg4",
+          "aggression": 65,
+          "eval": "=",
+          "notes": "Critical test, sharp"
+        }
+      ],
+      "studyPriority": 5,
+      "estimatedHours": 30,
+      "modelGames": [
+        "Fischer KID games",
+        "Kasparov KID/Grünfeld",
+        "Nakamura Grünfeld",
+        "Ding Liren KID"
+      ],
+      "tags": ["kings-indian", "grunfeld", "dynamic", "counterattacking", "high-theory"]
+    },
+    {
+      "id": "black-aggressive-1e4",
+      "name": "Aggressive vs 1.e4 - French / Scandinavian / Alekhine",
+      "aggression": 70,
+      "style": "Aggressive",
+      "eco": "B01, C00-C19, B02-B05",
+      "moves": "1.e4 e6 (French) / 1.e4 d5 (Scandinavian) / 1.e4 Nf6 (Alekhine)",
+      "description": "Provocative, unbalancing, creates imbalances, practical chances",
+      "bestAgainst": ["1.e4 players", "Must-win", "Unprepared opponents"],
+      "avoidAgainst": ["French/Scandi/Alekhine experts", "Those wanting quiet games"],
+      "keyIdeas": [
+        "French: e6, d5 - solid structure, counterplay on queenside/kingside",
+        "Winawer: 3.Nc3 Bb4 - sharp, double-edged",
+        "Tarrasch: 3.Nd2 - solid, main line",
+        "Advance: 3.e5 - space, Black plays ...c5, ...f6",
+        "Scandinavian: 1...d5 2.exd5 Qxd5 - early queen, active",
+        "Alekhine: 1...Nf6 - provoke e5, attack center"
+      ],
+      "mainLines": [
+        {
+          "name": "French - Winawer",
+          "moves": "1.e4 e6 2.d4 d5 3.Nc3 Bb4 4.e5 c5 5.a3 Bxc3+ 6.bxc3 Ne7 7.Qg4 Qc7 8.Qxg7 Rg8 9.Qxh7 cxd4",
+          "aggression": 80,
+          "eval": "~",
+          "notes": "Sharp, double-edged, poisoned pawn"
+        },
+        {
+          "name": "French - Tarrasch",
+          "moves": "1.e4 e6 2.d4 d5 3.Nd2 c5 4.exd5 exd5 5.Ngf3 Nc6 6.Bb5 Bd6 7.0-0 Nge7 8.dxc5 Bxc5",
+          "aggression": 55,
+          "eval": "=",
+          "notes": "Main line, isolated pawn for Black"
+        },
+        {
+          "name": "Scandinavian Main",
+          "moves": "1.e4 d5 2.exd5 Qxd5 3.Nc3 Qa5 4.d4 Nf6 5.Nf3 Bg4 6.Be2 e6 7.0-0 c6",
+          "aggression": 65,
+          "eval": "=",
+          "notes": "Active, early queen but solid"
+        },
+        {
+          "name": "Alekhine - Modern",
+          "moves": "1.e4 Nf6 2.e5 Nd5 3.d4 d6 4.Nf3 Bg4 5.Be2 e6 7.0-0 c6",
+          "aggression": 70,
+          "eval": "=",
+          "notes": "Provoke, then attack center"
+        }
+      ],
+      "studyPriority": 3,
+      "estimatedHours": 18,
+      "modelGames": [
+        "Botvinnik French games",
+        "Korchnoi French/Winawer",
+        "Anand Scandinavian",
+        "Alekhine games"
+      ],
+      "tags": ["french", "scandinavian", "alekhine", "provocative", "imbalances", "practical"]
+    },
+    {
+      "id": "black-aggressive-1d4",
+      "name": "Aggressive vs 1.d4 - Benoni / Benko / Dutch",
+      "aggression": 75,
+      "style": "Aggressive",
+      "eco": "A40-A79, A80-A99",
+      "moves": "1.d4 Nf6 2.c4 c5 (Benoni/Benko) / 1.d4 f5 (Dutch)",
+      "description": "Unbalancing, sacrificial, dynamic counterplay, psychological",
+      "bestAgainst": ["1.d4 positional players", "Must-win", "Lower rated", "Psychological disruption"],
+      "avoidAgainst": ["Benoni/Benko/Dutch experts", "Anti-Benoni specialists (f3, h3)", "Tournament leaders"],
+      "keyIdeas": [
+        "Benoni: c5, d6, e5 - pawn majority, kingside attack",
+        "Modern Benoni: 2...c5 3.d5 e6 - sharp, unbalanced",
+        "Benko Gambit: 2...c5 3.d5 b5 - sacrifice pawn for pressure",
+        "Dutch: f5 - control e4, kingside attack, Stonewall/Classical/Leningrad",
+        "Anti-Benoni: 3.Nf3 (Taimanov), 3.d5 e6 4.Nc3 exd5 5.cxd5 d6 6.e4 g6 (Modern)"
+      ],
+      "mainLines": [
+        {
+          "name": "Modern Benoni",
+          "moves": "1.d4 Nf6 2.c4 c5 3.d5 e6 4.Nc3 exd5 5.cxd5 d6 6.e4 g6 7.f4 Bg7 8.Bb5+",
+          "aggression": 80,
+          "eval": "~",
+          "notes": "Sharp, White has space, Black has counterplay"
+        },
+        {
+          "name": "Benko Gambit",
+          "moves": "1.d4 Nf6 2.c4 c5 3.d5 b5 4.cxb5 a6 5.bxa6 Bxa6 6.Nc3 g6 7.e4 Bxf1 8.Kxf1 d6 9.Nf3 Bg7",
+          "aggression": 75,
+          "eval": "~",
+          "notes": "Pawn for long-term pressure, great practical chances"
+        },
+        {
+          "name": "Dutch - Stonewall",
+          "moves": "1.d4 f5 2.g3 Nf6 3.Bg2 e6 4.Nf3 d5 5.0-0 Bd6 6.c4 c6 7.Nc3 0-0 8.Qc2",
+          "aggression": 70,
+          "eval": "=",
+          "notes": "Solid structure, kingside attack, bad bishop"
+        },
+        {
+          "name": "Dutch - Leningrad",
+          "moves": "1.d4 f5 2.g3 Nf6 3.Bg2 g6 4.Nf3 Bg7 5.0-0 0-0 6.c4 d6 7.Nc3 Qe8",
+          "aggression": 65,
+          "eval": "=",
+          "notes": "Fianchetto, flexible, active"
+        }
+      ],
+      "studyPriority": 5,
+      "estimatedHours": 20,
+      "modelGames": [
+        "Tal Benoni games",
+        "Ivanchuk Benko games",
+        "Simon Williams Dutch games",
+        "Neiksans Dutch"
+      ],
+      "tags": ["benoni", "benko", "dutch", "gambit", "unbalancing", "psychological"]
+    },
+    {
+      "id": "black-wild",
+      "name": "Wild vs Everything - From's / Borg / Grob / St. George",
+      "aggression": 95,
+      "style": "Wild/Sharp",
+      "eco": "A00, B00, A40",
+      "moves": "1.e4 e5 2.Nf3 f5?! (From's) / 1.e4 g5?! (Borg) / 1.d4 e5?! (Englund) / 1.e4 a6 (St. George)",
+      "description": "Maximum surprise, chaos, opponent unlikely prepared, entertainment",
+      "bestAgainst": ["Must-win", "Blitz/bullet", "Psychological", "Unprepared"],
+      "avoidAgainst": ["Theoretical experts", "Solid GMs", "Classical time controls"],
+      "keyIdeas": [
+        "From's Gambit: 1.e4 e5 2.Nf3 f5 - reverse King's Gambit",
+        "Borg Defense: 1.e4 g5 - pure chaos",
+        "Englund Gambit: 1.d4 e5 - sacrifice pawn",
+        "St. George: 1.e4 a6 - prepare ...b5",
+        "Pure psychological weapons"
+      ],
+      "mainLines": [
+        {
+          "name": "From's Gambit",
+          "moves": "1.e4 e5 2.Nf3 f5 3.exf5 d5 4.d3 Nf6",
+          "aggression": 95,
+          "eval": "~",
+          "notes": "Reverse King's Gambit, wild"
+        },
+        {
+          "name": "Borg Defense",
+          "moves": "1.e4 g5 2.d4 h6 3.h4 g4 4.Ng1",
+          "aggression": 100,
+          "eval": "~",
+          "notes": "Pure chaos, computer lines"
+        },
+        {
+          "name": "Englund Gambit",
+          "moves": "1.d4 e5 2.dxe5 Nc6 3.Nf3 Qe7 4.Qd5",
+          "aggression": 90,
+          "eval": "~",
+          "notes": "Pawn for development"
+        }
+      ],
+      "studyPriority": 7,
+      "estimatedHours": 10,
+      "modelGames": [
+        "Online blitz/bullet",
+        "Streamers (Hikaru, Nakamura, etc.)",
+        "Correspondence novelties"
+      ],
+      "tags": ["offbeat", "surprise", "psychological", "blitz", "entertainment"]
+    }
+  ],
+  "recommendations": {
+    "beginner": {
+      "primary": ["black-solid-1e4", "black-solid-1d4"],
+      "secondary": ["black-classical-1e4"],
+      "avoid": ["black-active-1e4", "black-active-1d4", "black-aggressive-1e4", "black-aggressive-1d4", "black-wild"]
+    },
+    "club": {
+      "primary": ["black-solid-1e4", "black-classical-1e4", "black-solid-1d4"],
+      "secondary": ["black-classical-1d4", "black-active-1e4"],
+      "situational": ["black-aggressive-1e4", "black-aggressive-1d4"]
+    },
+    "expert": {
+      "all": true,
+      "styleBased": true
+    }
+  }
+}

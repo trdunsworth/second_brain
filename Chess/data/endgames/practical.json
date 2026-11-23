@@ -1,0 +1,313 @@
+{
+  "meta": {
+    "version": "1.0",
+    "targetRating": "800-1500",
+    "description": "Practical endgame guidance - decision making, transitions, common scenarios"
+  },
+  "sections": [
+    {
+      "id": "transition-decisions",
+      "name": "Middlegame to Endgame Transition Decisions",
+      "description": "When to trade, what to keep, how to evaluate resulting endings",
+      "principles": [
+        {
+          "situation": "Up material (pawn or piece)",
+          "action": "Trade pieces, not pawns. Simplify to winning endgame.",
+          "exceptions": "Attack against king > material; initiative worth more than pawn",
+          "aggressionMod": {
+            "0-20": "Always simplify",
+            "21-40": "Simplify unless attack",
+            "41-60": "Evaluate: attack vs endgame",
+            "61-80": "Keep pieces for attack",
+            "81-100": "Never trade, mate > endgame"
+          }
+        },
+        {
+          "situation": "Down material",
+          "action": "Avoid trades, create complications, seek perpetual/stalemate",
+          "exceptions": "Trade into drawn theoretical ending (opposite bishops, Philidor)",
+          "aggressionMod": {
+            "0-20": "Trade into known draws",
+            "21-40": "Seek drawing endings",
+            "41-60": "Complicate, avoid trades",
+            "61-80": "Maximum chaos",
+            "81-100": "Desperate tricks only"
+          }
+        },
+        {
+          "situation": "Equal material, better structure",
+          "action": "Trade pieces to highlight structural advantage",
+          "exceptions": "Need pieces to attack weaknesses; king not safe",
+          "aggressionMod": {
+            "0-20": "Trade to technical win",
+            "21-40": "Trade pieces, keep pressure",
+            "41-60": "Flexible",
+            "61-80": "Keep tension",
+            "81-100": "Ignore structure, attack"
+          }
+        },
+        {
+          "situation": "Equal material, worse structure",
+          "action": "Avoid piece trades, seek counterplay, complicate",
+          "exceptions": "Trade into opposite-color bishops or known fortress",
+          "aggressionMod": {
+            "0-20": "Seek drawing endings",
+            "21-40": "Complicate, avoid trades",
+            "41-60": "Active defense",
+            "61-80": "Counterattack",
+            "81-100": "All-in attack"
+          }
+        }
+      ],
+      "checklist": [
+        "Count material (including pawns)",
+        "Assess king safety (both sides)",
+        "Evaluate pawn structure (weaknesses, passed pawns)",
+        "Piece activity comparison",
+        "Identify theoretical ending result if traded",
+        "Time on clock consideration",
+        "Opponent's endgame skill (if known)"
+      ]
+    },
+    {
+      "id": "piece-trading-guide",
+      "name": "Which Pieces to Trade/Keep",
+      "description": "Specific guidance for each piece type",
+      "guidelines": [
+        {
+          "piece": "Queens",
+          "tradeWhen": [
+            "Up material (simplify)",
+            "Opponent's queen more active",
+            "Entering favorable endgame",
+            "Defending against attack"
+          ],
+          "keepWhen": [
+            "Attacking king",
+            "Down material (perpetual chances)",
+            "Complex position, queen dominates",
+            "Pawn endgame not clearly won"
+          ]
+        },
+        {
+          "piece": "Rooks",
+          "tradeWhen": [
+            "Up material, simplify",
+            "Opponent's rook more active (on 7th, open file)",
+            "Entering winning K+P ending"
+          ],
+          "keepWhen": [
+            "Rook on 7th rank (activity > pawn)",
+            "Open files available",
+            "Need rook for passed pawn support",
+            "Opposite-color bishops (rook helps win)"
+          ]
+        },
+        {
+          "piece": "Bishops",
+          "tradeWhen": [
+            "Your bishop is bad (blocked by own pawns)",
+            "Opponent has good bishop, you have knight",
+            "Entering opposite-color bishop ending (drawish)",
+            "Opponent's bishop dominates"
+          ],
+          "keepWhen": [
+            "Good bishop (pawns on opposite color)",
+            "Bishop pair (two bishops > bishop+knight)",
+            "Attacking on bishop's color complex",
+            "Endgame with pawns on both wings"
+          ]
+        },
+        {
+          "piece": "Knights",
+          "tradeWhen": [
+            "Closed position, knight has no outpost",
+            "Opponent has two bishops (trade one)",
+            "Entering pawn ending where knight bad",
+            "Knight dominated by bishop"
+          ],
+          "keepWhen": [
+            "Strong outpost available",
+            "Closed/blocked position",
+            "Knight vs bad bishop",
+            "Need fork tactics",
+            "Fortress defense (knight hops)"
+          ]
+        },
+        {
+          "piece": "King",
+          "tradeWhen": "Never (king cannot be traded)",
+          "keepWhen": "Always - activate in endgame!",
+          "notes": "King activation is THE key endgame principle. Centralize early."
+        }
+      ]
+    },
+    {
+      "id": "common-scenarios",
+      "name": "Common Practical Scenarios",
+      "description": "Frequently occurring positions with practical guidance",
+      "scenarios": [
+        {
+          "id": "scenario-rook-pawn-vs-rook",
+          "name": "Rook + Pawn vs Rook (Lucena/Philidor)",
+          "frequency": "Very High",
+          "guidance": {
+            "attacker": "Aim for Lucena: rook behind pawn, king in front, build bridge",
+            "defender": "Aim for Philidor: rook on 6th rank, king in front, check from behind",
+            "key": "Rook behind passer = win; rook on 6th = draw"
+          },
+          "aggressionMod": {
+            "0-20": "Study both perfectly",
+            "21-40": "Know both cold",
+            "41-60": "Know attacker side better",
+            "61-80": "Attacker: win; Defender: survive",
+            "81-100": "Attacker only"
+          }
+        },
+        {
+          "id": "scenario-opposite-bishops",
+          "name": "Opposite-Color Bishops with Pawns",
+          "frequency": "High",
+          "guidance": {
+            "attacker": "Fix pawns on YOUR bishop's color, attack on opposite color, centralize king",
+            "defender": "Fix pawns on OPPONENT's bishop color, create fortress, king active",
+            "key": "Often drawn even 2 pawns down; don't overpress"
+          },
+          "aggressionMod": {
+            "0-20": "Drawish, don't force",
+            "21-40": "Drawish, technique",
+            "41-60": "Try to win if extra pawn",
+            "61-80": "Press for win",
+            "81-100": "Ignore draw tendency"
+          }
+        },
+        {
+          "id": "scenario-bishop-vs-knight",
+          "name": "Bishop vs Knight Endgame",
+          "frequency": "High",
+          "guidance": {
+            "bishopSide": "Open position, pawns on both wings, fix pawns on opposite color to bishop",
+            "knightSide": "Closed position, create outpost, fix pawns on bishop's color",
+            "key": "Pawn structure decides; identify early"
+          },
+          "aggressionMod": {
+            "0-20": "Maneuver for favorable structure",
+            "21-40": "Standard technique",
+            "41-60": "Active piece play",
+            "61-80": "Tactical complications",
+            "81-100": "Chaos"
+          }
+        },
+        {
+          "id": "scenario-queen-vs-rook-pawn",
+          "name": "Queen vs Rook + Pawn (or Queen + Pawn vs Queen)",
+          "frequency": "Medium",
+          "guidance": {
+            "queenSide": "Centralize queen, avoid perpetual, king approaches, watch stalemate",
+            "rookSide": "Rook + king shelter, perpetual check, pawn promotion threats",
+            "key": "Queen usually wins but perpetual danger high"
+          },
+          "aggressionMod": {
+            "0-20": "Patient, avoid perpetual",
+            "21-40": "Standard technique",
+            "41-60": "Active king",
+            "61-80": "Risk perpetual for win",
+            "81-100": "All-in"
+          }
+        },
+        {
+          "id": "scenario-king-pawn-race",
+          "name": "King and Pawn Race (Both sides passed pawns)",
+          "frequency": "Medium",
+          "guidance": {
+            "both": "Calculate precisely! Who promotes first? Who promotes with check? Queen vs Queen endgame?",
+            "key": "Count moves exactly; queen with check often wins"
+          },
+          "aggressionMod": "universal - pure calculation"
+        },
+        {
+          "id": "scenario-rook-7th",
+          "name": "Rook on 7th Rank (Activity > Pawn)",
+          "frequency": "High",
+          "guidance": {
+            "attacker": "Keep rook on 7th, create mating threats, win pawns, don't trade rook!",
+            "defender": "Trade rooks if possible, create counterplay, activate king",
+            "key": "Rook on 7th often worth a pawn; activity principle"
+          },
+          "aggressionMod": {
+            "0-20": "Convert to win",
+            "21-40": "Standard",
+            "41-60": "Press advantage",
+            "61-80": "Sacrifice pawn for 7th rank",
+            "81-100": "Rook on 7th = attack"
+          }
+        }
+      ]
+    },
+    {
+      "id": "time-management",
+      "name": "Endgame Time Management",
+      "description": "Practical clock handling in endgames",
+      "principles": [
+        "Endgames require MORE time per move, not less",
+        "Calculate forced lines (promotions, mates) completely",
+        "In theoretical positions (Lucena, Philidor): play instantly if known",
+        "In complex positions: use time to calculate, not to 'think'",
+        "Flagging risk: simplify if low on time, complicate if opponent low",
+        "Increment: use it! Don't play instant moves in critical positions"
+      ],
+      "clockScenarios": {
+        "plentyOfTime": "Calculate deeply, verify theoretical knowledge",
+        "moderateTime": "Focus on key decisions (trade or not, which piece), verify calculations",
+        "lowTime": "Simplify to known positions, avoid complex calculations, premove obvious",
+        "criticalTime": "Pre-move forced sequences, simplify maximally, flagging tactics"
+      }
+    },
+    {
+      "id": "psychological",
+      "name": "Psychological Factors in Endgames",
+      "description": "Mental approach for endgame success",
+      "principles": [
+        "Endgames are not 'boring' - they're pure chess",
+        "Fatigue sets in: stay hydrated, breathe, stand up between moves",
+        "Opponent may relax in 'drawn' endings - stay alert",
+        "Convert winning positions: technique over creativity",
+        "Defend difficult positions: active defense, create problems",
+        "Don't offer draws in winning positions (unless tournament situation)",
+        "Respect opponent's time trouble - don't blunder trying to flag"
+      ]
+    }
+  ],
+  "aggressionEndgameMap": {
+    "0-20": {
+      "philosophy": "Technique over tricks. Convert advantages methodically.",
+      "tradePolicy": "Trade pieces aggressively into known wins",
+      "riskTolerance": "Zero. Only play theoretically won endings.",
+      "studyFocus": ["Lucena", "Philidor", "Opposition", "Triangulation", "Key K+P"]
+    },
+    "21-40": {
+      "philosophy": "Solid conversion with practical chances.",
+      "tradePolicy": "Trade into favorable endings, keep pieces if attack exists",
+      "riskTolerance": "Low. Avoid unclear endings.",
+      "studyFocus": ["All theoretical", "Rook activity", "Bishop vs Knight", "Transition"]
+    },
+    "41-60": {
+      "philosophy": "Flexible. Win if winning, draw if not, complicate if losing.",
+      "tradePolicy": "Case by case. Activity often > material.",
+      "riskTolerance": "Moderate. Accept dynamic compensation.",
+      "studyFocus": ["Complex rook endings", "Queen endings", "Practical decisions"]
+    },
+    "61-80": {
+      "philosophy": "Keep pieces, create chaos, avoid theoretical endings.",
+      "tradePolicy": "Avoid trades. Keep tension. Rook on 7th > pawn.",
+      "riskTolerance": "High. Speculative activity.",
+      "studyFocus": ["Rook on 7th", "Queen perpetuals", "King walks", "Complications"]
+    },
+    "81-100": {
+      "philosophy": "Endgame? What endgame? Mate or flag.",
+      "tradePolicy": "Never trade. King walks. Perpetual check.",
+      "riskTolerance": "Maximum.",
+      "studyFocus": ["Mating patterns", "Perpetual check", "Time trouble tricks"]
+    }
+  }
+}

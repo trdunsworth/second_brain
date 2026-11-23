@@ -1,0 +1,418 @@
+{
+  "meta": {
+    "version": "1.0",
+    "targetRating": "800-1500",
+    "description": "Concrete middlegame plans linked to opening structures and aggression levels"
+  },
+  "plans": [
+    {
+      "id": "plan-london-solid",
+      "name": "London System: Solid Squeeze",
+      "linkedOpenings": ["white-solid"],
+      "aggression": 10,
+      "structure": "Closed/Slow, d4/e3/c3/Bf4",
+      "description": "Systematic piece development, Ne5 outpost, minority attack, patient squeeze",
+      "steps": [
+        "Complete development: Nf3, e3, c3, Bd3, Nbd2, 0-0",
+        "Maneuver knight to e5 (via f3-h4-f3-e5 or f3-d2-e4)",
+        "Identify Black's weaknesses (backward pawns, bad bishop)",
+        "Prepare minority attack: b3, a4, Rb1, Na3-c4-b6",
+        "Control key squares: c5, e5, b6",
+        "Trade bad pieces, keep good ones",
+        "Transition to favorable endgame"
+      ],
+      "keyMoves": ["Ne5", "b3", "a4", "Rb1", "Na3", "Nc4", "minority attack"],
+      "triggers": [
+        "Black plays ...c5 -> consider dxc5 or hold",
+        "Black plays ...e5 -> dxe5, Ne5",
+        "Black develops passively -> accelerate minority attack"
+      ],
+      "commonMistakes": [
+        "Premature Ne5 without preparation",
+        "Ignoring ...c5 break",
+        "Trading dark-squared bishop too early",
+        "Rushing attack without advantage"
+      ],
+      "modelGames": [
+        "Carlsen vs Giri, 2019",
+        "Kramnik vs Topalov, 2004",
+        "Vachier-Lagrave vs Nakamura, 2021"
+      ],
+      "tags": ["london", "system", "solid", "maneuvering", "endgame-transition"]
+    },
+    {
+      "id": "plan-italian-classical",
+      "name": "Italian Game: Classical Maneuvering",
+      "linkedOpenings": ["white-classical-1e4"],
+      "aggression": 35,
+      "structure": "Open, e4/d3/c3/Bc4",
+      "description": "Slow buildup, c3-d4 center, knight maneuvers, kingside pressure",
+      "steps": [
+        "Establish c3-d4 pawn center",
+        "Develop: Nf3, Bc4, 0-0, d3, Nbd2",
+        "Maneuver knights: Nd2-f1-g3/e3 or Nd2-b3-c5",
+        "Prepare c3-d4 break when ready",
+        "Pressure f7 with Bc4, Qe2, Re1",
+        "If ...d6/e6: slow kingside buildup",
+        "If ...d5: exd5, open lines"
+      ],
+      "keyMoves": ["c3", "d4", "Nbd2", "Nf1", "Ng3", "Qe2", "Re1", "h3"],
+      "triggers": [
+        "Black plays ...d5 -> exd5, open e-file",
+        "Black plays ...Bg4 -> h3, trade if needed",
+        "Black castles queenside -> kingside pawn storm"
+      ],
+      "commonMistakes": [
+        "Premature d4 without preparation",
+        "Ng5 too early (Traxler trap)",
+        "Ignoring ...d5 break",
+        "Overlooking ...Na5-c5 maneuvers"
+      ],
+      "modelGames": [
+        "Carlsen vs Caruana, 2018 (Game 6)",
+        "Fischer vs various",
+        "Anand vs Topalov, 2010"
+      ],
+      "tags": ["italian", "closed", "maneuvering", "classical", "knight-maneuvers"]
+    },
+    {
+      "id": "plan-italian-evans",
+      "name": "Italian Game: Evans Gambit Attack",
+      "linkedOpenings": ["white-classical-1e4"],
+      "aggression": 70,
+      "structure": "Open, gambit, rapid development",
+      "description": "Sacrifice pawn for lead in development, open lines, attack f7",
+      "steps": [
+        "Play 4.b4! Bxb4 5.c3 Ba5 6.d4",
+        "Rapid development: Nf3, Bc4, 0-0, Qb3",
+        "Pressure f7 with Bc4, Qb3, Ng5",
+        "Open center with d4, e5",
+        "Sacrifice pieces for attack if needed",
+        "Calculate forced lines carefully"
+      ],
+      "keyMoves": ["b4", "c3", "d4", "0-0", "Qb3", "Ng5", "Bxf7+"],
+      "triggers": [
+        "Black accepts gambit -> rapid development",
+        "Black declines -> transpose to solid Italian",
+        "Black plays ...d6 -> d5 break"
+      ],
+      "commonMistakes": [
+        "Not developing quickly after gambit",
+        "Greedy pawn hunting",
+        "Missing Black's ...Qf6 defense",
+        "Overextending without calculation"
+      ],
+      "modelGames": [
+        "Morphy vs Allies, 1858 (Opera Game style)",
+        "Kasparov vs Anand, 1995 (Game 10)",
+        "Modern GM blitz games"
+      ],
+      "tags": ["italian", "evans", "gambit", "attacking", "sacrificial"]
+    },
+    {
+      "id": "plan-scotch-active",
+      "name": "Scotch Game: Active Center Play",
+      "linkedOpenings": ["white-active-1e4"],
+      "aggression": 55,
+      "structure": "Open, symmetrical pawns after exd4",
+      "description": "Immediate central tension, open lines, rapid development, Mieses or Classical",
+      "steps": [
+        "Play 3.d4! exd4 4.Nxd4",
+        "Choose: Classical (4...Nxd4 5.Qxd4) or Mieses (4...Bc5 5.Nb3)",
+        "Classical: Qxd4, Nc3, Be3, 0-0-0 or 0-0, pressure d5/e5",
+        "Mieses: Nb3, Be2, 0-0, c3, d4 later, solid",
+        "Exploit open d-file with rooks",
+        "Knight outposts on e5/d5"
+      ],
+      "keyMoves": ["d4", "Nxd4", "Qxd4/Nb3", "Nc3", "Be3", "0-0-0", "Rd1"],
+      "triggers": [
+        "Black plays ...Qf6 -> Qe3, Nc3",
+        "Black plays ...Bb4 -> Bd2, Nxc6",
+        "Black castles -> opposite-side attack possible"
+      ],
+      "commonMistakes": [
+        "Losing queen with ...Qf6 traps",
+        "Passive play with Mieses",
+        "Ignoring ...Bb4 pin",
+        "Premature 0-0-0 without king safety"
+      ],
+      "modelGames": [
+        "Kasparov vs Short, 1992",
+        "Carlsen vs Anand, 2014",
+        "Nakamura vs various"
+      ],
+      "tags": ["scotch", "open", "active", "central-tension", "less-theory"]
+    },
+    {
+      "id": "plan-kings-gambit",
+      "name": "King's Gambit: All-Out Attack",
+      "linkedOpenings": ["white-aggressive-1e4"],
+      "aggression": 85,
+      "structure": "Open f-file, weak kings, tactical",
+      "description": "Sacrifice pawn for f-file, rapid development, attack f7, king safety secondary",
+      "steps": [
+        "Play 2.f4! exf4 3.Nf3",
+        "Against 3...g5: 4.h4 (Kieseritzky) or 4.Bc4 (Muzio)",
+        "Kieseritzky: 4.h4 g4 5.Ng5 h6 6.Nxf7! or 5...h6 6.Nxf7",
+        "Muzio: 4.Bc4 g4 5.0-0! gxf3 6.Qxf3",
+        "Develop rapidly: Bc4, 0-0, Qe1, Re1, Nc3",
+        "Open lines with d4, e5",
+        "Calculate mate threats constantly"
+      ],
+      "keyMoves": ["f4", "Nf3", "Bc4/h4", "0-0", "Qe1", "Re1", "d4", "e5"],
+      "triggers": [
+        "Black declines (2...d5) -> 3.exd5, active play",
+        "Black plays ...g5 -> Kieseritzky/Muzio",
+        "Black plays ...d6 -> 4.d4, Bc4, solid"
+      ],
+      "commonMistakes": [
+        "Not calculating forced lines",
+        "Greedy material grabbing",
+        "King safety neglect",
+        "Missing defensive resources for Black"
+      ],
+      "modelGames": [
+        "Spassky vs Bronstein, 1960",
+        "Short vs various",
+        "Online blitz specialists"
+      ],
+      "tags": ["kings-gambit", "gambit", "attacking", "sacrificial", "tactical"]
+    },
+    {
+      "id": "plan-caro-kann-solid",
+      "name": "Caro-Kann: Solid Equality",
+      "linkedOpenings": ["black-solid-1e4"],
+      "aggression": 10,
+      "structure": "Solid, c6/d5, good bishop",
+      "description": "Rock-solid structure, easy development, no weaknesses, classical defense",
+      "steps": [
+        "Play 1...c6 2.d4 d5",
+        "Classical: 3...dxe4 4.Nxe4 Bf5 - develop bishop first!",
+        "Complete development: Nd7, Ngf6, Bd6, 0-0, c5 break",
+        "Advance: 3.e5 Bf5 4.Nc3 e6 5.g4 Bg6 6.Nge2 c5",
+        "Exchange: 3.exd5 cxd5 - symmetrical, solid",
+        "Fantasy: 3.f3 - attack weakened kingside",
+        "Key break: ...c5 at right moment"
+      ],
+      "keyMoves": ["c6", "d5", "dxe4", "Bf5", "Nd7", "Ngf6", "Bd6", "0-0", "c5"],
+      "triggers": [
+        "White plays 3.Nc3 -> Classical main line",
+        "White plays 3.e5 -> Advance, ...Bf5, ...c5",
+        "White plays 3.exd5 -> Exchange, symmetrical",
+        "White plays 3.f3 -> Fantasy, ...dxe4, ...e5!"
+      ],
+      "commonMistakes": [
+        "Playing ...Bf5 before ...dxe4 in Classical",
+        "Premature ...c5 without preparation",
+        "Passive piece placement",
+        "Missing ...e5 break in Advance"
+      ],
+      "modelGames": [
+        "Carlsen vs Caruana, 2018 (multiple)",
+        "Karpov classics",
+        "Ding Liren vs various"
+      ],
+      "tags": ["caro-kann", "solid", "classical", "low-theory", "beginner-friendly"]
+    },
+    {
+      "id": "plan-slav-solid",
+      "name": "Slav Defense: Flexible Solidity",
+      "linkedOpenings": ["black-solid-1d4"],
+      "aggression": 15,
+      "structure": "Solid, c6/d5, free c8-bishop",
+      "description": "Supports d5, keeps bishop free, flexible transpositions, world champion repertoire",
+      "steps": [
+        "Play 1...d5 2.c4 c6",
+        "Main: 3.Nf3 Nf6 4.Nc3 dxc4 5.a4 Bf5 - solid",
+        "Semi-Slav: 4...e6 - more active, complex",
+        "Exchange: 3.cxd5 cxd5 - symmetrical",
+        "Key ideas: ...Bf5 early, ...e6/e5 breaks, ...b5 in some lines",
+        "Avoid ...dxc4 problems of QGA"
+      ],
+      "keyMoves": ["c6", "dxc4", "Bf5", "Nbd7", "e6/e5", "b5"],
+      "triggers": [
+        "White plays 4.Nc3 -> Main line dxc4",
+        "White plays 4.e3 -> Semi-Slav with ...e6",
+        "White plays 3.cxd5 -> Exchange, symmetrical",
+        "White plays 3.Nf3 Nf6 4.Nc3 dxc4 5.e3 -> Slow, solid"
+      ],
+      "commonMistakes": [
+        "Passive ...Bf5 without ...dxc4",
+        "Premature ...e5 weakening d5",
+        "Missing ...b5 resource in main line",
+        "Confusing with Semi-Slav move orders"
+      ],
+      "modelGames": [
+        "Kramnik vs various",
+        "Anand vs Kramnik, 2008",
+        "Carlsen vs Caruana, 2016"
+      ],
+      "tags": ["slav", "solid", "flexible", "world-champion", "avoids-qga"]
+    },
+    {
+      "id": "plan-sicilian-active",
+      "name": "Sicilian Defense: Fighting for Win",
+      "linkedOpenings": ["black-active-1e4"],
+      "aggression": 65,
+      "structure": "Asymmetric, open c-file, dynamic",
+      "description": "Best winning chances, asymmetric play, huge theory, requires dedication",
+      "steps": [
+        "Play 1...c5",
+        "Choose variation: Najdorf (5...a6), Scheveningen (5...e6), Classical (5...Nc6), Dragon (5...g6)",
+        "Najdorf: ...a6, ...e5, ...Be7, ...Be6, ...0-0, counterplay on queenside",
+        "Scheveningen: ...e6, ...a6, ...Be7, ...0-0, ...b5, solid structure",
+        "Classical: ...Nc6, ...e6, ...Be7, ...0-0, principled",
+        "Dragon: ...g6, ...Bg7, ...Nc6, ...0-0, Yugoslav Attack defense",
+        "Anti-Sicilians: prepared responses for each"
+      ],
+      "keyMoves": ["c5", "d6", "Nf6", "a6/e6/Nc6/g6", "e5/b5", "Be7/Bg7", "0-0"],
+      "triggers": [
+        "White plays 2.Nf3 d6 3.d4 -> Open Sicilian main lines",
+        "White plays 2.c3 -> Alapin, ...Nf6 3.e5 Nd5",
+        "White plays 2.Nc3 -> Closed, ...Nc6 3.g3 g6",
+        "White plays 3.Bb5+ -> Moscow, ...Bd7/Nd7",
+        "White plays 3.Bb5 -> Rossolimo, ...g6"
+      ],
+      "commonMistakes": [
+        "Insufficient theory knowledge",
+        "Passive play in sharp lines",
+        "Missing anti-Sicilian preparation",
+        "Time trouble in complex positions"
+      ],
+      "modelGames": [
+        "Fischer Sicilian games",
+        "Kasparov Najdorf games",
+        "Carlsen Scheveningen/Classical",
+        "Nakamura Sveshnikov"
+      ],
+      "tags": ["sicilian", "asymmetric", "fighting", "huge-theory", "winning-chances"]
+    },
+    {
+      "id": "plan-kid-active",
+      "name": "King's Indian Defense: Dynamic Counterattack",
+      "linkedOpenings": ["black-active-1d4"],
+      "aggression": 65,
+      "structure": "Closed center, ...e5/...c5 breaks, kingside attack",
+      "description": "Let White build center, then attack it with ...e5 and ...f5, opposite-side castling attacks",
+      "steps": [
+        "Play 1...Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6",
+        "Classical: 5.Nf3 0-0 6.Be2 e5 7.0-0 Nc6 8.d5 Ne7",
+        "Maneuver: ...Nd7, ...f5, ...g5, ...h5, kingside attack",
+        "Sämisch: 5.f3 0-0 6.Be3 e5 - attack center",
+        "Bayonet: 9.Ne1 Nd7 10.Nd3 f5 - sharp",
+        "Key breaks: ...e5 (central), ...f5 (kingside), ...c5 (queenside)"
+      ],
+      "keyMoves": ["g6", "Bg7", "d6", "e5", "Nc6/Ne7", "f5", "g5", "h5"],
+      "triggers": [
+        "White plays 5.Nf3 -> Classical main line",
+        "White plays 5.f3 -> Sämisch, ...e5",
+        "White plays 5.Be2 0-0 6.0-0 -> Main line",
+        "White plays 5.Bg5 -> Averbakh, ...c5",
+        "White plays 5.f4 -> Four Pawns, ...c5"
+      ],
+      "commonMistakes": [
+        "Premature ...e5 without preparation",
+        "Missing ...f5 break timing",
+        "Passive piece placement",
+        "Underestimating White's queenside play"
+      ],
+      "modelGames": [
+        "Fischer KID games",
+        "Kasparov KID games",
+        "Ding Liren KID games"
+      ],
+      "tags": ["kings-indian", "dynamic", "counterattacking", "opposite-side", "high-theory"]
+    },
+    {
+      "id": "plan-french-aggressive",
+      "name": "French Defense: Unbalancing",
+      "linkedOpenings": ["black-aggressive-1e4"],
+      "aggression": 70,
+      "structure": "Blocked center, ...c5/...f6 breaks, bad light bishop",
+      "description": "Solid structure with dynamic breaks, Winawer for sharp play, Tarrasch for active",
+      "steps": [
+        "Play 1...e6 2.d4 d5",
+        "Winawer: 3.Nc3 Bb4 - sharp, double-edged, poisoned pawn",
+        "Tarrasch: 3.Nd2 c5 4.exd5 exd5 - isolated pawn but active",
+        "Advance: 3.e5 c5 4.c3 Nc6 5.Nf3 Qb6 - pressure d4",
+        "Classical: 3.Nc3 Nf6 4.Bg5 Be7 - solid main line",
+        "Key: solve bad light bishop (...Bd7, ...Be8, ...Bf8, ...Bg7)"
+      ],
+      "keyMoves": ["e6", "d5", "Bb4/c5", "c5", "f6", "Bd7", "Be8"],
+      "triggers": [
+        "White plays 3.Nc3 -> Winawer (sharp) or Classical (solid)",
+        "White plays 3.Nd2 -> Tarrasch, active play",
+        "White plays 3.e5 -> Advance, ...c5, ...f6",
+        "White plays 3.exd5 -> Exchange, symmetrical"
+      ],
+      "commonMistakes": [
+        "Not solving bad bishop problem",
+        "Premature ...c5 in Advance",
+        "Missing ...f6 break in Advance",
+        "Passive play in Tarrasch"
+      ],
+      "modelGames": [
+        "Botvinnik French games",
+        "Korchnoi Winawer games",
+        "Anand Tarrasch games"
+      ],
+      "tags": ["french", "winawer", "tarrasch", "unbalancing", "bad-bishop", "dynamic"]
+    },
+    {
+      "id": "plan-benko-aggressive",
+      "name": "Benko Gambit: Positional Pawn Sacrifice",
+      "linkedOpenings": ["black-aggressive-1d4"],
+      "aggression": 75,
+      "structure": "Open a/b-files, queenside pressure, long-term compensation",
+      "description": "Sacrifice pawn for open files, piece activity, lasting pressure, great practical chances",
+      "steps": [
+        "Play 1...Nf6 2.c4 c5 3.d5 b5!",
+        "Accepted: 4.cxb5 a6 5.bxa6 Bxa6 - bishop pair, open files",
+        "Declined: 4.Nf3/4.a4/4.e4 - transpose to Benoni-ish",
+        "Setup: ...g6, ...Bg7, ...d6, ...0-0, ...Qa5, ...Rfb8",
+        "Pressure a/b files, knight to c5/d4, bishop on long diagonal",
+        "Endgame advantage with bishop pair and pressure"
+      ],
+      "keyMoves": ["c5", "b5", "a6", "Bxa6", "g6", "Bg7", "d6", "0-0", "Qa5", "Rfb8"],
+      "triggers": [
+        "White accepts -> main line, long pressure",
+        "White declines 4.Nf3 -> Modern Benoni",
+        "White declines 4.a4 -> Benoni structure",
+        "White declines 4.e4 -> Benoni/Blumenfeld"
+      ],
+      "commonMistakes": [
+        "Not developing quickly after gambit",
+        "Missing ...Qa5 pressure",
+        "Passive play, letting White consolidate",
+        "Trading pieces too early (need activity)"
+      ],
+      "modelGames": [
+        "Ivanchuk Benko games",
+        "Kasparov Benko games",
+        "Modern GM practice"
+      ],
+      "tags": ["benko", "gambit", "positional-sacrifice", "pressure", "practical"]
+    }
+  ],
+  "planSelector": {
+    "byAggression": {
+      "0-20": ["plan-london-solid", "plan-caro-kann-solid", "plan-slav-solid"],
+      "21-40": ["plan-italian-classical", "plan-caro-kann-solid", "plan-slav-solid"],
+      "41-60": ["plan-scotch-active", "plan-italian-classical", "plan-sicilian-active", "plan-kid-active"],
+      "61-80": ["plan-italian-evans", "plan-kings-gambit", "plan-french-aggressive", "plan-benko-aggressive", "plan-kid-active"],
+      "81-100": ["plan-kings-gambit", "plan-italian-evans", "plan-french-aggressive", "plan-benko-aggressive"]
+    },
+    "byOpening": {
+      "white-solid": ["plan-london-solid"],
+      "white-classical-1e4": ["plan-italian-classical", "plan-italian-evans"],
+      "white-active-1e4": ["plan-scotch-active"],
+      "white-aggressive-1e4": ["plan-kings-gambit", "plan-italian-evans"],
+      "black-solid-1e4": ["plan-caro-kann-solid"],
+      "black-solid-1d4": ["plan-slav-solid"],
+      "black-active-1e4": ["plan-sicilian-active"],
+      "black-active-1d4": ["plan-kid-active"],
+      "black-aggressive-1e4": ["plan-french-aggressive"],
+      "black-aggressive-1d4": ["plan-benko-aggressive"]
+    }
+  }
+}

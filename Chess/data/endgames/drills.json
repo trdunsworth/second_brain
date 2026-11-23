@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "version": "1.0",
+    "targetRating": "800-1500",
+    "description": "Structured endgame drills for deliberate practice"
+  },
+  "drillTypes": [
+    {
+      "id": "drill-theoretical",
+      "name": "Theoretical Position Mastery",
+      "description": "Play out key theoretical positions vs engine until 100% score",
+      "method": [
+        "Set up position from theoretical.json",
+        "Play vs engine (weak to strong)",
+        "Win 5 in a row at each level",
+        "Record time taken, aim for <30 seconds for basics"
+      ],
+      "positions": [
+        "kp-rule-square",
+        "kp-opposition",
+        "kp-triangulation",
+        "kp-outside-passed",
+        "kp-protected-passed",
+        "kp-breakthrough",
+        "kp-reti-maneuver",
+        "re-lucena",
+        "re-philidor",
+        "re-vancura",
+        "re-rook-behind-passer",
+        "re-rook-cutoff",
+        "re-checking-distance",
+        "re-activity-principle",
+        "mp-bishop-knight",
+        "mp-same-bishops",
+        "mp-opposite-bishops",
+        "mp-two-bishops",
+        "mp-knight-outpost",
+        "qe-queen-vs-pawn",
+        "qe-perpetual-check",
+        "qe-king-activity",
+        "pa-fortress",
+        "pa-zugzwang",
+        "pa-shouldering"
+      ],
+      "progression": {
+        "level1": "Engine depth 5, 10+0 time",
+        "level2": "Engine depth 10, 5+0 time",
+        "level3": "Engine depth 15, 3+0 time",
+        "level4": "Engine depth 20, 1+0 time",
+        "mastery": "5 wins in a row at level 3"
+      },
+      "frequency": "Daily 15 min, rotate positions",
+      "tracking": "Log: position, level, result, time, errors"
+    },
+    {
+      "id": "drill-conversion",
+      "name": "Advantage Conversion",
+      "description": "Convert winning positions with decreasing advantage",
+      "method": [
+        "Set up position: +1 to +3 pawns, various piece configs",
+        "Play vs engine (strong)",
+        "Goal: convert without letting advantage drop below +1.5",
+        "Analyze where advantage leaked"
+      ],
+      "positionTypes": [
+        "Extra pawn, rook ending",
+        "Extra pawn, minor piece ending",
+        "Extra piece, queen ending",
+        "Better structure, equal material",
+        "Active rook vs passive rook",
+        "Good knight vs bad bishop",
+        "Two bishops vs bishop+knight",
+        "Outside passed pawn",
+        "Protected passed pawn",
+        "King activity advantage"
+      ],
+      "progression": {
+        "start": "+3 pawns, simple",
+        "mid": "+2 pawns, complex",
+        "advanced": "+1 pawn, tricky",
+        "expert": "Equal material, structural advantage"
+      },
+      "frequency": "3x/week, 20 min",
+      "tracking": "Log: start eval, end eval, moves to convert, critical moments"
+    },
+    {
+      "id": "drill-defense",
+      "name": "Difficult Defense",
+      "description": "Hold drawn or slightly worse positions",
+      "method": [
+        "Set up theoretically drawn but difficult positions",
+        "Play vs engine (strong, trying to win)",
+        "Goal: hold draw for 50 moves or reach known fortress",
+        "Identify defensive resources used"
+      ],
+      "positionTypes": [
+        "Philidor defense (rook ending)",
+        "Vancura defense",
+        "Opposite-color bishops (1-2 pawns down)",
+        "Rook vs rook+pawn (drawing side)",
+        "Knight vs bishop (knight holding)",
+        "Fortress positions",
+        "Perpetual check with queen",
+        "Stalemate traps",
+        "King cut off but drawing",
+        "Mutual zugzwang navigation"
+      ],
+      "progression": {
+        "start": "Clear theoretical draws",
+        "mid": "Practical draws, need precision",
+        "advanced": "Only draws with best play",
+        "expert": "Engine says 0.00 but hard to hold"
+      },
+      "frequency": "2x/week, 20 min",
+      "tracking": "Log: position, held/draw/lost, key defensive moves, time used"
+    },
+    {
+      "id": "drill-transition",
+      "name": "Middlegame-to-Endgame Decisions",
+      "description": "Practice the critical transition decisions",
+      "method": [
+        "Set up middlegame positions from your games or model games",
+        "Decision point: trade queens? trade rooks? which minor piece?",
+        "Play out both choices vs engine",
+        "Compare results, understand why one better"
+      ],
+      "scenarioTypes": [
+        "Up a pawn: trade queens or keep?",
+        "Down a pawn: avoid trades or simplify to draw?",
+        "Better structure: which pieces to trade?",
+        "Worse structure: which pieces to keep?",
+        "Attack vs endgame: cash in or continue?",
+        "Opposite-color bishops: trade rooks or keep?",
+        "Rook on 7th: trade or keep?",
+        "King safety: trade into ending or not?"
+      ],
+      "progression": {
+        "start": "Clear-cut decisions from model games",
+        "mid": "Your own game positions",
+        "advanced": "Complex positions with multiple factors",
+        "expert": "Positions where engines disagree with humans"
+      },
+      "frequency": "2x/week, 15 min",
+      "tracking": "Log: position, decision, reasoning, engine eval both lines, outcome"
+    },
+    {
+      "id": "drill-time-pressure",
+      "name": "Endgame Time Pressure Simulation",
+      "description": "Practice endgame decisions with low time",
+      "method": [
+        "Set clock: 30 seconds + 2 sec increment",
+        "Play endgame positions vs engine",
+        "Focus: premove forced lines, simplify, avoid blunders",
+        "Track: flag rate, blunder rate, draw/win rate"
+      ],
+      "scenarios": [
+        "Winning rook ending, 30 sec",
+        "Drawn opposite bishops, 20 sec",
+        "Queen vs pawn, 15 sec",
+        "King+pawn race, 10 sec",
+        "Complex conversion, 45 sec",
+        "Difficult defense, 30 sec"
+      ],
+      "progression": {
+        "start": "60 sec + 5 inc",
+        "mid": "30 sec + 2 inc",
+        "advanced": "15 sec + 1 inc",
+        "expert": "10 sec + 0 inc (bullet endgame)"
+      },
+      "frequency": "1x/week, 10 min",
+      "tracking": "Log: time control, position type, result, flagged?, blunders?"
+    },
+    {
+      "id": "drill-model-games",
+      "name": "Model Game Endgame Replay",
+      "description": "Replay and analyze endgames from masters of your style",
+      "method": [
+        "Select model game from your repertoire/style",
+        "Play through from move 30 to end",
+        "At each decision point: predict move, understand plan",
+        "Note: transitions, piece trades, king activation, pawn breaks"
+      ],
+      "modelPlayersByStyle": {
+        "solid": ["Karpov", "Petrosian", "Carlsen", "Kramnik", "Ding Liren"],
+        "classical": ["Capablanca", "Smyslov", "Anand", "Carlsen"],
+        "active": ["Kasparov", "Fischer", "Nakamura", "Firouzja"],
+        "aggressive": ["Tal", "Shirov", "Topalov", "Neiksans"],
+        "wild": ["Morphy", "Online blitz GMs", "Correspondence novelties"]
+      },
+      "gamesPerStyle": 10,
+      "frequency": "Weekend, 45 min (2 games)",
+      "tracking": "Log: game, key decisions, techniques learned, style notes"
+    }
+  ],
+  "weeklySchedule": {
+    "monday": {
+      "drill": "theoretical",
+      "duration": "15 min",
+      "focus": "Rotate 3 positions from priority list"
+    },
+    "tuesday": {
+      "drill": "conversion",
+      "duration": "20 min",
+      "focus": "Rook endings week 1, Minor piece week 2, Queen week 3, K+P week 4"
+    },
+    "wednesday": {
+      "drill": "theoretical",
+      "duration": "15 min",
+      "focus": "Different 3 positions from Monday"
+    },
+    "thursday": {
+      "drill": "defense",
+      "duration": "20 min",
+      "focus": "Philidor/Vancura week 1, Opposite bishops week 2, Fortress week 3, Perpetual week 4"
+    },
+    "friday": {
+      "drill": "theoretical",
+      "duration": "15 min",
+      "focus": "Review weak positions from week"
+    },
+    "saturday": {
+      "drill": "transition",
+      "duration": "15 min",
+      "focus": "Positions from your games this week"
+    },
+    "sunday": {
+      "drill": "model-games",
+      "duration": "45 min",
+      "focus": "2 games from your aggression style"
+    }
+  },
+  "progressMetrics": {
+    "theoreticalMastery": "Percentage of 25 positions at mastery (5 wins level 3)",
+    "conversionRate": "Win% from +1/+2 pawn positions vs engine",
+    "defenseHoldRate": "Draw% from difficult defensive positions",
+    "transitionAccuracy": "% correct decisions in transition drills (engine verified)",
+    "timePressureScore": "Points per game in time pressure drills",
+    "modelGameInsights": "Number of techniques extracted per game"
+  },
+  "monthlyReview": {
+    "when": "Last Sunday of month",
+    "duration": "60 min",
+    "activities": [
+      "Review all metrics",
+      "Identify 3 weakest positions",
+      "Targeted practice on weaknesses",
+      "Update study plan for next month",
+      "Select new model games"
+    ]
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "meta": {
+    "version": "1.0",
+    "targetRating": "800-1500",
+    "description": "Theoretical endgames - must-know positions with precise results"
+  },
+  "categories": [
+    {
+      "id": "king-pawn",
+      "name": "King and Pawn Endgames",
+      "priority": 1,
+      "description": "Foundation of all endgame knowledge",
+      "positions": [
+        {
+          "id": "kp-rule-square",
+          "name": "Rule of the Square",
+          "fen": "8/8/8/3P4/8/3k4/8/4K3 w - - 0 1",
+          "result": "draw/win depends on king position",
+          "keyConcept": "Pawn promotes if enemy king outside square",
+          "studyMethod": "Visualize square, practice king races",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "kp-opposition",
+          "name": "Direct & Distant Opposition",
+          "fen": "8/8/8/3k4/3P4/3K4/8/8 w - - 0 1",
+          "result": "win with opposition, draw without",
+          "keyConcept": "Opposition = kings on same file/rank/diagonal with one square between",
+          "studyMethod": "Practice gaining opposition, outflanking",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "kp-triangulation",
+          "name": "Triangulation",
+          "fen": "8/8/8/3k4/3P4/4K3/8/8 w - - 0 1",
+          "result": "win by losing a tempo",
+          "keyConcept": "Maneuver to give opponent move in same position",
+          "studyMethod": "Practice triangulation patterns",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "kp-outside-passed",
+          "name": "Outside Passed Pawn",
+          "fen": "8/1P6/8/3k4/8/3K4/8/8 w - - 0 1",
+          "result": "win (distracts enemy king)",
+          "keyConcept": "Passed pawn on flank wins by diverting king",
+          "studyMethod": "Calculate king distraction, promote other pawn",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "kp-protected-passed",
+          "name": "Protected Passed Pawn",
+          "fen": "8/3P4/3k4/3P4/8/3K4/8/8 w - - 0 1",
+          "result": "win (cannot be captured)",
+          "keyConcept": "Protected passer = permanent asset, king tied down",
+          "studyMethod": "Practice converting protected passer",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "kp-breakthrough",
+          "name": "Breakthrough Patterns",
+          "fen": "8/3P4/2P1P3/3k4/8/3K4/8/8 w - - 0 1",
+          "result": "win with precise breakthrough",
+          "keyConcept": "Sacrifice pawns to create passed pawn",
+          "studyMethod": "Memorize key breakthrough patterns",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "kp-reti-maneuver",
+          "name": "Reti Maneuver (King hunts two pawns)",
+          "fen": "7k/8/6P1/8/8/8/5K2/8 w - - 0 1",
+          "result": "draw (king catches both)",
+          "keyConcept": "King moves diagonally to threaten both pawns",
+          "studyMethod": "Practice diagonal king approach",
+          "aggressionRelevance": "universal"
+        }
+      ]
+    },
+    {
+      "id": "rook-endgames",
+      "name": "Rook Endgames",
+      "priority": 1,
+      "description": "Most common endgame (50%+ of all endgames), activity > material",
+      "positions": [
+        {
+          "id": "re-lucena",
+          "name": "Lucena Position (Winning)",
+          "fen": "8/1P6/8/8/8/1k6/r7/R3K3 w - - 0 1",
+          "result": "win with correct technique",
+          "keyConcept": "Build bridge with rook, advance pawn, mate threat",
+          "studyMethod": "Memorize bridge building: Rf4, Kf7, Rf8, Ke7, etc.",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "re-philidor",
+          "name": "Philidor Position (Drawing)",
+          "fen": "8/3k4/3P4/8/8/8/3R4/4K3 w - - 0 1",
+          "result": "draw with passive defense",
+          "keyConcept": "Rook on 3rd/6th rank, cut off king, check from behind",
+          "studyMethod": "Practice: rook on 6th, king behind pawn, check from behind",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "re-vancura",
+          "name": "Vancura Position (Drawing)",
+          "fen": "8/8/8/3k4/3P4/8/3R4/4K3 w - - 0 1",
+          "result": "draw with rook on 2nd/7th",
+          "keyConcept": "Rook behind pawn, checks from side, king shelter",
+          "studyMethod": "Learn rook behind passed pawn defense",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "re-rook-behind-passer",
+          "name": "Rook Behind Passed Pawn (Attacking)",
+          "fen": "8/8/8/3P4/3k4/8/3R4/4K3 w - - 0 1",
+          "result": "win if king supports",
+          "keyConcept": "Rook behind passer = ideal, push pawn, king approaches",
+          "studyMethod": "Practice: rook behind, king support, promote",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "re-rook-cutoff",
+          "name": "Rook Cutting Off King",
+          "fen": "8/8/8/3k4/8/8/3R4/4K3 w - - 0 1",
+          "result": "draw/win depending on distance",
+          "keyConcept": "Cut king off on rank/file, limit mobility",
+          "studyMethod": "Practice cutoff distances (2 ranks = draw usually)",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "re-checking-distance",
+          "name": "Checking Distance (Draw)",
+          "fen": "8/8/8/3k4/8/3R4/3P4/4K3 w - - 0 1",
+          "result": "draw if enough checking distance",
+          "keyConcept": "Rook gives checks from far away, king cannot escape",
+          "studyMethod": "Minimum 3 files/ranks for perpetual check",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "re-activity-principle",
+          "name": "Activity > Material (Rook on 7th)",
+          "fen": "8/5r2/8/8/8/3P4/3K4/8 w - - 0 1",
+          "result": "draw despite pawn down",
+          "keyConcept": "Active rook on 7th rank compensates for pawn",
+          "studyMethod": "Practice rook on 7th creating threats",
+          "aggressionRelevance": "universal"
+        }
+      ]
+    },
+    {
+      "id": "minor-piece",
+      "name": "Minor Piece Endgames",
+      "priority": 2,
+      "description": "Bishop vs Knight, Same-color bishops, Opposite-color bishops",
+      "positions": [
+        {
+          "id": "mp-bishop-knight",
+          "name": "Bishop vs Knight (General)",
+          "fen": "8/8/8/3k4/3B4/3K4/8/3n4 w - - 0 1",
+          "result": "depends on position",
+          "keyConcept": "Bishop better in open positions, Knight better in closed/blocked",
+          "studyMethod": "Identify pawn structure, place pieces accordingly",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "mp-same-bishops",
+          "name": "Same-Color Bishops (Attacking)",
+          "fen": "8/3k4/3B4/3P4/8/8/3K4/8 w - - 0 1",
+          "result": "win if pawns on opposite color to bishop",
+          "keyConcept": "Pawns on opposite color = bishop attacks weaknesses",
+          "studyMethod": "Practice fixing pawns on opposite color",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "mp-opposite-bishops",
+          "name": "Opposite-Color Bishops (Drawing Tendency)",
+          "fen": "8/3k4/3b4/3P4/8/8/3B4/3K4 w - - 0 1",
+          "result": "often draw even with extra pawn",
+          "keyConcept": "Cannot control same squares, defender holds",
+          "studyMethod": "Learn fortress patterns, pawn placement",
+          "aggressionRelevance": "defensive"
+        },
+        {
+          "id": "mp-two-bishops",
+          "name": "Two Bishops vs Bishop+Knight",
+          "fen": "8/3k4/3B4/3P4/8/8/3KB3/3N4 w - - 0 1",
+          "result": "win with technique",
+          "keyConcept": "Two bishops control both colors, dominate",
+          "studyMethod": "Practice restricting enemy minor pieces",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "mp-knight-outpost",
+          "name": "Knight on Outpost vs Bad Bishop",
+          "fen": "8/3k4/3n4/3P4/8/8/3B4/3K4 w - - 0 1",
+          "result": "win for knight side",
+          "keyConcept": "Knight on protected outpost dominates bad bishop",
+          "studyMethod": "Create outposts, fix pawns on bishop's color",
+          "aggressionRelevance": "universal"
+        }
+      ]
+    },
+    {
+      "id": "queen-endgames",
+      "name": "Queen Endgames",
+      "priority": 2,
+      "description": "Perpetual check danger, king activity critical",
+      "positions": [
+        {
+          "id": "qe-queen-vs-pawn",
+          "name": "Queen vs Pawn on 7th Rank",
+          "fen": "8/1P6/8/8/8/8/4k3/4K1Q1 w - - 0 1",
+          "result": "win except rook/bishop pawn stalemate",
+          "keyConcept": "King approaches, queen pins, avoid stalemate",
+          "studyMethod": "Practice king approach, stalemate exceptions",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "qe-perpetual-check",
+          "name": "Perpetual Check Patterns",
+          "fen": "8/8/8/3k4/8/3Q4/3K4/8 w - - 0 1",
+          "result": "draw with correct checks",
+          "keyConcept": "Check from distance, king cannot hide",
+          "studyMethod": "Identify perpetual check squares",
+          "aggressionRelevance": "defensive"
+        },
+        {
+          "id": "qe-king-activity",
+          "name": "King Activity in Queen Endings",
+          "fen": "8/8/8/3k4/8/3Q4/3K4/8 w - - 0 1",
+          "result": "active king = winning chances",
+          "keyConcept": "Centralize king, create mating threats, support pawns",
+          "studyMethod": "Practice king walks in queen endings",
+          "aggressionRelevance": "universal"
+        }
+      ]
+    },
+    {
+      "id": "pawn-endgames-advanced",
+      "name": "Advanced Pawn Endgames",
+      "priority": 3,
+      "description": "Complex multi-pawn positions, breakthroughs, fortresses",
+      "positions": [
+        {
+          "id": "pa-fortress",
+          "name": "Fortress Patterns",
+          "fen": "8/8/3k4/3Pp3/3P1P2/3K4/8/8 w - - 0 1",
+          "result": "draw (fortress)",
+          "keyConcept": "Blockaded pawns, king cannot penetrate",
+          "studyMethod": "Recognize fortress structures, don't break them",
+          "aggressionRelevance": "defensive"
+        },
+        {
+          "id": "pa-zugzwang",
+          "name": "Mutual Zugzwang",
+          "fen": "8/8/3k4/3P4/3K4/8/8/8 w - - 0 1",
+          "result": "whoever moves loses",
+          "keyConcept": "Position where any move worsens position",
+          "studyMethod": "Identify zugzwang, use triangulation",
+          "aggressionRelevance": "universal"
+        },
+        {
+          "id": "pa-shouldering",
+          "name": "Shouldering (King pushes enemy king)",
+          "fen": "8/8/8/3k4/3P4/4K3/8/8 w - - 0 1",
+          "result": "win by pushing king away",
+          "keyConcept": "Use king to restrict enemy king from key squares",
+          "studyMethod": "Practice shouldering technique",
+          "aggressionRelevance": "universal"
+        }
+      ]
+    }
+  ],
+  "studyOrder": [
+    "kp-rule-square",
+    "kp-opposition",
+    "re-lucena",
+    "re-philidor",
+    "kp-triangulation",
+    "re-rook-behind-passer",
+    "re-rook-cutoff",
+    "re-checking-distance",
+    "kp-outside-passed",
+    "kp-protected-passed",
+    "kp-breakthrough",
+    "kp-reti-maneuver",
+    "re-vancura",
+    "re-activity-principle",
+    "mp-bishop-knight",
+    "mp-same-bishops",
+    "mp-opposite-bishops",
+    "mp-two-bishops",
+    "mp-knight-outpost",
+    "qe-queen-vs-pawn",
+    "qe-perpetual-check",
+    "qe-king-activity",
+    "pa-fortress",
+    "pa-zugzwang",
+    "pa-shouldering"
+  ],
+  "weeklyDrills": {
+    "monday": ["kp-rule-square", "kp-opposition", "kp-triangulation"],
+    "wednesday": ["re-lucena", "re-philidor", "re-rook-behind-passer"],
+    "friday": ["kp-outside-passed", "kp-protected-passed", "kp-breakthrough"],
+    "weekend": ["mp-bishop-knight", "re-vancura", "qe-queen-vs-pawn"]
+  }
+}
