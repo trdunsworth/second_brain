@@ -91,7 +91,7 @@ Synthetic Data Python Ecosystem
 
 ### 1. Faker (Simple Fake Data)
 ```python
-# pip install faker
+# uv pip install faker
 from faker import Faker
 import pandas as pd
 
@@ -166,9 +166,9 @@ fake.medication()      # 'Metformin'
 
 ### Installation & Setup
 ```bash
-pip install sdv
+uv pip install sdv
 # or with extras
-pip install sdv[all]  # includes all dependencies
+uv pip install sdv[all]  # includes all dependencies
 ```
 
 ### Basic Usage (GaussianCopula - Fast, Statistical)
@@ -287,7 +287,7 @@ synthetic = synthesizer.sample(scale=2.0)  # 2x data
 
 ### Installation
 ```bash
-pip install synthcity
+uv pip install synthcity
 ```
 
 ### Usage

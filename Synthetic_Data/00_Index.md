@@ -12,7 +12,7 @@ A comprehensive reference for synthetic data generation: concepts, methods, tool
 | 01  | [Fundamentals](01_Fundamentals.md)                  | Core concepts, terminology, use cases                           | ✅      |
 | 02  | [Python Libraries Overview](02_Python_Libraries.md) | Faker, SDV, Synthcity, Gretel, MOSTLY AI, ydata-synthetic, etc. | ✅      |
 | 03  | [Faker Deep Dive](03_Faker_Deep_Dive.md)            | Complete Faker library reference                                | ✅      |
-| 04  | [Tabular Data Generation](03_Tabular_Data.md)       | SDV, Synthcity, ydata-synthetic, MOSTLY AI                      | ✅      |
+| 04  | [Tabular Data Generation](04_Tabular_Data.md)       | SDV, Synthcity, ydata-synthetic, MOSTLY AI                      | ✅      |
 | 05  | [Time Series Generation](05_Time_Series.md)         | Synforecast, N-Beats, Diffusion TS, GANs                        | ✅      |
 | 06  | [Text & NLP Data](06_Text_NLP.md)                   | LLMs, GPT, synthetic text, privacy-preserving                   | ✅      |
 | 07  | [Image & Vision Data](07_Images_Video.md)           | GANs, Diffusion, Stable Diffusion, ControlNet                   | ✅      |
