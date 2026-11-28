@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "journal/2026-11-25.md",
+                "file": "journal/2026-11-28.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-11-25"
+              "title": "2026-11-28"
             }
           },
           {
@@ -253,6 +253,18 @@
   },
   "active": "8cb2c50e077a4122",
   "lastOpenFiles": [
+    "journal/2026-11-26.md",
+    "journal/2026-11-28.md",
+    "Editors/Vault_Editor_Workflows.md",
+    "Editors/Helix_Usage.md",
+    "Editors/Kakoune_Usage.md",
+    "Editors/Neovim_Distro_Guide.md",
+    "Editors/Neovim_Usage.md",
+    "Editors/Emacs_Org_Mode.md",
+    "Editors/Emacs_Usage.md",
+    "Editors/README.md",
+    "Editors",
+    "journal/2026-11-25.md",
     "HOTKEYS.md",
     "Synthetic_Data/SynthGIS/TODO.md",
     "Synthetic_Data/04_Tabular_Data.md",
@@ -268,17 +280,6 @@
     "Languages/Japanese/35_Modern_Literature_Reading_Guide.md",
     "Languages/Japanese/34_Classical_Japanese_Basics.md",
     "Languages/Japanese/33_Specialized_Vocabulary.md",
-    "Languages/Japanese/32_Dialect_Overview.md",
-    "Languages/Japanese/31_Onomatopoeia_Mimetic_Words.md",
-    "Languages/Japanese/30_Idioms_Proverbs_Four_Character.md",
-    "Languages/Japanese/29_Advanced_Keigo.md",
-    "Languages/Japanese/17_Aspect_and_Tense_Nuances.md",
-    "Languages/Japanese/08_Verb_Conjugation_Comprehensive.md",
-    "Languages/Japanese/28_Literary_and_Written_Styles.md",
-    "Languages/Japanese/27_Classical_Grammar_Remnants.md",
-    "Languages/Japanese/26_Advanced_Particles.md",
-    "Languages/Japanese/25_Intermediate_Vocabulary_Thematic.md",
-    "Languages/Japanese/24_Complex_Sentence_Structures.md",
     "Languages/Japanese",
     "Languages",
     "Chess/tools/position-matcher.html",
@@ -288,7 +289,6 @@
     "Chess/notes/04-Style-System",
     "Chess/notes/03-Endgames",
     "Chess/notes/02-Middlegame",
-    "Chess/notes/01-Openings",
     "New_CAD_Project/media-91e1e99e853a801b/media/image9.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image8.png",
     "New_CAD_Project/media-91e1e99e853a801b/media/image6.jpg",
